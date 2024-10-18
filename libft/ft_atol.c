@@ -1,38 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/13 19:50:42 by eduribei          #+#    #+#             */
-/*   Updated: 2024/10/16 13:03:34 by eduribei         ###   ########.fr       */
+/*   Created: 2024/04/28 15:27:23 by eduribei          #+#    #+#             */
+/*   Updated: 2024/10/17 18:30:22 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-# include <stdbool.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include <unistd.h>
-# include "../libft/libft.h"
-
-typedef struct s_stack
+int	ft_atol(const char *nptr)
 {
-	int				a;
-	bool			is_start;
-	bool			is_end;
-	
-	struct s_stack	*next;
-	struct s_stack	*previous;
+	long	nb;
+	int		sign;
 
-}			t_stack;
-
-
-
-
-# bool	ft_is_sorted(int ac, char *av[]);
-
-#endif
+	nb = 0;
+	sign = 1;
+	while (*nptr == ' ' || (*nptr >= '\t' && *nptr <= '\r'))
+		nptr++;
+	if (*nptr == '-' || *nptr == '+')
+	{
+		if (*nptr == '-')
+			sign = -1;
+		nptr++;
+	}
+	while (*nptr >= '0' && *nptr <= '9')
+	{
+		nb = nb * 10 + (*nptr - '0');
+		nptr++;
+	}
+	return (nb * sign);
+}
