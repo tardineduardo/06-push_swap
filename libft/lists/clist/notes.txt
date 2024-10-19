@@ -1,0 +1,7 @@
+Circular linked lists have a "tail" pointer to the last element instead of the usual head pointer to the first.
+
+Just remember to move the trav_pointer to (*tail)->next to start on the first element.
+
+When to stop: when trav_pointer = (*tail)->next, it means the next node is the first (you are currently at the last). But you can't do this check on the first element, or the loop won't start. 
+
+Or use a do-while loop.
