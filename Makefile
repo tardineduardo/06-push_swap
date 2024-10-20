@@ -1,6 +1,5 @@
 SRC = src/push_swap.c
 
-
 UTILS = src/ft_validate_args.c \
 
 OBJS_SRC = $(SRC:.c=.o) $(UTILS:.c=.o)
