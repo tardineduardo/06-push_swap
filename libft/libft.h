@@ -23,6 +23,11 @@
 # include <errno.h>
 # include <fcntl.h>
 # include <sys/types.h>
+# include <bits/posix1_lim.h>
+
+# ifndef GNLBUFF
+#  define GNLBUFF 42
+# endif
 
 typedef struct s_list
 {
@@ -46,6 +51,7 @@ int		ft_toupper(int c);
 
 // debug
 void	ft_putstrarr_fd(char **s, int fd);
+void	ft_print_list(t_list **head, char *type, size_t offset);
 
 // errors
 void	ft_error_exit(char *message, int exit_number, int fd);
@@ -84,6 +90,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 size_t	ft_strlen(const char *s);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
+int		ft_strcmp(const char *s1, const char *s2);
 char	*ft_strnstr(const char *big, const char *little, size_t len);
 char	*ft_strrchr(const char *str, int c);
 char	*ft_strtrim(char const *s1, char const *set);
@@ -92,10 +99,13 @@ char	*ft_concatenate_var(int num, ...);
 char	*ft_concatenate(char *s1, char *s2, char *s3);
 
 // printing
-void	ft_putchar_fd(char c, int fd);
-void	ft_putendl_fd(char *s, int fd);
-void	ft_putnbr_fd(int n, int fd);
-void	ft_putstr_fd(char *s, int fd);
+int		ft_putchar_fd(char c, int fd);
+int		ft_putstr_fd(char *s, int fd);
+int		ft_putnbr_fd(int n, int fd);
+int		ft_puthex_upp_int(unsigned int n, int fd);
+int		ft_puthex_low_int_fd(unsigned int n, int fd);
+int		ft_putuns_fd(unsigned int n, int fd);
+int		ft_puthex_lo_long_fd(unsigned long long int n, int fd);
 
 // file descriptors
 void	ft_close(int total, ...);
@@ -118,7 +128,26 @@ int		ft_lstsize(t_list *lst);
 
 //lists - dlist
 //lists - clist
-t_list	*ft_clstnew(void *content);
+int		ft_clstsize(t_list **tail);
+void	ft_clstadd_back(t_list **tail, t_list *new);
+void	ft_clstadd_front(t_list **tail, t_list *new);
+void	ft_clstadd_mid_wrap(t_list **tail, t_list *new, size_t pos);
+
 
 //lists - dclist
+
+// printf
+int	ft_printf(const char *input, ...);
+int	ft_count_and_put_chr(va_list args, int fd);
+int	ft_count_and_put_str(va_list args, int fd);
+int	ft_count_and_put_int(va_list args, int fd);
+int	ft_count_and_put_ptr(va_list args, int fd);
+int	ft_count_and_put_uns(va_list args, int fd);
+int	ft_count_and_put_hex_l(va_list args, int fd);
+int	ft_count_and_put_hex_u(va_list args, int fd);
+
+// get next line
+char    *get_next_line(int fd);
+
+
 #endif

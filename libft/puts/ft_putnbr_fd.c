@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putnbr_fd_printf.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 15:17:48 by eduribei          #+#    #+#             */
-/*   Updated: 2024/10/18 15:36:21 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/06/01 13:16:21 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,18 +27,23 @@ static void	ft_get_digits(char *number, unsigned int abs_n, int n)
 		number[a] = '-';
 }
 
-void	ft_putnbr_fd(int n, int fd)
+static int	ft_putzero(int fd)
+{
+	write(fd, "0", 1);
+	return (1);
+}
+
+int	ft_putnbr_fd_printf(int n, int fd)
 {
 	int				print_len;
-	unsigned int	abs_n;
+	int				count;
 	char			number[12];
+	unsigned int	abs_n;
 
+	count = 0;
 	ft_bzero(number, 12);
 	if (n == 0)
-	{
-		write(fd, "0", 1);
-		return ;
-	}
+		return (ft_putzero(fd));
 	else if (n < 0)
 		abs_n = (unsigned int)(-n);
 	else
@@ -48,6 +53,8 @@ void	ft_putnbr_fd(int n, int fd)
 	while (print_len >= 0)
 	{
 		write(fd, &number[print_len], 1);
+		count++;
 		print_len--;
 	}
+	return (count);
 }

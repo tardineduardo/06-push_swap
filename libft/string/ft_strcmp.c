@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/20 15:17:20 by eduribei          #+#    #+#             */
-/*   Updated: 2024/10/18 15:36:27 by eduribei         ###   ########.fr       */
+/*   Created: 2024/05/12 18:54:03 by eduribei          #+#    #+#             */
+/*   Updated: 2024/10/18 15:37:22 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-void	ft_putstr_fd(char *s, int fd)
+int	ft_strcmp(const char *s1, const char *s2)
 {
-	while (*s != '\0')
+	while (  (unsigned char)*s1 == (unsigned char)*s2 && (*s1 || *s2))
 	{
-		write(fd, s, 1);
-		s++;
+		s1++;
+		s2++;
 	}
+	return (((unsigned char)*s1 - (unsigned char)*s2));
 }

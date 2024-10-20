@@ -45,7 +45,7 @@ void	ft_clstadd_mid_wrap(t_list **tail, t_list *new, size_t pos)
 	t_list	*trav;
 	size_t	clistsize;
 
-	clistsize = ft_clistsize(tail);
+	clistsize = ft_clstsize(tail);
 	pos = ft_wrap_position(tail, pos);
 	if (clistsize == 0)
 	{
