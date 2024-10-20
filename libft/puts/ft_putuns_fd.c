@@ -31,7 +31,7 @@ static int	ft_putzero(int fd)
 	return (1);
 }
 
-int	ft_putuns_fd_printf(unsigned int n, int fd)
+int	ft_putuns_fd(unsigned int n, int fd)
 {
 	int		count;
 	int		print_len;

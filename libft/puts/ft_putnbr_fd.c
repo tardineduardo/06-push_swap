@@ -33,7 +33,7 @@ static int	ft_putzero(int fd)
 	return (1);
 }
 
-int	ft_putnbr_fd_printf(int n, int fd)
+int	ft_putnbr_fd(int n, int fd)
 {
 	int				print_len;
 	int				count;

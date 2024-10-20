@@ -12,7 +12,7 @@
 
 #include "../libft.h"
 
-int	ft_putstr_fd_printf(char *s, int fd)
+int	ft_putstr_fd(char *s, int fd)
 {
 	int	count;
 

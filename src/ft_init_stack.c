@@ -12,16 +12,6 @@
 
 #include "push_swap.h"
 
-
-void ft_init_node(t_node *node)
-{
-	node->is_start = false;
-	node->is_end = false;
-	node->next = NULL;
-	node->prev = NULL;
-}
-
-
 void ft_init_stack(t_list **stack, int argc, char *argv[])
 {
 	int		a;
@@ -33,12 +23,7 @@ void ft_init_stack(t_list **stack, int argc, char *argv[])
 	{
 		node = malloc(sizeof(t_node));
 			// protect
-		ft_init_node(node);
 		node->value = ft_atoi(argv[a]);
-		if (a == 1)
-			node->is_start = true;
-		if (a == argc - 1)
-			node->is_end = true;
 		
 		ft_lstadd_back(stack, ft_lstnew((void *)node));	
 		a++;

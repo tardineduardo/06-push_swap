@@ -20,7 +20,7 @@ int	main(int argc, char *argv[])
 	ft_validate_args(argc, argv);	
 	stack_a = NULL;
 	stack_b = NULL;	
-	ft_init_stack(stack_a);
+	ft_init_stack(&stack_a, argc, argv);
 
 
 

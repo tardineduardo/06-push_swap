@@ -22,11 +22,10 @@
 typedef struct s_node
 {
 	int				value;
-	bool			is_start;
-	bool			is_end;
 }			t_node;
 
 
 void	ft_validate_args(int argc, char *argv[]);
+void	ft_init_stack(t_list **stack, int argc, char *argv[]);
 
 #endif
