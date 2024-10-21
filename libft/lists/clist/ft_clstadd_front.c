@@ -12,6 +12,7 @@
 
 #include "../../libft.h"
 
+// front means the start of the list, taking position zero.
 void	ft_clstadd_front(t_list **tail, t_list *new)
 {
 	

@@ -1,20 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_clstadd_front.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/23 16:35:00 by eduribei          #+#    #+#             */
-/*   Updated: 2024/10/18 15:37:25 by eduribei         ###   ########.fr       */
+/*   Created: 2024/05/21 13:48:40 by eduribei          #+#    #+#             */
+/*   Updated: 2024/10/18 17:20:54 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft.h"
+#include "../../libft.h"
 
-int	ft_isalnum(int c)
+// front means the start of the list, taking position zero.
+void	ft_dclstadd_front(t_dlist **tail, t_dlist *new)
 {
-	if (ft_isdigit(c) || ft_isalpha(c))
-		return (1);
-	return (0);
+	
+	if (*tail == NULL)
+	{
+		*tail = new;
+		new->next = new;
+	}
+	else
+	{
+		new->next = (*tail)->next;
+		(*tail)->next = new;
+	}
 }

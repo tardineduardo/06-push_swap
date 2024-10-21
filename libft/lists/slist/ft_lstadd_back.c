@@ -12,6 +12,7 @@
 
 #include "../../libft.h"
 
+// back means the end of the list, far from head.
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list	*temp;

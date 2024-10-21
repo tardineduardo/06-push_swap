@@ -12,6 +12,7 @@
 
 #include "../../libft.h"
 
+// back means the end of the list, right after the last element.
 void	ft_clstadd_back(t_list **tail, t_list *new)
 {
 	if (*tail == NULL)

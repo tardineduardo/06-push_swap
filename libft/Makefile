@@ -1,3 +1,7 @@
+PRINTF =	printf/ft_printf_dprintf.c \
+			printf/ft_printf_int_chr_str.c \
+			printf/ft_printf_hex_ptr_uns.c \
+
 PUTS =	puts/ft_putchar_fd.c \
 		puts/ft_puthex_int_low_fd.c \
 		puts/ft_puthex_int_upp_fd.c \
@@ -41,6 +45,11 @@ LISTS =	lists/slist/ft_lstadd_back.c \
 		lists/clist/ft_clstadd_front.c \
 		lists/clist/ft_clstadd_mid.c \
 		lists/clist/ft_clstnew.c \
+		lists/dclst/ft_dclistsize.c \
+		lists/dclst/ft_dclstadd_back.c \
+		lists/dclst/ft_dclstadd_front.c \
+		lists/dclst/ft_dclstnew.c \
+		
 
 MEM = 	mem/ft_bzero.c \
 		mem/ft_calloc.c \
@@ -78,16 +87,14 @@ VALID =	valid/ft_isalnum.c \
 		valid/ft_isprint.c \
 		valid/ft_isspace.c \
 
-PRINTF =	printf/ft_printf_main.c \
-			printf/ft_printf_int_chr_str.c \
-			printf/ft_printf_hex_ptr_uns.c \
 
-PRINTF =	gnl/get_next_line_bonus.c
 
-OBJS =	$(CONV:.c=.o) $(DEBUG:.c=.o) $(ERROR:.c=.o) \
+GNL		=	gnl/get_next_line_bonus.c
+
+OBJS =	$(PRINTF:.c=.o) $(CONV:.c=.o) $(DEBUG:.c=.o) $(ERROR:.c=.o) \
 		$(FDS:.c=.o) $(LISTS:.c=.o) $(MEM:.c=.o) \
 		$(PUTS:.c=.o) $(STRING:.c=.o) $(VALID:.c=.o) \
-		$(PRINTF:.c=.o) \
+		$(GNL:.c=.o) \
 
 
 CC = cc

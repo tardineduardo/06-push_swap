@@ -31,7 +31,9 @@ static void	ft_print_int(t_list *trav, size_t offset)
     ft_printf("NULL\n");
 }
 
-void ft_print_list(t_list **head, char *type, size_t offset)
+// PAREI AQUI!!!!!!!!! TEM QUE CONFIGURAR PRA IMPRIMIR CLIST
+
+void ft_print_clist(t_list **head, char *type, size_t offset)
 {
     t_list *trav;
 

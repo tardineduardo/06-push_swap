@@ -19,12 +19,8 @@ void	ft_putstrarr_fd(char **array, int fd)
 	a = 0;
 	while (array[a] != NULL)
 	{
-		ft_putstr_fd("[", fd);
-		ft_putnbr_fd(a, fd);
-		ft_putstr_fd("] ", fd);
-		ft_putstr_fd(array[a], fd);
-		ft_putstr_fd("\n", fd);
+		ft_dprintf(fd, "[%i] %s\n", a, array[a]);
 		a++;
 	}
-	ft_putstr_fd("\n", fd);
+	ft_dprintf(fd, "\n");
 }

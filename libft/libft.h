@@ -17,6 +17,7 @@
 # include <limits.h>
 # include <unistd.h>
 # include <stdint.h>
+# include <stddef.h>
 # include <stdarg.h>
 # include <string.h>
 # include <stdio.h>
@@ -27,6 +28,10 @@
 
 # ifndef GNLBUFF
 #  define GNLBUFF 42
+# endif
+
+# ifndef MAXLISTDEBUG
+#  define MAXLISTDEBUG 100000
 # endif
 
 typedef struct s_list
@@ -128,16 +133,23 @@ int		ft_lstsize(t_list *lst);
 
 //lists - dlist
 //lists - clist
+t_list	*ft_clstnew(void *content);
 int		ft_clstsize(t_list **tail);
 void	ft_clstadd_back(t_list **tail, t_list *new);
 void	ft_clstadd_front(t_list **tail, t_list *new);
 void	ft_clstadd_mid_wrap(t_list **tail, t_list *new, size_t pos);
 
-
 //lists - dclist
+t_dlist	*ft_dclstnew(void *content);
+int		ft_dclstsize(t_dlist **tail);
+void	ft_dclstadd_back(t_dlist **tail, t_dlist *new);
+void	ft_dclstadd_front(t_dlist **tail, t_dlist *new);
+
+
 
 // printf
 int	ft_printf(const char *input, ...);
+int	ft_dprintf(int fd, const char *input, ...);
 int	ft_count_and_put_chr(va_list args, int fd);
 int	ft_count_and_put_str(va_list args, int fd);
 int	ft_count_and_put_int(va_list args, int fd);
@@ -148,6 +160,5 @@ int	ft_count_and_put_hex_u(va_list args, int fd);
 
 // get next line
 char    *get_next_line(int fd);
-
 
 #endif

@@ -1,20 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_clstadd_back.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/23 16:35:00 by eduribei          #+#    #+#             */
-/*   Updated: 2024/10/18 15:37:25 by eduribei         ###   ########.fr       */
+/*   Created: 2024/05/21 13:49:50 by eduribei          #+#    #+#             */
+/*   Updated: 2024/10/18 17:22:28 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft.h"
+#include "../../libft.h"
 
-int	ft_isalnum(int c)
+// back means the end of the list, right after the last element.
+void	ft_dclstadd_back(t_dlist **tail, t_dlist *new)
 {
-	if (ft_isdigit(c) || ft_isalpha(c))
-		return (1);
-	return (0);
+	if (new == NULL)
+    	return ;
+	if (*tail == NULL)
+	{
+		*tail = new;
+		new->next = new;
+		new->prev = new;
+	}
+	else
+	{
+		new->next = (*tail)->next;
+		new->prev = *tail;
+		(*tail)->next = new;
+		new->next->prev = new;
+		*tail = new;
+	}
 }
+

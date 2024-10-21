@@ -29,12 +29,12 @@ static int	ft_wrap_position(t_list **tail, int pos)
 		return (pos);
 	if (list_size == 1 && (pos != 0 && pos != 1))
 	{
-		ft_putstr_fd("Warning: position > list_size. Wrapping around!\n", STDERR_FILENO);
+		ft_dprintf(STDERR_FILENO, "Warning: position > list_size. Wrapping around!\n");
 		return (pos % 2);
 	}
 	if (pos > list_size + 1)
 	{
-		ft_putstr_fd("Warning: position > list_size. Wrapping around!\n", STDERR_FILENO);
+		ft_dprintf(STDERR_FILENO, "Warning: position > list_size. Wrapping around!\n");
 		return (pos % list_size);
 	}
 	return (pos);

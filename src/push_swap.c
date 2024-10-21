@@ -14,14 +14,23 @@
 
 int	main(int argc, char *argv[])
 {
-	t_list *stack_a;
-	t_list *stack_b;
+	t_dlist *stack_a;
+	t_dlist *stack_b;
 
 	ft_validate_args(argc, argv);	
 	stack_a = NULL;
 	stack_b = NULL;	
 	ft_init_stack(&stack_a, argc, argv);
 
+// PAREI AQUI!!!!!!!!! TEM QUE CONFIGURAR PRA IMPRIMIR CLIST
+// PAREI AQUI!!!!!!!!! TEM QUE CONFIGURAR PRA IMPRIMIR CLIST
+// PAREI AQUI!!!!!!!!! TEM QUE CONFIGURAR PRA IMPRIMIR CLIST
+// PAREI AQUI!!!!!!!!! TEM QUE CONFIGURAR PRA IMPRIMIR CLIST
+// PAREI AQUI!!!!!!!!! TEM QUE CONFIGURAR PRA IMPRIMIR CLIST
+// PAREI AQUI!!!!!!!!! TEM QUE CONFIGURAR PRA IMPRIMIR CLIST
+// PAREI AQUI!!!!!!!!! TEM QUE CONFIGURAR PRA IMPRIMIR CLIST
+
+	ft_print_list(&stack_a, "int", offsetof(t_node, value));
 
 
 	
