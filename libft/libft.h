@@ -60,7 +60,7 @@ int		ft_toupper(int c);
 // debug
 void	ft_putstrarr_fd(char **s, int fd);
 void	ft_print_list(t_list **head, char *type, size_t offset);
-void	ft_print_dclist(t_dlist **tail, char *type, size_t offset);
+void ft_print_dclist(t_dlist **tail, char *type, size_t offset, int fd);
 
 // errors
 void	ft_error_exit(char *message, int exit_number, int fd);

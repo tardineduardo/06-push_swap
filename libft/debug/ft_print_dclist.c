@@ -1,12 +1,12 @@
 
 #include "../libft.h"
 
-static void	ft_print_arrow(t_dlist **tail, int countlen);
-static int	ft_print_int(t_dlist **tail, t_dlist *trav, size_t offset);
-static int	ft_print_char(t_dlist **tail, t_dlist *trav, size_t offset);
-static int	ft_print_string(t_dlist **tail, t_dlist *trav, size_t offset);
+static void	ft_print_arrow(t_dlist **tail, int countlen, int fd);
+static int	ft_print_int(t_dlist **tail, t_dlist *trav, size_t offset, int fd);
+static int	ft_print_char(t_dlist **tail, t_dlist *trav, size_t offset, int fd);
+static int	ft_print_string(t_dlist **tail, t_dlist *trav, size_t offset, int fd);
 
-void ft_print_dclist(t_dlist **tail, char *type, size_t offset)
+void ft_print_dclist(t_dlist **tail, char *type, size_t offset, int fd)
 {
 	int countlen;
 	t_dlist *trav;
@@ -15,21 +15,21 @@ void ft_print_dclist(t_dlist **tail, char *type, size_t offset)
 	trav = *tail;
 	if (trav == NULL)
 	{
-	    ft_printf("NULL\n\n");
+	    ft_dprintf(fd, "NULL <---- tail\n\n");
 		return ;
 	}
 	if (ft_strcmp(type, "int") == 0)
-		countlen += ft_print_int(tail, trav, offset);
+		countlen += ft_print_int(tail, trav, offset, fd);
 	else if (ft_strcmp(type, "char") == 0)
-		countlen += ft_print_char(tail, trav, offset);
+		countlen += ft_print_char(tail, trav, offset, fd);
 	else if (ft_strcmp(type, "string") == 0)
-		countlen += ft_print_string(tail, trav, offset);
+		countlen += ft_print_string(tail, trav, offset, fd);
 	else
-	    ft_printf("Unsupported data type. Use \"int\", \"char\" or \"string\".\n");
-	ft_print_arrow(tail, countlen);
+	    ft_dprintf(fd, "Unsupported data type. Use \"int\", \"char\" or \"string\".\n");
+	ft_print_arrow(tail, countlen, fd);
 }
 
-static int	ft_print_string(t_dlist **tail, t_dlist *trav, size_t offset)
+static int	ft_print_string(t_dlist **tail, t_dlist *trav, size_t offset, int fd)
 {
 	int countlen;
 
@@ -37,15 +37,15 @@ static int	ft_print_string(t_dlist **tail, t_dlist *trav, size_t offset)
 	trav = trav->next;
 	while (trav != *tail)
 	{
-        countlen += ft_printf("[ %s ] <--> ", *(char *)((char *)trav->content + offset));
+        countlen += ft_dprintf(fd, "[ %s ] <--> ", *(char **)((char *)trav->content + offset));
         trav = trav->next;
 	}
-	countlen += ft_printf("[ %s ]", *(char *)((char *)trav->content + offset));
-    ft_printf("<---- tail\n");
+	countlen += ft_dprintf(fd, "[ %s ]", *(char **)((char *)trav->content + offset));
+    ft_dprintf(fd, " <---- tail");
 	return (countlen);
 }
 
-static int	ft_print_char(t_dlist **tail, t_dlist *trav, size_t offset)
+static int	ft_print_char(t_dlist **tail, t_dlist *trav, size_t offset, int fd)
 {
 	int countlen;
 
@@ -53,33 +53,33 @@ static int	ft_print_char(t_dlist **tail, t_dlist *trav, size_t offset)
 	trav = trav->next;
 	while (trav != *tail)
 	{
-        countlen += ft_printf("[ %c ] <--> ", *(char *)((char *)trav->content + offset));
+        countlen += ft_dprintf(fd, "[ %c ] <--> ", *(char *)((char *)trav->content + offset));
         trav = trav->next;
 	}
-	countlen += ft_printf("[ %c ]", *(char *)((char *)trav->content + offset));
-    ft_printf("<---- tail\n");
+	countlen += ft_dprintf(fd, "[ %c ]", *(char *)((char *)trav->content + offset));
+    ft_dprintf(fd, " <---- tail");
 	return (countlen);
 }
 
-int	ft_print_int(t_dlist **tail, t_dlist *trav, size_t offset)
+int	ft_print_int(t_dlist **tail, t_dlist *trav, size_t offset, int fd)
 {
 	int countlen;
 
 	countlen = 0;
 	trav = trav->next;
-	ft_printf("\n");
+	ft_dprintf(fd, "\n");
 	while (trav != *tail)
 	{
-        countlen += ft_printf("[ %d ] <--> ", *(int *)((char *)trav->content + offset));
+        countlen += ft_dprintf(fd, "[ %d ] <--> ", *(int *)((char *)trav->content + offset));
         trav = trav->next;
 	}
-	countlen += ft_printf("[ %d ]", *(int *)((char *)trav->content + offset));
-    ft_printf(" <---- tail");
+	countlen += ft_dprintf(fd, "[ %d ]", *(int *)((char *)trav->content + offset));
+    ft_dprintf(fd, " <---- tail");
 	return (countlen);
 }
 
 
-void ft_print_arrow(t_dlist **tail, int countlen)
+void ft_print_arrow(t_dlist **tail, int countlen, int fd)
 {
 	int a;
 	
@@ -87,27 +87,27 @@ void ft_print_arrow(t_dlist **tail, int countlen)
 
 	if(a == 1)
 	{
-		ft_printf("\n|   |\n");
-		ft_printf("+>-<+\n");
+		ft_dprintf(fd, "\n|   |\n");
+		ft_dprintf(fd, "+>-<+\n");
 		return ;
 	}		
-	ft_printf("\n  |");
+	ft_dprintf(fd, "\n  |");
 	a = 0;
 	while (a < countlen - 6)
 	{
-		ft_printf(" ");
+		ft_dprintf(fd, " ");
 		a++;
 	}
-	ft_printf("|\n");
-	ft_printf("  +-<");
+	ft_dprintf(fd, "|\n");
+	ft_dprintf(fd, "  +-<");
 	a = 0;
 	while (a < countlen - 10)
 	{
-		ft_printf("-");
+		ft_dprintf(fd, "-");
 		a++;
 	}
-	ft_printf(">-+\n");
-	ft_printf("\n");
+	ft_dprintf(fd, ">-+\n");
+	ft_dprintf(fd, "\n");
 }
 
 

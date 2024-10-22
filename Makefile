@@ -2,6 +2,8 @@ SRC = src/push_swap.c
 
 UTILS = src/ft_validate_args.c \
 		src/ft_init_stack.c \
+		src/moves/moves_ra_rb_rr.c \
+		src/moves/moves_rra_rrb_rrr.c \
 
 OBJS_SRC = $(SRC:.c=.o) $(UTILS:.c=.o)
 

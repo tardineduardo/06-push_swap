@@ -22,6 +22,7 @@
 typedef struct s_node
 {
 	int			value;
+	char		*stringz;
 }				t_node;
 
 
@@ -30,5 +31,10 @@ void	ft_init_stack(t_dlist **stack, int argc, char *argv[]);
 
 
 //moves
-
+void ra(t_dlist **taila);
+void rb(t_dlist **tailb);
+void rr(t_dlist **taila, t_dlist **tailb);
+void rra(t_dlist **taila);
+void rrb(t_dlist **tailb);
+void rrr(t_dlist **taila, t_dlist **tailb);
 #endif
