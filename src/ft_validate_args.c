@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 15:12:52 by eduribei          #+#    #+#             */
-/*   Updated: 2024/10/17 19:34:32 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/10/21 15:26:29 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static bool ft_values_are_distinct_and_size_int(int argc, char *argv[])
 	a = 0;
 	while (a < argc - 1)
 	{
-		set[a] = ft_atoi(argv[a]);
+		set[a] = ft_atoi(argv[a + 1]);
 		if (set[a] > INT_MAX || set[a] < INT_MIN)
 			return (false);
 		b = 0;
@@ -63,13 +63,17 @@ static bool ft_values_are_distinct_and_size_int(int argc, char *argv[])
 static bool ft_values_are_sorted(int argc, char *argv[])
 {
 	int	a;
+	int um;
+	int dois;
 	int	count;
 
-	a = 0;
+	a = 1;
 	count = 0;
-	while (a < argc - 2)
+	while (a < argc - 1)
 	{
-		if (ft_atoi(argv[a]) > ft_atoi(argv[a + 1]))
+		um = ft_atoi(argv[a]);
+		dois = ft_atoi(argv[a + 1]);
+		if (um > dois)
 			count++;
 		a++;
 	}

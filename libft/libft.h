@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 17:02:36 by eduribei          #+#    #+#             */
-/*   Updated: 2024/10/18 19:45:29 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/10/21 16:05:40 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,9 @@
 # include <fcntl.h>
 # include <sys/types.h>
 # include <bits/posix1_lim.h>
+
+#include <wchar.h>
+#include <locale.h>
 
 # ifndef GNLBUFF
 #  define GNLBUFF 42
@@ -57,6 +60,7 @@ int		ft_toupper(int c);
 // debug
 void	ft_putstrarr_fd(char **s, int fd);
 void	ft_print_list(t_list **head, char *type, size_t offset);
+void	ft_print_dclist(t_dlist **tail, char *type, size_t offset);
 
 // errors
 void	ft_error_exit(char *message, int exit_number, int fd);

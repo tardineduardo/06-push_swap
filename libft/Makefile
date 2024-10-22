@@ -18,6 +18,7 @@ CONV =	conv/ft_atoi.c \
 
 DEBUG =	debug/ft_putstrarr_fd.c \
 		debug/ft_print_list.c \
+		debug/ft_print_dclist.c \
 
 ERROR =	error/ft_error_exit.c \
 		error/ft_perror_exit.c \
@@ -87,8 +88,6 @@ VALID =	valid/ft_isalnum.c \
 		valid/ft_isprint.c \
 		valid/ft_isspace.c \
 
-
-
 GNL		=	gnl/get_next_line_bonus.c
 
 OBJS =	$(PRINTF:.c=.o) $(CONV:.c=.o) $(DEBUG:.c=.o) $(ERROR:.c=.o) \
@@ -96,12 +95,11 @@ OBJS =	$(PRINTF:.c=.o) $(CONV:.c=.o) $(DEBUG:.c=.o) $(ERROR:.c=.o) \
 		$(PUTS:.c=.o) $(STRING:.c=.o) $(VALID:.c=.o) \
 		$(GNL:.c=.o) \
 
-
 CC = cc
 
 RM = rm -f
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 
 NAME = libft.a
 
