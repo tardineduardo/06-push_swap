@@ -40,19 +40,16 @@ void rrr(t_dlist **taila, t_dlist **tailb)
 	bool	a;
 	bool	b;
 
+	a = false;
+	b = false;
 	size = ft_dclstsize(taila);
-	if (size == 0 || size == 1)
-		a = false;
-	else
+	if (size > 1)
 	{
 		*taila = (*taila)->next;
 		a = true;
 	}
-	
 	size = ft_dclstsize(tailb);
-	if (size == 0 || size == 1)
-		b = false;
-	else
+	if (size > 1)
 	{
 		*tailb = (*tailb)->next;
 		b = true;

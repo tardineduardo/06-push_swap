@@ -12,78 +12,59 @@
 
 #include "../push_swap.h"
 
-void sa(t_dlist **taila)
+static bool	swap(t_dlist **tail)
 {
 	t_dlist	*temp; 
 	int		sizea;
 
-	temp = (*taila)->next;
-	sizea = ft_dclstsize(taila);
+	sizea = ft_dclstsize(tail);
 	if (sizea == 0 || sizea == 1)
-		return ;
-	(*taila)->next = (*taila)->next->next;
-	(*taila)->next->prev = (*taila);
+		return (false);
+	temp = (*tail)->next;
+	(*tail)->next = (*tail)->next->next;
+	(*tail)->next->prev = (*tail);
 	temp->next = temp->next->next;
-	temp->prev = (*taila)->next;
+	temp->prev = (*tail)->next;
 	temp->prev->next = temp;
 	temp->next->prev = temp;
-	ft_printf("sa\n");
+	return (true);
 }
 
-void sb(t_dlist **tailb)
+void sa(t_dlist **tail)
 {
-	t_dlist	*temp; 
-	int		sizea;
-
-	temp = (*tailb)->next;
-	sizea = ft_dclstsize(tailb);
-	if (sizea == 0 || sizea == 1)
+	int size;
+	
+	size = ft_dclstsize(tail);
+	if (size == 0 || size == 1)
 		return ;
-	(*tailb)->next = (*tailb)->next->next;
-	(*tailb)->next->prev = (*tailb);
-	temp->next = temp->next->next;
-	temp->prev = (*tailb)->next;
-	temp->prev->next = temp;
-	temp->next->prev = temp;
-	ft_printf("sa\n");
+	if (swap(tail));
+		ft_printf("sa\n");
 }
 
+void sb(t_dlist **tail)
+{
+	int size;
+	
+	size = ft_dclstsize(tail);
+	if (size == 0 || size == 1)
+		return ;
+	if (swap(tail));
+		ft_printf("sb\n");
+}
 
 void ss(t_dlist **taila, t_dlist **tailb)
 {
-	int		size;
-	t_dlist *temp;
 	bool	sa;
 	bool	sb;
+	int		sizea;
+	int		sizeb;
 
-	size = ft_dclstsize(taila);
-	if (size == 0 || size == 1)
-		sa = false;
-	else
-	{
-		(*taila)->next = (*taila)->next->next;
-		(*taila)->next->prev = (*taila);
-		temp->next = temp->next->next;
-		temp->prev = (*taila)->next;
-		temp->prev->next = temp;
-		temp->next->prev = temp;
-		ft_printf("sa\n");
+	sa = false;
+	sb = false;
+	if (swap(taila))
 		sa = true;
-	}
-	
-	size = ft_dclstsize(tailb);
-	if (size == 0 || size == 1)
-		sb = false;
-	else
-	{
-		(*tailb)->next = (*tailb)->next->next;
-		(*tailb)->next->prev = (*tailb);
-		temp->next = temp->next->next;
-		temp->prev = (*tailb)->next;
-		temp->prev->next = temp;
-		temp->next->prev = temp;
+	if (swap(tailb))
 		sb = true;
-	}
 	if (sa && sb)
 		ft_printf("ss\n");
 	else if (sa && !sb)

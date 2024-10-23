@@ -23,6 +23,9 @@ void ft_print_dclist(t_dlist **tail, char *type, size_t offset, int fd)
 	int countlen;
 	t_dlist *trav;
 
+	if (ft_dclstsize(tail) == -1)
+		return;
+
 	countlen = 0;
 	trav = *tail;
 	if (trav == NULL)

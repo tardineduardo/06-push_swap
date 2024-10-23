@@ -25,11 +25,8 @@ typedef struct s_node
 	char		*stringz;
 }				t_node;
 
-
 void	ft_validate_args(int argc, char *argv[]);
-void	ft_init_stack2(t_dlist **stack, int argc, char *argv[]);
-void	ft_init_stack1(t_dlist **stack, int argc, char *argv[]);
-
+void	ft_init_stack(t_dlist **stack, int argc, char *argv[]);
 
 //moves
 void ra(t_dlist **taila);
@@ -41,10 +38,8 @@ void ss(t_dlist **taila, t_dlist **tailb);
 void rra(t_dlist **taila);
 void rrb(t_dlist **tailb);
 void rrr(t_dlist **taila, t_dlist **tailb);
-void push(t_dlist **src, t_dlist **dest, char *move);
+void pa(t_dlist **src, t_dlist **dest);
+void pb(t_dlist **src, t_dlist **dest);
 
-
-// void pa(t_dlist **taila, t_dlist **tailb);
-// void pb(t_dlist **tailb, t_dlist **taila);
 
 #endif

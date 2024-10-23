@@ -12,44 +12,27 @@
 
 #include "../push_swap.h"
 
-void push(t_dlist **src, t_dlist **dest, char *move)
+static void ft_push_src_9_dest_0(t_dlist **src, t_dlist **dest)
+{
+	(*dest) = (*src)->next;
+	(*src)->next = *src;
+	(*src)->prev = *src;
+	(*dest)->next = *dest;
+	(*dest)->prev = *dest;
+}
+
+static void ft_push_src_1_dest_9(t_dlist **src, t_dlist **dest)
+{
+	(*src)->next = (*dest)->next;
+	(*src)->prev = (*dest);
+	(*dest)->next = *src;
+	(*dest)->next->next->prev = (*dest)->next;
+	*src = NULL;
+}
+
+static void ft_push_src_9_dest_9(t_dlist **src, t_dlist **dest)
 {
 	t_dlist	*temp;
-	int sizea;
-	int sizeb;
-	
-	sizea = ft_dclstsize(src);
-	sizeb = ft_dclstsize(dest);
-
-	if (sizea == 0)
-		return;
-	if (sizea == 1 && sizeb == 0)
-	{
-		*dest = *src;
-		*src = NULL;
-		ft_printf("move\n");
-		return;
-	}
-	else if (sizea > 1 && sizeb == 0)
-	{
-		(*dest) = (*src)->next;
-		(*src)->next = *src;
-		(*src)->prev = *src;
-		(*dest)->next = *dest;
-		(*dest)->prev = *dest;
-		ft_printf("pushed to dest\n");
-		return;
-	}
-	else if (sizea == 1 && sizeb >= 1)
-	{
-		(*src)->next = (*dest)->next;
-		(*src)->prev = (*dest);
-		(*dest)->next = *src;
-		(*dest)->next->next->prev = (*dest)->next;
-		*src = NULL;
-		ft_printf("pushed to dest\n");
-		return;
-	}
 
 	temp = (*src)->next;
 	(*src)->next->next->prev = (*src);
@@ -58,52 +41,54 @@ void push(t_dlist **src, t_dlist **dest, char *move)
 	temp->prev = (*dest);
 	(*dest)->next = temp;
 	temp->next->prev = temp;
-	ft_printf("pushed to dest\n");
 }
 
-// void pb(t_dlist **tailb, t_dlist **taila)
-// {
-// 	t_dlist	*temp;
-// 	int sizea;
-// 	int sizeb;
+void pa(t_dlist **src, t_dlist **dest)
+{
+	int		size_src;
+	int		size_dest;
 	
-// 	sizea = ft_dclstsize(tailb);
-// 	sizeb = ft_dclstsize(taila);
+	size_src = ft_dclstsize(src);
+	size_dest = ft_dclstsize(dest);
+	if (size_src == 0)
+		return;
+	else if (size_src == 1 && size_dest == 0)
+	{
+		*dest = *src;
+		*src = NULL;
+		ft_printf("pa\n");
+		return;
+	}
+	else if (size_src > 1 && size_dest == 0)
+		ft_push_src_9_dest_0(src, dest);
+	else if (size_src == 1 && size_dest >= 1)
+		ft_push_src_1_dest_9(src, dest);
+	else if (size_src >= 1 && size_dest >= 1)
+		ft_push_src_1_dest_9(src, dest);
+	ft_printf("pa\n");
+}
 
-// 	if (sizea == 0)
-// 		return;
-// 	if (sizea == 1 && sizeb == 0)
-// 	{
-// 		*taila = *tailb;
-// 		*tailb = NULL;
-// 		return;
-// 	}
-// 	else if (sizea > 1 && sizeb == 0)
-// 	{
-// 		(*taila) = (*tailb)->next;
-// 		(*tailb)->next = *tailb;
-// 		(*tailb)->prev = *tailb;
-// 		(*taila)->next = *taila;
-// 		(*taila)->prev = *taila;
-// 		ft_printf("pa\n");
-// 		return;
-// 	}
-// 	else if (sizeb == 1 && sizea > 1)
-// 	{
-// 		(*tailb)->next = (*taila)->next;
-// 		(*tailb)->prev = (*taila);
-// 		(*taila)->next = *tailb;
-// 		(*taila)->next->next->prev = (*taila)->next;
-// 		*tailb = NULL;
-// 		ft_printf("pa\n");
-// 		return;
-// 	}
-// 	temp = (*tailb)->next;
-// 	(*tailb)->next->next->prev = (*tailb);
-// 	(*tailb)->next = (*tailb)->next->next;
-// 	temp->next = (*taila)->next;
-// 	temp->prev = (*taila);
-// 	(*taila)->next = temp;
-// 	temp->next->prev = temp;
-// 	ft_printf("pa\n");
-// }
+void pb(t_dlist **src, t_dlist **dest)
+{
+	int		size_src;
+	int		size_dest;
+	
+	size_src = ft_dclstsize(src);
+	size_dest = ft_dclstsize(dest);
+	if (size_src == 0)
+		return;
+	else if (size_src == 1 && size_dest == 0)
+	{
+		*dest = *src;
+		*src = NULL;
+		ft_printf("pb\n");
+		return;
+	}
+	else if (size_src > 1 && size_dest == 0)
+		ft_push_src_9_dest_0(src, dest);
+	else if (size_src == 1 && size_dest >= 1)
+		ft_push_src_1_dest_9(src, dest);
+	else if (size_src >= 1 && size_dest >= 1)
+		ft_push_src_1_dest_9(src, dest);
+	ft_printf("pb\n");
+}

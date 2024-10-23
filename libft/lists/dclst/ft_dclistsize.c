@@ -34,7 +34,7 @@ int	ft_dclstsize(t_dlist **tail)
 		trav_fwd = trav_fwd->next;
 		if (count_fwd > MAXLISTDEBUG)
 		{
-			ft_dprintf(STDERR_FILENO, "Possible error in doubly circular linked list: circular list doesn't return to *tail after MAXLISTDEBUG steps.");
+			ft_dprintf(STDERR_FILENO, "\n! Possible error in doubly circular linked list:\ncircular list doesn't return to *tail after %i steps forward.\n", MAXLISTDEBUG);
 			return (-1);
 		}
 	}
@@ -44,7 +44,7 @@ int	ft_dclstsize(t_dlist **tail)
 		trav_bck = trav_bck->prev;
 		if (count_bck > MAXLISTDEBUG)
 		{
-			ft_dprintf(STDERR_FILENO, "Possible error in doubly circular linked list: circular list doesn't return to *tail after MAXLISTDEBUG steps.");
+			ft_dprintf(STDERR_FILENO, "\n! Possible error in doubly circular linked list:\ncircular list doesn't return to *tail after %i steps back.\n", MAXLISTDEBUG);
 			return (-1);
 		}
 	}
@@ -52,7 +52,7 @@ int	ft_dclstsize(t_dlist **tail)
 		return (count_fwd);
 	else
 	{
-		ft_dprintf(STDERR_FILENO, "Error in doubly circular linked list.\n");
+			ft_dprintf(STDERR_FILENO, "\n! Possible error in doubly circular linked list:\ncircular list doesn't return to *tail.\n");
 		return (-1);
 	}
 }

@@ -34,7 +34,7 @@
 # endif
 
 # ifndef MAXLISTDEBUG
-#  define MAXLISTDEBUG 50
+#  define MAXLISTDEBUG 10000000
 # endif
 
 typedef struct s_list
