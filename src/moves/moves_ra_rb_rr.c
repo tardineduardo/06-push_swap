@@ -6,7 +6,7 @@ void ra(t_dlist **taila)
 	
 	size = ft_dclstsize(taila);
 	if (size == 0 || size == 1)
-		return;
+		return ;
 	*taila = (*taila)->prev;
 	ft_printf("ra\n");
 }
@@ -17,7 +17,7 @@ void rb(t_dlist **tailb)
 	
 	size = ft_dclstsize(tailb);
 	if (size == 0 || size == 1)
-		return;
+		return ;
 	*tailb = (*tailb)->prev;
 	ft_printf("rb\n");
 }

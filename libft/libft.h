@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 17:02:36 by eduribei          #+#    #+#             */
-/*   Updated: 2024/10/21 16:05:40 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/10/22 21:13:57 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@
 # endif
 
 # ifndef MAXLISTDEBUG
-#  define MAXLISTDEBUG 100000
+#  define MAXLISTDEBUG 50
 # endif
 
 typedef struct s_list

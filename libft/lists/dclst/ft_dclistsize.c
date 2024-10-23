@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_clistsize.c                                     :+:      :+:    :+:   */
+/*   ft_dclistsize.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 19:39:36 by eduribei          #+#    #+#             */
-/*   Updated: 2024/10/18 20:03:29 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/10/22 19:41:41 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	ft_dclstsize(t_dlist **tail)
 		trav_fwd = trav_fwd->next;
 		if (count_fwd > MAXLISTDEBUG)
 		{
-			ft_dprintf(STDERR_FILENO, "Error in doubly circular linked list: infinite loop.\n");
+			ft_dprintf(STDERR_FILENO, "Possible error in doubly circular linked list: circular list doesn't return to *tail after MAXLISTDEBUG steps.");
 			return (-1);
 		}
 	}
@@ -44,7 +44,7 @@ int	ft_dclstsize(t_dlist **tail)
 		trav_bck = trav_bck->prev;
 		if (count_bck > MAXLISTDEBUG)
 		{
-			ft_dprintf(STDERR_FILENO, "Error in doubly circular linked list: infinite loop.\n");
+			ft_dprintf(STDERR_FILENO, "Possible error in doubly circular linked list: circular list doesn't return to *tail after MAXLISTDEBUG steps.");
 			return (-1);
 		}
 	}
