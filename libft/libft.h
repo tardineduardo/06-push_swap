@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 17:02:36 by eduribei          #+#    #+#             */
-/*   Updated: 2024/10/22 21:13:57 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/10/23 21:39:44 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,6 +148,8 @@ t_dlist	*ft_dclstnew(void *content);
 int		ft_dclstsize(t_dlist **tail);
 void	ft_dclstadd_back(t_dlist **tail, t_dlist *new);
 void	ft_dclstadd_front(t_dlist **tail, t_dlist *new);
+t_dlist	*ft_dlsttrav_to_next(t_dlist **tail, size_t index);
+
 
 
 

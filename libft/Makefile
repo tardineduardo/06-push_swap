@@ -50,7 +50,7 @@ LISTS =	lists/slist/ft_lstadd_back.c \
 		lists/dclst/ft_dclstadd_back.c \
 		lists/dclst/ft_dclstadd_front.c \
 		lists/dclst/ft_dclstnew.c \
-		
+		lists/dclst/ft_dclsttrav_to_next.c \
 
 MEM = 	mem/ft_bzero.c \
 		mem/ft_calloc.c \

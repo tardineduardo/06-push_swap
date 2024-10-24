@@ -2,6 +2,7 @@ SRC = src/play.c
 
 UTILS = src/ft_validate_args.c \
 		src/ft_init_stack.c \
+		src/play_print.c \
 		src/moves/moves_sa_sb_ss.c \
 		src/moves/moves_ra_rb_rr.c \
 		src/moves/moves_rra_rrb_rrr.c \

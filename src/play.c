@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 12:39:39 by eduribei          #+#    #+#             */
-/*   Updated: 2024/10/23 17:24:29 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/10/23 21:36:54 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ void move(char *cmd, t_dlist **a, t_dlist **b)
 		rrb(b, moves);
 	else if(ft_strcmp(cmd, "rrr") == 0)
 		rrr(a, b, moves);
-	ft_dprintf(moves, "\n");
 	close(moves);
 }
 
@@ -57,11 +56,7 @@ int	main(int argc, char *argv[])
 	while (ft_strcmp(cmd, "q") != 0)
 	{
 		file = open("visual.txt", O_WRONLY | O_TRUNC | O_CREAT, 0664);
-		ft_print_dclist(&a, "int", offsetof(struct s_node, value), file);
-		close(file);
-
-		file = open("visual.txt", O_WRONLY | O_APPEND | O_CREAT, 0664);
-		ft_print_dclist(&b, "int", offsetof(struct s_node, value), file);
+		ft_play_print(a, b, file);
 		close(file);
 
 		ft_printf("type a command: ");

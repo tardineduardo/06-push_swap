@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 17:07:25 by eduribei          #+#    #+#             */
-/*   Updated: 2024/10/23 17:30:12 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/10/23 19:15:57 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 static void ft_push_multi_to_empty(t_dlist **src, t_dlist **dest)
 {
 	(*dest) = (*src)->next;
-	(*src)->next = *src;
-	(*src)->prev = *src;
+	(*src)->next = (*src)->next->next;
+	(*src)->next->prev = *src;
 	(*dest)->next = *dest;
 	(*dest)->prev = *dest;
 }
 
-static void ft_push_single_to_empty(t_dlist **src, t_dlist **dest)
+static void ft_push_single_to_multi(t_dlist **src, t_dlist **dest)
 {
 	(*src)->next = (*dest)->next;
 	(*src)->prev = (*dest);
@@ -43,7 +43,7 @@ static void ft_push_multi_to_multi(t_dlist **src, t_dlist **dest)
 	temp->next->prev = temp;
 }
 
-void pa(t_dlist **src, t_dlist **dest)
+void pa(t_dlist **src, t_dlist **dest, int fd)
 {
 	int		size_src;
 	int		size_dest;
@@ -56,7 +56,7 @@ void pa(t_dlist **src, t_dlist **dest)
 	{
 		*dest = *src;
 		*src = NULL;
-		ft_printf("pa\n");
+		ft_dprintf(fd, "pa\n");
 		return;
 	}
 	else if (size_src > 1 && size_dest == 0)
@@ -65,10 +65,10 @@ void pa(t_dlist **src, t_dlist **dest)
 		ft_push_single_to_multi(src, dest);
 	else if (size_src >= 1 && size_dest >= 1)
 		ft_push_multi_to_multi(src, dest);
-	ft_printf("pa\n");
+	ft_dprintf(fd, "pa\n");
 }
 
-void pb(t_dlist **src, t_dlist **dest)
+void pb(t_dlist **src, t_dlist **dest, int fd)
 {
 	int		size_src;
 	int		size_dest;
@@ -81,7 +81,7 @@ void pb(t_dlist **src, t_dlist **dest)
 	{
 		*dest = *src;
 		*src = NULL;
-		ft_printf("pb\n");
+		ft_dprintf(fd, "pb\n");
 		return;
 	}
 	else if (size_src > 1 && size_dest == 0)
@@ -90,5 +90,5 @@ void pb(t_dlist **src, t_dlist **dest)
 		ft_push_single_to_multi(src, dest);
 	else if (size_src >= 1 && size_dest >= 1)
 		ft_push_multi_to_multi(src, dest);
-	ft_printf("pb\n");
+	ft_dprintf(fd, "pb\n");
 }

@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 15:16:06 by eduribei          #+#    #+#             */
-/*   Updated: 2024/10/18 15:38:00 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/10/23 20:37:41 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,7 @@ static size_t	c_substrs(char *s, char c)
 			count_substrs++;
 		}
 		else if (*s == c)
-		{
 			in_substr = 0;
-		}
 		s++;
 	}
 	return (count_substrs);
@@ -51,17 +49,14 @@ static void	ft_free_if_error(char **results, size_t r_index)
 static char	*ft_fill(char **results, char *start, size_t count, size_t r_index)
 {
 	results[r_index] = ft_calloc((count + 1), sizeof(char));
-	if (results[r_index] != NULL)
-	{
-		ft_memmove((char *)results[r_index], (char *)start, count);
-		results[r_index][count] = '\0';
-		return (results[r_index]);
-	}
-	else
+	if (results[r_index] == NULL)
 	{
 		ft_free_if_error(results, r_index);
 		return (NULL);
 	}
+	ft_memmove((char *)results[r_index], (char *)start, count);
+	//results[r_index][count] = '\0';
+	return (results[r_index]);
 }
 
 static char	**ft_get_substrs(char *s, char c, char **results)
@@ -102,7 +97,7 @@ char	**ft_split_char(char const *s, char c)
 	results = ft_calloc((total_substrs + 1), sizeof(char *));
 	if (results == NULL)
 		return (NULL);
-	results[total_substrs] = NULL;
+	//results[total_substrs] = NULL;
 	results = ft_get_substrs((char *)s, c, results);
 	return (results);
 }
