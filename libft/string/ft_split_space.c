@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 15:18:57 by eduribei          #+#    #+#             */
-/*   Updated: 2024/10/18 15:38:01 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/10/23 15:04:46 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,7 @@ static size_t	c_substrs(char *s, char *set)
 			count_substrs++;
 		}
 		else if (ft_strchr(set, *s))
-		{
 			in_substr = 0;
-		}
 		s++;
 	}
 	return (count_substrs);

@@ -6,13 +6,13 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 17:07:25 by eduribei          #+#    #+#             */
-/*   Updated: 2024/10/22 17:13:40 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/10/23 17:30:12 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-static void ft_push_src_9_dest_0(t_dlist **src, t_dlist **dest)
+static void ft_push_multi_to_empty(t_dlist **src, t_dlist **dest)
 {
 	(*dest) = (*src)->next;
 	(*src)->next = *src;
@@ -21,7 +21,7 @@ static void ft_push_src_9_dest_0(t_dlist **src, t_dlist **dest)
 	(*dest)->prev = *dest;
 }
 
-static void ft_push_src_1_dest_9(t_dlist **src, t_dlist **dest)
+static void ft_push_single_to_empty(t_dlist **src, t_dlist **dest)
 {
 	(*src)->next = (*dest)->next;
 	(*src)->prev = (*dest);
@@ -30,7 +30,7 @@ static void ft_push_src_1_dest_9(t_dlist **src, t_dlist **dest)
 	*src = NULL;
 }
 
-static void ft_push_src_9_dest_9(t_dlist **src, t_dlist **dest)
+static void ft_push_multi_to_multi(t_dlist **src, t_dlist **dest)
 {
 	t_dlist	*temp;
 
@@ -60,11 +60,11 @@ void pa(t_dlist **src, t_dlist **dest)
 		return;
 	}
 	else if (size_src > 1 && size_dest == 0)
-		ft_push_src_9_dest_0(src, dest);
+		ft_push_multi_to_empty(src, dest);
 	else if (size_src == 1 && size_dest >= 1)
-		ft_push_src_1_dest_9(src, dest);
+		ft_push_single_to_multi(src, dest);
 	else if (size_src >= 1 && size_dest >= 1)
-		ft_push_src_1_dest_9(src, dest);
+		ft_push_multi_to_multi(src, dest);
 	ft_printf("pa\n");
 }
 
@@ -85,10 +85,10 @@ void pb(t_dlist **src, t_dlist **dest)
 		return;
 	}
 	else if (size_src > 1 && size_dest == 0)
-		ft_push_src_9_dest_0(src, dest);
+		ft_push_multi_to_empty(src, dest);
 	else if (size_src == 1 && size_dest >= 1)
-		ft_push_src_1_dest_9(src, dest);
+		ft_push_single_to_multi(src, dest);
 	else if (size_src >= 1 && size_dest >= 1)
-		ft_push_src_1_dest_9(src, dest);
+		ft_push_multi_to_multi(src, dest);
 	ft_printf("pb\n");
 }

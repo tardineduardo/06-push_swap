@@ -6,10 +6,9 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 19:33:57 by eduribei          #+#    #+#             */
-/*   Updated: 2024/10/22 19:35:39 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/10/23 16:11:44 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "../libft.h"
 
@@ -93,7 +92,6 @@ int	ft_print_int(t_dlist **tail, t_dlist *trav, size_t offset, int fd)
 	return (countlen);
 }
 
-
 void ft_print_arrow(t_dlist **tail, int countlen, int fd)
 {
 	int a;
@@ -124,8 +122,3 @@ void ft_print_arrow(t_dlist **tail, int countlen, int fd)
 	ft_dprintf(fd, ">-+\n");
 	ft_dprintf(fd, "\n");
 }
-
-
-
-
-

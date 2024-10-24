@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 10:04:16 by eduribei          #+#    #+#             */
-/*   Updated: 2024/10/18 15:37:24 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/10/23 13:26:17 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 			substr[0] = '\0';
 		return (substr);
 	}
-	substr = (char *)malloc(len + 1);
+	substr = malloc((len + 1) * sizeof(char));
 	if (substr == NULL)
 		return (NULL);
 	ft_strlcpy(substr, s + start, len + 1);

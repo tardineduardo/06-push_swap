@@ -1,4 +1,4 @@
-SRC = src/push_swap.c
+SRC = src/play.c
 
 UTILS = src/ft_validate_args.c \
 		src/ft_init_stack.c \
