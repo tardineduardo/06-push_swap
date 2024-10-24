@@ -12,7 +12,7 @@
 
 #include "../../libft.h"
 
-t_dlist	*ft_dclsttrav_to_next(t_dlist **tail, size_t index)
+t_dlist	*ft_dclsttrav_to_next(t_dlist **tail, int index)
 {
 	int		i;
 	int		len;
@@ -22,12 +22,11 @@ t_dlist	*ft_dclsttrav_to_next(t_dlist **tail, size_t index)
 	len = ft_dclstsize(tail);
 	if (index > len - 1 || len == 0)
 		return (NULL);
-	if (index == 0)
-		return (trav);
-	i = 0;
-	while (i < len)
+	i = index;
+	while (i >= 0)
 	{
 		trav = trav->next;
+		i--;
 	}
 	return (trav);
 }

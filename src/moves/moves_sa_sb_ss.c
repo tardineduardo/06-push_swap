@@ -15,10 +15,10 @@
 static bool	swap(t_dlist **tail)
 {
 	t_dlist	*temp;
-	int		sizea;
+	int		size;
 
-	sizea = ft_dclstsize(tail);
-	if (sizea == 0 || sizea == 1)
+	size = ft_dclstsize(tail);
+	if (size == 0 || size == 1)
 		return (false);
 	temp = (*tail)->next;
 	(*tail)->next = (*tail)->next->next;
@@ -27,27 +27,24 @@ static bool	swap(t_dlist **tail)
 	temp->prev = (*tail)->next;
 	temp->prev->next = temp;
 	temp->next->prev = temp;
+	// if (size == 2) RETESTAR!!!!!
+	// if (size == 2) RETESTAR!!!!!
+	// if (size == 2) RETESTAR!!!!!
+	// if (size == 2) RETESTAR!!!!!
+	// if (size == 2) RETESTAR!!!!!
+	// if (size == 2) RETESTAR!!!!!
+	// if (size == 2) RETESTAR!!!!!
 	return (true);
 }
 
 void	sa(t_dlist **tail, int fd)
 {
-	int	size;
-
-	size = ft_dclstsize(tail);
-	if (size == 0 || size == 1)
-		return ;
 	if (swap(tail))
 		ft_dprintf(fd, "sa\n");
 }
 
 void	sb(t_dlist **tail, int fd)
 {
-	int	size;
-
-	size = ft_dclstsize(tail);
-	if (size == 0 || size == 1)
-		return ;
 	if (swap(tail))
 		ft_dprintf(fd, "sb\n");
 }
@@ -56,8 +53,6 @@ void	ss(t_dlist **taila, t_dlist **tailb, int fd)
 {
 	bool	sa;
 	bool	sb;
-	int		sizea;
-	int		sizeb;
 
 	sa = false;
 	sb = false;

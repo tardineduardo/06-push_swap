@@ -148,7 +148,7 @@ t_dlist	*ft_dclstnew(void *content);
 int		ft_dclstsize(t_dlist **tail);
 void	ft_dclstadd_back(t_dlist **tail, t_dlist *new);
 void	ft_dclstadd_front(t_dlist **tail, t_dlist *new);
-t_dlist	*ft_dlsttrav_to_next(t_dlist **tail, size_t index);
+t_dlist	*ft_dclsttrav_to_next(t_dlist **tail, int index);
 
 
 

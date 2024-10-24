@@ -42,30 +42,35 @@ void move(char *cmd, t_dlist **a, t_dlist **b)
 
 int	main(int argc, char *argv[])
 {
-	t_dlist	*a;
-	t_dlist	*b;
+	t_dlist	*stacka;
+	t_dlist	*stackb;
 	char	cmd[4];
-	int		file;
+	int		visual;
+	int		moves;
 
 	ft_validate_args(argc, argv);	
-	a = NULL;
-	b = NULL;	
-	ft_init_stack(&a, argc, argv);
+	stacka = NULL;
+	stackb = NULL;
+	ft_init_stack(&stacka, argc, argv);
 
 	cmd[0] = 0;
+
+	moves = open("moves.txt", O_WRONLY | O_TRUNC | O_CREAT, 0664);
+	visual = open("visual.txt", O_WRONLY | O_TRUNC | O_CREAT, 0664);
+	close(visual);
+	close(moves);	
+
 	while (ft_strcmp(cmd, "q") != 0)
 	{
-		file = open("visual.txt", O_WRONLY | O_TRUNC | O_CREAT, 0664);
-		ft_play_print(a, b, file);
-		close(file);
-
+		visual = open("visual.txt", O_WRONLY | O_TRUNC | O_CREAT, 0664);
+		ft_play_print(&stacka, &stackb, visual);
+		close(visual);
 		ft_printf("type a command: ");
 		scanf("%3s", cmd);
-		move(cmd, &a, &b);
+		move(cmd, &stacka, &stackb);
 		fflush(stdin);
-		system("clear");
+		//system("clear");
 	}
-	close(file);
-	unlink("visual.txt");
+	close(visual);
 	return (0);
 }
