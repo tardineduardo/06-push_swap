@@ -20,20 +20,20 @@ static bool	swap(t_dlist **tail)
 	size = ft_dclstsize(tail);
 	if (size == 0 || size == 1)
 		return (false);
-	temp = (*tail)->next;
-	(*tail)->next = (*tail)->next->next;
-	(*tail)->next->prev = (*tail);
-	temp->next = temp->next->next;
-	temp->prev = (*tail)->next;
-	temp->prev->next = temp;
-	temp->next->prev = temp;
-	// if (size == 2) RETESTAR!!!!!
-	// if (size == 2) RETESTAR!!!!!
-	// if (size == 2) RETESTAR!!!!!
-	// if (size == 2) RETESTAR!!!!!
-	// if (size == 2) RETESTAR!!!!!
-	// if (size == 2) RETESTAR!!!!!
-	// if (size == 2) RETESTAR!!!!!
+	else if (size == 2)
+	{
+		(*tail) = (*tail)->next;
+	}
+	else
+	{
+		temp = (*tail)->next;
+		(*tail)->next = (*tail)->next->next;
+		(*tail)->next->prev = (*tail);
+		temp->next = temp->next->next;
+		temp->prev = (*tail)->next;
+		temp->prev->next = temp;
+		temp->next->prev = temp;
+	}
 	return (true);
 }
 

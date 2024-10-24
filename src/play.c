@@ -16,9 +16,9 @@ void move(char *cmd, t_dlist **a, t_dlist **b)
 {
 	int moves = open("moves.txt", O_WRONLY | O_APPEND | O_CREAT, 0664);
 	if(ft_strcmp(cmd, "pa") == 0)
-		pa(a, b, moves);
+		pa(b, a, moves);
 	else if(ft_strcmp(cmd, "pb") == 0)
-		pb(b, a, moves);
+		pb(a, b, moves);
 	else if(ft_strcmp(cmd, "sa") == 0)
 		sa(a, moves);
 	else if(ft_strcmp(cmd, "sb") == 0)
@@ -52,24 +52,23 @@ int	main(int argc, char *argv[])
 	stacka = NULL;
 	stackb = NULL;
 	ft_init_stack(&stacka, argc, argv);
-
 	cmd[0] = 0;
-
 	moves = open("moves.txt", O_WRONLY | O_TRUNC | O_CREAT, 0664);
 	visual = open("visual.txt", O_WRONLY | O_TRUNC | O_CREAT, 0664);
 	close(visual);
 	close(moves);	
-
 	while (ft_strcmp(cmd, "q") != 0)
 	{
+		system("clear");
 		visual = open("visual.txt", O_WRONLY | O_TRUNC | O_CREAT, 0664);
 		ft_play_print(&stacka, &stackb, visual);
+		ft_printf("(pa pb sa sb ss ra rb rr rra rrb rrr) (\"q\" for quit)\n\n");
 		close(visual);
 		ft_printf("type a command: ");
 		scanf("%3s", cmd);
 		move(cmd, &stacka, &stackb);
 		fflush(stdin);
-		//system("clear");
+		system("clear");
 	}
 	close(visual);
 	return (0);

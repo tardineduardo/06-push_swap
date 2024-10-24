@@ -35,13 +35,27 @@ static bool ft_values_are_integer_only(int argc, char *argv[])
 	}
 	return (true);
 }
-
+// THIS IS NOT WORKING!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// THIS IS NOT WORKING!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// THIS IS NOT WORKING!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// THIS IS NOT WORKING!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// THIS IS NOT WORKING!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// THIS IS NOT WORKING!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// THIS IS NOT WORKING!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// THIS IS NOT WORKING!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// THIS IS NOT WORKING!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// THIS IS NOT WORKING!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// THIS IS NOT WORKING!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// THIS IS NOT WORKING!!!!!!!!!!!!!!!!!!!!!!!!!!!
 static bool ft_values_are_distinct_and_size_int(int argc, char *argv[])
 {
 	size_t	a;
 	size_t	b;
-	long	set[argc - 1];
+	long long int	set[argc - 1];
 
+	//ft_printf("%i\n", sizeof(long long int));
+
+	//printf("%llu\n", LLONG_MAX);	
 	a = 0;
 	while (a < argc - 1)
 	{
