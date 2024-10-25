@@ -12,6 +12,16 @@
 
 #include "push_swap.h"
 
+#define RESET   "\033[0m"
+#define RED     "\033[31m"
+#define GREEN   "\033[32m"
+#define YELLOW  "\033[33m"
+#define BLUE    "\033[34m"
+#define MAGENTA "\033[35m"
+#define CYAN    "\033[36m"
+#define WHITE   "\033[37m"
+#define BRIGHT_GREEN "\033[92m"
+
 void move(char *cmd, t_dlist **a, t_dlist **b)
 {
 	int moves = open("moves.txt", O_WRONLY | O_APPEND | O_CREAT, 0664);
@@ -45,7 +55,6 @@ int	main(int argc, char *argv[])
 	t_dlist	*stacka;
 	t_dlist	*stackb;
 	char	cmd[4];
-	int		visual;
 	int		moves;
 
 	ft_validate_args(argc, argv);	
@@ -54,22 +63,17 @@ int	main(int argc, char *argv[])
 	ft_init_stack(&stacka, argc, argv);
 	cmd[0] = 0;
 	moves = open("moves.txt", O_WRONLY | O_TRUNC | O_CREAT, 0664);
-	visual = open("visual.txt", O_WRONLY | O_TRUNC | O_CREAT, 0664);
-	close(visual);
 	close(moves);	
 	while (ft_strcmp(cmd, "q") != 0)
 	{
 		system("clear");
-		visual = open("visual.txt", O_WRONLY | O_TRUNC | O_CREAT, 0664);
-		ft_play_print(&stacka, &stackb, visual);
-		ft_printf("(pa pb sa sb ss ra rb rr rra rrb rrr) (\"q\" for quit)\n\n");
-		close(visual);
+		ft_play_print(&stacka, &stackb);
+		ft_printf("( " GREEN "pa pb " CYAN "sa sb ss " MAGENTA "ra rb rr " BRIGHT_GREEN "rra rrb rrr " RESET ") (\"q\" for quit)\n\n");
 		ft_printf("type a command: ");
 		scanf("%3s", cmd);
 		move(cmd, &stacka, &stackb);
 		fflush(stdin);
 		system("clear");
 	}
-	close(visual);
 	return (0);
 }

@@ -26,7 +26,7 @@ typedef struct s_node
 
 void	ft_validate_args(int argc, char *argv[]);
 void	ft_init_stack(t_dlist **stack, int argc, char *argv[]);
-void	ft_play_print(t_dlist **a, t_dlist **b, int fd);
+void	ft_play_print(t_dlist **a, t_dlist **b);
 
 //moves
 void	ra(t_dlist **taila, int fd);

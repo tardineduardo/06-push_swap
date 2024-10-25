@@ -13,8 +13,7 @@ OBJS_SRC = $(SRC:.c=.o) $(UTILS:.c=.o)
 
 CC = cc
 RM = rm -f
-#CFLAGS = -Wall -Wextra -Werror
-CFLAGS = -g
+CFLAGS = -Wall -Wextra -Werror
 
 NAME = push_swap
 LIBFT_PATH = ./libft

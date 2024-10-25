@@ -49,8 +49,8 @@ static bool ft_values_are_integer_only(int argc, char *argv[])
 // THIS IS NOT WORKING!!!!!!!!!!!!!!!!!!!!!!!!!!!
 static bool ft_values_are_distinct_and_size_int(int argc, char *argv[])
 {
-	size_t	a;
-	size_t	b;
+	long long int	a;
+	long long int	b;
 	long long int	set[argc - 1];
 
 	//ft_printf("%i\n", sizeof(long long int));
@@ -99,9 +99,9 @@ static bool ft_values_are_sorted(int argc, char *argv[])
 void	ft_validate_args(int argc, char *argv[])
 {
 	if (argc < 3)
-		ft_error_exit("errorz\n", 1, STDERR_FILENO);
+		ft_error_exit("Error - no parameters (use ./play_swap 5 3 2 9 4)\n", 1, STDERR_FILENO);
 	else if (!ft_values_are_integer_only(argc, argv))
-		ft_error_exit("Error - not integers\n", 1, STDERR_FILENO);
+		ft_error_exit("Error - values must be integers\n", 1, STDERR_FILENO);
 	else if (!ft_values_are_distinct_and_size_int(argc, argv))
 		ft_error_exit("Error - repeated values\n", 1, STDERR_FILENO);
 	else if (ft_values_are_sorted(argc, argv))

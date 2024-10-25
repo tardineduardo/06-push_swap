@@ -12,56 +12,39 @@
 
 #include "push_swap.h"
 
-#define RESET   "\033[0m"
-#define RED     "\033[31m"
-#define GREEN   "\033[32m"
-#define YELLOW  "\033[33m"
-#define BLUE    "\033[34m"
-#define MAGENTA "\033[35m"
-#define CYAN    "\033[36m"
-#define WHITE   "\033[37m"
-
-void	put_a(t_dlist **a, int fd)
+void	put_a(t_dlist **a)
 {
-	t_node *edu;
 	int i;
-	    
-	edu = (t_node *)((*a)->content);
-	i = edu->value;
+	
+	i = ((t_node *)((*a)->content))->value;
 	ft_printf(RED "\t\t\t\t+-------+\n" RESET);
 	ft_printf(RED "\t\t\t\t|\t" RESET "%i" RED "\t|\n" RESET, i);
 	ft_printf(RED "\t\t\t\t+-------+\n" RESET);
 }
 
-void	put_b(t_dlist **b, int fd)
+void	put_b(t_dlist **b)
 {
-	t_node *edu;
 	int i;
-	    
-	edu = (t_node *)((*b)->content);
-	i = edu->value;
+	
+	i = ((t_node *)((*b)->content))->value;
 	ft_printf(YELLOW "\t\t\t\t\t\t\t+-------+\n" RESET);
 	ft_printf(YELLOW "\t\t\t\t\t\t\t|\t" RESET "%i" YELLOW "\t|\n" RESET, i);
 	ft_printf(YELLOW "\t\t\t\t\t\t\t+-------+\n" RESET);
 }
 
-
-void	put_ab(t_dlist **a, t_dlist **b, int fd)
+void	put_ab(t_dlist **a, t_dlist **b)
 {
-	t_node *edu;
-	t_node *maria;
 	int i;
-	int j;	    
-	edu = (t_node *)((*a)->content);
-	i = edu->value;
-	maria = (t_node *)((*b)->content);
-	j = maria->value;
+	int j;
+
+	i = ((t_node *)((*a)->content))->value;
+	j = ((t_node *)((*b)->content))->value;
 	ft_printf(RED "\t\t\t\t+-------+" YELLOW "\t+-------+\n" RESET);
 	ft_printf(RED "\t\t\t\t|\t" RESET "%i" RED "\t|" YELLOW "\t|\t" RESET "%i" YELLOW "\t|\n", i, j);
 	ft_printf(RED "\t\t\t\t+-------+" YELLOW "\t+-------+\n" RESET);
 }
 
-void	ft_play_print(t_dlist **a, t_dlist **b, int fd)
+void	ft_play_print(t_dlist **a, t_dlist **b)
 {
 	int height;
 	t_dlist *trav_a;
@@ -97,11 +80,11 @@ void	ft_play_print(t_dlist **a, t_dlist **b, int fd)
 		if (!space_a && !space_b)
 			ft_printf("\n\n\n");
 		else if (space_a && space_b)
-			put_ab(&trav_a, &trav_b, fd);			
+			put_ab(&trav_a, &trav_b);			
 		else if (space_a && !space_b)
-			put_a(&trav_a, fd);
+			put_a(&trav_a);
 		else if (!space_a && space_b)
-			put_b(&trav_b, fd);
+			put_b(&trav_b);
 	height--;
 	}
 	ft_printf("____________________________________________________\n");
