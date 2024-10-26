@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 19:41:34 by eduribei          #+#    #+#             */
-/*   Updated: 2024/10/23 21:53:28 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/10/26 12:32:03 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	put_a(t_dlist **a)
 {
 	int i;
 	
-	i = ((t_node *)((*a)->content))->value;
+	i = ((t_node *)((*a)->content))->label;
 	ft_printf(RED "\t\t\t\t+-------+\n" RESET);
 	ft_printf(RED "\t\t\t\t|\t" RESET "%i" RED "\t|\n" RESET, i);
 	ft_printf(RED "\t\t\t\t+-------+\n" RESET);
@@ -26,7 +26,7 @@ void	put_b(t_dlist **b)
 {
 	int i;
 	
-	i = ((t_node *)((*b)->content))->value;
+	i = ((t_node *)((*b)->content))->label;
 	ft_printf(YELLOW "\t\t\t\t\t\t\t+-------+\n" RESET);
 	ft_printf(YELLOW "\t\t\t\t\t\t\t|\t" RESET "%i" YELLOW "\t|\n" RESET, i);
 	ft_printf(YELLOW "\t\t\t\t\t\t\t+-------+\n" RESET);
@@ -37,8 +37,8 @@ void	put_ab(t_dlist **a, t_dlist **b)
 	int i;
 	int j;
 
-	i = ((t_node *)((*a)->content))->value;
-	j = ((t_node *)((*b)->content))->value;
+	i = ((t_node *)((*a)->content))->label;
+	j = ((t_node *)((*b)->content))->label;
 	ft_printf(RED "\t\t\t\t+-------+" YELLOW "\t+-------+\n" RESET);
 	ft_printf(RED "\t\t\t\t|\t" RESET "%i" RED "\t|" YELLOW "\t|\t" RESET "%i" YELLOW "\t|\n", i, j);
 	ft_printf(RED "\t\t\t\t+-------+" YELLOW "\t+-------+\n" RESET);

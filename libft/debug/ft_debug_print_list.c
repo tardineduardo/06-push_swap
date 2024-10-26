@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_list.c                                    :+:      :+:    :+:   */
+/*   ft_debug_print_list.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 19:33:53 by eduribei          #+#    #+#             */
-/*   Updated: 2024/10/22 19:33:55 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/10/26 13:56:39 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static void	ft_print_int(t_list *trav, size_t offset)
     ft_printf("NULL\n");
 }
 
-void ft_print_list(t_list **head, char *type, size_t offset)
+void ft_debug_print_list(t_list **head, char *type, size_t offset)
 {
     t_list *trav;
 

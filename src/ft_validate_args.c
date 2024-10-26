@@ -6,13 +6,13 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 15:12:52 by eduribei          #+#    #+#             */
-/*   Updated: 2024/10/23 16:59:53 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/10/26 14:19:09 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./push_swap.h"
 
-static bool ft_values_are_integer_only(int argc, char *argv[])
+static bool ft_labels_are_integer_only(int argc, char *argv[])
 {
 	int	a;
 	int b;
@@ -47,7 +47,7 @@ static bool ft_values_are_integer_only(int argc, char *argv[])
 // THIS IS NOT WORKING!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // THIS IS NOT WORKING!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // THIS IS NOT WORKING!!!!!!!!!!!!!!!!!!!!!!!!!!!
-static bool ft_values_are_distinct_and_size_int(int argc, char *argv[])
+static bool ft_labels_are_distinct_and_size_int(int argc, char *argv[])
 {
 	long long int	a;
 	long long int	b;
@@ -74,7 +74,7 @@ static bool ft_values_are_distinct_and_size_int(int argc, char *argv[])
 	return (true);
 }
 
-static bool ft_values_are_sorted(int argc, char *argv[])
+static bool ft_labels_are_sorted(int argc, char *argv[])
 {
 	int	a;
 	int	curr;
@@ -100,10 +100,10 @@ void	ft_validate_args(int argc, char *argv[])
 {
 	if (argc < 3)
 		ft_error_exit("Error - no parameters (use ./play_swap 5 3 2 9 4)\n", 1, STDERR_FILENO);
-	else if (!ft_values_are_integer_only(argc, argv))
-		ft_error_exit("Error - values must be integers\n", 1, STDERR_FILENO);
-	else if (!ft_values_are_distinct_and_size_int(argc, argv))
-		ft_error_exit("Error - repeated values\n", 1, STDERR_FILENO);
-	else if (ft_values_are_sorted(argc, argv))
+	else if (!ft_labels_are_integer_only(argc, argv))
+		ft_error_exit("Error - labels must be integers\n", 1, STDERR_FILENO);
+	else if (!ft_labels_are_distinct_and_size_int(argc, argv))
+		ft_error_exit("Error - repeated labels\n", 1, STDERR_FILENO);
+	else if (ft_labels_are_sorted(argc, argv))
 		ft_error_exit("Error - already sorted\n", 1, STDERR_FILENO);
 }

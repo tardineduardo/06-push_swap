@@ -16,9 +16,10 @@ CONV =	conv/ft_atoi.c \
 		conv/ft_tolower.c \
 		conv/ft_toupper.c \
 
-DEBUG =	debug/ft_putstrarr_fd.c \
-		debug/ft_print_list.c \
-		debug/ft_print_dclist.c \
+DEBUG =	debug/ft_debug_print_array_of_strings.c \
+		debug/ft_debug_print_array_of_ints.c \
+		debug/ft_debug_print_list.c \
+		debug/ft_debug_print_dclist.c \
 
 ERROR =	error/ft_error_exit.c \
 		error/ft_perror_exit.c \
@@ -51,6 +52,7 @@ LISTS =	lists/slist/ft_lstadd_back.c \
 		lists/dclst/ft_dclstadd_front.c \
 		lists/dclst/ft_dclstnew.c \
 		lists/dclst/ft_dclsttrav_to_next.c \
+		lists/dclst/ft_dclst_find_lowest_int.c \
 
 MEM = 	mem/ft_bzero.c \
 		mem/ft_calloc.c \
@@ -88,12 +90,14 @@ VALID =	valid/ft_isalnum.c \
 		valid/ft_isprint.c \
 		valid/ft_isspace.c \
 
-GNL		=	gnl/get_next_line_bonus.c
+SORT =	sort/ft_sort_int_array_bubble.c
+
+GNL	=	gnl/get_next_line_bonus.c
 
 OBJS =	$(PRINTF:.c=.o) $(CONV:.c=.o) $(DEBUG:.c=.o) $(ERROR:.c=.o) \
 		$(FDS:.c=.o) $(LISTS:.c=.o) $(MEM:.c=.o) \
 		$(PUTS:.c=.o) $(STRING:.c=.o) $(VALID:.c=.o) \
-		$(GNL:.c=.o) \
+		$(GNL:.c=.o) $(SORT:.c=.o) \
 
 CC = cc
 

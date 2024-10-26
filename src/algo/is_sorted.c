@@ -21,7 +21,6 @@ bool ft_is_stack_sorted(t_dlist **tail, char s)
 	return (true);
 }
 
-
 bool ft_is_circle_sorted(t_dlist **tail, char s)
 {
 	int 	i;

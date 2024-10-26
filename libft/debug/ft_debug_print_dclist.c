@@ -6,42 +6,11 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 19:33:57 by eduribei          #+#    #+#             */
-/*   Updated: 2024/10/23 21:29:34 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/10/26 13:53:48 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
-
-static void	ft_print_arrow(t_dlist **tail, int countlen, int fd);
-static int	ft_print_int(t_dlist **tail, t_dlist *trav, size_t offset, int fd);
-static int	ft_print_char(t_dlist **tail, t_dlist *trav, size_t offset, int fd);
-static int	ft_print_string(t_dlist **tail, t_dlist *trav, size_t offset, int fd);
-
-void ft_print_dclist(t_dlist **tail, char *type, size_t offset, int fd)
-{
-	int countlen;
-	t_dlist *trav;
-
-	if (ft_dclstsize(tail) == -1)
-		return;
-
-	countlen = 0;
-	trav = *tail;
-	if (trav == NULL)
-	{
-	    ft_dprintf(fd, "\nNULL <---- tail\n\n");
-		return ;
-	}
-	if (ft_strcmp(type, "int") == 0)
-		countlen += ft_print_int(tail, trav, offset, fd);
-	else if (ft_strcmp(type, "char") == 0)
-		countlen += ft_print_char(tail, trav, offset, fd);
-	else if (ft_strcmp(type, "string") == 0)
-		countlen += ft_print_string(tail, trav, offset, fd);
-	else
-	    ft_dprintf(fd, "Unsupported data type. Use \"int\", \"char\" or \"string\".\n");
-	ft_print_arrow(tail, countlen, fd);
-}
 
 static int	ft_print_string(t_dlist **tail, t_dlist *trav, size_t offset, int fd)
 {
@@ -92,7 +61,7 @@ int	ft_print_int(t_dlist **tail, t_dlist *trav, size_t offset, int fd)
 	return (countlen);
 }
 
-void ft_print_arrow(t_dlist **tail, int countlen, int fd)
+void ft_print_circle_arrow(t_dlist **tail, int countlen, int fd)
 {
 	int a;
 	
@@ -121,4 +90,30 @@ void ft_print_arrow(t_dlist **tail, int countlen, int fd)
 	}
 	ft_dprintf(fd, ">-+\n");
 	ft_dprintf(fd, "\n");
+}
+
+void ft_debug_print_dclist(t_dlist **tail, char *type, size_t offset, int fd)
+{
+	int countlen;
+	t_dlist *trav;
+
+	if (ft_dclstsize(tail) == -1)
+		return;
+
+	countlen = 0;
+	trav = *tail;
+	if (trav == NULL)
+	{
+	    ft_dprintf(fd, "\nNULL <---- tail\n\n");
+		return ;
+	}
+	if (ft_strcmp(type, "int") == 0)
+		countlen += ft_print_int(tail, trav, offset, fd);
+	else if (ft_strcmp(type, "char") == 0)
+		countlen += ft_print_char(tail, trav, offset, fd);
+	else if (ft_strcmp(type, "string") == 0)
+		countlen += ft_print_string(tail, trav, offset, fd);
+	else
+	    ft_dprintf(fd, "Unsupported data type. Use \"int\", \"char\" or \"string\".\n");
+	ft_print_circle_arrow(tail, countlen, fd);
 }

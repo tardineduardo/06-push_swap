@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_init_stack.c                                    :+:      :+:    :+:   */
+/*   ft_init_stack copy.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 15:19:45 by eduribei          #+#    #+#             */
-/*   Updated: 2024/10/22 21:09:22 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/10/26 12:31:38 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void ft_init_stack1(t_dlist **stack, int argc, char *argv[])
 	{
 		node = malloc(sizeof(t_node));
 			// protect
-		node->value = ft_atoi(argv[a]);
+		node->label = ft_atoi(argv[a]);
 		node->stringz = s[b];
 
 		ft_dclstadd_back(stack, ft_dclstnew((void *)node));
@@ -70,7 +70,7 @@ void ft_init_stack2(t_dlist **stack, int argc, char *argv[])
 	{
 		node = malloc(sizeof(t_node));
 			// protect
-		node->value = ft_atoi(argv[a]);
+		node->label = ft_atoi(argv[a]);
 		node->stringz = s[b];
 
 		ft_dclstadd_back(stack, ft_dclstnew((void *)node));

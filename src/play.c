@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 12:39:39 by eduribei          #+#    #+#             */
-/*   Updated: 2024/10/23 21:36:54 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/10/26 16:05:00 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,26 +54,26 @@ int	main(int argc, char *argv[])
 {
 	t_dlist	*stacka;
 	t_dlist	*stackb;
-	char	cmd[4];
-	int		moves;
+	// char	cmd[4];
+	// int		moves;
 
 	ft_validate_args(argc, argv);	
 	stacka = NULL;
 	stackb = NULL;
 	ft_init_stack(&stacka, argc, argv);
-	cmd[0] = 0;
-	moves = open("moves.txt", O_WRONLY | O_TRUNC | O_CREAT, 0664);
-	close(moves);	
-	while (ft_strcmp(cmd, "q") != 0)
-	{
-		system("clear");
-		ft_play_print(&stacka, &stackb);
-		ft_printf("( " GREEN "pa pb " CYAN "sa sb ss " MAGENTA "ra rb rr " BRIGHT_GREEN "rra rrb rrr " RESET ") (\"q\" for quit)\n\n");
-		ft_printf("type a command: ");
-		scanf("%3s", cmd);
-		move(cmd, &stacka, &stackb);
-		fflush(stdin);
-		system("clear");
-	}
+	// cmd[0] = 0;
+	// moves = open("moves.txt", O_WRONLY | O_TRUNC | O_CREAT, 0664);
+	// close(moves);	
+	// while (ft_strcmp(cmd, "q") != 0)
+	// {
+	// 	//system("clear");
+	// 	ft_play_print(&stacka, &stackb);
+	// 	ft_printf("( " GREEN "pa pb " CYAN "sa sb ss " MAGENTA "ra rb rr " BRIGHT_GREEN "rra rrb rrr " RESET ") (\"q\" for quit)\n\n");
+	// 	ft_printf("type a command: ");
+	// 	scanf("%3s", cmd);
+	// 	move(cmd, &stacka, &stackb);
+	// 	fflush(stdin);
+	// 	//system("clear");
+	// }
 	return (0);
 }

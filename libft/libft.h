@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 17:02:36 by eduribei          #+#    #+#             */
-/*   Updated: 2024/10/23 21:39:44 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/10/26 17:08:40 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <unistd.h>
 # include <stdint.h>
 # include <stddef.h>
+# include <stdbool.h>
 # include <stdarg.h>
 # include <string.h>
 # include <stdio.h>
@@ -64,9 +65,10 @@ int		ft_tolower(int c);
 int		ft_toupper(int c);
 
 // debug
-void	ft_putstrarr_fd(char **s, int fd);
-void	ft_print_list(t_list **head, char *type, size_t offset);
-void ft_print_dclist(t_dlist **tail, char *type, size_t offset, int fd);
+void	ft_debug_print_array_of_strings(char **s, int fd);
+void	ft_debug_print_list(t_list **head, char *type, size_t offset);
+void	ft_debug_print_dclist(t_dlist **tail, char *type, size_t offset, int fd);
+void	ft_debug_print_arr_ints(int *a, int len, bool lnbk, bool idx, int fd);
 
 // errors
 void	ft_error_exit(char *message, int exit_number, int fd);
@@ -155,9 +157,7 @@ int		ft_dclstsize(t_dlist **tail);
 void	ft_dclstadd_back(t_dlist **tail, t_dlist *new);
 void	ft_dclstadd_front(t_dlist **tail, t_dlist *new);
 t_dlist	*ft_dclsttrav_to_next(t_dlist **tail, int index);
-
-
-
+t_dlist	*ft_dclst_find_lowest_int(t_dlist **tail, int offset);
 
 // printf
 int	ft_printf(const char *input, ...);
@@ -169,6 +169,9 @@ int	ft_count_and_put_ptr(va_list args, int fd);
 int	ft_count_and_put_uns(va_list args, int fd);
 int	ft_count_and_put_hex_l(va_list args, int fd);
 int	ft_count_and_put_hex_u(va_list args, int fd);
+
+// sort
+void	ft_sort_int_array_bubble(int *array, size_t len);
 
 // get next line
 char    *get_next_line(int fd);
