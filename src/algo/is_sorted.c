@@ -24,7 +24,13 @@ bool ft_is_stack_sorted(t_dlist **tail, char s)
 
 bool ft_is_circle_sorted(t_dlist **tail, char s)
 {
+	int 	i;
+	int		j;
 	
+	t_dlist *trav;
+
+	
+
 
 
 }
