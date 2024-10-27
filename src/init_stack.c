@@ -51,10 +51,9 @@ static void	ft_assign_indexes_to_labels(t_dlist **tail)
 		}
 		i++;
 	}
-	ft_dprintf(1, "Labels:\n");
-	ft_debug_print_dclist(tail, "int", offsetof(t_node, label), 1);
-	ft_dprintf(1, "Index values:\n");
-	ft_debug_print_dclist(tail, "int", offsetof(t_node, val), 1);
+
+
+
 }
 
 void	ft_init_stack(t_dlist **tail, int argc, char *argv[])
@@ -73,11 +72,8 @@ void	ft_init_stack(t_dlist **tail, int argc, char *argv[])
 	}
 	ft_assign_indexes_to_labels(tail);
 
-	//DEBUG
-	t_dlist *lowest = ft_dclst_find_lowest_int(tail, offsetof(t_node, val));
 
-	ft_dprintf(1, "lowest label is %i\n", ((t_node *)(lowest->content))->label);
-	ft_dprintf(1, "lowest value is %i\n", ((t_node *)(lowest->content))->val);
+
 
 }
 

@@ -49,16 +49,16 @@ void	sb(t_dlist **tail, int fd)
 		ft_dprintf(fd, "sb\n");
 }
 
-void	ss(t_dlist **taila, t_dlist **tailb, int fd)
+void	ss(t_dlist **tail_a, t_dlist **tail_b, int fd)
 {
 	bool	sa;
 	bool	sb;
 
 	sa = false;
 	sb = false;
-	if (swap(taila))
+	if (swap(tail_a))
 		sa = true;
-	if (swap(tailb))
+	if (swap(tail_b))
 		sb = true;
 	if (sa && sb)
 		ft_dprintf(fd, "ss\n");

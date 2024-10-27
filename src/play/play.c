@@ -57,7 +57,7 @@ int	main(int argc, char *argv[])
 	// char	cmd[4];
 	// int		moves;
 
-	ft_validate_args(argc, argv);	
+	//ft_validate_args(argc, argv);	
 	stacka = NULL;
 	stackb = NULL;
 	ft_init_stack(&stacka, argc, argv);
@@ -75,5 +75,7 @@ int	main(int argc, char *argv[])
 	// 	fflush(stdin);
 	// 	//system("clear");
 	// }
+
+
 	return (0);
 }

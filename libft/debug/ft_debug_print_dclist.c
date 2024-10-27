@@ -57,7 +57,7 @@ int	ft_print_int(t_dlist **tail, t_dlist *trav, size_t offset, int fd)
         trav = trav->next;
 	}
 	countlen += ft_dprintf(fd, "[ %d ]", *(int *)((char *)trav->content + offset));
-    ft_dprintf(fd, " <---- tail");
+    ft_dprintf(fd, GREEN " <---- " RESET "tail");
 	return (countlen);
 }
 

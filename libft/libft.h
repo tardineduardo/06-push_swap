@@ -159,6 +159,8 @@ void	ft_dclstadd_front(t_dlist **tail, t_dlist *new);
 t_dlist	*ft_dclsttrav_to_next(t_dlist **tail, int index);
 t_dlist	*ft_dclst_find_lowest_int(t_dlist **tail, int offset);
 t_dlist *ft_dclst_find_highest_int(t_dlist **tail, int offset);
+bool	ft_dclst_circ_sortd(t_dlist **tail, char *type, char mode, int offset);
+bool	ft_dclst_list_sortd(t_dlist **tail, char *type, char mode, int offset);
 
 // printf
 int	ft_printf(const char *input, ...);

@@ -12,29 +12,29 @@
 
 #include "../push_swap.h"
 
-void	rra(t_dlist **taila, int fd)
+void	rra(t_dlist **tail_a, int fd)
 {
 	int	size;
 
-	size = ft_dclstsize(taila);
+	size = ft_dclstsize(tail_a);
 	if (size == 0 || size == 1)
 		return ;
-	*taila = (*taila)->next;
+	*tail_a = (*tail_a)->next;
 	ft_dprintf(fd, "rra\n");
 }
 
-void	rrb(t_dlist **tailb, int fd)
+void	rrb(t_dlist **tail_b, int fd)
 {
 	int	size;
 
-	size = ft_dclstsize(tailb);
+	size = ft_dclstsize(tail_b);
 	if (size == 0 || size == 1)
 		return ;
-	*tailb = (*tailb)->next;
+	*tail_b = (*tail_b)->next;
 	ft_dprintf(fd, "rrb\n");
 }
 
-void	rrr(t_dlist **taila, t_dlist **tailb, int fd)
+void	rrr(t_dlist **tail_a, t_dlist **tail_b, int fd)
 {
 	int		size;
 	bool	a;
@@ -42,16 +42,16 @@ void	rrr(t_dlist **taila, t_dlist **tailb, int fd)
 
 	a = false;
 	b = false;
-	size = ft_dclstsize(taila);
+	size = ft_dclstsize(tail_a);
 	if (size > 1)
 	{
-		*taila = (*taila)->next;
+		*tail_a = (*tail_a)->next;
 		a = true;
 	}
-	size = ft_dclstsize(tailb);
+	size = ft_dclstsize(tail_b);
 	if (size > 1)
 	{
-		*tailb = (*tailb)->next;
+		*tail_b = (*tail_b)->next;
 		b = true;
 	}
 	if (a && b)

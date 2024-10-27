@@ -34,7 +34,7 @@ void	rb(t_dlist **tail, int fd)
 	ft_dprintf(fd, "rb\n");
 }
 
-void	rr(t_dlist **taila, t_dlist **tailb, int fd)
+void	rr(t_dlist **tail_a, t_dlist **tail_b, int fd)
 {
 	int		size;
 	bool	a;
@@ -42,16 +42,16 @@ void	rr(t_dlist **taila, t_dlist **tailb, int fd)
 
 	a = false;
 	b = false;
-	size = ft_dclstsize(taila);
+	size = ft_dclstsize(tail_a);
 	if (size > 1)
 	{
-		*taila = (*taila)->prev;
+		*tail_a = (*tail_a)->prev;
 		a = true;
 	}
-	size = ft_dclstsize(tailb);
+	size = ft_dclstsize(tail_b);
 	if (size > 1)
 	{
-		*tailb = (*tailb)->prev;
+		*tail_b = (*tail_b)->prev;
 		b = true;
 	}
 	if (a && b)

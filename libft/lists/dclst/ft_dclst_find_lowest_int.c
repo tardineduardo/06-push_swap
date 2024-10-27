@@ -18,17 +18,19 @@ t_dlist *ft_dclst_find_lowest_int(t_dlist **tail, int offset)
 	t_dlist	*lowest_node;
 	int		value;
 	int		lowest_val;
-	
-	trav = *tail;
-	lowest_node = *tail;
+	int		len;
 
-	while(trav->next->next != *tail)
+	len = ft_dclstsize(tail);
+	trav = *tail;
+	lowest_node = trav;
+	while(len > 0)
 	{	
 		value = *(int *)((char *)trav->content + offset);
 		lowest_val = *(int *)((char *)lowest_node->content + offset);
 		if (value < lowest_val)
 			lowest_node = trav;
 		trav = trav->next;
+		len--;
 	}
 	return (lowest_node);
 }

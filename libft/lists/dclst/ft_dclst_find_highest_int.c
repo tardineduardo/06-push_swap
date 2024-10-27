@@ -18,17 +18,19 @@ t_dlist *ft_dclst_find_highest_int(t_dlist **tail, int offset)
 	t_dlist	*highest_node;
 	int		value;
 	int		highest_val;
-	
-	trav = *tail;
-	highest_node = *tail;
+	int		len;
 
-	while(trav->next->next != *tail)
+	len = ft_dclstsize(tail);
+	trav = *tail;
+	highest_node = trav;
+	while(len > 0)
 	{	
 		value = *(int *)((char *)trav->content + offset);
 		highest_val = *(int *)((char *)highest_node->content + offset);
 		if (value > highest_val)
 			highest_node = trav;
 		trav = trav->next;
+		len--;
 	}
 	return (highest_node);
 }

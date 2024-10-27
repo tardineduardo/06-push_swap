@@ -12,29 +12,58 @@
 
 #include "../../libft.h"
 
-bool is_circle_sorted(t_dlist **tail, char stack_a_or_b)
+static bool ft_check_int_normal(t_dlist **tail, int offset)
 {
 	int 	curr;
 	int		next;
-	
 	t_dlist *trav;
-	t_dlist *start;
+	int		len;
 
-	if (stack_a_or_b == 'a')
-		trav = ft_dclst_find_lowest_int(tail, offsetof(t_node, val));
-	if (stack_a_or_b == 'b')
-		trav = ft_dclst_find_highest_int(tail, offsetof(t_node, val));
-	start = trav;
-	while(trav->next->next != start)
+	len = ft_dclstsize(tail);
+	trav = ft_dclst_find_lowest_int(tail, offset);
+	while(len > 1)
 	{
-		curr = ((t_node *)(trav->content))->val;
-		next = ((t_node *)(trav->next->content))->val;
-		if (s == 'a')
-			if (curr > next)
-				return (false);
-		else if (s == 'b')
-			if (curr < next)
-				return (false);
+		curr = *(int *)((char *)trav->content + offset);
+		next = *(int *)((char *)trav->next->content + offset);
+		if (curr > next)
+			return (false);
+		trav = trav->next;
+		len--;
 	}
 	return (true);
+}
+
+static bool ft_check_int_reverse(t_dlist **tail, int offset)
+{
+	int 	curr;
+	int		next;
+	t_dlist *trav;
+	int		len;
+
+	len = ft_dclstsize(tail);
+	trav = ft_dclst_find_highest_int(tail, offset);
+	while(len > 1)
+	{
+		curr = *(int *)((char *)trav->content + offset);
+		next = *(int *)((char *)trav->next->content + offset);
+		if (curr < next)
+			return (false);
+		trav = trav->next;
+		len--;
+	}
+	return (true);
+}
+
+bool ft_dclst_circ_sortd(t_dlist **tail, char *type, char mode, int offset)
+{
+	if (ft_strcmp(type, "int") == 0)
+		if (mode == 'n')
+			return (ft_check_int_normal(tail, offset));
+		else if (mode == 'r')
+			return (ft_check_int_reverse(tail, offset));
+		else
+			ft_perror_exit("is_stack_sorted: invalid mode", 1); /// IMPROVE ERROR
+	else
+		ft_perror_exit("is_stack_sorted: invalid type", 1);  /// IMPROVE ERROR
+	return (false);
 }

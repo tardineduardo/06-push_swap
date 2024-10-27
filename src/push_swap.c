@@ -21,7 +21,7 @@ int	main(int argc, char *argv[])
 	stack_a = NULL;
 	stack_b = NULL;	
 	ft_init_stack(&stack_a, argc, argv);
-	int debug = open("watch.txt", O_WRONLY | O_TRUNC | O_CREAT, 0664);
-	close(debug);
-	return (0);
+
+	init_stack_debug(&stack_a);
+
 }
