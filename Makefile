@@ -1,14 +1,12 @@
-SRC = src/play.c
+SRC = src/push_swap.c \
 
-UTILS = src/ft_validate_args.c \
-		src/ft_init_stack.c \
-		src/play_print.c \
+UTILS = src/validate_args.c \
+		src/init_stack.c \
+		src/init_stack_debug.c \
 		src/moves/moves_sa_sb_ss.c \
 		src/moves/moves_ra_rb_rr.c \
 		src/moves/moves_rra_rrb_rrr.c \
 		src/moves/moves_pa_pb.c \
-		src/algo/is_sorted.c \
-
 
 OBJS_SRC = $(SRC:.c=.o) $(UTILS:.c=.o)
 
