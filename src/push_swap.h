@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 19:50:42 by eduribei          #+#    #+#             */
-/*   Updated: 2024/10/26 12:34:01 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/10/26 20:10:45 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,9 @@ void	rrb(t_dlist **tailb, int fd);
 void	rrr(t_dlist **taila, t_dlist **tailb, int fd);
 void	pa(t_dlist **src, t_dlist **dest, int fd);
 void	pb(t_dlist **src, t_dlist **dest, int fd);
+
+//algo
+bool is_stack_sorted(t_dlist **tail, char stack_a_or_b);
+bool is_circle_sorted(t_dlist **tail, char stack_a_or_b);
 
 #endif

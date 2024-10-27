@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 15:19:45 by eduribei          #+#    #+#             */
-/*   Updated: 2024/10/26 17:15:25 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/10/26 19:37:15 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,9 +76,8 @@ void	ft_init_stack(t_dlist **tail, int argc, char *argv[])
 	//DEBUG
 	t_dlist *lowest = ft_dclst_find_lowest_int(tail, offsetof(t_node, val));
 
-	ft_dprintf(1, "lowest value is %i", ((t_node *)(lowest->content))->val);
-	ft_dprintf(1, "lowest label is %i", ((t_node *)(lowest->content))->label);
-
+	ft_dprintf(1, "lowest label is %i\n", ((t_node *)(lowest->content))->label);
+	ft_dprintf(1, "lowest value is %i\n", ((t_node *)(lowest->content))->val);
 
 }
 

@@ -7,6 +7,7 @@ UTILS = src/ft_validate_args.c \
 		src/moves/moves_ra_rb_rr.c \
 		src/moves/moves_rra_rrb_rrr.c \
 		src/moves/moves_pa_pb.c \
+		src/algo/is_sorted.c \
 
 
 OBJS_SRC = $(SRC:.c=.o) $(UTILS:.c=.o)

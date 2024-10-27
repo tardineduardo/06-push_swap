@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 17:02:36 by eduribei          #+#    #+#             */
-/*   Updated: 2024/10/26 17:08:40 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/10/26 19:53:07 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -158,6 +158,7 @@ void	ft_dclstadd_back(t_dlist **tail, t_dlist *new);
 void	ft_dclstadd_front(t_dlist **tail, t_dlist *new);
 t_dlist	*ft_dclsttrav_to_next(t_dlist **tail, int index);
 t_dlist	*ft_dclst_find_lowest_int(t_dlist **tail, int offset);
+t_dlist *ft_dclst_find_highest_int(t_dlist **tail, int offset);
 
 // printf
 int	ft_printf(const char *input, ...);
