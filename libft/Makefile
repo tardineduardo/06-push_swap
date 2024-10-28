@@ -56,7 +56,8 @@ LISTS =	lists/slist/ft_lstadd_back.c \
 		lists/dclst/ft_dclst_find_highest_int.c \
 		lists/dclst/ft_dclst_is_circle_sorted.c \
 		lists/dclst/ft_dclst_is_list_sorted.c \
-
+		lists/dclst/ft_dclst_dist_from_head_len.c \
+		lists/dclst/ft_dclst_dist_from_head.c \
 
 MEM = 	mem/ft_bzero.c \
 		mem/ft_calloc.c \

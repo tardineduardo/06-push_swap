@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_init_stack.c                                    :+:      :+:    :+:   */
+/*   init_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 15:19:45 by eduribei          #+#    #+#             */
-/*   Updated: 2024/10/26 19:37:15 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/10/27 17:44:25 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	ft_assign_indexes_to_labels(t_dlist **tail)
+static void	ft_assign_indexes_to_labels(t_dll **tail)
 {
 	int		i;
 	int		j;
 	int		len;
 	int		*sorted_labels;
-	t_dlist	*trav;
+	t_dll	*trav;
 
 	len = ft_dclstsize(tail);
 	sorted_labels = malloc(len * sizeof(int));
@@ -30,7 +30,7 @@ static void	ft_assign_indexes_to_labels(t_dlist **tail)
 	while (i < len)
 	{
 		trav = trav->next;
-		sorted_labels[i] = ((t_node *)((trav)->content))->label;
+		sorted_labels[i] = ((t_nd *)((trav)->content))->label;
 		i++;
 	}
 	ft_sort_int_array_bubble(sorted_labels, len);
@@ -42,9 +42,9 @@ static void	ft_assign_indexes_to_labels(t_dlist **tail)
 		trav = trav->next;
 		while (j < len)
 		{
-			if (((t_node *)((trav)->content))->label == sorted_labels[j])
+			if (((t_nd *)((trav)->content))->label == sorted_labels[j])
 			{
-				((t_node *)((trav)->content))->val = j;
+				((t_nd *)((trav)->content))->val = j;
 				break ;
 			}
 			j++;
@@ -56,15 +56,15 @@ static void	ft_assign_indexes_to_labels(t_dlist **tail)
 
 }
 
-void	ft_init_stack(t_dlist **tail, int argc, char *argv[])
+void	ft_init_stack(t_dll **tail, int argc, char *argv[])
 {
 	int		a;
-	t_node	*node;
+	t_nd	*node;
 
 	a = 1;
 	while (a < argc)
 	{
-		node = malloc(sizeof(t_node));
+		node = malloc(sizeof(t_nd));
 			// protect ALL MALLOCS, INCLUDING NODES ALREADY ALLOCATED.
 		node->label = ft_atoi(argv[a]);
 		ft_dclstadd_back(tail, ft_dclstnew((void *)node));

@@ -6,18 +6,18 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 19:39:36 by eduribei          #+#    #+#             */
-/*   Updated: 2024/10/22 19:41:41 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/10/27 17:42:58 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../libft.h"
 
-int	ft_dclstsize(t_dlist **tail)
+int	ft_dclstsize(t_dll **tail)
 {
 	int		count_fwd;
-	int		count_bck;	
-	t_dlist	*trav_fwd;
-	t_dlist	*trav_bck;
+	int		count_bck;
+	t_dll	*trav_fwd;
+	t_dll	*trav_bck;
 
 	if (*tail == NULL)
 		return (0);
@@ -52,7 +52,7 @@ int	ft_dclstsize(t_dlist **tail)
 		return (count_fwd);
 	else
 	{
-			ft_dprintf(STDERR_FILENO, "\n! Possible error in doubly circular linked list:\ncircular list doesn't return to *tail.\n");
+		ft_dprintf(STDERR_FILENO, "\n! Possible error in doubly circular linked list:\n size fwd and bck don't match.\n");
 		return (-1);
 	}
 }

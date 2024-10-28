@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 17:02:36 by eduribei          #+#    #+#             */
-/*   Updated: 2024/10/26 19:53:07 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/10/27 17:42:58 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ typedef struct s_dlist
 	void			*content;
 	struct s_dlist	*next;
 	struct s_dlist	*prev;
-}				t_dlist;
+}				t_dll;
 
 // conversions
 int		ft_atoi(const char *nptr);
@@ -67,14 +67,14 @@ int		ft_toupper(int c);
 // debug
 void	ft_debug_print_array_of_strings(char **s, int fd);
 void	ft_debug_print_list(t_list **head, char *type, size_t offset);
-void	ft_debug_print_dclist(t_dlist **tail, char *type, size_t offset, int fd);
+void	ft_debug_print_dclist(t_dll **tail, char *type, size_t offset, int fd);
 void	ft_debug_print_arr_ints(int *a, int len, bool lnbk, bool idx, int fd);
 
 // errors
-void	ft_error_exit(char *message, int exit_number, int fd);
+void	ft_error_exit(char *message, int exit_number) __attribute__((noreturn));
 void	ft_perror_extra(char *extra_argument, char *normal_perror);
-void	ft_perror_exit(char *message, int exit_number);
-void	*ft_null_and_stderr(char *message);
+void	ft_perror_exit(char *message, int exit_number) __attribute__((noreturn));
+void	*ft_null_and_stderr(char *message); 
 
 // memory
 void	ft_bzero(void *s, size_t n);
@@ -152,15 +152,18 @@ void	ft_clstadd_front(t_list **tail, t_list *new);
 void	ft_clstadd_mid_wrap(t_list **tail, t_list *new, size_t pos);
 
 //lists - dclist
-t_dlist	*ft_dclstnew(void *content);
-int		ft_dclstsize(t_dlist **tail);
-void	ft_dclstadd_back(t_dlist **tail, t_dlist *new);
-void	ft_dclstadd_front(t_dlist **tail, t_dlist *new);
-t_dlist	*ft_dclsttrav_to_next(t_dlist **tail, int index);
-t_dlist	*ft_dclst_find_lowest_int(t_dlist **tail, int offset);
-t_dlist *ft_dclst_find_highest_int(t_dlist **tail, int offset);
-bool	ft_dclst_circ_sortd(t_dlist **tail, char *type, char mode, int offset);
-bool	ft_dclst_list_sortd(t_dlist **tail, char *type, char mode, int offset);
+t_dll	*ft_dclstnew(void *content);
+int		ft_dclstsize(t_dll **tail);
+void	ft_dclstadd_back(t_dll **tail, t_dll *new);
+void	ft_dclstadd_front(t_dll **tail, t_dll *new);
+t_dll	*ft_dclsttrav_to_next(t_dll **tail, int index);
+t_dll	*ft_dclst_find_lowest_int(t_dll **tail, int offset);
+t_dll *ft_dclst_find_highest_int(t_dll **tail, int offset);
+bool	ft_dclst_circ_sortd(t_dll **tail, char *type, char mode, int offset);
+bool	ft_dclst_list_sortd(t_dll **tail, char *type, char mode, int offset);
+int		ft_dclst_dist_from_head(t_dll **tail, t_dll *node);
+int		ft_dclst_dist_from_head_len(t_dll **tail, t_dll *node, int list_len);
+
 
 // printf
 int	ft_printf(const char *input, ...);

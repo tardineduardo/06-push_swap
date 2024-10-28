@@ -6,17 +6,17 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 20:55:08 by eduribei          #+#    #+#             */
-/*   Updated: 2024/10/26 20:55:42 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/10/27 17:42:58 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../libft.h"
 
-static bool ft_check_int_normal(t_dlist **tail, int offset)
+static bool ft_check_int_normal(t_dll **tail, int offset)
 {
 	int 	curr;
 	int		next;
-	t_dlist *trav;
+	t_dll *trav;
 	int		len;
 
 	len = ft_dclstsize(tail);
@@ -33,11 +33,11 @@ static bool ft_check_int_normal(t_dlist **tail, int offset)
 	return (true);
 }
 
-static bool ft_check_int_reverse(t_dlist **tail, int offset)
+static bool ft_check_int_reverse(t_dll **tail, int offset)
 {
 	int 	curr;
 	int		next;
-	t_dlist *trav;
+	t_dll *trav;
 	int		len;
 
 	len = ft_dclstsize(tail);
@@ -54,7 +54,7 @@ static bool ft_check_int_reverse(t_dlist **tail, int offset)
 	return (true);
 }
 
-bool ft_dclst_list_sortd(t_dlist **tail, char *type, char mode, int offset)
+bool ft_dclst_list_sortd(t_dll **tail, char *type, char mode, int offset)
 {
 	if (ft_strcmp(type, "int") == 0)
 		if (mode == 'n')

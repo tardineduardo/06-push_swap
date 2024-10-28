@@ -6,13 +6,13 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 19:23:18 by eduribei          #+#    #+#             */
-/*   Updated: 2024/10/23 17:06:51 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/10/27 17:42:58 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	rra(t_dlist **tail_a, int fd)
+void	rra(t_dll **tail_a, int fd)
 {
 	int	size;
 
@@ -23,7 +23,7 @@ void	rra(t_dlist **tail_a, int fd)
 	ft_dprintf(fd, "rra\n");
 }
 
-void	rrb(t_dlist **tail_b, int fd)
+void	rrb(t_dll **tail_b, int fd)
 {
 	int	size;
 
@@ -34,7 +34,7 @@ void	rrb(t_dlist **tail_b, int fd)
 	ft_dprintf(fd, "rrb\n");
 }
 
-void	rrr(t_dlist **tail_a, t_dlist **tail_b, int fd)
+void	rrr(t_dll **tail_a, t_dll **tail_b, int fd)
 {
 	int		size;
 	bool	a;

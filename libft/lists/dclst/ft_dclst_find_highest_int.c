@@ -6,31 +6,31 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 16:17:44 by eduribei          #+#    #+#             */
-/*   Updated: 2024/10/26 19:52:24 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/10/27 17:44:25 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../libft.h"
 
-t_dlist *ft_dclst_find_highest_int(t_dlist **tail, int offset)
+t_dll *ft_dclst_find_highest_int(t_dll **tail, int offset)
 {
-	t_dlist	*trav;
-	t_dlist	*highest_node;
+	t_dll	*trav;
+	t_dll	*highest_nd;
 	int		value;
 	int		highest_val;
 	int		len;
 
 	len = ft_dclstsize(tail);
 	trav = *tail;
-	highest_node = trav;
+	highest_nd = trav;
 	while(len > 0)
 	{	
 		value = *(int *)((char *)trav->content + offset);
-		highest_val = *(int *)((char *)highest_node->content + offset);
+		highest_val = *(int *)((char *)highest_nd->content + offset);
 		if (value > highest_val)
-			highest_node = trav;
+			highest_nd = trav;
 		trav = trav->next;
 		len--;
 	}
-	return (highest_node);
+	return (highest_nd);
 }

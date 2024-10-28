@@ -6,15 +6,15 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 19:23:04 by eduribei          #+#    #+#             */
-/*   Updated: 2024/10/23 15:58:19 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/10/27 17:42:58 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-static bool	swap(t_dlist **tail)
+static bool	swap(t_dll **tail)
 {
-	t_dlist	*temp;
+	t_dll	*temp;
 	int		size;
 
 	size = ft_dclstsize(tail);
@@ -37,19 +37,19 @@ static bool	swap(t_dlist **tail)
 	return (true);
 }
 
-void	sa(t_dlist **tail, int fd)
+void	sa(t_dll **tail, int fd)
 {
 	if (swap(tail))
 		ft_dprintf(fd, "sa\n");
 }
 
-void	sb(t_dlist **tail, int fd)
+void	sb(t_dll **tail, int fd)
 {
 	if (swap(tail))
 		ft_dprintf(fd, "sb\n");
 }
 
-void	ss(t_dlist **tail_a, t_dlist **tail_b, int fd)
+void	ss(t_dll **tail_a, t_dll **tail_b, int fd)
 {
 	bool	sa;
 	bool	sb;

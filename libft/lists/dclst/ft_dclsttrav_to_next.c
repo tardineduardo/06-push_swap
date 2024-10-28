@@ -6,17 +6,17 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 19:52:04 by eduribei          #+#    #+#             */
-/*   Updated: 2024/10/23 21:46:39 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/10/27 17:42:58 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../libft.h"
 
-t_dlist	*ft_dclsttrav_to_next(t_dlist **tail, int index)
+t_dll	*ft_dclsttrav_to_next(t_dll **tail, int index)
 {
 	int		i;
 	int		len;
-	t_dlist *trav;
+	t_dll *trav;
 
 	trav = *tail;
 	len = ft_dclstsize(tail);

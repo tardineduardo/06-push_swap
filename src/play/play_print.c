@@ -6,51 +6,51 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 19:41:34 by eduribei          #+#    #+#             */
-/*   Updated: 2024/10/26 12:32:03 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/10/27 21:01:31 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-void	put_a(t_dlist **a)
+void	put_a(t_dll **a)
 {
 	int i;
 	
-	i = ((t_node *)((*a)->content))->label;
+	i = ((t_nd *)((*a)->content))->val;
 	ft_printf(RED "\t\t\t\t+-------+\n" RESET);
 	ft_printf(RED "\t\t\t\t|\t" RESET "%i" RED "\t|\n" RESET, i);
 	ft_printf(RED "\t\t\t\t+-------+\n" RESET);
 }
 
-void	put_b(t_dlist **b)
+void	put_b(t_dll **b)
 {
 	int i;
 	
-	i = ((t_node *)((*b)->content))->label;
+	i = ((t_nd *)((*b)->content))->val;
 	ft_printf(YELLOW "\t\t\t\t\t\t\t+-------+\n" RESET);
 	ft_printf(YELLOW "\t\t\t\t\t\t\t|\t" RESET "%i" YELLOW "\t|\n" RESET, i);
 	ft_printf(YELLOW "\t\t\t\t\t\t\t+-------+\n" RESET);
 }
 
-void	put_ab(t_dlist **a, t_dlist **b)
+void	put_ab(t_dll **a, t_dll **b)
 {
 	int i;
 	int j;
 
-	i = ((t_node *)((*a)->content))->label;
-	j = ((t_node *)((*b)->content))->label;
+	i = ((t_nd *)((*a)->content))->val;
+	j = ((t_nd *)((*b)->content))->val;
 	ft_printf(RED "\t\t\t\t+-------+" YELLOW "\t+-------+\n" RESET);
 	ft_printf(RED "\t\t\t\t|\t" RESET "%i" RED "\t|" YELLOW "\t|\t" RESET "%i" YELLOW "\t|\n", i, j);
 	ft_printf(RED "\t\t\t\t+-------+" YELLOW "\t+-------+\n" RESET);
 }
 
-void	ft_play_print(t_dlist **a, t_dlist **b)
+void	ft_play_print(t_dll **a, t_dll **b)
 {
 	int height;
-	t_dlist *trav_a;
-	t_dlist *trav_b;
-	t_dlist *space_a;
-	t_dlist *space_b;
+	t_dll *trav_a;
+	t_dll *trav_b;
+	t_dll *space_a;
+	t_dll *space_b;
 
 	int	index_a;
 	int	index_b;
@@ -60,8 +60,7 @@ void	ft_play_print(t_dlist **a, t_dlist **b)
 
 	height = ft_dclstsize(a) + ft_dclstsize(b); 
 
-	ft_printf("\n");
-	ft_printf("\n");
+//	ft_printf("\n");
 	while (height > 0)
 	{
 		space_a = ft_dclsttrav_to_next(a, height - 1);
@@ -91,8 +90,6 @@ void	ft_play_print(t_dlist **a, t_dlist **b)
 	ft_printf("\t\t\t\t stack a\t stack b\n");
 
 
-	ft_printf("\n");
-	ft_printf("\n");
 	ft_printf("\n");
 
 }

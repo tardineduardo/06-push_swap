@@ -12,7 +12,7 @@
 
 #include "../push_swap.h"
 
-void	ra(t_dlist **tail, int fd)
+void	ra(t_dll **tail, int fd)
 {
 	int	size;
 
@@ -23,7 +23,7 @@ void	ra(t_dlist **tail, int fd)
 	ft_dprintf(fd, "ra\n");
 }
 
-void	rb(t_dlist **tail, int fd)
+void	rb(t_dll **tail, int fd)
 {
 	int	size;
 
@@ -34,7 +34,7 @@ void	rb(t_dlist **tail, int fd)
 	ft_dprintf(fd, "rb\n");
 }
 
-void	rr(t_dlist **tail_a, t_dlist **tail_b, int fd)
+void	rr(t_dll **tail_a, t_dll **tail_b, int fd)
 {
 	int		size;
 	bool	a;

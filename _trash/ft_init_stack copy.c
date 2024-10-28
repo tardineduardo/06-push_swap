@@ -6,16 +6,16 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 15:19:45 by eduribei          #+#    #+#             */
-/*   Updated: 2024/10/26 12:31:38 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/10/27 17:44:25 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void ft_init_stack1(t_dlist **stack, int argc, char *argv[])
+void ft_init_stack1(t_dll **stack, int argc, char *argv[])
 {
 	int		a;
-	t_node	*node;
+	t_nd	*node;
 
 	a = 1;
 
@@ -35,7 +35,7 @@ void ft_init_stack1(t_dlist **stack, int argc, char *argv[])
 	int b = 0;
 	while(a < argc)
 	{
-		node = malloc(sizeof(t_node));
+		node = malloc(sizeof(t_nd));
 			// protect
 		node->label = ft_atoi(argv[a]);
 		node->stringz = s[b];
@@ -45,10 +45,10 @@ void ft_init_stack1(t_dlist **stack, int argc, char *argv[])
 		b++;
 	}
 }
-void ft_init_stack2(t_dlist **stack, int argc, char *argv[])
+void ft_init_stack2(t_dll **stack, int argc, char *argv[])
 {
 	int		a;
-	t_node	*node;
+	t_nd	*node;
 
 	a = 1;
 
@@ -68,7 +68,7 @@ void ft_init_stack2(t_dlist **stack, int argc, char *argv[])
 	int b = 0;
 	while(a < 4)
 	{
-		node = malloc(sizeof(t_node));
+		node = malloc(sizeof(t_nd));
 			// protect
 		node->label = ft_atoi(argv[a]);
 		node->stringz = s[b];

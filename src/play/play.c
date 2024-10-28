@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 12:39:39 by eduribei          #+#    #+#             */
-/*   Updated: 2024/10/26 16:05:00 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/10/27 17:42:58 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 #define WHITE   "\033[37m"
 #define BRIGHT_GREEN "\033[92m"
 
-void move(char *cmd, t_dlist **a, t_dlist **b)
+void move(char *cmd, t_dll **a, t_dll **b)
 {
 	int moves = open("moves.txt", O_WRONLY | O_APPEND | O_CREAT, 0664);
 	if(ft_strcmp(cmd, "pa") == 0)
@@ -52,8 +52,8 @@ void move(char *cmd, t_dlist **a, t_dlist **b)
 
 int	main(int argc, char *argv[])
 {
-	t_dlist	*stacka;
-	t_dlist	*stackb;
+	t_dll	*stacka;
+	t_dll	*stackb;
 	// char	cmd[4];
 	// int		moves;
 

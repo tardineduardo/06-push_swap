@@ -7,13 +7,16 @@ UTILS = src/validate_args.c \
 		src/moves/moves_ra_rb_rr.c \
 		src/moves/moves_rra_rrb_rrr.c \
 		src/moves/moves_pa_pb.c \
+		src/algo/distribute_values.c \
+		src/algo/move_node_to_top.c	\
+		src/play/play_print.c \
 
 OBJS_SRC = $(SRC:.c=.o) $(UTILS:.c=.o)
 
 CC = cc
 RM = rm -f
-#CFLAGS = -Wall -Wextra -Werror
-CFLAGS = -g
+CFLAGS = -Wall -Wextra -Werror -g
+#CFLAGS = -g
 
 NAME = push_swap
 LIBFT_PATH = ./libft
