@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 19:41:34 by eduribei          #+#    #+#             */
-/*   Updated: 2024/10/27 21:01:31 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/10/28 15:43:49 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,17 +63,17 @@ void	ft_play_print(t_dll **a, t_dll **b)
 //	ft_printf("\n");
 	while (height > 0)
 	{
-		space_a = ft_dclsttrav_to_next(a, height - 1);
-		space_b = ft_dclsttrav_to_next(b, height - 1);
+		space_a = ft_dclsttrav_to_index(a, height - 1);
+		space_b = ft_dclsttrav_to_index(b, height - 1);
 
 		if (space_a)
 		{
-			trav_a = ft_dclsttrav_to_next(a, index_a);
+			trav_a = ft_dclsttrav_to_index(a, index_a);
 			index_a++;
 		}
 		if (space_b)
 		{
-			trav_b = ft_dclsttrav_to_next(b, index_b);
+			trav_b = ft_dclsttrav_to_index(b, index_b);
 			index_b++;
 		}
 		if (!space_a && !space_b)

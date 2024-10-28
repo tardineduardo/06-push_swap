@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_dclsttrav_to_next.c                             :+:      :+:    :+:   */
+/*   ft_dclsttrav_to_index.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,8 @@
 
 #include "../../libft.h"
 
-t_dll	*ft_dclsttrav_to_next(t_dll **tail, int index)
+// ADD REVERSE MODE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+t_dll	*ft_dclsttrav_to_index(t_dll **tail, int index)
 {
 	int		i;
 	int		len;

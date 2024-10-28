@@ -15,6 +15,7 @@ CONV =	conv/ft_atoi.c \
 		conv/ft_itoa.c \
 		conv/ft_tolower.c \
 		conv/ft_toupper.c \
+		conv/ft_abs.c \
 
 DEBUG =	debug/ft_debug_print_array_of_strings.c \
 		debug/ft_debug_print_array_of_ints.c \
@@ -51,7 +52,8 @@ LISTS =	lists/slist/ft_lstadd_back.c \
 		lists/dclst/ft_dclstadd_back.c \
 		lists/dclst/ft_dclstadd_front.c \
 		lists/dclst/ft_dclstnew.c \
-		lists/dclst/ft_dclsttrav_to_next.c \
+		lists/dclst/ft_dclsttrav_to_index.c \
+		lists/dclst/ft_dclsttrav_to_value.c \
 		lists/dclst/ft_dclst_find_lowest_int.c \
 		lists/dclst/ft_dclst_find_highest_int.c \
 		lists/dclst/ft_dclst_is_circle_sorted.c \

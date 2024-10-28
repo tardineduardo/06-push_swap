@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 17:02:36 by eduribei          #+#    #+#             */
-/*   Updated: 2024/10/27 17:42:58 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/10/28 20:12:50 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ long	ft_atol(const char *nptr);
 char	*ft_itoa(int n);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
+int		abs(int a);
 
 // debug
 void	ft_debug_print_array_of_strings(char **s, int fd);
@@ -156,9 +157,10 @@ t_dll	*ft_dclstnew(void *content);
 int		ft_dclstsize(t_dll **tail);
 void	ft_dclstadd_back(t_dll **tail, t_dll *new);
 void	ft_dclstadd_front(t_dll **tail, t_dll *new);
-t_dll	*ft_dclsttrav_to_next(t_dll **tail, int index);
+t_dll	*ft_dclsttrav_to_index(t_dll **tail, int index);
+t_dll	*ft_dclsttrav_to_value(t_dll **tail, int value, char mode, int offset);
 t_dll	*ft_dclst_find_lowest_int(t_dll **tail, int offset);
-t_dll *ft_dclst_find_highest_int(t_dll **tail, int offset);
+t_dll	*ft_dclst_find_highest_int(t_dll **tail, int offset);
 bool	ft_dclst_circ_sortd(t_dll **tail, char *type, char mode, int offset);
 bool	ft_dclst_list_sortd(t_dll **tail, char *type, char mode, int offset);
 int		ft_dclst_dist_from_head(t_dll **tail, t_dll *node);

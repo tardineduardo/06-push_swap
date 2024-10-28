@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 19:50:42 by eduribei          #+#    #+#             */
-/*   Updated: 2024/10/27 21:26:47 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/10/28 20:42:45 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,12 @@
 
 typedef struct s_node
 {
-	int			label;
-	int			val;
-	int			cost;
-}				t_nd;
+	int				label;
+	int				val;
+	size_t			cost;
+	struct s_node	*next;
+	struct s_node	*next;	
+}				t_stack;
 
 typedef struct s_info
 {
@@ -28,7 +30,7 @@ typedef struct s_info
 	int			b_len;
 	t_dll		**a_t;
 	t_dll		**b_t;
-}				t_stacks;
+}				t_stack_info;
 
 void	ft_validate_args(int argc, char *argv[]);
 void	ft_init_stack(t_dll **stack, int argc, char *argv[]);
@@ -47,7 +49,7 @@ void	pa(t_dll **src, t_dll **dest, int fd);
 void	pb(t_dll **src, t_dll **dest, int fd);
 
 
-void	distribute_values(t_dll **stack_a, t_dll **stack_b);
+void	solve(t_dll **stack_a, t_dll **stack_b);
 void	move_node_to_top(t_dll **stack, t_dll *node);
 void	ft_play_print(t_dll **a, t_dll **b);
 
