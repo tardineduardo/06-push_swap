@@ -19,6 +19,7 @@ typedef struct s_node
 {
 	int			label;
 	int			val;
+	int			cost;
 }				t_nd;
 
 typedef struct s_info
