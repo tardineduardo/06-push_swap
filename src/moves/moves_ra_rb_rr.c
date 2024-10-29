@@ -12,46 +12,37 @@
 
 #include "../push_swap.h"
 
-void	ra(t_dll **tail, int fd)
+void	ra(t_info *s, int fd)
 {
-	int	size;
-
-	size = ft_dclstsize(tail);
-	if (size == 0 || size == 1)
+	if (s->a_len == 0 || s->a_len == 1)
 		return ;
-	*tail = (*tail)->prev;
+	s->a = s->a->prev;
 	ft_dprintf(fd, "ra\n");
 }
 
-void	rb(t_dll **tail, int fd)
+void	rb(t_info *s, int fd)
 {
-	int	size;
-
-	size = ft_dclstsize(tail);
-	if (size == 0 || size == 1)
+	if (s->b_len == 0 || s->b_len == 1)
 		return ;
-	*tail = (*tail)->prev;
+	s->b = s->b->prev;
 	ft_dprintf(fd, "rb\n");
 }
 
-void	rr(t_dll **tail_a, t_dll **tail_b, int fd)
+void	rr(t_info *s, int fd)
 {
-	int		size;
 	bool	a;
 	bool	b;
 
 	a = false;
 	b = false;
-	size = ft_dclstsize(tail_a);
-	if (size > 1)
+	if (s->a_len > 1)
 	{
-		*tail_a = (*tail_a)->prev;
+		s->a = s->a->prev;
 		a = true;
 	}
-	size = ft_dclstsize(tail_b);
-	if (size > 1)
+	if (s->b_len > 1)
 	{
-		*tail_b = (*tail_b)->prev;
+		s->b = s->b->prev;
 		b = true;
 	}
 	if (a && b)

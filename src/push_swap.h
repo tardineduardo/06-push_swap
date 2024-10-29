@@ -27,20 +27,21 @@ void	ft_validate_args(int argc, char *argv[]);
 void	ft_init_stacks(t_info *s, int argc, char *argv[]);
 
 //moves
-void	ra(t_dll **tail_a, int fd);
-void	rb(t_dll **tail_b, int fd);
-void	rr(t_dll **tail_a, t_dll **tail_b, int fd);
-void	sa(t_dll **tail_a, int fd);
-void	sb(t_dll **tail_b, int fd);
-void	ss(t_dll **tail_a, t_dll **tail_b, int fd);
-void	rra(t_dll **tail_a, int fd);
-void	rrb(t_dll **tail_b, int fd);
-void	rrr(t_dll **tail_a, t_dll **tail_b, int fd);
-void	pa(t_dll **src, t_dll **dest, int fd);
-void	pb(t_dll **src, t_dll **dest, int fd);
+void	ra(t_info *s, int fd);
+void	rr(t_info *s, int fd);
+void	rb(t_info *s, int fd);
+void	sa(t_info *s, int fd);
+void	sb(t_info *s, int fd);
+void	ss(t_info *s, int fd);
+void	pa(t_info *s, int fd);
+void	pb(t_info *s, int fd);
+void	rra(t_info *s, int fd);
+void	rrb(t_info *s, int fd);
+void	rrr(t_info *s, int fd);
 
+void	ft_play(t_info *s);
 void	solve(t_dll **stack_a, t_dll **stack_b);
-void	move_node_to_top(t_dll **stack, t_dll *node);
+void	move_node_to_top(t_dll **stack, t_dll *node, t_info *s);
 void	ft_play_print(t_dll **a, t_dll **b);
 
 //debug

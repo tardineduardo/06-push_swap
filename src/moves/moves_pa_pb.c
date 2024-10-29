@@ -43,52 +43,50 @@ static void ft_push_multi_to_multi(t_dll **src, t_dll **dest)
 	temp->next->prev = temp;
 }
 
-void pa(t_dll **src, t_dll **dest, int fd)
+void pa(t_info *s, int fd)
 {
-	int		size_src;
-	int		size_dest;
-	
-	size_src = ft_dclstsize(src);
-	size_dest = ft_dclstsize(dest);
-	if (size_src == 0)
+	if (s->b_len == 0)
 		return;
-	else if (size_src == 1 && size_dest == 0)
+	else if (s->b_len == 1 && s->a_len == 0)
 	{
-		*dest = *src;
-		*src = NULL;
+		s->a = s->b;
+		s->b = NULL;
 		ft_dprintf(fd, "pa\n");
+		s->b_len--;
+		s->a_len++;
 		return;
 	}
-	else if (size_src > 1 && size_dest == 0)
-		ft_push_multi_to_empty(src, dest);
-	else if (size_src == 1 && size_dest >= 1)
-		ft_push_single_to_multi(src, dest);
-	else if (size_src >= 1 && size_dest >= 1)
-		ft_push_multi_to_multi(src, dest);
+	else if (s->b_len > 1 && s->a_len == 0)
+		ft_push_multi_to_empty(&(s->b), &(s->a));
+	else if (s->b_len == 1 && s->a_len >= 1)
+		ft_push_single_to_multi(&(s->b), &(s->a));
+	else if (s->b_len >= 1 && s->a_len >= 1)
+		ft_push_multi_to_multi(&(s->b), &(s->a));
 	ft_dprintf(fd, "pa\n");
+	s->b_len--;
+	s->a_len++;
 }
 
-void pb(t_dll **src, t_dll **dest, int fd)
+void pb(t_info *s, int fd)
 {
-	int		size_src;
-	int		size_dest;
-	
-	size_src = ft_dclstsize(src);
-	size_dest = ft_dclstsize(dest);
-	if (size_src == 0)
+	if (s->a_len == 0)
 		return;
-	else if (size_src == 1 && size_dest == 0)
+	else if (s->a_len == 1 && s->b_len == 0)
 	{
-		*dest = *src;
-		*src = NULL;
+		s->b = s->a;
+		s->a = NULL;
 		ft_dprintf(fd, "pb\n");
+		s->a_len--;
+		s->b_len++;
 		return;
 	}
-	else if (size_src > 1 && size_dest == 0)
-		ft_push_multi_to_empty(src, dest);
-	else if (size_src == 1 && size_dest >= 1)
-		ft_push_single_to_multi(src, dest);
-	else if (size_src >= 1 && size_dest >= 1)
-		ft_push_multi_to_multi(src, dest);
+	else if (s->a_len > 1 && s->b_len == 0)
+		ft_push_multi_to_empty(&(s->a), &(s->b));
+	else if (s->a_len == 1 && s->b_len >= 1)
+		ft_push_single_to_multi(&(s->a), &(s->b));
+	else if (s->a_len >= 1 && s->b_len >= 1)
+		ft_push_multi_to_multi(&(s->a), &(s->b));
 	ft_dprintf(fd, "pb\n");
+	s->a_len--;
+	s->b_len++;
 }

@@ -12,7 +12,7 @@
 
 #include "../push_swap.h"
 
-void	move_node_to_top(t_dll **stack, t_dll *node)
+void	move_node_to_top(t_dll **stack, t_dll *node, t_info *s)
 {
 	int distance;
 	
@@ -21,7 +21,7 @@ void	move_node_to_top(t_dll **stack, t_dll *node)
 	{
 		while (distance > 0)
 		{
-			ra(stack, 1);
+			ra(s, 1);
 			distance--;
 		}
 	}
@@ -29,7 +29,7 @@ void	move_node_to_top(t_dll **stack, t_dll *node)
 	{
 		while (distance < 0)
 		{
-			rra(stack, 1);
+			rra(s, 1);
 			distance++;
 		}
 	}

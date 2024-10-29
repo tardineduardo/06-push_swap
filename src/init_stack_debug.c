@@ -19,6 +19,12 @@ void init_stack_debug(t_info *s)
 	ft_dprintf(1, "Index values:\n");
 	ft_debug_print_dclist(&(s->a), "int", offsetof(t_dll, val), 1);
 
+	ft_dprintf(1, "Labels:\n");
+	ft_debug_print_dclist(&(s->b), "int", offsetof(t_dll, label), 1);
+	ft_dprintf(1, "Index values:\n");
+	ft_debug_print_dclist(&(s->b), "int", offsetof(t_dll, val), 1);
+
+
 	t_dll *lowest = ft_dclst_find_lowest_int(&(s->a), offsetof(t_dll, val));
 	ft_dprintf(1, "lowest label is %i\n", lowest->label);
 	ft_dprintf(1, "lowest value is %i\n\n", lowest->val);
@@ -53,5 +59,7 @@ void init_stack_debug(t_info *s)
 
 	ft_printf("\nthe distance from the lowest value to the head is: %i\n", distancelowest);
 	ft_printf("the distance from the highest value to the head is: %i\n", distancehighest);
+
+	
 
 }

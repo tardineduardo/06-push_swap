@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 #define RESET   "\033[0m"
 #define RED     "\033[31m"
@@ -22,60 +22,53 @@
 #define WHITE   "\033[37m"
 #define BRIGHT_GREEN "\033[92m"
 
-void move(char *cmd, t_dll **a, t_dll **b)
+void move(char *cmd, t_info *s)
 {
 	int moves = open("moves.txt", O_WRONLY | O_APPEND | O_CREAT, 0664);
 	if(ft_strcmp(cmd, "pa") == 0)
-		pa(b, a, moves);
+		pa(s, moves);
 	else if(ft_strcmp(cmd, "pb") == 0)
-		pb(a, b, moves);
+		pb(s, moves);
 	else if(ft_strcmp(cmd, "sa") == 0)
-		sa(a, moves);
+		sa(s, moves);
 	else if(ft_strcmp(cmd, "sb") == 0)
-		sb(b, moves);
+		sb(s, moves);
 	else if(ft_strcmp(cmd, "ss") == 0)
-		ss(a, b, moves);
+		ss(s, moves);
 	else if(ft_strcmp(cmd, "ra") == 0)
-		ra(a, moves);
+		ra(s, moves);
 	else if(ft_strcmp(cmd, "rb") == 0)
-		rb(b, moves);
+		rb(s, moves);
 	else if(ft_strcmp(cmd, "rr") == 0)
-		rr(a, b, moves);
+		rr(s, moves);
 	else if(ft_strcmp(cmd, "rra") == 0)
-		rra(a, moves);
+		rra(s, moves);
 	else if(ft_strcmp(cmd, "rrb") == 0)
-		rrb(b, moves);
+		rrb(s, moves);
 	else if(ft_strcmp(cmd, "rrr") == 0)
-		rrr(a, b, moves);
+		rrr(s, moves);
 	close(moves);
 }
 
-int	main(int argc, char *argv[])
+void	ft_play(t_info *s)
 {
-	t_dll	*stacka;
-	t_dll	*stackb;
-	// char	cmd[4];
-	// int		moves;
+	char	cmd[4];
+	int		moves;
 
 	//ft_validate_args(argc, argv);	
-	stacka = NULL;
-	stackb = NULL;
-	ft_init_stack(&stacka, argc, argv);
-	// cmd[0] = 0;
-	// moves = open("moves.txt", O_WRONLY | O_TRUNC | O_CREAT, 0664);
-	// close(moves);	
-	// while (ft_strcmp(cmd, "q") != 0)
-	// {
-	// 	//system("clear");
-	// 	ft_play_print(&stacka, &stackb);
-	// 	ft_printf("( " GREEN "pa pb " CYAN "sa sb ss " MAGENTA "ra rb rr " BRIGHT_GREEN "rra rrb rrr " RESET ") (\"q\" for quit)\n\n");
-	// 	ft_printf("type a command: ");
-	// 	scanf("%3s", cmd);
-	// 	move(cmd, &stacka, &stackb);
-	// 	fflush(stdin);
-	// 	//system("clear");
-	// }
 
-
-	return (0);
+	cmd[0] = 0;
+	moves = open("moves.txt", O_WRONLY | O_TRUNC | O_CREAT, 0664);
+	close(moves);	
+	while (ft_strcmp(cmd, "q") != 0)
+	{
+		system("clear");
+		ft_play_print(&(s->a), &(s->b));
+		ft_printf("( " GREEN "pa pb " CYAN "sa sb ss " MAGENTA "ra rb rr " BRIGHT_GREEN "rra rrb rrr " RESET ") (\"q\" for quit)\n\n");
+		ft_printf("type a command: ");
+		scanf("%3s", cmd);
+		move(cmd, s);
+		fflush(stdin);
+		system("clear");
+	}
 }

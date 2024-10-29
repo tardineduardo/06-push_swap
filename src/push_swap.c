@@ -22,7 +22,13 @@ int	main(int argc, char *argv[])
 
 	ft_init_stacks(s, argc, argv);
 
-	init_stack_debug(s);
+	ft_play(s);
+
+	// init_stack_debug(s);
+	// pb(s, 1);
+	// pb(s, 1);
+	// pb(s, 1);
+	// init_stack_debug(s);
 	
 	//solve(s);
 

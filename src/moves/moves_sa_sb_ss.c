@@ -37,28 +37,28 @@ static bool	swap(t_dll **tail)
 	return (true);
 }
 
-void	sa(t_dll **tail, int fd)
+void	sa(t_info *s, int fd)
 {
-	if (swap(tail))
+	if (swap(&(s->a)))
 		ft_dprintf(fd, "sa\n");
 }
 
-void	sb(t_dll **tail, int fd)
+void	sb(t_info *s, int fd)
 {
-	if (swap(tail))
+	if (swap(&(s->b)))
 		ft_dprintf(fd, "sb\n");
 }
 
-void	ss(t_dll **tail_a, t_dll **tail_b, int fd)
+void	ss(t_info *s, int fd)
 {
 	bool	sa;
 	bool	sb;
 
 	sa = false;
 	sb = false;
-	if (swap(tail_a))
+	if (swap(&(s->a)))
 		sa = true;
-	if (swap(tail_b))
+	if (swap(&(s->b)))
 		sb = true;
 	if (sa && sb)
 		ft_dprintf(fd, "ss\n");
