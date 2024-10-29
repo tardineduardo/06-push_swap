@@ -12,39 +12,36 @@
 
 #include "../push_swap.h"
 
-void	put_a(t_dll **a)
+static void	put_a(t_dll **a)
 {
-	int i;
-	
-	i = (*a)->val;
-	ft_printf(RED "\t\t\t\t+-------+\n" RESET);
-	ft_printf(RED "\t\t\t\t|\t" RESET "%i" RED "\t|\n" RESET, i);
-	ft_printf(RED "\t\t\t\t+-------+\n" RESET);
+	int i = (*a)->val;
+	int m = (*a)->cost;
+	ft_printf(RED "\t\t\t+-----------+\n" RESET);
+	ft_printf(RED "\t\t\t|\t" RESET "%i (%i)" RED "\t|\n" RESET, i, m);
+	ft_printf(RED "\t\t\t+-----------+\n" RESET);
 }
 
-void	put_b(t_dll **b)
+static void	put_b(t_dll **b)
 {
-	int i;
-	
-	i = (*b)->val;
-	ft_printf(YELLOW "\t\t\t\t\t\t\t+-------+\n" RESET);
-	ft_printf(YELLOW "\t\t\t\t\t\t\t|\t" RESET "%i" YELLOW "\t|\n" RESET, i);
-	ft_printf(YELLOW "\t\t\t\t\t\t\t+-------+\n" RESET);
+	int i = (*b)->val;
+	int n = (*b)->cost;
+	ft_printf(YELLOW "\t\t\t\t\t\t\t+-----------+\n" RESET);
+	ft_printf(YELLOW "\t\t\t\t\t\t\t|\t" RESET "%i (%i)" YELLOW "\t|\n" RESET, i, n);
+	ft_printf(YELLOW "\t\t\t\t\t\t\t+-----------+\n" RESET);
 }
 
-void	put_ab(t_dll **a, t_dll **b)
+static void	put_ab(t_dll **a, t_dll **b)
 {
-	int i;
-	int j;
-
-	i = (*a)->val;
-	j = (*b)->val;
-	ft_printf(RED "\t\t\t\t+-------+" YELLOW "\t+-------+\n" RESET);
-	ft_printf(RED "\t\t\t\t|\t" RESET "%i" RED "\t|" YELLOW "\t|\t" RESET "%i" YELLOW "\t|\n", i, j);
-	ft_printf(RED "\t\t\t\t+-------+" YELLOW "\t+-------+\n" RESET);
+	int i = (*a)->val;
+	int m = (*a)->cost;
+	int j = (*b)->val;
+	int n = (*b)->cost;
+	ft_printf(RED "\t\t\t+-----------+" YELLOW "\t+-----------+\n" RESET);
+	ft_printf(RED "\t\t\t|\t" RESET "%i (%i)" RED "\t|" YELLOW "\t|\t" RESET "%i (%i)" YELLOW "\t|\n", i, m, j, n);
+	ft_printf(RED "\t\t\t+-----------+" YELLOW "\t+-----------+\n" RESET);
 }
 
-void	ft_play_print(t_dll **a, t_dll **b)
+void	ft_play_print_values(t_dll **a, t_dll **b)
 {
 	int height;
 	t_dll *trav_a;
@@ -87,7 +84,7 @@ void	ft_play_print(t_dll **a, t_dll **b)
 	height--;
 	}
 	ft_printf("____________________________________________________\n");
-	ft_printf("\t\t\t\t stack a\t stack b\n");
+	ft_printf("\t\t\t   stack a\t\t   stack b\n");
 
 
 	ft_printf("\n");

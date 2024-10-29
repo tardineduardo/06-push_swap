@@ -33,4 +33,6 @@ int	main(int argc, char *argv[])
 	//solve(s);
 
 
+
+	free(s);
 }

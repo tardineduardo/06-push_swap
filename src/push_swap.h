@@ -42,7 +42,9 @@ void	rrr(t_info *s, int fd);
 void	ft_play(t_info *s);
 void	solve(t_dll **stack_a, t_dll **stack_b);
 void	move_node_to_top(t_dll **stack, t_dll *node, t_info *s);
-void	ft_play_print(t_dll **a, t_dll **b);
+void	ft_play_print_labels(t_dll **a, t_dll **b);
+void	ft_play_print_values(t_dll **a, t_dll **b);
+
 
 //debug
 void	init_stack_debug(t_info *s);

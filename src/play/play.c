@@ -63,7 +63,7 @@ void	ft_play(t_info *s)
 	while (ft_strcmp(cmd, "q") != 0)
 	{
 		system("clear");
-		ft_play_print(&(s->a), &(s->b));
+		ft_play_print_values(&(s->a), &(s->b));
 		ft_printf("( " GREEN "pa pb " CYAN "sa sb ss " MAGENTA "ra rb rr " BRIGHT_GREEN "rra rrb rrr " RESET ") (\"q\" for quit)\n\n");
 		ft_printf("type a command: ");
 		scanf("%3s", cmd);
