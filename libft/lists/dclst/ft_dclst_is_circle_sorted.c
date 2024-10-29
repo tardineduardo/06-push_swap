@@ -23,8 +23,8 @@ static bool ft_check_int_normal(t_dll **tail, int offset)
 	trav = ft_dclst_find_lowest_int(tail, offset);
 	while(len > 1)
 	{
-		curr = *(int *)((char *)trav->content + offset);
-		next = *(int *)((char *)trav->next->content + offset);
+		curr = *(int *)((char *)trav + offset);
+		next = *(int *)((char *)trav->next + offset);
 		if (curr > next)
 			return (false);
 		trav = trav->next;
@@ -44,8 +44,8 @@ static bool ft_check_int_reverse(t_dll **tail, int offset)
 	trav = ft_dclst_find_highest_int(tail, offset);
 	while(len > 1)
 	{
-		curr = *(int *)((char *)trav->content + offset);
-		next = *(int *)((char *)trav->next->content + offset);
+		curr = *(int *)((char *)trav + offset);
+		next = *(int *)((char *)trav->next + offset);
 		if (curr < next)
 			return (false);
 		trav = trav->next;
@@ -53,10 +53,10 @@ static bool ft_check_int_reverse(t_dll **tail, int offset)
 	}
 	return (true);
 }
-
-bool ft_dclst_circ_sortd(t_dll **tail, char *type, char mode, int offset)
+/* type i-int | modes n-normal, r-reverse | offssetof(struct, variable)*/
+bool ft_dclst_circ_sortd(t_dll **tail, char type, char mode, int offset)
 {
-	if (ft_strcmp(type, "int") == 0)
+	if (type == 'i')
 		if (mode == 'n')
 			return (ft_check_int_normal(tail, offset));
 		else if (mode == 'r')

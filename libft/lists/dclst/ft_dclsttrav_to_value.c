@@ -17,12 +17,12 @@ static t_dll	*ft_search_reverse(t_dll **tail, int value, int offset)
 	t_dll		*trav;
 
 	trav = (*tail);
-	if (*(int *)((char *)(trav->content + offset)) == value)
+	if (*(int *)((char *)(trav + offset)) == value)
 		return (trav);
 	trav = trav->prev;
 	while (trav != (*tail))
 	{
-		if (*(int *)((char *)(trav->content + offset)) == value)
+		if (*(int *)((char *)(trav + offset)) == value)
 			return (trav);
 		trav = trav->prev;
 	}
@@ -36,7 +36,7 @@ static t_dll	*ft_search_normal(t_dll **tail, int value, int offset)
 	trav = (*tail)->next;
 	while (trav != (*tail))
 	{
-		if (*(int *)((char *)(trav->content + offset)) == value)
+		if (*(int *)((char *)(trav + offset)) == value)
 			return (trav);
 		trav = trav->next;
 	}

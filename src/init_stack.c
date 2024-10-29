@@ -24,7 +24,6 @@ static void	ft_assign_indexes_to_labels(t_dll **tail)
 	sorted_labels = malloc(len * sizeof(int));
 	if (!sorted_labels)
 		ft_perror_exit("assinging indexes", errno);
-
 	trav = *tail;
 	i = 0;
 	while (i < len)
@@ -56,22 +55,27 @@ static void	ft_assign_indexes_to_labels(t_dll **tail)
 
 }
 
-void	ft_init_stack(t_dll **tail, int argc, char *argv[])
+void	ft_init_stacks(t_info *s, int argc, char *argv[])
 {
 	int		a;
 	t_dll	*new;
 
+	s->a = NULL;
+	s->b = NULL;
 	a = 1;
 	while (a < argc)
 	{
 		new = malloc(sizeof(t_dll));
 			// protect ALL MALLOCS, INCLUDING NODES ALREADY ALLOCATED.
+			// 
 		new->cost = -1;
 		new->label = ft_atoi(argv[a]);
 		new->next = new;
 		new->prev = new;
-		ft_dclstadd_back(tail, new);
+		ft_dclstadd_back(s->a, new);
 		a++;
 	}
-	ft_assign_indexes_to_labels(tail);
+	s->a_len = ft_dclstsize(s->a);
+	s->b_len = 0;
+	ft_assign_indexes_to_labels(s->a);
 }

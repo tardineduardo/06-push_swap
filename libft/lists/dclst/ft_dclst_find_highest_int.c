@@ -25,8 +25,8 @@ t_dll *ft_dclst_find_highest_int(t_dll **tail, int offset)
 	highest_nd = trav;
 	while(len > 0)
 	{	
-		value = *(int *)((char *)trav->content + offset);
-		highest_val = *(int *)((char *)highest_nd->content + offset);
+		value = *(int *)((char *)trav + offset);
+		highest_val = *(int *)((char *)highest_nd + offset);
 		if (value > highest_val)
 			highest_nd = trav;
 		trav = trav->next;

@@ -64,6 +64,7 @@ void	update_node_a_cost(t_dll *node, t_dll **t_a, t_dll **t_b)
 		if (value - 1 == (*t_b)->val)
 			cost_b = abs(ft_dclst_dist_from_head(t_b, node));
 		i++;
+		trav = trav->next;
 	}
 	node->cost = cost_a + cost_b + 1;
 }
@@ -94,6 +95,7 @@ void	update_node_b_cost(t_dll *node, t_dll **t_a, t_dll **t_b)
 		if (value + 1 == (*t_a)->val)
 			cost_a = abs(ft_dclst_dist_from_head(t_a, node));
 		i++;
+		trav = trav->next;
 	}
 	node->cost = cost_a + cost_b + 1;
 }
@@ -127,8 +129,8 @@ void	calculate_all_costs(t_dll **t_a, t_dll **t_b)
 
 void	solve(t_dll **t_a, t_dll **t_b)
 {
-	bool	a_is_csorted;
-	bool	b_is_csorted;
+	//bool	a_is_csorted;
+	//bool	b_is_csorted;
 
 	//ft_printf("INICIO\n");
 	//ft_play_print(t_a, t_b);
@@ -136,8 +138,8 @@ void	solve(t_dll **t_a, t_dll **t_b)
 	ft_debug_print_dclist(t_a, "int", offsetof(t_dll, val), 1);
 
 
-	a_is_csorted = false;
-	b_is_csorted = true;
+	//a_is_csorted = false;
+	//b_is_csorted = true;
 	//while (!(a_is_csorted && b_is_csorted))
 	int a = 0;
 	pb(t_a, t_b, 1);
@@ -149,8 +151,8 @@ void	solve(t_dll **t_a, t_dll **t_b)
 			calculate_all_costs(t_a, t_b);
 			ft_play_print(t_a, t_b);
 		}
-		a_is_csorted = ft_dclst_circ_sortd(t_a, "int", 'n', offsetof(t_dll, val));
-		b_is_csorted = ft_dclst_circ_sortd(t_b, "int", 'r', offsetof(t_dll, val));
+	//	a_is_csorted = ft_dclst_circ_sortd(t_a, "int", 'n', offsetof(t_dll, val));
+	//	b_is_csorted = ft_dclst_circ_sortd(t_b, "int", 'r', offsetof(t_dll, val));
 		ft_printf("a, val and cost");
 		ft_debug_print_dclist(t_a, "int", offsetof(t_dll, val), 1);
 		ft_debug_print_dclist(t_a, "int", offsetof(t_dll, cost), 1);

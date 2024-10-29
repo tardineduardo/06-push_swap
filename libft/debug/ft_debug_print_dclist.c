@@ -20,10 +20,10 @@ static int	ft_print_string(t_dll **tail, t_dll *trav, size_t offset, int fd)
 	trav = trav->next;
 	while (trav != *tail)
 	{
-        countlen += ft_dprintf(fd, "[ %s ] <--> ", *(char **)((char *)trav->content + offset));
+        countlen += ft_dprintf(fd, "[ %s ] <--> ", *(char **)((char *)trav + offset));
         trav = trav->next;
 	}
-	countlen += ft_dprintf(fd, "[ %s ]", *(char **)((char *)trav->content + offset));
+	countlen += ft_dprintf(fd, "[ %s ]", *(char **)((char *)trav + offset));
     ft_dprintf(fd, " <---- tail");
 	return (countlen);
 }
@@ -36,10 +36,10 @@ static int	ft_print_char(t_dll **tail, t_dll *trav, size_t offset, int fd)
 	trav = trav->next;
 	while (trav != *tail)
 	{
-        countlen += ft_dprintf(fd, "[ %c ] <--> ", *(char *)((char *)trav->content + offset));
+        countlen += ft_dprintf(fd, "[ %c ] <--> ", *(char *)((char *)trav + offset));
         trav = trav->next;
 	}
-	countlen += ft_dprintf(fd, "[ %c ]", *(char *)((char *)trav->content + offset));
+	countlen += ft_dprintf(fd, "[ %c ]", *(char *)((char *)trav + offset));
     ft_dprintf(fd, " <---- tail");
 	return (countlen);
 }
@@ -53,10 +53,10 @@ int	ft_print_int(t_dll **tail, t_dll *trav, size_t offset, int fd)
 	ft_dprintf(fd, "\n");
 	while (trav != *tail)
 	{
-        countlen += ft_dprintf(fd, "[ %d ] <--> ", *(int *)((char *)trav->content + offset));
+        countlen += ft_dprintf(fd, "[ %d ] <--> ", *(int *)((char *)trav + offset));
         trav = trav->next;
 	}
-	countlen += ft_dprintf(fd, "[ %d ]", *(int *)((char *)trav->content + offset));
+	countlen += ft_dprintf(fd, "[ %d ]", *(int *)((char *)trav + offset));
     ft_dprintf(fd, GREEN " <---- " RESET "tail");
 	return (countlen);
 }

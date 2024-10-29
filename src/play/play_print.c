@@ -16,7 +16,7 @@ void	put_a(t_dll **a)
 {
 	int i;
 	
-	i = ((t_nd *)((*a)->content))->val;
+	i = (*a)->val;
 	ft_printf(RED "\t\t\t\t+-------+\n" RESET);
 	ft_printf(RED "\t\t\t\t|\t" RESET "%i" RED "\t|\n" RESET, i);
 	ft_printf(RED "\t\t\t\t+-------+\n" RESET);
@@ -26,7 +26,7 @@ void	put_b(t_dll **b)
 {
 	int i;
 	
-	i = ((t_nd *)((*b)->content))->val;
+	i = (*b)->val;
 	ft_printf(YELLOW "\t\t\t\t\t\t\t+-------+\n" RESET);
 	ft_printf(YELLOW "\t\t\t\t\t\t\t|\t" RESET "%i" YELLOW "\t|\n" RESET, i);
 	ft_printf(YELLOW "\t\t\t\t\t\t\t+-------+\n" RESET);
@@ -37,8 +37,8 @@ void	put_ab(t_dll **a, t_dll **b)
 	int i;
 	int j;
 
-	i = ((t_nd *)((*a)->content))->val;
-	j = ((t_nd *)((*b)->content))->val;
+	i = (*a)->val;
+	j = (*b)->val;
 	ft_printf(RED "\t\t\t\t+-------+" YELLOW "\t+-------+\n" RESET);
 	ft_printf(RED "\t\t\t\t|\t" RESET "%i" RED "\t|" YELLOW "\t|\t" RESET "%i" YELLOW "\t|\n", i, j);
 	ft_printf(RED "\t\t\t\t+-------+" YELLOW "\t+-------+\n" RESET);

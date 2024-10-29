@@ -16,7 +16,7 @@ static void	ft_print_string(t_list *trav, size_t offset)
 {
 	while (trav != NULL)
 	{
-        ft_printf("[ %s ] -> ", *(char **)((char *)trav->content + offset));
+        ft_printf("[ %s ] -> ", *(char **)((char *)trav + offset));
         trav = trav->next;
     }
     ft_printf("NULL\n");
@@ -26,7 +26,7 @@ static void	ft_print_char(t_list *trav, size_t offset)
 {
 	while (trav != NULL)
 	{
-        ft_printf("[ %c ] -> ", *(char *)((char *)trav->content + offset));
+        ft_printf("[ %c ] -> ", *(char *)((char *)trav + offset));
         trav = trav->next;
     }
     ft_printf("NULL\n");
@@ -36,7 +36,7 @@ static void	ft_print_int(t_list *trav, size_t offset)
 {
 	while (trav != NULL)
 	{
-        ft_printf("[ %d ] -> ", *(int *)((char *)trav->content + offset));
+        ft_printf("[ %d ] -> ", *(int *)((char *)trav + offset));
         trav = trav->next;
     }
     ft_printf("NULL\n");

@@ -164,7 +164,7 @@ t_dll	*ft_dclsttrav_to_index(t_dll **tail, int index);
 t_dll	*ft_dclsttrav_to_value(t_dll **tail, int value, char mode, int offset);
 t_dll	*ft_dclst_find_lowest_int(t_dll **tail, int offset);
 t_dll	*ft_dclst_find_highest_int(t_dll **tail, int offset);
-bool	ft_dclst_circ_sortd(t_dll **tail, char *type, char mode, int offset);
+bool	ft_dclst_circ_sortd(t_dll **tail, char type, char mode, int offset);
 bool	ft_dclst_list_sortd(t_dll **tail, char *type, char mode, int offset);
 int		ft_dclst_dist_from_head(t_dll **tail, t_dll *node);
 int		ft_dclst_dist_from_head_len(t_dll **tail, t_dll *node, int list_len);

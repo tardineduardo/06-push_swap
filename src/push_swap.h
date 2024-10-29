@@ -17,14 +17,14 @@
 
 typedef struct s_info
 {
+	t_dll		**a;
+	t_dll		**b;
 	int			a_len;
 	int			b_len;
-	t_dll		**a_t;
-	t_dll		**b_t;
-}				t_stack_info;
+}				t_info;
 
 void	ft_validate_args(int argc, char *argv[]);
-void	ft_init_stack(t_dll **stack, int argc, char *argv[]);
+void	ft_init_stacks(t_info *s, int argc, char *argv[]);
 
 //moves
 void	ra(t_dll **tail_a, int fd);
@@ -44,7 +44,6 @@ void	move_node_to_top(t_dll **stack, t_dll *node);
 void	ft_play_print(t_dll **a, t_dll **b);
 
 //debug
-void init_stack_debug(t_dll **stack);
-
+void	init_stack_debug(t_info *s);
 
 #endif

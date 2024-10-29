@@ -23,8 +23,8 @@ static bool ft_check_int_normal(t_dll **tail, int offset)
 	trav = (*tail)->next;
 	while(len > 1)
 	{
-		curr = *(int *)((char *)trav->content + offset);
-		next = *(int *)((char *)trav->next->content + offset);
+		curr = *(int *)((char *)trav + offset);
+		next = *(int *)((char *)trav->next + offset);
 		if (curr > next)
 			return (false);
 		trav = trav->next;
@@ -44,8 +44,8 @@ static bool ft_check_int_reverse(t_dll **tail, int offset)
 	trav = (*tail)->next;
 	while(len > 1)
 	{
-		curr = *(int *)((char *)trav->content + offset);
-		next = *(int *)((char *)trav->next->content + offset);
+		curr = *(int *)((char *)trav + offset);
+		next = *(int *)((char *)trav->next + offset);
 		if (curr < next)
 			return (false);
 		trav = trav->next;

@@ -14,18 +14,17 @@
 
 int	main(int argc, char *argv[])
 {
-	t_dll *stack_a;
-	t_dll *stack_b;
+	t_info	*s;
+
+	s = malloc(sizeof(t_info));
 
 	//ft_validate_args(argc, argv);	
-	stack_a = NULL;
-	stack_b = NULL;
 
-	ft_init_stack(&stack_a, argc, argv);
+	ft_init_stacks(s, argc, argv);
 
-	init_stack_debug(&stack_a);
+	init_stack_debug(s);
 	
-	solve(&stack_a, &stack_b);
+	solve(s->a, s->a);
 
 
 }
