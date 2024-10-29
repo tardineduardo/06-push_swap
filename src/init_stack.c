@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 15:19:45 by eduribei          #+#    #+#             */
-/*   Updated: 2024/10/27 17:44:25 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/10/28 21:06:43 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static void	ft_assign_indexes_to_labels(t_dll **tail)
 	while (i < len)
 	{
 		trav = trav->next;
-		sorted_labels[i] = ((t_nd *)((trav)->content))->label;
+		sorted_labels[i] = trav->label;
 		i++;
 	}
 	ft_sort_int_array_bubble(sorted_labels, len);
@@ -42,9 +42,9 @@ static void	ft_assign_indexes_to_labels(t_dll **tail)
 		trav = trav->next;
 		while (j < len)
 		{
-			if (((t_nd *)((trav)->content))->label == sorted_labels[j])
+			if (trav->label == sorted_labels[j])
 			{
-				((t_nd *)((trav)->content))->val = j;
+				trav->val = j;
 				break ;
 			}
 			j++;
@@ -59,22 +59,19 @@ static void	ft_assign_indexes_to_labels(t_dll **tail)
 void	ft_init_stack(t_dll **tail, int argc, char *argv[])
 {
 	int		a;
-	t_nd	*node;
+	t_dll	*new;
 
 	a = 1;
 	while (a < argc)
 	{
-		node = malloc(sizeof(t_nd));
+		new = malloc(sizeof(t_dll));
 			// protect ALL MALLOCS, INCLUDING NODES ALREADY ALLOCATED.
-		node->label = ft_atoi(argv[a]);
-		ft_dclstadd_back(tail, ft_dclstnew((void *)node));
+		new->cost = -1;
+		new->label = ft_atoi(argv[a]);
+		new->next = new;
+		new->prev = new;
+		ft_dclstadd_back(tail, new);
 		a++;
 	}
 	ft_assign_indexes_to_labels(tail);
-
-
-
-
 }
-
-

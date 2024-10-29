@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 17:02:36 by eduribei          #+#    #+#             */
-/*   Updated: 2024/10/28 20:12:50 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/10/28 20:51:22 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,9 @@ typedef struct s_list
 
 typedef struct s_dlist
 {
+	int				label;
+	int				val;
+	size_t			cost;
 	void			*content;
 	struct s_dlist	*next;
 	struct s_dlist	*prev;
