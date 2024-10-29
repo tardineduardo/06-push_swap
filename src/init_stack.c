@@ -72,10 +72,10 @@ void	ft_init_stacks(t_info *s, int argc, char *argv[])
 		new->label = ft_atoi(argv[a]);
 		new->next = new;
 		new->prev = new;
-		ft_dclstadd_back(s->a, new);
+		ft_dclstadd_back(&(s->a), new);
 		a++;
 	}
-	s->a_len = ft_dclstsize(s->a);
+	s->a_len = ft_dclstsize(&(s->a));
 	s->b_len = 0;
-	ft_assign_indexes_to_labels(s->a);
+	ft_assign_indexes_to_labels(&(s->a));
 }

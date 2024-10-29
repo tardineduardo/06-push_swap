@@ -127,14 +127,14 @@ void	calculate_all_costs(t_dll **t_a, t_dll **t_b)
 	}
 }
 
-void	solve(t_dll **t_a, t_dll **t_b)
+void	solve(t_info *s)
 {
 	//bool	a_is_csorted;
 	//bool	b_is_csorted;
 
 	//ft_printf("INICIO\n");
 	//ft_play_print(t_a, t_b);
-	ft_debug_print_dclist(t_a, "int", offsetof(t_dll, label), 1);
+	ft_debug_print_dclist(s->a, "int", offsetof(t_dll, label), 1);
 	ft_debug_print_dclist(t_a, "int", offsetof(t_dll, val), 1);
 
 

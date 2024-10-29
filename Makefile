@@ -7,9 +7,9 @@ UTILS = src/validate_args.c \
 		src/moves/moves_ra_rb_rr.c \
 		src/moves/moves_rra_rrb_rrr.c \
 		src/moves/moves_pa_pb.c \
-		src/algo/solve.c \
 		src/algo/move_node_to_top.c	\
 		src/play/play_print.c \
+		#src/algo/solve.c \
 
 OBJS_SRC = $(SRC:.c=.o) $(UTILS:.c=.o)
 

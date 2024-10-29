@@ -24,7 +24,7 @@ int	main(int argc, char *argv[])
 
 	init_stack_debug(s);
 	
-	solve(s->a, s->a);
+	//solve(s);
 
 
 }

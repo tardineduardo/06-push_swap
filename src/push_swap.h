@@ -17,8 +17,8 @@
 
 typedef struct s_info
 {
-	t_dll		**a;
-	t_dll		**b;
+	t_dll		*a;
+	t_dll		*b;
 	int			a_len;
 	int			b_len;
 }				t_info;
