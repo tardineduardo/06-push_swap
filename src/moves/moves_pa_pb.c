@@ -63,6 +63,7 @@ void pa(t_info *s, int fd)
 	else if (s->b_len >= 1 && s->a_len >= 1)
 		ft_push_multi_to_multi(&(s->b), &(s->a));
 	ft_dprintf(fd, "pa\n");
+	s->debug_movecount++;
 	s->b_len--;
 	s->a_len++;
 }
@@ -87,6 +88,7 @@ void pb(t_info *s, int fd)
 	else if (s->a_len >= 1 && s->b_len >= 1)
 		ft_push_multi_to_multi(&(s->a), &(s->b));
 	ft_dprintf(fd, "pb\n");
+	s->debug_movecount++;
 	s->a_len--;
 	s->b_len++;
 }

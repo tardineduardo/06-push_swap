@@ -12,6 +12,8 @@
 
 #include "push_swap.h"
 
+int debug_movecount = 0;
+
 int	main(int argc, char *argv[])
 {
 	t_info	*s;
@@ -22,17 +24,19 @@ int	main(int argc, char *argv[])
 
 	ft_init_stacks(s, argc, argv);
 
-	ft_play(s);
+	//ft_play(s);
 
-	// init_stack_debug(s);
-	// pb(s, 1);
-	// pb(s, 1);
-	// pb(s, 1);
-	// init_stack_debug(s);
+	//init_stack_debug(s);
 	
-	//solve(s);
+	ft_play_print_values(&(s->a), &(s->b));
 
+	//even_nodes_per_stack(s);
 
+	ft_play_print_values(&(s->a), &(s->b));
 
-	free(s);
+	solve(s);
+
+	ft_play_print_values(&(s->a), &(s->b));
+
+	ft_printf("%i\n", s->debug_movecount);
 }

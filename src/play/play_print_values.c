@@ -14,7 +14,7 @@
 
 static void	put_a(t_dll **a)
 {
-	int i = (*a)->val;
+	int i = (*a)->value;
 	int m = (*a)->cost;
 	ft_printf(RED "\t\t\t+-----------+\n" RESET);
 	ft_printf(RED "\t\t\t|\t" RESET "%i (%i)" RED "\t|\n" RESET, i, m);
@@ -23,7 +23,7 @@ static void	put_a(t_dll **a)
 
 static void	put_b(t_dll **b)
 {
-	int i = (*b)->val;
+	int i = (*b)->value;
 	int n = (*b)->cost;
 	ft_printf(YELLOW "\t\t\t\t\t\t\t+-----------+\n" RESET);
 	ft_printf(YELLOW "\t\t\t\t\t\t\t|\t" RESET "%i (%i)" YELLOW "\t|\n" RESET, i, n);
@@ -32,9 +32,9 @@ static void	put_b(t_dll **b)
 
 static void	put_ab(t_dll **a, t_dll **b)
 {
-	int i = (*a)->val;
+	int i = (*a)->value;
 	int m = (*a)->cost;
-	int j = (*b)->val;
+	int j = (*b)->value;
 	int n = (*b)->cost;
 	ft_printf(RED "\t\t\t+-----------+" YELLOW "\t+-----------+\n" RESET);
 	ft_printf(RED "\t\t\t|\t" RESET "%i (%i)" RED "\t|" YELLOW "\t|\t" RESET "%i (%i)" YELLOW "\t|\n", i, m, j, n);

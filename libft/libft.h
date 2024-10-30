@@ -31,8 +31,8 @@
 #  define GNLBUFF 42
 # endif
 
-# ifndef MAXLISTDEBUG
-#  define MAXLISTDEBUG 10000000
+# ifndef MAXLISTLOOPS
+#  define MAXLISTLOOPS 1000000000
 # endif
 
 # define RESET   "\033[0m"
@@ -53,20 +53,22 @@ typedef struct s_list
 typedef struct s_dlist
 {
 	int				label;
-	int				val;
+	int				value;
 	size_t			cost;
 	void			*content;
 	struct s_dlist	*next;
 	struct s_dlist	*prev;
 }				t_dll;
 
-// conversions
+// conversions + comparisons
 int		ft_atoi(const char *nptr);
 long	ft_atol(const char *nptr);
 char	*ft_itoa(int n);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
 int		abs(int a);
+int		ft_i_lowest_of(int a, int b);
+
 
 // debug
 void	ft_debug_print_array_of_strings(char **s, int fd);
@@ -161,7 +163,7 @@ int		ft_dclstsize(t_dll **tail);
 void	ft_dclstadd_back(t_dll **tail, t_dll *new);
 void	ft_dclstadd_front(t_dll **tail, t_dll *new);
 t_dll	*ft_dclsttrav_to_index(t_dll **tail, int index);
-t_dll	*ft_dclsttrav_to_value(t_dll **tail, int value, char mode, int offset);
+t_dll	*ft_dclst_find_value(t_dll **tail, int value, int offset);
 t_dll	*ft_dclst_find_lowest_int(t_dll **tail, int offset);
 t_dll	*ft_dclst_find_highest_int(t_dll **tail, int offset);
 bool	ft_dclst_circ_sortd(t_dll **tail, char type, char mode, int offset);

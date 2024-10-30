@@ -31,5 +31,5 @@ int	ft_dclst_dist_from_head_len(t_dll **tail, t_dll *node, int list_len)
 		trav_fwd = trav_fwd->next;
 		trav_bck = trav_bck->prev;	
 	}
-	ft_perror_exit("Invalid parameters: can't find the head of the list", 1);
+	ft_perror_exit("Invalid parameters: can't find the head of the list.\n", 1);
 }

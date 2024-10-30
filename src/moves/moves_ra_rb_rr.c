@@ -18,6 +18,7 @@ void	ra(t_info *s, int fd)
 		return ;
 	s->a = s->a->prev;
 	ft_dprintf(fd, "ra\n");
+	s->debug_movecount++;
 }
 
 void	rb(t_info *s, int fd)
@@ -26,6 +27,7 @@ void	rb(t_info *s, int fd)
 		return ;
 	s->b = s->b->prev;
 	ft_dprintf(fd, "rb\n");
+	s->debug_movecount++;
 }
 
 void	rr(t_info *s, int fd)
@@ -45,10 +47,10 @@ void	rr(t_info *s, int fd)
 		s->b = s->b->prev;
 		b = true;
 	}
-	if (a && b)
-		ft_dprintf(fd, "rr\n");
-	else if (a && !b)
-		ft_dprintf(fd, "ra\n");
-	else if (!a && b)
-		ft_dprintf(fd, "rb\n");
+	if (a && b) {
+		ft_dprintf(fd, "rr\n"); s->debug_movecount++;}
+	else if (a && !b) {
+		ft_dprintf(fd, "ra\n"); s->debug_movecount++;}
+	else if (!a && b) {
+		ft_dprintf(fd, "rb\n"); s->debug_movecount++;}
 }

@@ -32,6 +32,7 @@ void	rra(t_info *s, int fd)
 		return ;
 	s->a = s->a->next;
 	ft_dprintf(fd, "rra\n");
+	s->debug_movecount++;
 }
 
 void	rrb(t_info *s, int fd)
@@ -40,6 +41,7 @@ void	rrb(t_info *s, int fd)
 		return ;
 	s->b = s->b->next;
 	ft_dprintf(fd, "rrb\n");
+	s->debug_movecount++;
 }
 
 void	rrr(t_info *s, int fd)
@@ -59,66 +61,10 @@ void	rrr(t_info *s, int fd)
 		s->b = s->b->next;
 		b = true;
 	}
-	if (a && b)
-		ft_dprintf(fd, "rrr\n");
-	else if (a && !b)
-		ft_dprintf(fd, "rra\n");
-	else if (!a && b)
-		ft_dprintf(fd, "rrb\n");
+	if (a && b) {
+		ft_dprintf(fd, "rrr\n"); s->debug_movecount++;}
+	else if (a && !b) {
+		ft_dprintf(fd, "rra\n"); s->debug_movecount++;}
+	else if (!a && b) {
+		ft_dprintf(fd, "rrb\n"); s->debug_movecount++;}
 }
-
-
-
-
-
-
-
-// void	rra(t_dll **tail_a, int fd)
-// {
-// 	int	size;
-
-// 	size = ft_dclstsize(tail_a);
-// 	if (size == 0 || size == 1)
-// 		return ;
-// 	*tail_a = (*tail_a)->next;
-// 	ft_dprintf(fd, "rra\n");
-// }
-
-// void	rrb(t_dll **tail_b, int fd)
-// {
-// 	int	size;
-
-// 	size = ft_dclstsize(tail_b);
-// 	if (size == 0 || size == 1)
-// 		return ;
-// 	*tail_b = (*tail_b)->next;
-// 	ft_dprintf(fd, "rrb\n");
-// }
-
-// void	rrr(t_dll **tail_a, t_dll **tail_b, int fd)
-// {
-// 	int		size;
-// 	bool	a;
-// 	bool	b;
-
-// 	a = false;
-// 	b = false;
-// 	size = ft_dclstsize(tail_a);
-// 	if (size > 1)
-// 	{
-// 		*tail_a = (*tail_a)->next;
-// 		a = true;
-// 	}
-// 	size = ft_dclstsize(tail_b);
-// 	if (size > 1)
-// 	{
-// 		*tail_b = (*tail_b)->next;
-// 		b = true;
-// 	}
-// 	if (a && b)
-// 		ft_dprintf(fd, "rrr\n");
-// 	else if (a && !b)
-// 		ft_dprintf(fd, "rra\n");
-// 	else if (!a && b)
-// 		ft_dprintf(fd, "rrb\n");
-// }

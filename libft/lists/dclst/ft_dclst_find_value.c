@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_dclsttrav_to_value.c                            :+:      :+:    :+:   */
+/*   ft_dclst_find_value.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,45 +12,38 @@
 
 #include "../../libft.h"
 
-static t_dll	*ft_search_reverse(t_dll **tail, int value, int offset)
+// needs testing!!!
+t_dll	*ft_dclst_find_value(t_dll **tail, int value, int offset)
 {
-	t_dll		*trav;
+	t_dll	*trav;
 
-	trav = (*tail);
-	if (*(int *)((char *)(trav + offset)) == value)
-		return (trav);
-	trav = trav->prev;
-	while (trav != (*tail))
-	{
-		if (*(int *)((char *)(trav + offset)) == value)
-			return (trav);
-		trav = trav->prev;
-	}
-	return (NULL);
-}
-
-static t_dll	*ft_search_normal(t_dll **tail, int value, int offset)
-{
-	t_dll		*trav;
-
+	if (!tail || !(*tail))
+		return (NULL);
 	trav = (*tail)->next;
-	while (trav != (*tail))
+	while (1)
 	{
-		if (*(int *)((char *)(trav + offset)) == value)
+		if (*(int *)((char *)trav + offset) == value)
 			return (trav);
 		trav = trav->next;
+		if (trav == (*tail)->next)
+			break ;
 	}
 	return (NULL);
 }
 
-//teste
-t_dll	*ft_dclsttrav_to_value(t_dll **tail, int value, char mode, int offset)
-{
-	if (mode == 'n')
-		return(ft_search_normal(tail, value, offset));
-	else if (mode == 'r')
-		return(ft_search_reverse(tail, value, offset));
-	else
-		ft_error_exit("Invalid mode. Use 'n' for normal, 'r' for reverse.\n", 1);
-	return (NULL);
-}
+// static t_dll	*ft_search_reverse(t_dll **tail, int value, int offset)
+// {
+// 	t_dll		*trav;
+
+// 	trav = (*tail);
+// 	if (*(int *)((char *)(trav + offset)) == value)
+// 		return (trav);
+// 	trav = trav->prev;
+// 	while (trav != (*tail))
+// 	{
+// 		if (*(int *)((char *)(trav + offset)) == value)
+// 			return (trav);
+// 		trav = trav->prev;
+// 	}
+// 	return (NULL);
+// }

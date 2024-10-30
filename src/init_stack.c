@@ -43,7 +43,7 @@ static void	ft_assign_indexes_to_labels(t_dll **tail)
 		{
 			if (trav->label == sorted_labels[j])
 			{
-				trav->val = j;
+				trav->value = j;
 				break ;
 			}
 			j++;
@@ -75,7 +75,10 @@ void	ft_init_stacks(t_info *s, int argc, char *argv[])
 		ft_dclstadd_back(&(s->a), new);
 		a++;
 	}
+	ft_assign_indexes_to_labels(&(s->a));	
 	s->a_len = ft_dclstsize(&(s->a));
 	s->b_len = 0;
-	ft_assign_indexes_to_labels(&(s->a));
+	s->a_is_csortd = ft_dclst_circ_sortd(&(s->a), 'i', 'i', offsetof(t_dll, value));
+	s->b_is_csortd = true;
+
 }

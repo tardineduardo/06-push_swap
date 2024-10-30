@@ -12,25 +12,32 @@
 
 #include "../../libft.h"
 
+// needs testing!!!
 t_dll *ft_dclst_find_highest_int(t_dll **tail, int offset)
 {
 	t_dll	*trav;
-	t_dll	*highest_nd;
+	t_dll	*highest_node;
 	int		value;
 	int		highest_val;
-	int		len;
+	size_t	safe_count;
 
-	len = ft_dclstsize(tail);
-	trav = *tail;
-	highest_nd = trav;
-	while(len > 0)
+	if (!tail || !(*tail))
+		return (NULL);
+	safe_count = 0;
+	trav = (*tail)->next;
+	highest_node = trav;
+	while(1)
 	{	
 		value = *(int *)((char *)trav + offset);
-		highest_val = *(int *)((char *)highest_nd + offset);
+		highest_val = *(int *)((char *)highest_node + offset);
 		if (value > highest_val)
-			highest_nd = trav;
+			highest_node = trav;
 		trav = trav->next;
-		len--;
+		safe_count++;
+		if (trav == (*tail)->next)
+			break ;
+		if (safe_count == MAXLISTLOOPS || (*tail)->next == NULL)
+			ft_error_exit("List not circular. Check list structure.\n", 1);
 	}
-	return (highest_nd);
+	return (highest_node);
 }

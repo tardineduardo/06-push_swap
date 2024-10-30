@@ -11,8 +11,12 @@ UTILS = src/validate_args.c \
 		src/play/play.c \
 		src/play/play_print_labels.c \
 		src/play/play_print_values.c \
-
-#src/algo/solve.c \
+		src/algo/solve.c \
+		src/algo/even_nodes_per_stack.c \
+		src/algo/find_lowest_cost.c \
+		src/algo/move_cheapest_node.c \
+		src/algo/repostion_dst_stack.c \
+		src/algo/update_sorted_status.c \
 
 OBJS_SRC = $(SRC:.c=.o) $(UTILS:.c=.o)
 
