@@ -6,6 +6,8 @@ int	ft_dclst_dist_head_unid(t_dll **tail, t_dll *nd, char mode)
 	int		llen;
 	t_dll	*trav;
 
+	if (!tail || !(*tail))
+		return (0);
 	i = 0;
 	trav = nd;
 	llen = ft_dclstsize(tail);

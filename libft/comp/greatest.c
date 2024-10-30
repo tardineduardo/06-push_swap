@@ -1,36 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   greatest.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/13 20:48:56 by eduribei          #+#    #+#             */
-/*   Updated: 2024/10/30 18:39:47 by eduribei         ###   ########.fr       */
+/*   Created: 2024/10/30 20:05:53 by eduribei          #+#    #+#             */
+/*   Updated: 2024/10/30 20:10:06 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../libft.h"
 
-int debug_movecount = 0;
-
-int	main(int argc, char *argv[])
+int greatest(int a, int b)
 {
-	t_info	*s;
-
-	s = malloc(sizeof(t_info));
-
-	//ft_validate_args(argc, argv);	
-
-	ft_init_stacks(s, argc, argv);
-
-	//ft_play(s);
-
-	init_stack_debug(s);
-	
-	//even_nodes_per_stack(s);
-
-	solve(s);
-
-	ft_printf("%i\n", s->debug_movecount);
+	if (a > b)
+		return (a);
+	else
+		return (b);
 }

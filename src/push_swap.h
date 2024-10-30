@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 19:50:42 by eduribei          #+#    #+#             */
-/*   Updated: 2024/10/28 20:54:26 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/10/30 18:18:27 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ typedef struct s_info
 
 void	ft_validate_args(int argc, char *argv[]);
 void	ft_init_stacks(t_info *s, int argc, char *argv[]);
+void	init_stack_debug(t_info *s);
+
 
 //moves
 void	ra(t_info *s, int fd);

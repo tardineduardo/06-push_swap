@@ -12,12 +12,14 @@
 
 #include "../../libft.h"
 
-int	ft_dclst_dist_from_head_muld_len(t_dll **tail, t_dll *node, int list_len)
+int	ft_dclst_dist_head_bidi_len(t_dll **tail, t_dll *node, int list_len)
 {
 	int		i;
 	t_dll	*trav_fwd;
 	t_dll	*trav_bck;
 
+	if (!tail || !(*tail))
+		return (0);
 	i = 0;
 	trav_fwd = node;
 	trav_bck = node;

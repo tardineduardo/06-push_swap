@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 17:02:36 by eduribei          #+#    #+#             */
-/*   Updated: 2024/10/30 17:39:04 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/10/30 20:06:47 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,8 @@ char	*ft_itoa(int n);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
 int		abs(int a);
-int		ft_i_lowest_of(int a, int b);
-
+int		lowest(int a, int b);
+int		greatest(int a, int b);
 
 // debug
 void	ft_debug_print_array_of_strings(char **s, int fd);

@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_dclst_dist_from_head_muld.c                     :+:      :+:    :+:   */
+/*   ft_dclst_dist_head_bidi.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 15:21:30 by eduribei          #+#    #+#             */
-/*   Updated: 2024/10/30 17:23:06 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/10/30 18:50:34 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../libft.h"
 
-int	ft_dclst_dist_from_head(t_dll **tail, t_dll *node)
+int	ft_dclst_dist_head_bidi(t_dll **tail, t_dll *node)
 {
 	int		i;
 	int		list_len;
 	t_dll	*trav_fwd;
 	t_dll	*trav_bck;
 
+	if (!tail || !(*tail))
+		return (0);
 	i = 0;
 	list_len = ft_dclstsize(tail);
 	if (list_len == -1)

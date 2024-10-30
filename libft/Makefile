@@ -16,7 +16,8 @@ CONV =	conv/ft_atoi.c \
 		conv/ft_tolower.c \
 		conv/ft_toupper.c \
 		conv/ft_abs.c \
-		comp/ft_i_lowest_of.c \
+		comp/lowest.c \
+		comp/greatest.c \
 
 DEBUG =	debug/ft_debug_print_array_of_strings.c \
 		debug/ft_debug_print_array_of_ints.c \
