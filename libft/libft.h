@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 17:02:36 by eduribei          #+#    #+#             */
-/*   Updated: 2024/10/28 20:51:22 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/10/30 17:39:04 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -168,8 +168,11 @@ t_dll	*ft_dclst_find_lowest_int(t_dll **tail, int offset);
 t_dll	*ft_dclst_find_highest_int(t_dll **tail, int offset);
 bool	ft_dclst_circ_sortd(t_dll **tail, char type, char mode, int offset);
 bool	ft_dclst_list_sortd(t_dll **tail, char *type, char mode, int offset);
-int		ft_dclst_dist_from_head(t_dll **tail, t_dll *node);
-int		ft_dclst_dist_from_head_len(t_dll **tail, t_dll *node, int list_len);
+int		ft_dclst_dist_head_bidi(t_dll **tail, t_dll *node);
+int		ft_dclst_dist_head_bidi_len(t_dll **tail, t_dll *node, int list_len);
+int		ft_dclst_dist_head_unid(t_dll **tail, t_dll *nd, char mode);
+int		ft_dclst_dist_head_unid_len(t_dll **tail, t_dll *nd, int llen, char mode);
+
 
 
 // printf

@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 14:26:00 by eduribei          #+#    #+#             */
-/*   Updated: 2024/10/27 19:23:37 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/10/30 17:25:22 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	move_node_b_to_top(t_info *s, t_dll *node)
 {
 	int distance;
 
-	distance = ft_dclst_dist_from_head(&(s->b), node);
+	distance = ft_dclst_dist_head_bidi(&(s->b), node);
 	if (distance >= 0)
 	{
 		while (distance > 0)
@@ -39,7 +39,7 @@ void	move_node_a_to_top(t_info *s, t_dll *node)
 {
 	int distance;
 
-	distance = ft_dclst_dist_from_head(&(s->a), node);
+	distance = ft_dclst_dist_head_bidi(&(s->a), node);
 	if (distance >= 0)
 	{
 		while (distance > 0)

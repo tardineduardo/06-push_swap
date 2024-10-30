@@ -17,6 +17,7 @@ UTILS = src/validate_args.c \
 		src/algo/move_cheapest_node.c \
 		src/algo/repostion_dst_stack.c \
 		src/algo/update_sorted_status.c \
+		src/algo/swapping_works.c \
 
 OBJS_SRC = $(SRC:.c=.o) $(UTILS:.c=.o)
 

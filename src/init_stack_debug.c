@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 20:48:56 by eduribei          #+#    #+#             */
-/*   Updated: 2024/10/28 21:05:06 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/10/30 17:25:22 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,8 @@ void init_stack_debug(t_info *s)
 	else
 		ft_printf("list is NOT list-sorted in reverse\n");
 
-	int distancelowest = ft_dclst_dist_from_head(&(s->a), lowest);
-	int distancehighest = ft_dclst_dist_from_head(&(s->a), highest);
+	int distancelowest = ft_dclst_dist_head_bidi(&(s->a), lowest);
+	int distancehighest = ft_dclst_dist_head_bidi(&(s->a), highest);
 
 	ft_printf("\nthe distance from the lowest value to the head is: %i\n", distancelowest);
 	ft_printf("the distance from the highest value to the head is: %i\n", distancehighest);

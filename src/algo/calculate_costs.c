@@ -1,9 +1,33 @@
 #include "../push_swap.h"
 
+/* */
+static void	calculate(t_dll *node, t_info *s, int vtfind)
+{
+	int		cost;
+	int		s_r_cost;
+	int		s_rr_cost;
+	int		d_r_cost;
+	int		d_rr_cost;
+	t_dll	*to_find;
 
-///// CALCULAR AQUI
+	to_find = ft_dclst_find_value(s->dst_stack, vtfind, offsetof(t_dll, value));
+	s_r_cost = ft_dclst_dist_head_unid(s->src_stack, node, 'f');
+	s_rr_cost = ft_dclst_dist_head_unid(s->src_stack, node, 'r');
+	d_r_cost = ft_dclst_dist_head_unid(s->dst_stack, to_find, 'f');
+	d_rr_cost = ft_dclst_dist_head_unid(s->dst_stack, to_find, 'r');
 
+	if (abs(s_r_cost - d_r_cost) > abs(s_rr_cost - d_rr_cost))
+	{
+		node->cost = abs(s_rr_cost - d_rr_cost) * -1;
+	}
+	else
+	{
+		node->cost = abs(s_r_cost - d_r_cost);
+	}
+}
 
+/* checks if a node shouldn't move in this round. 1) it's predecessor is the same stack. 2) it's next value
+is sorted for that stack (b is reverse).*/
 static void	lock_nodes(t_dll *node, t_info *s, int vtfind)
 {
 	t_dll	*adjacent;
@@ -27,6 +51,7 @@ static void	lock_nodes(t_dll *node, t_info *s, int vtfind)
 	}
 }
 
+/* sets what value needs to be found and which stacks are source and destination. */
 static void	set_parameters(char stack, t_dll *node, t_info *s)
 {
 	int value_to_find;
@@ -55,6 +80,7 @@ static void	set_parameters(char stack, t_dll *node, t_info *s)
 	lock_nodes(node, s, value_to_find);
 }
 
+/* calculates the cost of moving each node in both stacks */
 void	calculate_all_costs(t_info *s)
 {
 	t_dll	*trav;

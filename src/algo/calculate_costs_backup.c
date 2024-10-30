@@ -24,7 +24,7 @@ void	update_node_a_cost(t_dll *node, t_info *s)
 		return ;
 	}
 
-	cost_a = abs(ft_dclst_dist_from_head(&(s->a), node));
+	cost_a = abs(ft_dclst_dist_head_bidi(&(s->a), node));
 	
 	if (s->b_len == 0 || s->b_len == 1)
 		cost_b = 0;
@@ -35,7 +35,7 @@ void	update_node_a_cost(t_dll *node, t_info *s)
 	{
 		if (value_to_find == trav->value)
 		{
-			cost_b = abs(ft_dclst_dist_from_head(&(s->b), trav));
+			cost_b = abs(ft_dclst_dist_head_bidi(&(s->b), trav));
 			break ;
 		}
 		i++;
@@ -68,7 +68,7 @@ void	update_node_b_cost(t_dll *node, t_info *s)
 		return ;
 	}
 
-	cost_b = abs(ft_dclst_dist_from_head(&(s->b), node));
+	cost_b = abs(ft_dclst_dist_head_bidi(&(s->b), node));
 	
 	if (s->a_len == 0 || s->a_len == 1)
 		cost_b = 0;
@@ -79,7 +79,7 @@ void	update_node_b_cost(t_dll *node, t_info *s)
 	{
 		if (value_to_find == trav->value)
 		{
-			cost_a = abs(ft_dclst_dist_from_head(&(s->a), trav));
+			cost_a = abs(ft_dclst_dist_head_bidi(&(s->a), trav));
 			break ;
 		}
 		i++;
