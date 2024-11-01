@@ -8,17 +8,14 @@ UTILS = src/validate_args.c \
 		src/moves/moves_rra_rrb_rrr.c \
 		src/moves/moves_pa_pb.c \
 		src/algo/move_node_to_top.c	\
-		src/play/play.c \
-		src/play/play_print_labels.c \
-		src/play/play_print_values.c \
-		src/algo/solve.c \
-		src/algo/even_nodes_per_stack.c \
 		src/algo/find_lowest_cost.c \
 		src/algo/move_cheapest_node.c \
-		src/algo/repostion_dst_stack.c \
 		src/algo/update_sorted_status.c \
 		src/algo/swapping.c \
-		src/algo/calculate_all_costs.c \
+		src/algo/01_push_lower_values_to_b.c \
+		src/play/play_print_values.c
+
+#src/play/play_print_labels.c
 
 OBJS_SRC = $(SRC:.c=.o) $(UTILS:.c=.o)
 
