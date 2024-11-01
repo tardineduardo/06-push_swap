@@ -50,11 +50,24 @@ typedef struct s_list
 	struct s_list	*next;
 }				t_list;
 
+
+// NAO MUDAR ORDEM ROT - REV - OPO !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 typedef struct s_dlist
 {
 	int				label;
 	int				value;
 	int				cost;
+	int				cost_rot;
+	int				cost_rev;
+	int				cost_opo;
+	// int			cost_swp;
+	// int			cost_sam;
+	bool			move_rot;
+	bool			move_rev;
+	bool			move_opo;
+	char			opo_way_a;
+	// bool			move_swp;
+	// bool			move_sam;
 	void			*content;
 	struct s_dlist	*next;
 	struct s_dlist	*prev;
@@ -175,8 +188,7 @@ int		ft_dclst_dist_head_bidi(t_dll **tail, t_dll *node);
 int		ft_dclst_dist_head_bidi_len(t_dll **tail, t_dll *node, int list_len);
 int		ft_dclst_dist_head_unid(t_dll **tail, t_dll *nd, char mode);
 int		ft_dclst_dist_head_unid_len(t_dll **tail, t_dll *nd, int llen, char mode);
-
-
+t_dll	*ft_dclst_find_node(t_dll **tail, t_dll *node);
 
 // printf
 int	ft_printf(const char *input, ...);

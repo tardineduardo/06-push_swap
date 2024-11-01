@@ -14,26 +14,25 @@
 
 static bool ft_check_int_one_increment_r(t_dll **tail, int offset)
 {
-	int 	curr;
-	int		next;
-	t_dll *trav;
-	int		llen;
-	int		i;
+    int     curr;
+    int     next;
+    t_dll   *trav;
+    int     llen;
+    int     i;
 
-	llen = ft_dclstsize(tail);
-	trav = ft_dclst_find_lowest_int(tail, offset);
-	i = 0;
-	while(i < llen)
-	{
-		curr = *(int *)((char *)trav + offset);
-		next = *(int *)((char *)trav->next + offset);
-		if (curr != next + 1)
-			if (curr != llen - 1 && next != 0)
-				return (false);
-		trav = trav->next;
-		i++;
-	}
-	return (true);
+    llen = ft_dclstsize(tail);
+    trav = ft_dclst_find_lowest_int(tail, offset);
+    i = 0;
+    while (i < llen)
+    {
+        curr = *(int *)((char *)trav + offset);
+        next = *(int *)((char *)trav->next + offset);
+        if (curr != (next + 1) % llen)
+            return (false);
+        trav = trav->next;
+        i++;
+    }
+    return (true);
 }
 
 static bool ft_check_int_one_increment(t_dll **tail, int offset)

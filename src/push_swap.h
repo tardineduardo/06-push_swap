@@ -24,19 +24,26 @@ typedef struct s_info
 	int			t_len;
 	bool		a_csort;
 	bool		b_csort;
-	t_dll		*cheap_n;
-	t_dll		*cheap_s;
-	t_dll		*src_s;
 	t_dll		*dst_s;
 	char		dst_name;
-	char		src_name;
 	int			debug_movecount;
+	t_dll		*last_moved;
 }				t_info;
 
 
+//main
 void	ft_validate_args(int argc, char *argv[]);
 void	ft_init_stacks(t_info *s, int argc, char *argv[]);
-void	init_stack_debug(t_info *s);
+
+//algo
+void	calculate_all_costs(t_info *s);
+t_dll	*find_lowest_cost(t_dll **tail);
+bool	swapping_works(t_info *s);
+void	update_sorted_status(t_info *s);
+void	even_nodes_per_stack(t_info *s);
+void	move_node_to_top_source(t_info *s, t_dll *node);
+void	move_node_to_top_dest(t_info *s, t_dll *node);
+void	make_move(t_info *s);
 
 
 //moves
@@ -52,26 +59,12 @@ void	rra(t_info *s, int fd);
 void	rrb(t_info *s, int fd);
 void	rrr(t_info *s, int fd);
 
-void	ft_play(t_info *s);
-void	solve(t_info *s);
-void	even_nodes_per_stack(t_info *s);
-void	calculate_all_costs(t_info *s);
-void	find_lowest_cost(t_info *s);
-void	move_node_to_top_source(t_info *s, t_dll *node);
-void	move_node_to_top_dest(t_info *s, t_dll *node);
-void	move_cheap_n(t_info *s);
-void	repostion_dst_s(t_info *s, t_dll *node);
-void	ft_play_print_labels(t_dll **a, t_dll **b);
-void	ft_play_print_values(t_dll **a, t_dll **b);
-bool	swapping_works(t_info *s);
-void	update_sorted_status(t_info *s);
-bool all_locked(t_info *s);
-void push_lower_values_to_b(t_info *s);
-
-
-
-
 //debug
 void	init_stack_debug(t_info *s);
+
+//play
+void	ft_play(t_info *s);
+void	ft_play_print_labels(t_dll **a, t_dll **b);
+void	ft_play_print_values(t_dll **a, t_dll **b);
 
 #endif

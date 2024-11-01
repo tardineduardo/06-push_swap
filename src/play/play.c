@@ -62,14 +62,16 @@ void	ft_play(t_info *s)
 	close(moves);	
 	while (ft_strcmp(cmd, "q") != 0)
 	{
-		system("clear");
+		//system("clear");
+		ft_play_print_values(&(s->a), &(s->b));
 		calculate_all_costs(s);
-		//ft_play_print_values(&(s->a), &(s->b));
+		ft_play_print_values(&(s->a), &(s->b));
 		ft_printf("( " GREEN "pa pb " CYAN "sa sb ss " MAGENTA "ra rb rr " BRIGHT_GREEN "rra rrb rrr " RESET ") (\"q\" for quit)\n\n");
 		ft_printf("type a command: ");
 		scanf("%3s", cmd);
 		move(cmd, s);
 		fflush(stdin);
-		system("clear");
+		//system("clear");
 	}
 }
+////////////////////// OS VALORES PARECEM CERTOS. AGORA PRECISA ARRUMAR O TIPO DE MOVIMENTO.

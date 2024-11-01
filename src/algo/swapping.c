@@ -34,6 +34,6 @@ bool	swapping_works(t_info *s)
 		sa(s, 1);
 	else if (swap_b)
 		sb(s, 1);
-	update_sorted_status(s);
+	//update_sorted_status(s);
 	return (true);
 }

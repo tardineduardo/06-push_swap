@@ -49,11 +49,6 @@ static void	assign_adjacent_node(t_info *s)
 
 
 
-
-
-
-
-
 static void	assign_indexes_to_labels(t_dll **tail)
 {
 	int		i;
@@ -110,10 +105,18 @@ void	ft_init_stacks(t_info *s, int argc, char *argv[])
 		new = malloc(sizeof(t_dll));
 			// protect ALL MALLOCS, INCLUDING NODES ALREADY ALLOCATED.
 			// 
-		new->cost = -1;
+		new->cost = 998;
 		new->label = ft_atoi(argv[a]);
 		new->next = new;
 		new->prev = new;
+		new->cost_rev = 998;
+		new->cost_rot = 998;
+		new->cost_opo = 998;
+		new->move_rev = false;
+		new->move_rot = false;
+		new->move_opo = false;
+
+
 		ft_dclstadd_back(&(s->a), new);
 		a++;
 	}

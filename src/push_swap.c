@@ -14,7 +14,6 @@
 
 int debug_movecount = 0;
 
-
 int	main(int argc, char *argv[])
 {
 	t_info	*s;
@@ -22,12 +21,24 @@ int	main(int argc, char *argv[])
 	s = malloc(sizeof(t_info));
 	ft_validate_args(argc, argv);
 	ft_init_stacks(s, argc, argv);
-//	//ft_play_print_values(&(s->a), &(s->b));
-	push_lower_values_to_b(s);
-	//sort_highest_values(s);
-	//push_lower_values_to_a(s);
-
-
+	ft_play_print_values(&(s->a), &(s->b));
+	//	ft_play(s);
+	even_nodes_per_stack(s);
+	ft_play_print_values(&(s->a), &(s->b));
+	calculate_all_costs(s);
+	update_sorted_status(s);
+	while (1)
+	{
+		update_sorted_status(s);
+		calculate_all_costs(s);
+		ft_play_print_values(&(s->a), &(s->b));
+		make_move(s);
+		update_sorted_status(s);
+		if ((s->a_csort || s->b_csort) && ((s->b_len >= s->t_len /2) || (s->a_len >= s->t_len /2)))
+			break ;
+		//check_blocking_conditions
+	}
+	ft_play_print_values(&(s->a), &(s->b));
 	ft_printf("%i\n", s->debug_movecount);
 }
 

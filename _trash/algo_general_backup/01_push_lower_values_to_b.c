@@ -1,5 +1,37 @@
 #include "../push_swap.h"
 
+t_dll *find_position_in_a(t_info *s, t_dll *node)
+{
+    t_dll   *trav;
+	t_dll	*high;
+	t_dll	*low;
+	int		tlen;
+
+	tlen = s->t_len;
+    if (s->b_len == 0 || s->b_len == 1)
+        return (s->b);
+    high = ft_dclst_find_highest_int(&(s->a), offsetof(t_dll, value));
+    low = ft_dclst_find_lowest_int(&(s->a), offsetof(t_dll, value));
+    if (node->value == s->t_len - 1)
+        return (0);
+	else if (node->value > high->value || node->value < low->value)
+		return (high);
+	trav = s->a;
+	while (trav->next != s->a)
+    {
+		if (trav->value == 0)
+		{
+			if (node->value >= (s->t_len - 1) && node->value < trav->next->value) ///// TESTAR
+				break ;
+		}
+		else if (tlen - node->value > tlen - trav->value && tlen - node->value < tlen - trav->prev->value) //// TESTAR, SO TROQUEI VALEORES
+			break ;		
+		trav = trav->next;
+    }
+    return (trav);
+}
+
+
 t_dll *find_position_in_b(t_info *s, t_dll *node)
 {
     t_dll   *trav;
@@ -12,15 +44,12 @@ t_dll *find_position_in_b(t_info *s, t_dll *node)
         return (s->b);
     high = ft_dclst_find_highest_int(&(s->b), offsetof(t_dll, value));
     low = ft_dclst_find_lowest_int(&(s->b), offsetof(t_dll, value));
-
     if (node->value == 0)
         return (high);
-    else if (node->value == s->t_len)
-        return (low);
 	else if (node->value > high->value || node->value < low->value)
 		return (high);
-	trav = high;
-	while (trav->next != high)
+	trav = s->b;
+	while (trav->next != s->b)
     {
 		if (trav->value == 0)
 		{
@@ -33,10 +62,6 @@ t_dll *find_position_in_b(t_info *s, t_dll *node)
     }
     return (trav);
 }
-
-
-
-
 
 static void calculate_costs_in_a(t_info *s)
 {
