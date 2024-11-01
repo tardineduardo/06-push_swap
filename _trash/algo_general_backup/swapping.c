@@ -21,7 +21,7 @@ bool	swapping_works(t_info *s)
 	swap_b = false;
 
 	if (s->a != NULL)
-		if ((s->a->next->next->adjacent == s->a || s->a->adjacent == s->a->next->next))
+		if ((s->a)->next->value == (s->a)->next->next->value + 1)
 			swap_a = true;
 	if (s->b != NULL)
 		if ((s->b)->next->value == (s->b)->next->next->value - 1)
@@ -34,6 +34,5 @@ bool	swapping_works(t_info *s)
 		sa(s, 1);
 	else if (swap_b)
 		sb(s, 1);
-	update_sorted_status(s);
 	return (true);
 }

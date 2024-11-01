@@ -54,10 +54,11 @@ typedef struct s_dlist
 {
 	int				label;
 	int				value;
-	size_t			cost;
+	int				cost;
 	void			*content;
 	struct s_dlist	*next;
 	struct s_dlist	*prev;
+	struct s_dlist	*adjacent;
 }				t_dll;
 
 // conversions + comparisons
@@ -165,7 +166,9 @@ void	ft_dclstadd_front(t_dll **tail, t_dll *new);
 t_dll	*ft_dclsttrav_to_index(t_dll **tail, int index);
 t_dll	*ft_dclst_find_value(t_dll **tail, int value, int offset);
 t_dll	*ft_dclst_find_lowest_int(t_dll **tail, int offset);
+t_dll	*ft_dclst_find_lowest_abs(t_dll **tail, int offset);
 t_dll	*ft_dclst_find_highest_int(t_dll **tail, int offset);
+bool	ft_dclst_clock_sortd_len(t_dll **tail, char mode, int offset, int llen);
 bool	ft_dclst_circ_sortd(t_dll **tail, char type, char mode, int offset);
 bool	ft_dclst_list_sortd(t_dll **tail, char *type, char mode, int offset);
 int		ft_dclst_dist_head_bidi(t_dll **tail, t_dll *node);

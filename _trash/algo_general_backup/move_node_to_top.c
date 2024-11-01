@@ -22,7 +22,6 @@ void	move_node_b_to_top(t_info *s, t_dll *node)
 		while (distance > 0)
 		{
 			rb(s, 1);
-			//CHECK IF RR
 			distance--;
 		}
 	}
@@ -31,7 +30,6 @@ void	move_node_b_to_top(t_info *s, t_dll *node)
 		while (distance < 0)
 		{
 			rrb(s, 1);
-			//CHECK IF RR
 			distance++;
 		}
 	}
@@ -47,7 +45,6 @@ void	move_node_a_to_top(t_info *s, t_dll *node)
 		while (distance > 0)
 		{
 			ra(s, 1);
-			//CHECK IF RR
 			distance--;
 		}
 	}
@@ -56,7 +53,6 @@ void	move_node_a_to_top(t_info *s, t_dll *node)
 		while (distance < 0)
 		{
 			rra(s, 1);
-			//CHECK IF RRR
 			distance++;
 		}
 	}

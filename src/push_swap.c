@@ -14,23 +14,25 @@
 
 int debug_movecount = 0;
 
+
 int	main(int argc, char *argv[])
 {
 	t_info	*s;
 
 	s = malloc(sizeof(t_info));
-
-	//ft_validate_args(argc, argv);	
-
+	ft_validate_args(argc, argv);
 	ft_init_stacks(s, argc, argv);
+//	//ft_play_print_values(&(s->a), &(s->b));
+	push_lower_values_to_b(s);
+	//sort_highest_values(s);
+	//push_lower_values_to_a(s);
 
-	//ft_play(s);
-
-	init_stack_debug(s);
-	
-	//even_nodes_per_stack(s);
-
-	solve(s);
 
 	ft_printf("%i\n", s->debug_movecount);
 }
+
+
+
+
+
+	// ft_play(s);

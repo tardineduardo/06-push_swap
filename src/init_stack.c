@@ -12,7 +12,49 @@
 
 #include "push_swap.h"
 
-static void	ft_assign_indexes_to_labels(t_dll **tail)
+static void	assign_adjacent_node(t_info *s)
+{
+	t_dll *trav_a;
+	t_dll *trav_b;
+	int	a;
+	int b;
+	
+	a = 0;
+	trav_a = s->a;
+	trav_b = s->a->next;
+	while (a < s->a_len)
+	{
+		b = 0;
+		while (b < s->a_len)
+		{
+			if (trav_a->value != 0)
+			{
+				if (trav_a->value == trav_b->value + 1)
+					trav_a->adjacent = trav_b;
+				b++;
+				trav_b = trav_b->next;	
+			}
+			else
+			{
+				if (trav_b->value == s->a_len - 1)
+					trav_a->adjacent = trav_b;
+				b++;
+				trav_b = trav_b->next;	
+			}
+		}
+		trav_a = trav_a->next;
+		a++;
+	}
+}
+
+
+
+
+
+
+
+
+static void	assign_indexes_to_labels(t_dll **tail)
 {
 	int		i;
 	int		j;
@@ -75,10 +117,9 @@ void	ft_init_stacks(t_info *s, int argc, char *argv[])
 		ft_dclstadd_back(&(s->a), new);
 		a++;
 	}
-	ft_assign_indexes_to_labels(&(s->a));	
 	s->a_len = ft_dclstsize(&(s->a));
+	assign_indexes_to_labels(&(s->a));	
+	assign_adjacent_node(s);
 	s->b_len = 0;
-	s->a_is_csortd = ft_dclst_circ_sortd(&(s->a), 'i', 'i', offsetof(t_dll, value));
-	s->b_is_csortd = true;
-
+	s->t_len = s->a_len + s->b_len; 
 }

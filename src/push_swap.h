@@ -21,12 +21,13 @@ typedef struct s_info
 	t_dll		*b;
 	int			a_len;
 	int			b_len;
-	bool		a_is_csortd;
-	bool		b_is_csortd;
-	t_dll		*cheapest_node;
-	t_dll		*cheapest_stack;
-	t_dll		*src_stack;
-	t_dll		*dst_stack;	
+	int			t_len;
+	bool		a_csort;
+	bool		b_csort;
+	t_dll		*cheap_n;
+	t_dll		*cheap_s;
+	t_dll		*src_s;
+	t_dll		*dst_s;
 	char		dst_name;
 	char		src_name;
 	int			debug_movecount;
@@ -58,12 +59,15 @@ void	calculate_all_costs(t_info *s);
 void	find_lowest_cost(t_info *s);
 void	move_node_to_top_source(t_info *s, t_dll *node);
 void	move_node_to_top_dest(t_info *s, t_dll *node);
-void	move_cheapest_node(t_info *s);
-void	repostion_dst_stack(t_info *s, t_dll *node);
+void	move_cheap_n(t_info *s);
+void	repostion_dst_s(t_info *s, t_dll *node);
 void	ft_play_print_labels(t_dll **a, t_dll **b);
 void	ft_play_print_values(t_dll **a, t_dll **b);
 bool	swapping_works(t_info *s);
 void	update_sorted_status(t_info *s);
+bool all_locked(t_info *s);
+void push_lower_values_to_b(t_info *s);
+
 
 
 
