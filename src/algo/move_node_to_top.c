@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 14:26:00 by eduribei          #+#    #+#             */
-/*   Updated: 2024/10/30 17:25:22 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/11/01 21:18:20 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ void	move_node_b_to_top(t_info *s, t_dll *node)
 		while (distance > 0)
 		{
 			rb(s, 1);
-			//CHECK IF RR
+			if (distance > 3)
+				swapping_works(s);
 			distance--;
 		}
 	}
@@ -31,7 +32,8 @@ void	move_node_b_to_top(t_info *s, t_dll *node)
 		while (distance < 0)
 		{
 			rrb(s, 1);
-			//CHECK IF RR
+			if (distance > 3)
+				swapping_works(s);
 			distance++;
 		}
 	}
@@ -47,7 +49,8 @@ void	move_node_a_to_top(t_info *s, t_dll *node)
 		while (distance > 0)
 		{
 			ra(s, 1);
-			//CHECK IF RR
+			if (distance > 3)
+				swapping_works(s);
 			distance--;
 		}
 	}
@@ -56,7 +59,8 @@ void	move_node_a_to_top(t_info *s, t_dll *node)
 		while (distance < 0)
 		{
 			rra(s, 1);
-			//CHECK IF RRR
+			if (distance > 3)
+				swapping_works(s);
 			distance++;
 		}
 	}

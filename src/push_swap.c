@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 20:48:56 by eduribei          #+#    #+#             */
-/*   Updated: 2024/11/01 20:55:40 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/11/01 21:25:04 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	main(int argc, char *argv[])
 		//check_blocking_conditions
 	}
 
-
+	----- RESOLVER LOOP INFINITO COM SWAPPING
 
 	update_sorted_status(s);
 	calculate_all_costs(s);
@@ -49,7 +49,6 @@ int	main(int argc, char *argv[])
 	ft_printf("%i\n", s->debug_movecount);
 }
 
-// && ((s->b_len >= s->t_len /2) && (s->a_len > s->t_len /2))
 
 
 

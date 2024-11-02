@@ -8,14 +8,14 @@ static void move_opo(t_info *s, t_dll *lowest)
 		{
 			while (lowest != s->b->next)
 			{
-//				if (swapping_works(s))
-//					return ;
+				if (swapping_works(s))
+					return ;
 				rrb(s, 1);
 			}
 			while (lowest->adjacent != s->a)
 			{
-//				if (swapping_works(s))
-//					return ;
+				if (swapping_works(s))
+					return ;
 				ra(s, 1);
 			}
 			pa(s, 1);
@@ -24,14 +24,14 @@ static void move_opo(t_info *s, t_dll *lowest)
 		{
 			while (lowest != s->b->next)
 			{
-//				if (swapping_works(s))
-//					return ;
+				if (swapping_works(s))
+					return ;
 				rb(s, 1);
 			}
 			while (lowest->adjacent != s->a)
 			{
-//				if (swapping_works(s))
-//					return ;
+				if (swapping_works(s))
+					return ;
 				rra(s, 1);
 			}
 			pa(s, 1);
@@ -43,14 +43,14 @@ static void move_opo(t_info *s, t_dll *lowest)
 		{
 			while (lowest != s->a->next)
 			{
-//				if (swapping_works(s))
-//					return ;
+				if (swapping_works(s))
+					return ;
 				ra(s, 1);
 			}
 			while (lowest->adjacent != s->b->next)
 			{
-//				if (swapping_works(s))
-//					return ;
+				if (swapping_works(s))
+					return ;
 				rrb(s, 1);
 			}
 			pb(s, 1);
@@ -59,14 +59,14 @@ static void move_opo(t_info *s, t_dll *lowest)
 		{
 			while (lowest != s->a->next)
 			{
-//				if (swapping_works(s))
-//					return ;
+				if (swapping_works(s))
+					return ;
 				ra(s, 1);
 			}
 			while (lowest->adjacent != s->b->next)
 			{
-//				if (swapping_works(s))
-//					return ;
+				if (swapping_works(s))
+					return ;
 				rrb(s, 1);
 			}
 			pb(s, 1);
@@ -80,20 +80,20 @@ static void move_rev(t_info *s, t_dll *lowest)
 	{
 		while (lowest != s->b->next && lowest->adjacent != s->a)
 		{
-//			if (swapping_works(s))
-//				return ;			
+			if (swapping_works(s))
+				return ;
 			rrr(s, 1);
 		}
 		while (lowest != s->b->next)
 		{
-//			if (ing_works(s))
-//				return ;
+			if (swapping_works(s))
+				return ;
 			rrb(s, 1);
 		}
 		while (lowest->adjacent != s->a)
 		{
-//			if (ing_works(s))
-//				return ;
+			if (swapping_works(s))
+				return ;
 			rra(s, 1);
 		}
 		pa(s, 1);
@@ -102,20 +102,20 @@ static void move_rev(t_info *s, t_dll *lowest)
 	{
 		while (lowest != s->a->next && lowest->adjacent != s->b->next)
 		{
-//			if (ing_works(s))
-//				return ;
+			if (swapping_works(s))
+				return ;
 			rrr(s, 1);
 		}
 		while (lowest != s->a->next)
 		{
-//			if (ing_works(s))
-//				return ;
+			if (swapping_works(s))
+				return ;
 			rra(s, 1);
 		}
 		while (lowest->adjacent != s->b->next)
 		{
-//			if (ing_works(s))
-//				return ;
+			if (swapping_works(s))
+				return ;
 			rrb(s, 1);
 		}
 		pb(s, 1);
@@ -128,20 +128,20 @@ static void move_rot(t_info *s, t_dll *lowest)
 	{
 		while (lowest != s->b->next && lowest->adjacent != s->a)
 		{
-//			if (ing_works(s))
-//				return ;
+			if (swapping_works(s))
+				return ;
 			rr(s, 1);
 		}
 		while (lowest != s->b->next)
 		{
-//			if (ing_works(s))
-//				return ;
+			if (swapping_works(s))
+				return ;
 			rb(s, 1);
 		}
 		while (lowest->adjacent != s->a)
 		{
-//			if (ing_works(s))
-//				return ;
+			if (swapping_works(s))
+				return ;
 			ra(s, 1);
 		}
 		pa(s, 1);	
