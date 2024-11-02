@@ -15,6 +15,8 @@ UTILS = src/validate_args.c \
 		src/play/play.c \
 		src/algo/find_lowest_cost.c \
 		src/algo/make_move.c \
+		src/algo/all_locked.c \
+
 #src/algo/01_push_lower_values_to_b.c
 #src/algo/move_node_to_top.c
 

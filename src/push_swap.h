@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 19:50:42 by eduribei          #+#    #+#             */
-/*   Updated: 2024/10/30 18:18:27 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/11/01 22:10:36 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ void	even_nodes_per_stack(t_info *s);
 void	move_node_to_top_source(t_info *s, t_dll *node);
 void	move_node_to_top_dest(t_info *s, t_dll *node);
 void	make_move(t_info *s);
+bool	all_locked(t_info *s);
+
 
 
 //moves

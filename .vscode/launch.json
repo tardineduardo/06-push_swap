@@ -11,7 +11,7 @@
 			"program": "${workspaceFolder}/push_swap",
 //			"args": ["4", "3", "0", "1", "5"],
 
-			"args": ["10", "28", "63", "14", "62", "68"],
+			"args": ["55", "31", "80", "8", "32", "97", "81", "2", "43"],
 
 			"stopAtEntry": false,
 			"cwd": "${fileDirname}",
