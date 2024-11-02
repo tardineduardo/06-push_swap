@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 20:48:56 by eduribei          #+#    #+#             */
-/*   Updated: 2024/10/30 18:39:47 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/11/01 20:55:40 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,16 +33,23 @@ int	main(int argc, char *argv[])
 		calculate_all_costs(s);
 		ft_play_print_values(&(s->a), &(s->b));
 		make_move(s);
+		calculate_all_costs(s);
+		ft_play_print_values(&(s->a), &(s->b));
 		update_sorted_status(s);
-		if ((s->a_csort || s->b_csort) && ((s->b_len >= s->t_len /2) || (s->a_len >= s->t_len /2)))
+		if ((s->a_csort || s->b_csort))
 			break ;
 		//check_blocking_conditions
 	}
+
+
+
+	update_sorted_status(s);
+	calculate_all_costs(s);
 	ft_play_print_values(&(s->a), &(s->b));
 	ft_printf("%i\n", s->debug_movecount);
 }
 
-
+// && ((s->b_len >= s->t_len /2) && (s->a_len > s->t_len /2))
 
 
 

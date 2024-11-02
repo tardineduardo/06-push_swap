@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 16:17:44 by eduribei          #+#    #+#             */
-/*   Updated: 2024/10/27 17:44:25 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/11/01 18:53:06 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_dll *ft_dclst_find_highest_int(t_dll **tail, int offset)
 	if (!tail || !(*tail))
 		return (NULL);
 	safe_count = 0;
-	trav = (*tail)->next;
+	trav = *tail;
 	highest_node = trav;
 	while(1)
 	{	
@@ -34,9 +34,9 @@ t_dll *ft_dclst_find_highest_int(t_dll **tail, int offset)
 			highest_node = trav;
 		trav = trav->next;
 		safe_count++;
-		if (trav == (*tail)->next)
+		if (trav == *tail)
 			break ;
-		if (safe_count == MAXLISTLOOPS || (*tail)->next == NULL)
+		if (safe_count == MAXLISTLOOPS || trav == NULL)
 			ft_error_exit("List not circular. Check list structure.\n", 1);
 	}
 	return (highest_node);

@@ -65,7 +65,7 @@ LISTS =	lists/slist/ft_lstadd_back.c \
 		lists/dclst/ft_dclst_dist_head_bidi.c \
 		lists/dclst/ft_dclst_dist_head_unid_len.c \
 		lists/dclst/ft_dclst_dist_head_unid.c \
-		lists/dclst/ft_dclst_clock_sortd_len.c \
+		lists/dclst/ft_dclst_clock_sortd.c \
 		lists/dclst/ft_dclst_find_node.c \
 
 MEM = 	mem/ft_bzero.c \

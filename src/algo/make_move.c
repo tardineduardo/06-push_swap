@@ -149,23 +149,11 @@ static void move_rot(t_info *s, t_dll *lowest)
 	if (s->dst_name == 'b')
 	{
 		while (lowest != s->a->next && lowest->adjacent != s->b->next)
-		{
-//			if (ing_works(s))
-//				return ;
 			rr(s, 1);
-		}
 		while (lowest != s->a->next)
-		{
-//			if (ing_works(s))
-//				return ;
 			ra(s, 1);
-		}
 		while (lowest->adjacent != s->b->next)
-		{
-//			if (ing_works(s))
-//				return ;
 			rrb(s, 1);
-		}
 		pb(s, 1);
 	}
 
@@ -198,7 +186,7 @@ void	make_move(t_info *s)
 			lowst = lowst_a;
 			s->last_moved = lowst;
 		}
-		if (s->a_len < s->b_len)
+		if (s->a_len <= s->b_len)
 		{
 			s->dst_name = 'a';
 			lowst = lowst_b;
@@ -213,7 +201,7 @@ void	make_move(t_info *s)
 			lowst = lowst_a;
 			s->last_moved = lowst;
 		}
-		else if (lowst_a->cost > lowst_b->cost)
+		else
 		{	
 			s->dst_name = 'a';
 			lowst = lowst_b;
