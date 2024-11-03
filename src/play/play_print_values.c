@@ -90,5 +90,3 @@ void	ft_play_print_values(t_dll **a, t_dll **b)
 	ft_printf("\n");
 
 }
-
-

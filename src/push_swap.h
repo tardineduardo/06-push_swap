@@ -28,6 +28,7 @@ typedef struct s_info
 	char		dst_name;
 	int			debug_movecount;
 	t_dll		*last_moved;
+	bool		block_swap;	
 }				t_info;
 
 
@@ -36,6 +37,7 @@ void	ft_validate_args(int argc, char *argv[]);
 void	ft_init_stacks(t_info *s, int argc, char *argv[]);
 
 //algo
+void	push_lower_values_to_b(t_info *s);
 void	calculate_all_costs(t_info *s);
 t_dll	*find_lowest_cost(t_dll **tail);
 bool	swapping_works(t_info *s);
@@ -45,6 +47,15 @@ void	move_node_to_top_source(t_info *s, t_dll *node);
 void	move_node_to_top_dest(t_info *s, t_dll *node);
 void	make_move(t_info *s);
 bool	all_locked(t_info *s);
+
+//costs
+void	calculate_all_costs2(t_info *s);
+void	calculate_opo_costs2(t_info *s, char dest_stack);
+void	calculate_rev_costs2(t_info *s, char stack);
+void	calculate_rot_costs2(t_info *s, char dest_stack);
+void	calculate_sam_costs2(t_info *s, char stack);
+void	calculate_swp_costs2(t_info *s, char stack);
+
 
 
 
@@ -65,7 +76,6 @@ void	rrr(t_info *s, int fd);
 void	init_stack_debug(t_info *s);
 
 //play
-void	ft_play(t_info *s);
 void	ft_play_print_labels(t_dll **a, t_dll **b);
 void	ft_play_print_values(t_dll **a, t_dll **b);
 

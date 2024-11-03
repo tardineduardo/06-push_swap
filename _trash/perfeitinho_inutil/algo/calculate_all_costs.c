@@ -209,6 +209,7 @@ void	lock_all_stack(t_dll **tail)
 	}
 }
 
+
 static void	lock_sorted_nodes(t_info *s)
 {
 	t_dll	*trav;
@@ -250,7 +251,7 @@ static void	lock_sorted_nodes(t_info *s)
 	}
 }
 
-void	find(t_dll *node)
+void find(t_dll *node)
 {
 	int		*values;
 	bool	*moves;
@@ -263,7 +264,7 @@ void	find(t_dll *node)
 	moves = (bool *)((char *)node + offsetof(t_dll, move_rot));
 	i = 0;
 	lowest_i = i;
-	while (i < 3)  // Loop through the three values: values[0], values[1], values[2]
+	while (i < 2)  // Loop through the three values: values[0], values[1], values[2]
 	{
 		if (values[i + 1] < values[i] && values[i] != 998)
 			lowest_i = i + 1;
@@ -273,7 +274,7 @@ void	find(t_dll *node)
 	i = 0;
 	if (node->cost == 999)
 		return ;	
-	while(i < 4)
+	while(i < 3)
 	{
 		if (values[i] == values[lowest_i])
 			moves[i] = true;
@@ -349,57 +350,6 @@ void	reset_costs(t_info *s)
 	}
 }
 
-void	sam_cost(t_dll **tail, t_dll *node, char stack)
-{
-	int	dist_nd_head;
-	int dist_pr_head;
-
-	if(ft_dclst_find_node(tail, node->precedent) == NULL)
-	{
-		node->cost_sam = 999;
-		return;
-	}
-	dist_nd_head = ft_dclst_dist_head_bidi(tail, node);
-	if (stack == 'a')
-		dist_pr_head = ft_dclst_dist_head_bidi(tail, node->precedent->next);
-	else
-		dist_pr_head = ft_dclst_dist_head_bidi(tail, node->precedent);
-	node->cost_sam = abs(dist_nd_head) + abs(dist_pr_head - dist_nd_head) + 2;
-}
-
-void	calculate_sam_costs(t_info *s)
-{
-	t_dll	*trav;
-	int		i;
-	if (s->a)
-	{
-		i = 0;
-		trav = s->a;
-		while (i < s->a_len)
-		{
-			if (trav->cost != 999)
-				sam_cost(&(s->a), trav, 'a');
-			trav = trav->next;
-			i++;
-		}
-	}
-	if (s->b)
-	{
-		i = 0;
-		trav = s->b;
-		while (i < s->b_len)
-		{
-			if (trav->cost != 999)
-				sam_cost(&(s->b), trav, 'b');
-			trav = trav->next;
-			i++;
-		}
-	}
-}
-
-
-
-
 
 void	calculate_all_costs(t_info *s)
 {
@@ -408,8 +358,8 @@ void	calculate_all_costs(t_info *s)
 	calculate_rot_costs(s);
 	calculate_rev_costs(s);
 	calculate_opo_costs(s);
-	calculate_sam_costs(s);
 	find_lowest_and_set_move(s);
 }
 
 
+//////////////////// AS CONTAS DE B------>A não estão batendo. tem algum erro. 

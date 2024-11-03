@@ -12,7 +12,43 @@
 
 #include "push_swap.h"
 
-static void	assign_adjacent_node(t_info *s)
+static void	assign_procedent_node(t_info *s)
+{
+	t_dll *trav_a;
+	t_dll *trav_b;
+	int	a;
+	int b;
+	
+	a = 0;
+	trav_a = s->a;
+	trav_b = s->a->prev;
+	while (a < s->a_len)
+	{
+		b = 0;
+		while (b < s->a_len)
+		{
+			if (trav_a->value != s->a_len - 1)
+			{
+				if (trav_a->value == trav_b->value - 1)
+					trav_a->procedent = trav_b;
+				b++;
+				trav_b = trav_b->prev;
+			}
+			else
+			{
+				if (trav_b->value == 0)
+					trav_a->procedent = trav_b;
+				b++;
+				trav_b = trav_b->prev;	
+			}
+		}
+		trav_a = trav_a->prev;
+		a++;
+	}
+}
+
+
+static void	assign_precedent_node(t_info *s)
 {
 	t_dll *trav_a;
 	t_dll *trav_b;
@@ -30,14 +66,14 @@ static void	assign_adjacent_node(t_info *s)
 			if (trav_a->value != 0)
 			{
 				if (trav_a->value == trav_b->value + 1)
-					trav_a->adjacent = trav_b;
+					trav_a->precedent = trav_b;
 				b++;
 				trav_b = trav_b->next;	
 			}
 			else
 			{
 				if (trav_b->value == s->a_len - 1)
-					trav_a->adjacent = trav_b;
+					trav_a->precedent = trav_b;
 				b++;
 				trav_b = trav_b->next;	
 			}
@@ -110,11 +146,15 @@ void	ft_init_stacks(t_info *s, int argc, char *argv[])
 		new->next = new;
 		new->prev = new;
 		new->cost_rev = 998;
+		new->cost_sam = 998;
+		new->cost_swp = 998;
 		new->cost_rot = 998;
 		new->cost_opo = 998;
 		new->move_rev = false;
 		new->move_rot = false;
 		new->move_opo = false;
+		new->move_sam = false;
+		new->move_swp = false;		
 
 
 		ft_dclstadd_back(&(s->a), new);
@@ -122,7 +162,8 @@ void	ft_init_stacks(t_info *s, int argc, char *argv[])
 	}
 	s->a_len = ft_dclstsize(&(s->a));
 	assign_indexes_to_labels(&(s->a));	
-	assign_adjacent_node(s);
+	assign_precedent_node(s);
+	assign_procedent_node(s);
 	s->b_len = 0;
 	s->t_len = s->a_len + s->b_len; 
 }

@@ -18,36 +18,50 @@ int	main(int argc, char *argv[])
 {
 	t_info	*s;
 
+
+	int	file = open("analysis.txt", O_WRONLY | O_CREAT | O_TRUNC, 0644);
+	close(file);
+
 	s = malloc(sizeof(t_info));
 	ft_validate_args(argc, argv);
 	ft_init_stacks(s, argc, argv);
-//	ft_play_print_values(&(s->a), &(s->b));
+	//	ft_play_print_values(&(s->a), &(s->b));
 	//	ft_play(s);
+	//push_lower_values_to_b(s);
 	even_nodes_per_stack(s);
-//	ft_play_print_values(&(s->a), &(s->b));
-	calculate_all_costs(s);
-	update_sorted_status(s);
+	//ft_play_print_values(&(s->a), &(s->b));
+	//	push_lower_values_to_b(s);
 	while (1)
 	{
 		update_sorted_status(s);
-		calculate_all_costs(s);
-//		ft_play_print_values(&(s->a), &(s->b));
+		calculate_all_costs2(s);
+		ft_play_print_values(&(s->a), &(s->b));
 		make_move(s);
-		calculate_all_costs(s);
-//		ft_play_print_values(&(s->a), &(s->b));
+	//	calculate_all_costs2(s);
+	//	ft_play_print_values(&(s->a), &(s->b));
 		update_sorted_status(s);
-		if ((s->a_csort || s->b_csort))
+		if ((s->a_csort))
+			break ;
+		if ((s->b_csort))
 			break ;
 		if (all_locked(s))
-			even_nodes_per_stack(s);
+			break ;
 	}
+	//ft_play_print_values(&(s->a), &(s->b));
+
+		// if ((s->a_csort))
+		// 	ft_printf("a sorted\n");
+
+		// if ((s->b_csort))
+		// 	ft_printf("b sorted\n");
+
+		// if (all_locked(s))
+		// 	ft_printf("all locked\n");
 
 
-	update_sorted_status(s);
-	calculate_all_costs(s);
-	ft_play_print_values(&(s->a), &(s->b));
-	ft_printf("%i\n", s->debug_movecount);
-	}
+
+ft_printf("%i\n", s->debug_movecount);
+}
 
 
 

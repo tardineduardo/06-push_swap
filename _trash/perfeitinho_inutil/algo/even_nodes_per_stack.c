@@ -3,7 +3,7 @@
 void	even_nodes_per_stack(t_info *s)
 {
 	int	half;
-	half = (s->a_len / 2);
+	half = (s->a_len / 3);
 
 	if (s->a_len > s->b_len)
 	{

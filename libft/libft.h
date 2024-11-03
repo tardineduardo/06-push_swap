@@ -57,21 +57,22 @@ typedef struct s_dlist
 	int				label;
 	int				value;
 	int				cost;
+	int				cost_sam;
+	int				cost_swp;
 	int				cost_rot;
 	int				cost_rev;
 	int				cost_opo;
-	// int			cost_swp;
-	// int			cost_sam;
+	bool			move_sam;
+	bool			move_swp;
 	bool			move_rot;
 	bool			move_rev;
 	bool			move_opo;
 	char			opo_way_a;
-	// bool			move_swp;
-	// bool			move_sam;
 	void			*content;
 	struct s_dlist	*next;
 	struct s_dlist	*prev;
-	struct s_dlist	*adjacent;
+	struct s_dlist	*precedent;
+	struct s_dlist	*procedent;
 }				t_dll;
 
 // conversions + comparisons

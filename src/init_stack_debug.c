@@ -24,7 +24,6 @@ void init_stack_debug(t_info *s)
 	ft_dprintf(1, "Index values:\n");
 	ft_debug_print_dclist(&(s->b), "int", offsetof(t_dll, value), 1);
 
-
 	t_dll *lowest = ft_dclst_find_lowest_int(&(s->a), offsetof(t_dll, value));
 	ft_dprintf(1, "lowest label is %i\n", lowest->label);
 	ft_dprintf(1, "lowest value is %i\n\n", lowest->value);
