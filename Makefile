@@ -12,9 +12,9 @@ ALGO = 	src/algo/even_nodes_per_stack.c \
 		src/algo/find_lowest_cost.c \
 		src/algo/make_move.c \
 		src/algo/all_locked.c \
-		src/algo/01_push_lower_values_to_b.c \
-		src/algo/repostion_dst_stack.c \
 		src/algo/move_node_to_top.c \
+		src/begin_again/split_by_order.c \
+
 
 MOVES =	src/moves/moves_sa_sb_ss.c \
 		src/moves/moves_ra_rb_rr.c \
@@ -35,7 +35,7 @@ DEBUG =	src/init_stack_debug.c \
 
 OBJS_SRC =	$(MAIN:.c=.o) $(UTILS:.c=.o) $(ALGO:.c=.o) \
 			$(MOVES:.c=.o) $(COSTS:.c=.o) \
-			$(DEBUG:.c=.o) \
+			$(DEBUG:.c=.o) $(PLAY:.c=.o) \
 
 CC = cc
 RM = rm -f
@@ -43,7 +43,6 @@ RM = rm -f
 CFLAGS = -g
 
 NAME = push_swap
-PLAY = play_swap
 LIBFT_PATH = ./libft
 LIBFT = $(LIBFT_PATH)/libft.a
 

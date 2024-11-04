@@ -47,6 +47,7 @@ void	move_node_to_top_source(t_info *s, t_dll *node);
 void	move_node_to_top_dest(t_info *s, t_dll *node);
 void	make_move(t_info *s);
 bool	all_locked(t_info *s);
+void	split_by_order(t_info *s);
 
 //costs
 void	calculate_all_costs2(t_info *s);
@@ -78,5 +79,7 @@ void	init_stack_debug(t_info *s);
 //play
 void	ft_play_print_labels(t_dll **a, t_dll **b);
 void	ft_play_print_values(t_dll **a, t_dll **b);
+void	ft_play(t_info *s);
+
 
 #endif

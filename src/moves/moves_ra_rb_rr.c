@@ -16,7 +16,7 @@ void	ra(t_info *s, int fd)
 {
 	if (s->a_len == 0 || s->a_len == 1)
 		return ;
-	s->a = s->a->prev;
+	s->a = s->a->next;
 	ft_dprintf(fd, "ra\n");
 	s->debug_movecount++;
 }
@@ -25,7 +25,7 @@ void	rb(t_info *s, int fd)
 {
 	if (s->b_len == 0 || s->b_len == 1)
 		return ;
-	s->b = s->b->prev;
+	s->b = s->b->next;
 	ft_dprintf(fd, "rb\n");
 	s->debug_movecount++;
 }
@@ -39,12 +39,12 @@ void	rr(t_info *s, int fd)
 	b = false;
 	if (s->a_len > 1)
 	{
-		s->a = s->a->prev;
+		s->a = s->a->next;
 		a = true;
 	}
 	if (s->b_len > 1)
 	{
-		s->b = s->b->prev;
+		s->b = s->b->next;
 		b = true;
 	}
 	if (a && b) {

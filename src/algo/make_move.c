@@ -8,10 +8,10 @@ static void	move_swp_a(t_info *s, t_dll *lowest)
 	dist_nd_head = ft_dclst_dist_head_bidi(&(s->a), lowest);
 	if (dist_nd_head > 0)
 		while (lowest != s->a->next)
-			ra(s, 1);
+			rra(s, 1);
 	if (dist_nd_head < 0)
 		while (lowest->precedent != s->a)
-			rra(s, 1);
+			ra(s, 1);
 	sa(s, 1);
 	s->block_swap = true;
 	return ;
@@ -24,10 +24,10 @@ static void	move_swp_b(t_info *s, t_dll *lowest)
 	dist_nd_head = ft_dclst_dist_head_bidi(&(s->b), lowest);
 	if (dist_nd_head > 0)
 		while (lowest != s->b->next)
-			rb(s, 1);
+			rrb(s, 1);
 	if (dist_nd_head < 0)
 		while (lowest->precedent != s->b)
-			rrb(s, 1);
+			rb(s, 1);
 	sb(s, 1);
 	s->block_swap = true;
 	return ;	
@@ -54,10 +54,10 @@ static void	move_sam_b(t_info *s, t_dll *lowest)
 	
 	if (s->b && dist_nd_head > 0)
 		while (lowest != s->b->next)
-			rb(s, 1);
+			rrb(s, 1);
 	else if (s->b && dist_nd_head < 0)
 		while (lowest != s->b->next)
-			rrb(s, 1);
+			rb(s, 1);
 	pa(s, 1);
 
 	/// ESSA PARTE PODE ETSAR COM BUGS
@@ -83,10 +83,10 @@ static void	move_sam_a(t_info *s, t_dll *lowest)
 	
 	if (s->a && dist_nd_head > 0)
 		while (lowest != s->a->next)
-			ra(s, 1);
+			rra(s, 1);
 	else if (s->a && dist_nd_head < 0)
 		while (lowest != s->a->next)
-			rra(s, 1);
+			ra(s, 1);
 	pb(s, 1);
 	// if (new_dist_pr_head > 0)
 	// 	while (lowest->precedent != s->a)
@@ -114,17 +114,17 @@ static void move_opo(t_info *s, t_dll *lowest)
 		if (lowest->opo_way_a == 'f')
 		{
 			while (lowest != s->b->next)
-				rrb(s, 1);
+				rb(s, 1);
 			while (lowest->precedent != s->a)
-				ra(s, 1);
+				rra(s, 1);
 			pa(s, 1);
 		}
 		else if (lowest->opo_way_a == 'r')
 		{
 			while (lowest != s->b->next)
-				rb(s, 1);
+				rrb(s, 1);
 			while (lowest->precedent != s->a)
-				rra(s, 1);
+				ra(s, 1);
 			pa(s, 1);
 		}
 	}
@@ -136,17 +136,17 @@ static void move_opo(t_info *s, t_dll *lowest)
 		if (lowest->opo_way_a == 'f')
 		{
 			while (lowest != s->a->next)
-				ra(s, 1);
+				rra(s, 1);
 			while (lowest->precedent != s->b->next)
-				rrb(s, 1);
+				rb(s, 1);
 			pb(s, 1);
 		}
 		else if (lowest->opo_way_a == 'r')
 		{
 			while (lowest != s->a->next)
-				rra(s, 1);
+				ra(s, 1);
 			while (lowest->precedent != s->b->next)
-				rb(s, 1);
+				rrb(s, 1);
 			pb(s, 1);
 		}	
 	}
@@ -157,21 +157,21 @@ static void move_rev(t_info *s, t_dll *lowest)
 	if (s->a && s->dst_name == 'a')
 	{
 		while (lowest != s->b->next && lowest->precedent != s->a)
-			rrr(s, 1);
+			rr(s, 1);
 		while (lowest != s->b->next)
-			rrb(s, 1);
+			rb(s, 1);
 		while (lowest->precedent != s->a)
-			rra(s, 1);
+			ra(s, 1);
 		pa(s, 1);
 	}
 	if (s->b && s->dst_name == 'b')
 	{
 		while (lowest != s->a->next && lowest->precedent != s->b->next)
-			rrr(s, 1);
+			rr(s, 1);
 		while (lowest != s->a->next)
-			rra(s, 1);
+			ra(s, 1);
 		while (lowest->precedent != s->b->next)
-			rrb(s, 1);
+			rb(s, 1);
 		pb(s, 1);
 	}
 }
@@ -181,19 +181,19 @@ static void move_rot(t_info *s, t_dll *lowest)
 	if (s->dst_name == 'a')
 	{
 		while (lowest != s->b->next && lowest->precedent != s->a)
-			rr(s, 1);
+			rrr(s, 1);
 		while (lowest != s->b->next)
-			rb(s, 1);
+			rrb(s, 1);
 		while (lowest->precedent != s->a)
-			ra(s, 1);
+			rra(s, 1);
 		pa(s, 1);	
 	}
 	if (s->dst_name == 'b')
 	{
 		while (lowest != s->a->next && lowest->precedent != s->b->next)
-			rr(s, 1);
+			rrr(s, 1);
 		while (lowest != s->a->next)
-			ra(s, 1);
+			rra(s, 1);
 		while (lowest->precedent != s->b->next)
 			rrb(s, 1);
 		pb(s, 1);
@@ -211,38 +211,32 @@ void	pick_move(t_info *s, t_dll *lowest)
 	{
 		file = open("analysis.txt", O_WRONLY | O_CREAT | O_APPEND, 0644);
 		ft_dprintf(file, "move_swp\t%i\n", lowest->cost);
-		close(file);
 		move_swp(s, lowest);
 	}
 	else
 	{
-		if (lowest->move_sam)
-		{
-			file = open("analysis.txt", O_WRONLY | O_CREAT | O_APPEND, 0644);
-			ft_dprintf(file, "move_sam\t%i\n", lowest->cost);
-			close(file);
-			move_sam(s, lowest);
-		}
-		else if (lowest->move_rot)
-
+		if (lowest->move_rot)
 		{
 			file = open("analysis.txt", O_WRONLY | O_CREAT | O_APPEND, 0644);
 			ft_dprintf(file, "move_rot\t%i\n", lowest->cost);
-			close(file);
 			move_rot(s, lowest);
 		}
 		else if (lowest->move_rev)
 		{
 			file = open("analysis.txt", O_WRONLY | O_CREAT | O_APPEND, 0644);
 			ft_dprintf(file, "move_rev\t%i\n", lowest->cost);
-			close(file);
 			move_rev(s, lowest);
+		}
+		else if (lowest->move_sam)
+		{
+			file = open("analysis.txt", O_WRONLY | O_CREAT | O_APPEND, 0644);
+			ft_dprintf(file, "move_sam\t%i\n", lowest->cost);
+			move_sam(s, lowest);
 		}
 		else if (lowest->move_opo)
 		{
 			file = open("analysis.txt", O_WRONLY | O_CREAT | O_APPEND, 0644);
 			ft_dprintf(file, "move_opo\t%i\n", lowest->cost);
-			close(file);
 			move_opo(s, lowest);
 		}
 		s->block_swap = false;

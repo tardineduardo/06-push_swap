@@ -52,7 +52,7 @@ static void move(char *cmd, t_info *s)
 	close(moves);
 }
 
-static void	ft_play(t_info *s)
+void	ft_play(t_info *s)
 {
 	char	cmd[4];
 	int		moves;
@@ -65,9 +65,11 @@ static void	ft_play(t_info *s)
 	while (ft_strcmp(cmd, "q") != 0)
 	{
 		//system("clear");
-		ft_play_print_values(&(s->a), &(s->b));
+		ft_play_print_labels(&(s->a), &(s->b));
 		calculate_all_costs(s);
-		ft_play_print_values(&(s->a), &(s->b));
+		ft_play_print_labels(&(s->a), &(s->b));
+		ft_debug_print_dclist(&(s->a), "int", offsetof(t_dll, value), 1);
+		ft_debug_print_dclist(&(s->b), "int", offsetof(t_dll, value), 1);
 		ft_printf("( " GREEN "pa pb " CYAN "sa sb ss " MAGENTA "ra rb rr " BRIGHT_GREEN "rra rrb rrr " RESET ") (\"q\" for quit)\n\n");
 		ft_printf("type a command: ");
 		scanf("%3s", cmd);
@@ -77,17 +79,17 @@ static void	ft_play(t_info *s)
 	}
 }
 
-int	main(int argc, char *argv[])
-{
-	t_info	*s;
+// int	main(int argc, char *argv[])
+// {
+// 	t_info	*s;
 
-	s = malloc(sizeof(t_info));
+// 	s = malloc(sizeof(t_info));
 
-	//ft_validate_args(argc, argv);	
+// 	//ft_validate_args(argc, argv);	
 
-	ft_init_stacks(s, argc, argv);
+// 	ft_init_stacks(s, argc, argv);
 
-	ft_play(s);
+// 	ft_play(s);
 
-	free(s);
-}
+// 	free(s);
+// }
