@@ -60,6 +60,8 @@ void	calculate_all_costs3(t_info *s);
 void	move(t_info *s);
 void	update_split1(t_info *s);
 bool	gridlock(t_info *s);
+void unlock(t_info *s);
+bool	swapping_back_works(t_info *s);
 
 
 //costs

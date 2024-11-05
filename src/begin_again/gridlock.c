@@ -11,7 +11,7 @@ bool	gridlock(t_info *s)
 		trav = s->a;
 		while (i < s->a_len)
 		{
-			if (trav->value > s->t_len / 2)
+			if (trav->value < s->t_len / 2)
 				return (false);
 			trav = trav->next;
 			i++;
@@ -23,11 +23,20 @@ bool	gridlock(t_info *s)
 		trav = s->b;
 		while (i < s->b_len)
 		{
-			if (trav->value < s->t_len / 2)
+			if (trav->value >= s->t_len / 2)
 				return (false);
 			trav = trav->next;
 			i++;
 		}
 	}
 	return (true);
+}
+
+
+void unlock(t_info *s)
+{
+	pb(s, 1);
+	rrb(s, 1);
+	pa(s, 1);
+	
 }

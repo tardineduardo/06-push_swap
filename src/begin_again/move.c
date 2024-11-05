@@ -33,7 +33,7 @@ void	move(t_info *s)
 
 	if (s->a->next->cost > 900 && s->b->next->cost > 900)
 	{
-		rr(s, 1);
+		rrr(s, 1);
 		return;
 	}
 	if (abs(s->a->next->cost) < abs(s->b->next->cost))
@@ -43,9 +43,9 @@ void	move(t_info *s)
 	else
 	{
 		if (s->a_len > s->b_len)
-			move_a_to_b(s);
-		else
 			move_b_to_a(s);
+		else
+			move_a_to_b(s);
 	}
 
 

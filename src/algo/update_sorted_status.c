@@ -18,6 +18,8 @@ void	update_sorted_status(t_info *s)
 	}	
 	if (a_is_longer && ft_dclst_clock_sortd(&(s->a), 'n', offsetof(t_dll, value)))
 		s->a_csort = true;
-	if (b_is_longer && ft_dclst_clock_sortd(&(s->b), 'r', offsetof(t_dll, value)))
+	if (ft_dclst_clock_sortd(&(s->b), 'r', offsetof(t_dll, value)))
 		s->b_csort = true;
 }
+
+
