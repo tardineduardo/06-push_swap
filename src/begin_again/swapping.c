@@ -21,10 +21,10 @@ bool	swapping_works(t_info *s)
 	swap_b = false;
 
 	if (s->a != NULL)
-		if ((s->a->next->next->pre == s->a || s->a->pre == s->a->next->next))
+		if ((s->a)->next->value == (s->a)->next->next->value + 1 || (s->a)->next->next->value == (s->a)->value + 1)
 			swap_a = true;
 	if (s->b != NULL)
-		if ((s->b)->next->value == (s->b)->next->next->value - 1)
+		if ((s->b)->next->value == (s->b)->next->next->value - 1 || (s->b)->next->next->value == (s->b)->value - 1)
 			swap_b = true;
 	if (!swap_a && !swap_b)
 		return (false);

@@ -7,7 +7,6 @@ UTILS = src/validate_args.c \
 
 ALGO = 	src/algo/even_nodes_per_stack.c \
 		src/algo/update_sorted_status.c \
-		src/algo/swapping.c \
 		src/algo/calculate_all_costs.c \
 		src/algo/find_lowest_cost.c \
 		src/algo/make_move.c \
@@ -17,6 +16,8 @@ ALGO = 	src/algo/even_nodes_per_stack.c \
 		src/begin_again/find_hi_lo_nodes.c \
 		src/begin_again/move.c \
 		src/begin_again/costs3/costs3.c \
+		src/begin_again/swapping.c \
+		src/begin_again/gridlock.c \
 
 MOVES =	src/moves/moves_sa_sb_ss.c \
 		src/moves/moves_ra_rb_rr.c \

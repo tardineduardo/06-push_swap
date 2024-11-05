@@ -59,6 +59,7 @@ void	find_hi_lo_nodes(t_info *s);
 void	calculate_all_costs3(t_info *s);
 void	move(t_info *s);
 void	update_split1(t_info *s);
+bool	gridlock(t_info *s);
 
 
 //costs

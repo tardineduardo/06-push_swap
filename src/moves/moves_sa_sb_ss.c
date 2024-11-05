@@ -38,7 +38,7 @@ static bool	swap(t_dll **tail, int llen)
 
 void	sa(t_info *s, int fd)
 {
-	if (swap(&(s->a), s->a_len) && !s->a_csort)
+	if (swap(&(s->a), s->a_len))
 	{
 		ft_dprintf(fd, "sa\n"); s->debug_movecount++;
 		update_sorted_status(s);
@@ -48,7 +48,7 @@ void	sa(t_info *s, int fd)
 
 void	sb(t_info *s, int fd)
 {
-	if (swap(&(s->b), s->b_len && !s->b_csort))
+	if (swap(&(s->b), s->b_len))
 	{
 		ft_dprintf(fd, "sb\n"); s->debug_movecount++;
 		update_sorted_status(s);
@@ -62,9 +62,9 @@ void	ss(t_info *s, int fd)
 
 	sa = false;
 	sb = false;
-	if (swap(&(s->a), s->a_len) && !s->a_csort)
+	if (swap(&(s->a), s->a_len))
 		sa = true;
-	if (swap(&(s->b), s->b_len && !s->b_csort))
+	if (swap(&(s->b), s->b_len))
 		sb = true;
 	if (sa && sb) {
 		ft_dprintf(fd, "ss\n"); s->debug_movecount++;}

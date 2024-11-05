@@ -1,4 +1,5 @@
 #include "../push_swap.h"
+
 void	opo_cost(t_info *s, t_dll *node, char dest_stack)
 {
 	t_dll	*node_in_dst;

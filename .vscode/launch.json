@@ -10,7 +10,7 @@
 			"request": "launch",
 			"program": "${workspaceFolder}/push_swap",
 //			"args": ["4", "3", "0", "1", "5"],
-			"args":["60", "98", "97", "69", "18", "90", "15", "27", "82", "78"],
+			"args":["375", "115", "308", "214", "437", "222", "428", "86", "322", "53"],
 //
 			"stopAtEntry": false,
 			"cwd": "${fileDirname}",
