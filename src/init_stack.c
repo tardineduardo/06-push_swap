@@ -6,13 +6,13 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 15:19:45 by eduribei          #+#    #+#             */
-/*   Updated: 2024/10/28 21:06:43 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/11/04 17:21:45 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	assign_procedent_node(t_info *s)
+static void	assign_pro_node(t_info *s)
 {
 	t_dll *trav_a;
 	t_dll *trav_b;
@@ -30,14 +30,14 @@ static void	assign_procedent_node(t_info *s)
 			if (trav_a->value != s->a_len - 1)
 			{
 				if (trav_a->value == trav_b->value - 1)
-					trav_a->procedent = trav_b;
+					trav_a->pro = trav_b;
 				b++;
 				trav_b = trav_b->prev;
 			}
 			else
 			{
 				if (trav_b->value == 0)
-					trav_a->procedent = trav_b;
+					trav_a->pro = trav_b;
 				b++;
 				trav_b = trav_b->prev;	
 			}
@@ -48,7 +48,7 @@ static void	assign_procedent_node(t_info *s)
 }
 
 
-static void	assign_precedent_node(t_info *s)
+static void	assign_pre_node(t_info *s)
 {
 	t_dll *trav_a;
 	t_dll *trav_b;
@@ -66,14 +66,14 @@ static void	assign_precedent_node(t_info *s)
 			if (trav_a->value != 0)
 			{
 				if (trav_a->value == trav_b->value + 1)
-					trav_a->precedent = trav_b;
+					trav_a->pre = trav_b;
 				b++;
 				trav_b = trav_b->next;	
 			}
 			else
 			{
 				if (trav_b->value == s->a_len - 1)
-					trav_a->precedent = trav_b;
+					trav_a->pre = trav_b;
 				b++;
 				trav_b = trav_b->next;	
 			}
@@ -128,6 +128,14 @@ static void	assign_indexes_to_labels(t_dll **tail)
 
 }
 
+
+
+
+
+
+
+
+
 void	ft_init_stacks(t_info *s, int argc, char *argv[])
 {
 	int		a;
@@ -161,9 +169,9 @@ void	ft_init_stacks(t_info *s, int argc, char *argv[])
 		a++;
 	}
 	s->a_len = ft_dclstsize(&(s->a));
-	assign_indexes_to_labels(&(s->a));	
-	assign_precedent_node(s);
-	assign_procedent_node(s);
 	s->b_len = 0;
 	s->t_len = s->a_len + s->b_len; 
+	assign_indexes_to_labels(&(s->a));	
+	assign_pre_node(s);
+	assign_pro_node(s);
 }

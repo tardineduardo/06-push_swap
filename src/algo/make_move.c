@@ -10,7 +10,7 @@ static void	move_swp_a(t_info *s, t_dll *lowest)
 		while (lowest != s->a->next)
 			rra(s, 1);
 	if (dist_nd_head < 0)
-		while (lowest->precedent != s->a)
+		while (lowest->pre != s->a)
 			ra(s, 1);
 	sa(s, 1);
 	s->block_swap = true;
@@ -26,7 +26,7 @@ static void	move_swp_b(t_info *s, t_dll *lowest)
 		while (lowest != s->b->next)
 			rrb(s, 1);
 	if (dist_nd_head < 0)
-		while (lowest->precedent != s->b)
+		while (lowest->pre != s->b)
 			rb(s, 1);
 	sb(s, 1);
 	s->block_swap = true;
@@ -49,7 +49,7 @@ static void	move_sam_b(t_info *s, t_dll *lowest)
 	int new_dist_pr_head;
 
 	dist_nd_head = ft_dclst_dist_head_bidi(&(s->b), lowest);
-	dist_pr_head = ft_dclst_dist_head_bidi(&(s->b), lowest->precedent);
+	dist_pr_head = ft_dclst_dist_head_bidi(&(s->b), lowest->pre);
 	new_dist_pr_head = dist_pr_head - dist_nd_head;
 	
 	if (s->b && dist_nd_head > 0)
@@ -62,10 +62,10 @@ static void	move_sam_b(t_info *s, t_dll *lowest)
 
 	/// ESSA PARTE PODE ETSAR COM BUGS
 	// if (new_dist_pr_head > 0)
-	// 	while (lowest->precedent != s->b->next)
+	// 	while (lowest->pre != s->b->next)
 	// 		rb(s, 1);
 	// else if (new_dist_pr_head < 0)
-	// 	while (lowest->precedent != s->b->next)
+	// 	while (lowest->pre != s->b->next)
 	// 		rrb(s, 1);
 	//pb(s, 1);
 	return ;
@@ -78,7 +78,7 @@ static void	move_sam_a(t_info *s, t_dll *lowest)
 	int new_dist_pr_head;
 
 	dist_nd_head = ft_dclst_dist_head_bidi(&(s->a), lowest);
-	dist_pr_head = ft_dclst_dist_head_bidi(&(s->a), lowest->precedent->next);
+	dist_pr_head = ft_dclst_dist_head_bidi(&(s->a), lowest->pre->next);
 	new_dist_pr_head = dist_pr_head - dist_nd_head;
 	
 	if (s->a && dist_nd_head > 0)
@@ -89,10 +89,10 @@ static void	move_sam_a(t_info *s, t_dll *lowest)
 			ra(s, 1);
 	pb(s, 1);
 	// if (new_dist_pr_head > 0)
-	// 	while (lowest->precedent != s->a)
+	// 	while (lowest->pre != s->a)
 	// 		ra(s, 1);
 	// else if (new_dist_pr_head < 0)
-	// 	while (lowest->precedent != s->a)
+	// 	while (lowest->pre != s->a)
 	// 		rra(s, 1);
 	//pa(s, 1);
 	return ;
@@ -115,7 +115,7 @@ static void move_opo(t_info *s, t_dll *lowest)
 		{
 			while (lowest != s->b->next)
 				rb(s, 1);
-			while (lowest->precedent != s->a)
+			while (lowest->pre != s->a)
 				rra(s, 1);
 			pa(s, 1);
 		}
@@ -123,7 +123,7 @@ static void move_opo(t_info *s, t_dll *lowest)
 		{
 			while (lowest != s->b->next)
 				rrb(s, 1);
-			while (lowest->precedent != s->a)
+			while (lowest->pre != s->a)
 				ra(s, 1);
 			pa(s, 1);
 		}
@@ -137,7 +137,7 @@ static void move_opo(t_info *s, t_dll *lowest)
 		{
 			while (lowest != s->a->next)
 				rra(s, 1);
-			while (lowest->precedent != s->b->next)
+			while (lowest->pre != s->b->next)
 				rb(s, 1);
 			pb(s, 1);
 		}
@@ -145,7 +145,7 @@ static void move_opo(t_info *s, t_dll *lowest)
 		{
 			while (lowest != s->a->next)
 				ra(s, 1);
-			while (lowest->precedent != s->b->next)
+			while (lowest->pre != s->b->next)
 				rrb(s, 1);
 			pb(s, 1);
 		}	
@@ -156,21 +156,21 @@ static void move_rev(t_info *s, t_dll *lowest)
 {
 	if (s->a && s->dst_name == 'a')
 	{
-		while (lowest != s->b->next && lowest->precedent != s->a)
+		while (lowest != s->b->next && lowest->pre != s->a)
 			rr(s, 1);
 		while (lowest != s->b->next)
 			rb(s, 1);
-		while (lowest->precedent != s->a)
+		while (lowest->pre != s->a)
 			ra(s, 1);
 		pa(s, 1);
 	}
 	if (s->b && s->dst_name == 'b')
 	{
-		while (lowest != s->a->next && lowest->precedent != s->b->next)
+		while (lowest != s->a->next && lowest->pre != s->b->next)
 			rr(s, 1);
 		while (lowest != s->a->next)
 			ra(s, 1);
-		while (lowest->precedent != s->b->next)
+		while (lowest->pre != s->b->next)
 			rb(s, 1);
 		pb(s, 1);
 	}
@@ -180,21 +180,21 @@ static void move_rot(t_info *s, t_dll *lowest)
 {
 	if (s->dst_name == 'a')
 	{
-		while (lowest != s->b->next && lowest->precedent != s->a)
+		while (lowest != s->b->next && lowest->pre != s->a)
 			rrr(s, 1);
 		while (lowest != s->b->next)
 			rrb(s, 1);
-		while (lowest->precedent != s->a)
+		while (lowest->pre != s->a)
 			rra(s, 1);
 		pa(s, 1);	
 	}
 	if (s->dst_name == 'b')
 	{
-		while (lowest != s->a->next && lowest->precedent != s->b->next)
+		while (lowest != s->a->next && lowest->pre != s->b->next)
 			rrr(s, 1);
 		while (lowest != s->a->next)
 			rra(s, 1);
-		while (lowest->precedent != s->b->next)
+		while (lowest->pre != s->b->next)
 			rrb(s, 1);
 		pb(s, 1);
 	}

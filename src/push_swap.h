@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 19:50:42 by eduribei          #+#    #+#             */
-/*   Updated: 2024/11/01 22:10:36 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/11/04 21:21:12 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,20 @@ typedef struct s_info
 	int			t_len;
 	bool		a_csort;
 	bool		b_csort;
-	t_dll		*dst_s;
-	char		dst_name;
-	int			debug_movecount;
-	t_dll		*last_moved;
 	bool		block_swap;	
+	char		dst_name;
+	t_dll		*dst_s;
+	t_dll		*last_moved;
+	t_dll		*hi_a;
+	t_dll		*lo_a;
+	t_dll		*hi_b;
+	t_dll		*lo_b;
+	t_dll		*a_to_move;
+	t_dll		*b_to_move;
+	int			debug_hi_sa;
+	int			debug_hi_sb;
+	int			debug_movecount;
 }				t_info;
-
 
 //main
 void	ft_validate_args(int argc, char *argv[]);
@@ -48,6 +55,11 @@ void	move_node_to_top_dest(t_info *s, t_dll *node);
 void	make_move(t_info *s);
 bool	all_locked(t_info *s);
 void	split_by_order(t_info *s);
+void	find_hi_lo_nodes(t_info *s);
+void	calculate_all_costs3(t_info *s);
+void	move(t_info *s);
+void	update_split1(t_info *s);
+
 
 //costs
 void	calculate_all_costs2(t_info *s);
@@ -56,9 +68,6 @@ void	calculate_rev_costs2(t_info *s, char stack);
 void	calculate_rot_costs2(t_info *s, char dest_stack);
 void	calculate_sam_costs2(t_info *s, char stack);
 void	calculate_swp_costs2(t_info *s, char stack);
-
-
-
 
 //moves
 void	ra(t_info *s, int fd);

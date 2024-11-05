@@ -4,7 +4,7 @@ static void rotate_backwards(t_info *s)
 {
 	if (s->dst_name == 'a')
 	{
-		while (s->cheap_n != s->b->next && s->cheap_n->precedent != s->a)
+		while (s->cheap_n != s->b->next && s->cheap_n->pre != s->a)
 		{
 			if (swapping_works(s))
 				continue ;			
@@ -16,7 +16,7 @@ static void rotate_backwards(t_info *s)
 				continue ;
 			rrb(s, 1);
 		}
-		while (s->cheap_n->precedent != s->a)
+		while (s->cheap_n->pre != s->a)
 		{
 			if (swapping_works(s))
 				continue ;
@@ -26,7 +26,7 @@ static void rotate_backwards(t_info *s)
 	}
 	if (s->dst_name == 'b')
 	{
-		while (s->cheap_n != s->a->next && s->cheap_n->precedent != s->b->next)
+		while (s->cheap_n != s->a->next && s->cheap_n->pre != s->b->next)
 		{
 			if (swapping_works(s))
 				continue ;
@@ -38,7 +38,7 @@ static void rotate_backwards(t_info *s)
 				continue ;
 			rra(s, 1);
 		}
-		while (s->cheap_n->precedent != s->b->next)
+		while (s->cheap_n->pre != s->b->next)
 		{
 			if (swapping_works(s))
 				continue ;
@@ -54,7 +54,7 @@ static void rotate_forward(t_info *s)
 {
 	if (s->dst_name == 'a')
 	{
-		while (s->cheap_n != s->b->next && s->cheap_n->precedent != s->a)
+		while (s->cheap_n != s->b->next && s->cheap_n->pre != s->a)
 		{
 			if (swapping_works(s))
 				continue ;
@@ -66,7 +66,7 @@ static void rotate_forward(t_info *s)
 				continue ;
 			rb(s, 1);
 		}
-		while (s->cheap_n->precedent != s->a)
+		while (s->cheap_n->pre != s->a)
 		{
 			if (swapping_works(s))
 				continue ;
@@ -76,7 +76,7 @@ static void rotate_forward(t_info *s)
 	}
 	if (s->dst_name == 'b')
 	{
-		while (s->cheap_n != s->a->next && s->cheap_n->precedent != s->b->next)
+		while (s->cheap_n != s->a->next && s->cheap_n->pre != s->b->next)
 		{
 			if (swapping_works(s))
 				continue ;
@@ -88,7 +88,7 @@ static void rotate_forward(t_info *s)
 				continue ;
 			ra(s, 1);
 		}
-		while (s->cheap_n->precedent != s->b->next)
+		while (s->cheap_n->pre != s->b->next)
 		{
 			if (swapping_works(s))
 				continue ;

@@ -13,13 +13,13 @@ static void	calculate(t_dll *node, t_info *s)
 	s_rr_cost = ft_dclst_dist_head_unid(&(s->src_s), node, 'r');
 
 	if (s->dst_name == 'b')
-		d_r_cost = ft_dclst_dist_head_unid(&(s->dst_s), node->precedent, 'f');
+		d_r_cost = ft_dclst_dist_head_unid(&(s->dst_s), node->pre, 'f');
 	else
-		d_r_cost = ft_dclst_dist_head_unid(&(s->dst_s), node->precedent->next, 'f');
+		d_r_cost = ft_dclst_dist_head_unid(&(s->dst_s), node->pre->next, 'f');
 	if (s->dst_name == 'b')
-		d_rr_cost = ft_dclst_dist_head_unid(&(s->dst_s), node->precedent, 'r');
+		d_rr_cost = ft_dclst_dist_head_unid(&(s->dst_s), node->pre, 'r');
 	else
-		d_rr_cost = ft_dclst_dist_head_unid(&(s->dst_s), node->precedent->next, 'r');
+		d_rr_cost = ft_dclst_dist_head_unid(&(s->dst_s), node->pre->next, 'r');
 	if (greatest(s_r_cost, d_r_cost) < greatest(s_rr_cost, d_rr_cost))
 		node->cost = greatest(s_r_cost, d_r_cost) + 1;
 	else
@@ -32,7 +32,7 @@ is sorted for that stack (b is reverse).*/
 static void	lock_nodes(t_dll *node, t_info *s, int vtfind)
 {
 	//ft_play_print_values(&(s->a), &(s->b));
-	t_dll	*precedent;
+	t_dll	*pre;
 	int		adj_type;
 
 	bool	next_sorted;
@@ -43,10 +43,10 @@ static void	lock_nodes(t_dll *node, t_info *s, int vtfind)
 	else
 		adj_type = -1;
 
-	precedent = ft_dclst_find_value(&(s->src_s), vtfind, offsetof(t_dll, value));
+	pre = ft_dclst_find_value(&(s->src_s), vtfind, offsetof(t_dll, value));
 
 	next_sorted = (node->next->value == node->value + adj_type);
-	same_stack = precedent;
+	same_stack = pre;
 
 	if (next_sorted || same_stack)
 	{

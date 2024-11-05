@@ -5,16 +5,16 @@ static void	node_sam_cost(t_dll **tail, t_dll *node, char stack)
 	int	dist_nd_head;
 	int dist_pr_head;
 
-	if(ft_dclst_find_node(tail, node->precedent) == NULL)
+	if(ft_dclst_find_node(tail, node->pre) == NULL)
 	{
 		node->cost_sam = 999;
 		return;
 	}
 	dist_nd_head = ft_dclst_dist_head_bidi(tail, node);
 	if (stack == 'a')
-		dist_pr_head = ft_dclst_dist_head_bidi(tail, node->precedent->next);
+		dist_pr_head = ft_dclst_dist_head_bidi(tail, node->pre->next);
 	else
-		dist_pr_head = ft_dclst_dist_head_bidi(tail, node->precedent);
+		dist_pr_head = ft_dclst_dist_head_bidi(tail, node->pre);
 	node->cost_sam = abs(dist_nd_head) + abs(dist_pr_head - dist_nd_head) + 2;
 	return;
 }

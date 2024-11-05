@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 17:02:36 by eduribei          #+#    #+#             */
-/*   Updated: 2024/11/01 17:51:40 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/11/04 16:33:41 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,8 @@ typedef struct s_dlist
 	void			*content;
 	struct s_dlist	*next;
 	struct s_dlist	*prev;
-	struct s_dlist	*precedent;
-	struct s_dlist	*procedent;
+	struct s_dlist	*pre;
+	struct s_dlist	*pro;
 }				t_dll;
 
 // conversions + comparisons

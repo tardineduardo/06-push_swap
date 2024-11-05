@@ -3,19 +3,19 @@
 
 static void	reposition_b(t_info *s, t_dll *node)
 {
-	t_dll *precedent;
+	t_dll *pre;
 
-	precedent = ft_dclst_find_value(&(s->b), (node->value) - 1, offsetof(t_dll, value));
-	move_node_to_top_dest(s, precedent);
+	pre = ft_dclst_find_value(&(s->b), (node->value) - 1, offsetof(t_dll, value));
+	move_node_to_top_dest(s, pre);
 }
 
 static void	reposition_a(t_info *s, t_dll *node)
 {
-	t_dll *precedent;
+	t_dll *pre;
 
-	precedent = ft_dclst_find_value(&(s->a), node->value - 1, offsetof(t_dll, value));
-	precedent = precedent->next;
-	move_node_to_top_dest(s, precedent);
+	pre = ft_dclst_find_value(&(s->a), node->value - 1, offsetof(t_dll, value));
+	pre = pre->next;
+	move_node_to_top_dest(s, pre);
 }
 
 void	repostion_dst_s(t_info *s, t_dll *node)

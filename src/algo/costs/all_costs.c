@@ -29,7 +29,7 @@ static void	lock_sorted_nodes2(t_info *s)
 			trav = s->a->next;
 			while (i < s->a_len)
 			{
-				if (trav->prev == trav->precedent || trav == s->last_moved)
+				if (trav->prev == trav->pre || trav == s->last_moved)
 					trav->cost = 999;
 				trav = trav->next;
 				i++;
@@ -46,7 +46,7 @@ static void	lock_sorted_nodes2(t_info *s)
 			trav = s->b->next;
 			while (i < s->b_len)
 			{
-				if (trav->next == trav->precedent || trav == s->last_moved)
+				if (trav->next == trav->pre || trav == s->last_moved)
 					trav->cost = 999;
 				trav = trav->next;
 				i++;

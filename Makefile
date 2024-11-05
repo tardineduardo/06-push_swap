@@ -1,6 +1,6 @@
 MAIN =  src/push_swap.c \
 
-PLAY =	src/play/play_swap.c \
+# PLAY =	src/play/play_swap.c \
 
 UTILS = src/validate_args.c \
 		src/init_stack.c \
@@ -14,7 +14,9 @@ ALGO = 	src/algo/even_nodes_per_stack.c \
 		src/algo/all_locked.c \
 		src/algo/move_node_to_top.c \
 		src/begin_again/split_by_order.c \
-
+		src/begin_again/find_hi_lo_nodes.c \
+		src/begin_again/move.c \
+		src/begin_again/costs3/costs3.c \
 
 MOVES =	src/moves/moves_sa_sb_ss.c \
 		src/moves/moves_ra_rb_rr.c \
@@ -35,7 +37,9 @@ DEBUG =	src/init_stack_debug.c \
 
 OBJS_SRC =	$(MAIN:.c=.o) $(UTILS:.c=.o) $(ALGO:.c=.o) \
 			$(MOVES:.c=.o) $(COSTS:.c=.o) \
-			$(DEBUG:.c=.o) $(PLAY:.c=.o) \
+			$(DEBUG:.c=.o) \
+			
+# $(PLAY:.c=.o) \
 
 CC = cc
 RM = rm -f

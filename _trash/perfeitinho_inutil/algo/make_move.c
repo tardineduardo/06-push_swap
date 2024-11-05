@@ -12,7 +12,7 @@ static void move_opo(t_info *s, t_dll *lowest)
 //					return ;
 				rrb(s, 1);
 			}
-			while (lowest->precedent != s->a)
+			while (lowest->pre != s->a)
 			{
 				//if (swapping_works(s))
 //					return ;
@@ -28,7 +28,7 @@ static void move_opo(t_info *s, t_dll *lowest)
 //					return ;
 				rb(s, 1);
 			}
-			while (lowest->precedent != s->a)
+			while (lowest->pre != s->a)
 			{
 				//if (swapping_works(s))
 //					return ;
@@ -47,7 +47,7 @@ static void move_opo(t_info *s, t_dll *lowest)
 //					return ;
 				ra(s, 1);
 			}
-			while (lowest->precedent != s->b->next)
+			while (lowest->pre != s->b->next)
 			{
 				//if (swapping_works(s))
 //					return ;
@@ -63,7 +63,7 @@ static void move_opo(t_info *s, t_dll *lowest)
 //					return ;
 				ra(s, 1);
 			}
-			while (lowest->precedent != s->b->next)
+			while (lowest->pre != s->b->next)
 			{
 				//if (swapping_works(s))
 //					return ;
@@ -78,7 +78,7 @@ static void move_rev(t_info *s, t_dll *lowest)
 {
 	if (s->dst_name == 'a')
 	{
-		while (lowest != s->b->next && lowest->precedent != s->a)
+		while (lowest != s->b->next && lowest->pre != s->a)
 		{
 //				return ;			if (swapping_works(s))
 //				return ;				return ;
@@ -90,7 +90,7 @@ static void move_rev(t_info *s, t_dll *lowest)
 //				return ;
 			rrb(s, 1);
 		}
-		while (lowest->precedent != s->a)
+		while (lowest->pre != s->a)
 		{
 //			if (swapping_works(s))
 //				return ;
@@ -100,7 +100,7 @@ static void move_rev(t_info *s, t_dll *lowest)
 	}
 	if (s->dst_name == 'b')
 	{
-		while (lowest != s->a->next && lowest->precedent != s->b->next)
+		while (lowest != s->a->next && lowest->pre != s->b->next)
 		{
 //			if (swapping_works(s))
 //				return ;
@@ -112,7 +112,7 @@ static void move_rev(t_info *s, t_dll *lowest)
 //				return ;
 			rra(s, 1);
 		}
-		while (lowest->precedent != s->b->next)
+		while (lowest->pre != s->b->next)
 		{
 //			if (swapping_works(s))
 //				return ;
@@ -126,7 +126,7 @@ static void move_rot(t_info *s, t_dll *lowest)
 {
 	if (s->dst_name == 'a')
 	{
-		while (lowest != s->b->next && lowest->precedent != s->a)
+		while (lowest != s->b->next && lowest->pre != s->a)
 		{
 //			if (swapping_works(s))
 //				return ;
@@ -138,7 +138,7 @@ static void move_rot(t_info *s, t_dll *lowest)
 //				return ;				return ;
 			rb(s, 1);
 		}
-		while (lowest->precedent != s->a)
+		while (lowest->pre != s->a)
 		{
 //				return ;			if (swapping_works(s))
 //				return ;				return ;
@@ -148,11 +148,11 @@ static void move_rot(t_info *s, t_dll *lowest)
 	}
 	if (s->dst_name == 'b')
 	{
-		while (lowest != s->a->next && lowest->precedent != s->b->next)
+		while (lowest != s->a->next && lowest->pre != s->b->next)
 			rr(s, 1);
 		while (lowest != s->a->next)
 			ra(s, 1);
-		while (lowest->precedent != s->b->next)
+		while (lowest->pre != s->b->next)
 			rrb(s, 1);
 		pb(s, 1);
 	}

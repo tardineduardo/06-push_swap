@@ -8,9 +8,9 @@ void	opo_cost(t_info *s, t_dll *node, char dest_stack)
 	int		distance_dst;
 
 	if (dest_stack == 'b')
-		node_in_dst = ft_dclst_find_node(&(s->b), node->precedent);
+		node_in_dst = ft_dclst_find_node(&(s->b), node->pre);
 	else
-		node_in_dst = ft_dclst_find_node(&(s->a), node->precedent);
+		node_in_dst = ft_dclst_find_node(&(s->a), node->pre);
 	if (node_in_dst == NULL)
 	{
 		node->cost_opo = 999;
@@ -19,10 +19,10 @@ void	opo_cost(t_info *s, t_dll *node, char dest_stack)
 	if (dest_stack == 'b')
 	{
 		distance_src = ft_dclst_dist_head_unid_len(&(s->a), node, s->a_len, 'r');
-		distance_dst = ft_dclst_dist_head_unid_len(&(s->b), node->precedent, s->b_len, 'f');
+		distance_dst = ft_dclst_dist_head_unid_len(&(s->b), node->pre, s->b_len, 'f');
 		cost1 = distance_src + distance_dst;
 		distance_src = ft_dclst_dist_head_unid_len(&(s->a), node, s->a_len, 'f');
-		distance_dst = ft_dclst_dist_head_unid_len(&(s->b), node->precedent, s->b_len, 'r');
+		distance_dst = ft_dclst_dist_head_unid_len(&(s->b), node->pre, s->b_len, 'r');
 		cost2 = distance_src + distance_dst;
 		node->cost_opo = lowest(cost1, cost2) + 1;
 		if (cost1 < cost2)
@@ -33,10 +33,10 @@ void	opo_cost(t_info *s, t_dll *node, char dest_stack)
 	else if (dest_stack == 'a')
 	{
 		distance_src = ft_dclst_dist_head_unid_len(&(s->b), node, s->b_len, 'r');
-		distance_dst = ft_dclst_dist_head_unid_len(&(s->a), node->precedent->next, s->a_len, 'f');
+		distance_dst = ft_dclst_dist_head_unid_len(&(s->a), node->pre->next, s->a_len, 'f');
 		cost1 = distance_src + distance_dst;
 		distance_src = ft_dclst_dist_head_unid_len(&(s->b), node, s->b_len, 'f');
-		distance_dst = ft_dclst_dist_head_unid_len(&(s->a), node->precedent->next, s->a_len, 'r');
+		distance_dst = ft_dclst_dist_head_unid_len(&(s->a), node->pre->next, s->a_len, 'r');
 		cost2 = distance_src + distance_dst;
 		node->cost_opo = lowest(cost1, cost2) + 1;
 		if (cost1 < cost2)
@@ -84,9 +84,9 @@ void	rev_cost(t_info *s, t_dll *node, char dest_stack)
 
 
 	if (dest_stack == 'b')
-		node_in_dst = ft_dclst_find_node(&(s->b), node->precedent);
+		node_in_dst = ft_dclst_find_node(&(s->b), node->pre);
 	else
-		node_in_dst = ft_dclst_find_node(&(s->a), node->precedent);
+		node_in_dst = ft_dclst_find_node(&(s->a), node->pre);
 	if (node_in_dst == NULL)
 	{
 		node->cost_rev = 999;
@@ -95,12 +95,12 @@ void	rev_cost(t_info *s, t_dll *node, char dest_stack)
 	if (dest_stack == 'b')
 	{
 		distance_src = ft_dclst_dist_head_unid_len(&(s->a), node, s->a_len, 'r');
-		distance_dst = ft_dclst_dist_head_unid_len(&(s->b), node->precedent, s->b_len, 'r');
+		distance_dst = ft_dclst_dist_head_unid_len(&(s->b), node->pre, s->b_len, 'r');
 	}	
 	else
 	{
 		distance_src = ft_dclst_dist_head_unid_len(&(s->b), node, s->b_len, 'r');
-		distance_dst = ft_dclst_dist_head_unid_len(&(s->a), node->precedent->next, s->a_len, 'r');
+		distance_dst = ft_dclst_dist_head_unid_len(&(s->a), node->pre->next, s->a_len, 'r');
 	}
 	node->cost_rev = greatest(distance_src, distance_dst) + 1;
 }
@@ -143,9 +143,9 @@ void	rot_cost(t_info *s, t_dll *node, char dest_stack)
 	t_dll	*node_in_dst;
 
 	if (dest_stack == 'b')
-		node_in_dst = ft_dclst_find_node(&(s->b), node->precedent);
+		node_in_dst = ft_dclst_find_node(&(s->b), node->pre);
 	else
-		node_in_dst = ft_dclst_find_node(&(s->a), node->precedent);
+		node_in_dst = ft_dclst_find_node(&(s->a), node->pre);
 	if (node_in_dst == NULL)
 	{
 		node->cost_rot = 999;
@@ -154,13 +154,13 @@ void	rot_cost(t_info *s, t_dll *node, char dest_stack)
 	if (dest_stack == 'b')
 	{
 		distance_src = ft_dclst_dist_head_unid_len(&(s->a), node, s->a_len, 'f');
-		distance_dst = ft_dclst_dist_head_unid_len(&(s->b), node->precedent, s->b_len, 'f');
+		distance_dst = ft_dclst_dist_head_unid_len(&(s->b), node->pre, s->b_len, 'f');
 		node->cost_rot = greatest(distance_src, distance_dst) + 1;
 	}	
 	else if (dest_stack == 'a')
 	{
 		distance_src = ft_dclst_dist_head_unid_len(&(s->b), node, s->b_len, 'f');
-		distance_dst = ft_dclst_dist_head_unid_len(&(s->a), node->precedent->next, s->a_len, 'f'); ////
+		distance_dst = ft_dclst_dist_head_unid_len(&(s->a), node->pre->next, s->a_len, 'f'); ////
 		node->cost_rot = greatest(distance_src, distance_dst) + 1;
 	}
 }
@@ -224,7 +224,7 @@ static void	lock_sorted_nodes(t_info *s)
 			trav = s->a->next;
 			while (i < s->a_len)
 			{
-				if (trav->prev == trav->precedent || trav == s->last_moved)
+				if (trav->prev == trav->pre || trav == s->last_moved)
 					trav->cost = 999;
 				trav = trav->next;
 				i++;
@@ -241,7 +241,7 @@ static void	lock_sorted_nodes(t_info *s)
 			trav = s->b->next;
 			while (i < s->b_len)
 			{
-				if (trav->next == trav->precedent || trav == s->last_moved)
+				if (trav->next == trav->pre || trav == s->last_moved)
 					trav->cost = 999;
 				trav = trav->next;
 				i++;
@@ -354,16 +354,16 @@ void	sam_cost(t_dll **tail, t_dll *node, char stack)
 	int	dist_nd_head;
 	int dist_pr_head;
 
-	if(ft_dclst_find_node(tail, node->precedent) == NULL)
+	if(ft_dclst_find_node(tail, node->pre) == NULL)
 	{
 		node->cost_sam = 999;
 		return;
 	}
 	dist_nd_head = ft_dclst_dist_head_bidi(tail, node);
 	if (stack == 'a')
-		dist_pr_head = ft_dclst_dist_head_bidi(tail, node->precedent->next);
+		dist_pr_head = ft_dclst_dist_head_bidi(tail, node->pre->next);
 	else
-		dist_pr_head = ft_dclst_dist_head_bidi(tail, node->precedent);
+		dist_pr_head = ft_dclst_dist_head_bidi(tail, node->pre);
 	node->cost_sam = abs(dist_nd_head) + abs(dist_pr_head - dist_nd_head) + 2;
 }
 

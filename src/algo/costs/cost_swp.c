@@ -6,23 +6,23 @@ static void	node_swp_cost(t_dll **tail, t_dll *node, char stack)
 	int		flag;
 
 	flag = 0;
-	if(ft_dclst_find_node(tail, node->precedent) == NULL)
+	if(ft_dclst_find_node(tail, node->pre) == NULL)
 		flag = 1;
-	if (stack == 'a' && node->next == node->procedent)
+	if (stack == 'a' && node->next == node->pro)
 		flag = 1;
-	if (stack == 'a' && node->prev == node->precedent)
+	if (stack == 'a' && node->prev == node->pre)
 	 	flag = 1;
-	if (stack == 'a' && node->prev == node->prev->prev->procedent)
+	if (stack == 'a' && node->prev == node->prev->prev->pro)
 		flag = 1;
-	if (stack == 'a' && node->next != node->precedent)
+	if (stack == 'a' && node->next != node->pre)
 		flag = 1;
-	if (stack == 'b' && node->prev == node->precedent)	
+	if (stack == 'b' && node->prev == node->pre)	
 		flag = 1;
-	if (stack == 'b' && node->next == node->procedent)
+	if (stack == 'b' && node->next == node->pro)
 		flag = 1;
-	if (stack == 'b' && node->prev == node->prev->prev->precedent)
+	if (stack == 'b' && node->prev == node->prev->prev->pre)
 		flag = 1;
-	if (stack == 'b' && node->prev != node->precedent)
+	if (stack == 'b' && node->prev != node->pre)
 		flag = 1;		
 	if (flag)
 	{
@@ -34,7 +34,7 @@ static void	node_swp_cost(t_dll **tail, t_dll *node, char stack)
 		node->cost_swp = abs(ft_dclst_dist_head_bidi(tail, node)) + 1;
 	}
 	if (stack == 'b')
-		node->cost_swp = abs(ft_dclst_dist_head_bidi(tail, node->precedent)) + 1;
+		node->cost_swp = abs(ft_dclst_dist_head_bidi(tail, node->pre)) + 1;
 	return;
 }
 

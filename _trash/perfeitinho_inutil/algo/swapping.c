@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 18:08:06 by eduribei          #+#    #+#             */
-/*   Updated: 2024/10/30 18:11:51 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/11/04 16:33:28 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ bool	swapping_works(t_info *s)
 	swap_b = false;
 
 	if (s->a != NULL)
-		if ((s->a->next->next->precedent == s->a || s->a->precedent == s->a->next->next))
+		if ((s->a->next->next->pre == s->a || s->a->pre == s->a->next->next))
 			swap_a = true;
 	if (s->b != NULL)
 		if ((s->b)->next->value == (s->b)->next->next->value - 1)
