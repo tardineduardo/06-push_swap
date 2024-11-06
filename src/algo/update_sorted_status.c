@@ -1,4 +1,5 @@
 #include "../push_swap.h"
+
 void	update_sorted_status(t_info *s)
 {
 	s->a_csort = false;
@@ -7,9 +8,9 @@ void	update_sorted_status(t_info *s)
 
 	diff = abs(s->a_len - s->b_len);
 
-	if (diff < 3 && ft_dclst_clock_sortd(&(s->a), 'n', offsetof(t_dll, value)))
+	if (diff < s->t_len/10 && ft_dclst_clock_sortd(&(s->a), 'n', offsetof(t_dll, value)))
 		s->a_csort = true;
-	if (diff < 3 && ft_dclst_clock_sortd(&(s->b), 'r', offsetof(t_dll, value)))
+	if (diff < s->t_len/10 && ft_dclst_clock_sortd(&(s->b), 'r', offsetof(t_dll, value)))
 		s->b_csort = true;
 }
 

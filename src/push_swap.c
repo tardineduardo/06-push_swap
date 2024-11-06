@@ -16,7 +16,7 @@ int debug_movecount = 0;
 
 void debug_status(t_info *s)
 {
-	ft_play_print_values(&(s->a), &(s->b));
+	//ft_play_print_values(&(s->a), &(s->b));
 	if (gridlock(s))
 	 	ft_printf("GRIDLOCK\n");
 	if ((s->a_csort))
@@ -35,10 +35,10 @@ int	main(int argc, char *argv[])
 	ft_validate_args(argc, argv);
 	ft_init_stacks(s, argc, argv);
 	//	ft_play(s);
-	//	split_by_order(s);
-	even_nodes_per_stack(s);
+	split_by_order(s);
+	// even_nodes_per_stack(s);
 	find_hi_lo_nodes(s);
-//	ft_play_print_values(&(s->a), &(s->b));
+	//ft_play_print_values(&(s->a), &(s->b));
 	while (1)
 	{
 		update_sorted_status(s);
@@ -46,19 +46,29 @@ int	main(int argc, char *argv[])
 
 		if ((s->a_csort))
 			break ;
+		if ((s->b_csort))
+			break ;			
 		if (swapping_works(s))
 		{
+			ft_printf("SWAPPING NORMAL");
 			//ft_play_print_values(&(s->a), &(s->b));
 			continue;
 		}
 		else if (swapping_back_works(s))
+		{
+			ft_printf("SWAPPING REVERSO");
+			//ft_play_print_values(&(s->a), &(s->b));
 			continue;
+		}
 		else
 		{
 			calculate_all_costs3(s);
+			//ft_play_print_values(&(s->a), &(s->b));
 			move(s);
 		}
+	//ft_play_print_values(&(s->a), &(s->b));
 	}
+
 	debug_status(s);
 }
 
