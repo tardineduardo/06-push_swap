@@ -3,6 +3,7 @@
 		"push_swap.h": "c",
 		"type_traits": "c",
 		"utility": "c",
-		"libft.h": "c"
+		"libft.h": "c",
+		"limits": "c"
 	}
 }

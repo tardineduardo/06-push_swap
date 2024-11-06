@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 15:19:45 by eduribei          #+#    #+#             */
-/*   Updated: 2024/11/04 17:21:45 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/11/06 17:42:41 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -154,15 +154,18 @@ void	ft_init_stacks(t_info *s, int argc, char *argv[])
 		new->next = new;
 		new->prev = new;
 		new->cost_rev = 998;
-		new->cost_sam = 998;
-		new->cost_swp = 998;
+		//new->cost_sam = 998;
+		//new->cost_swp = 998;
 		new->cost_rot = 998;
-		new->cost_opo = 998;
+		new->cost_opo_srot_drev = 998;
+		new->cost_opo_srev_drot = 998;
 		new->move_rev = false;
 		new->move_rot = false;
-		new->move_opo = false;
-		new->move_sam = false;
-		new->move_swp = false;		
+		new->move_opo_srot_drev = false;
+		new->move_opo_srev_drot = false;
+
+		//new->move_sam = false;
+		//new->move_swp = false;		
 
 
 		ft_dclstadd_back(&(s->a), new);
@@ -174,4 +177,9 @@ void	ft_init_stacks(t_info *s, int argc, char *argv[])
 	assign_indexes_to_labels(&(s->a));	
 	assign_pre_node(s);
 	assign_pro_node(s);
+
+	
+	s->cheap_in_a = s->a;
+	s->cheap_in_a->value = 0;
+
 }

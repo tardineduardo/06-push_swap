@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 19:50:42 by eduribei          #+#    #+#             */
-/*   Updated: 2024/11/06 14:39:41 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/11/06 19:30:28 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,10 @@ typedef struct s_info
 	t_dll		*lo_a;
 	t_dll		*hi_b;
 	t_dll		*lo_b;
-	t_dll		*a_to_move;
-	t_dll		*b_to_move;
+//	t_dll		*a_to_move;
+//	t_dll		*b_to_move;
+	t_dll		*cheap_in_a;
+	t_dll		*cheap_in_b;
 	int			debug_hi_sa;
 	int			debug_hi_sb;
 	int			debug_movecount;

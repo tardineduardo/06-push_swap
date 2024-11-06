@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 17:42:02 by eduribei          #+#    #+#             */
-/*   Updated: 2024/11/06 16:26:21 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/11/06 19:06:01 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,49 +14,47 @@
 
 static void set_costs_to_locked(t_dll *node) /// mover para INUTILS
 {
-	node->cost_rev = 999;
+	node->cost_rot = 999;
 	node->cost_rev = 999;;
 	node->cost_opo_srot_drev = 999;;
 	node->cost_opo_srev_drot =  999;;
 }
 
-
-
 static void reset_costs(t_dll *node) /// mover para INUTILS
 {
-	node->cost_rev = 998;
+	//node->cost_swp = 998;
+	node->cost_rot = 998;
 	node->cost_rev = 998;;
 	node->cost_opo_srot_drev = 998;;
 	node->cost_opo_srev_drot =  998;;
 }
 
-
-
 static void set_dist_and_move_type(int dist_src_to_head, int dist_dst_to_head, t_dll *node)
 {
-	reset_costs(node); // MODE A LEVEL UP IF ADDING SWAP.
-
 	if (dist_src_to_head > 0 && dist_src_to_head > 0)
 	{
 		node->move_rev = true;
 		node->cost_rev = 1 + abs(dist_src_to_head - dist_dst_to_head);
 	}
-	if (dist_src_to_head < 0 && dist_src_to_head < 0)
+	else if (dist_src_to_head < 0 && dist_src_to_head < 0)
 	{
 		node->move_rot = true;
 		node->cost_rev = 1 + abs(dist_src_to_head - dist_dst_to_head);
 	}
-	if (dist_src_to_head < 0 && dist_src_to_head > 0)
+	else if (dist_src_to_head < 0 && dist_src_to_head > 0)
 	{
 		node->move_opo_srot_drev = true;
 		node->cost_opo_srot_drev = 1 + abs(dist_src_to_head) + abs(dist_dst_to_head);
 	}
-	if (dist_src_to_head > 0 && dist_src_to_head < 0)
+	else if (dist_src_to_head > 0 && dist_src_to_head < 0)
 	{
 		node->move_opo_srev_drot = true;
 		node->cost_opo_srev_drot =  1 + abs(dist_src_to_head) + abs(dist_dst_to_head);
 	}
 }
+
+
+
 
 //FROM B TO A
 static void	calculate_move_b_to_a(t_info *s, t_dll *node)
@@ -120,33 +118,46 @@ static void	calculate_move_a_to_b(t_info *s, t_dll *node)
 	return ;
 }
 
-static void	reset_costs(t_info *s)
+void	set_lowest_node_to_move(t_info *s, t_dll *node, char stack)
 {
-	t_dll *trav;
+	int		*values;
+	bool	*moves;
 	int		i;
-	if (s->a)
+	int		lowest_i;
+
+	if(node->cost == 999)
+		return ;
+	values = &node->cost_rot;
+	moves = &node->move_rot;
+	i = 0;
+	lowest_i = i;
+	while (i < 3)
 	{
-		i = 0;
-		trav = s->a;
-		while (i < s->a_len)
-		{
-			trav->cost = 998;
-			trav = trav->next;
-			i++;
-		}
+		if (values[i + 1] < values[i]) /// TIREI O CHECK se era != 998
+			lowest_i = i + 1;
+		i++;
 	}
-	if (s->b)
+	node->cost = values[lowest_i];
+	i = 0;
+	if (node->cost == 999)
+		return ;	
+	while(i < 4)
 	{
-		i = 0;
-		trav = s->b;
-		while (i < s->b_len)
-		{
-			trav->cost = 998;
-			trav = trav->next;
-			i++;
-		}
+		if (values[i] == values[lowest_i])
+			moves[i] = true;
+		i++;
 	}
+	if (stack == 'a')
+	{
+		if (s->cheap_in_a->value >  values[lowest_i])
+			s->cheap_in_a = node;
+	}
+	else if (stack == 'b')
+		if (s->cheap_in_b->value >  values[lowest_i])
+			s->cheap_in_b = node;		
 }
+
+
 
 
 static void	calculate_each_node(t_info *s)
@@ -159,8 +170,10 @@ static void	calculate_each_node(t_info *s)
 		trav = s->a;
 		while (i < s->a_len)
 		{
-			//reset_costs(node); // MODE A LEVEL UP IF ADDING SWAP.
+			reset_costs(trav);
 			calculate_move_a_to_b(s, trav);
+		//	calculate_swap_a(s, trav);
+			set_lowest_node_to_move(s, trav, 'a');
 			trav = trav->next;
 			i++;
 		}
@@ -171,8 +184,10 @@ static void	calculate_each_node(t_info *s)
 		trav = s->b;
 		while (i < s->b_len)
 		{
-			//reset_costs(node); // MODE A LEVEL UP IF ADDING SWAP.
+			reset_costs(trav);
 			calculate_move_b_to_a(s, trav);
+		//	calculate_swap_b(s, trav);
+			set_lowest_node_to_move(s, trav, 'a');
 			trav = trav->next;
 			i++;
 		}
@@ -181,13 +196,8 @@ static void	calculate_each_node(t_info *s)
 
 void	calculate_all_costs(t_info *s)
 {
-
 	find_hi_lo_nodes(s);
-	reset_costs(s);
 	calculate_each_node(s);
-
-
-
 }
 
 
