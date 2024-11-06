@@ -9,7 +9,7 @@ void	split_by_order(t_info *s)
 	count = 0;
 	while (count < 3)
 	{
-		if (s->a->next->value > s->t_len / 2)
+		if (s->a->next->value < s->t_len / 2)
 		{
 			ra(s, 1);
 			count++;

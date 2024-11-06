@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 18:08:06 by eduribei          #+#    #+#             */
-/*   Updated: 2024/11/04 16:33:28 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/11/05 20:49:38 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,18 @@ bool	swapping_works(t_info *s)
 	swap_a = false;
 	swap_b = false;
 
-	if (s->a != NULL && !(s->a_csort))
-		if ((s->a)->next->value > (s->a)->next->next->value && (s->a)->next->value >= s->t_len/2 && (s->a)->next->next->value >= s->t_len/2)
-			swap_a = true;
-	if (s->b != NULL && !(s->b_csort))
-		if ((s->b)->next->value < (s->b)->next->next->value && (s->b)->next->value < s->t_len/2 && (s->b)->next->next->value < s->t_len/2)
-			swap_b = true;
+	if (s->a != NULL && !(s->a_midsort))
+		if (s->a->next->value > s->a->next->next->value
+		&& s->a->next->value >= s->t_len/2
+		&& s->a->next->next->value != s->hi_a->value) //0k?
+		swap_a = true;
+	if (s->b != NULL && !(s->b_midsort))
+		if (s->b->next->value < s->b->next->next->value 
+		&& s->b->next->value < s->t_len/2 
+		&& s->b->next->next->value < s->t_len/2
+		&& s->b->next->value != s->hi_b->value)
+		// && s->b->next->next->value != s->lo_b->value)		
+		swap_b = true;
 	if (!swap_a && !swap_b)
 		return (false);
 	else if (swap_a && swap_b)
@@ -47,14 +53,22 @@ bool	swapping_back_works(t_info *s)
 	swap_a = false;
 	swap_b = false;
 
-	if (s->a != NULL && !(s->a_csort))
-		if ((s->a)->value > (s->a)->next->value && (s->a)->value != s->hi_a->value &&
-		(s->a)->value >= s->t_len/2 && (s->a)->next->value >= s->t_len/2 && s->a->next->value != s->a->next->next->value - 1)
-			swap_a = true;
-	if (s->b != NULL && !(s->b_csort))
-		if ((s->b)->value < (s->b)->next->value && (s->b)->value != s->lo_b->value &&
-		(s->b)->value < s->t_len/2 && (s->b)->next->value < s->t_len/2 && s->b->next->value != s->a->next->next->value + 1)
-			swap_b = true;
+	if (s->a != NULL && !(s->a_midsort))
+		if (s->a->value > s->a->next->value					//OK
+		&& s->a->next->value != s->hi_a->value				//OK
+		&& s->a->next->value != s->lo_a->value
+		&& s->a->value >= s->t_len/2
+		&& s->a->next->value >= s->t_len/2)
+		//&& s->a->next->value != s->a->next->next->value - 1)
+		swap_a = true;
+	if (s->b != NULL && !(s->b_midsort))
+		if (s->b->value < s->b->next->value 
+		&& s->b->value != s->lo_b->value 
+		&& s->b->next->value != s->lo_b->value
+		&& s->b->value < s->t_len/2
+		&& s->b->next->value < s->t_len/2
+		&& s->b->next->value != s->a->next->next->value + 1)
+		swap_b = true;
 	if (!swap_a && !swap_b)
 		return (false);
 	else if (swap_a && swap_b)

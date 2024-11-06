@@ -13,7 +13,6 @@ static void move_a_to_b(t_info *s)
 		s->hi_b = ft_dclst_find_highest_int(&(s->b), offsetof(t_dll, value));
 }
 
-
 static void move_b_to_a(t_info *s)
 {
 	if (s->b->next->cost < 0)
@@ -33,7 +32,7 @@ void	move(t_info *s)
 
 	if (s->a->next->cost > 900 && s->b->next->cost > 900)
 	{
-		rrr(s, 1);
+		rr(s, 1);
 		return;
 	}
 	if (abs(s->a->next->cost) < abs(s->b->next->cost))
@@ -47,6 +46,4 @@ void	move(t_info *s)
 		else
 			move_a_to_b(s);
 	}
-
-
 }

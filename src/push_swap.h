@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 19:50:42 by eduribei          #+#    #+#             */
-/*   Updated: 2024/11/04 21:21:12 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/11/05 18:15:26 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ typedef struct s_info
 	int			t_len;
 	bool		a_csort;
 	bool		b_csort;
+	bool		a_midsort;
+	bool		b_midsort;
 	bool		block_swap;	
 	char		dst_name;
 	t_dll		*dst_s;
@@ -62,6 +64,7 @@ void	update_split1(t_info *s);
 bool	gridlock(t_info *s);
 void unlock(t_info *s);
 bool	swapping_back_works(t_info *s);
+void	mid_sorted_status(t_info *s);
 
 
 //costs

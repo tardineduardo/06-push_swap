@@ -3,17 +3,15 @@
 void	even_nodes_per_stack(t_info *s)
 {
 	int	half;
-	half = (s->a_len / 2);
+	half = (s->t_len/2);
 
-	if (s->a_len > s->b_len)
+	while(s->b_len != half && !(s->a_csort))
 	{
-		while(s->b_len != half && !(s->a_csort))
+		if (s->a->value < s->t_len/2)
 			pb(s, 1);
-	}
-	if (s->b_len > s->a_len)
-	{
-		while(s->b_len != half && !(s->a_csort))
-			pa(s, 1);
+		else
+			rr(s, 1);
+
 	}
 	return ;
 }
