@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 20:48:56 by eduribei          #+#    #+#             */
-/*   Updated: 2024/11/05 20:52:28 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/11/06 14:42:18 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	main(int argc, char *argv[])
 	split_by_order(s);
 	// even_nodes_per_stack(s);
 	find_hi_lo_nodes(s);
-	//ft_play_print_values(&(s->a), &(s->b));
+	ft_play_print_values(&(s->a), &(s->b));
 	while (1)
 	{
 		update_sorted_status(s);
@@ -51,19 +51,19 @@ int	main(int argc, char *argv[])
 		if (swapping_works(s))
 		{
 			ft_printf("SWAPPING NORMAL");
-			//ft_play_print_values(&(s->a), &(s->b));
+			ft_play_print_values(&(s->a), &(s->b));
 			continue;
 		}
 		else if (swapping_back_works(s))
 		{
 			ft_printf("SWAPPING REVERSO");
-			//ft_play_print_values(&(s->a), &(s->b));
+			ft_play_print_values(&(s->a), &(s->b));
 			continue;
 		}
 		else
 		{
-			calculate_all_costs3(s);
-			//ft_play_print_values(&(s->a), &(s->b));
+			calculate_all_costs(s);
+			ft_play_print_values(&(s->a), &(s->b));
 			move(s);
 		}
 	//ft_play_print_values(&(s->a), &(s->b));

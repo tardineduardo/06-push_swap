@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 17:02:36 by eduribei          #+#    #+#             */
-/*   Updated: 2024/11/04 16:33:41 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/11/06 15:52:02 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,18 +57,20 @@ typedef struct s_dlist
 	int				label;
 	int				value;
 	int				cost;
-	int				cost_sam;
-	int				cost_swp;
+//	int				cost_sam;
+//	int				cost_swp;
 	int				cost_rot;
 	int				cost_rev;
-	int				cost_opo;
-	bool			move_sam;
-	bool			move_swp;
+	int				cost_opo_srev_drot;
+	int				cost_opo_srot_drev;
+//	bool			move_sam;
+//	bool			move_swp;
 	bool			move_rot;
 	bool			move_rev;
-	bool			move_opo;
-	char			opo_way_a;
+	bool			move_opo_srev_drot;
+	bool			move_opo_srot_drev;
 	void			*content;
+	struct s_dlist	*to_meet;
 	struct s_dlist	*next;
 	struct s_dlist	*prev;
 	struct s_dlist	*pre;
