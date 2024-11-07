@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 19:50:42 by eduribei          #+#    #+#             */
-/*   Updated: 2024/11/06 19:30:28 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/11/06 22:11:20 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,11 @@ void	calculate_all_costs(t_info *s);
 void	move(t_info *s);
 void	update_split1(t_info *s);
 bool	gridlock(t_info *s);
-void unlock(t_info *s);
+void 	unlock(t_info *s);
 bool	swapping_back_works(t_info *s);
 void	mid_sorted_status(t_info *s);
+void	select_node_to_move(t_info *s);
+void	update_lowest_node_series(t_info *s, int a_len_start, int b_len_start);
 
 
 //costs

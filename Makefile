@@ -13,6 +13,7 @@ ALGO = 	src/algo/even_nodes_per_stack.c \
 		src/algo/split_by_order.c \
 		src/algo/swapping.c \
 		src/algo/update_sorted_status.c \
+		src/inutils/update_lowest.c \
 
 MOVES =	src/moves/moves_sa_sb_ss.c \
 		src/moves/moves_ra_rb_rr.c \

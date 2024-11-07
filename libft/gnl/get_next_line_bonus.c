@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 13:02:27 by eduribei          #+#    #+#             */
-/*   Updated: 2024/10/23 13:07:04 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/11/06 22:01:05 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,10 +57,10 @@ char	*get_next_line(int fd)
 	char		*nextline;
 	static char	*remainder[2000];
 
-	if (read(fd, 0, 0) == -1)
+	if (read(fd, 0, 0) == -1 || GNLBUFF <= 0)
 		return (NULL);
 	if (!remainder[fd])
-		remainder[fd] = calloc(GNLBUFF, 1);
+		remainder[fd] = calloc(GNLBUFF, 1); // use a minha calloc
 	nextline = ft_strdup(remainder[fd]);
 	remainder[fd][0] = 0;
 	if (!nextline)

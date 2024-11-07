@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 20:48:56 by eduribei          #+#    #+#             */
-/*   Updated: 2024/11/06 14:42:18 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/11/06 21:03:11 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int	main(int argc, char *argv[])
 		{
 			calculate_all_costs(s);
 			ft_play_print_values(&(s->a), &(s->b));
-			move(s);
+			select_node_to_move(s);
 		}
 	//ft_play_print_values(&(s->a), &(s->b));
 	}

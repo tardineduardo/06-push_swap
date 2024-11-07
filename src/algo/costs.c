@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 17:42:02 by eduribei          #+#    #+#             */
-/*   Updated: 2024/11/06 19:06:01 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/11/06 22:43:04 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,12 @@ static void set_dist_and_move_type(int dist_src_to_head, int dist_dst_to_head, t
 	if (dist_src_to_head > 0 && dist_src_to_head > 0)
 	{
 		node->move_rev = true;
-		node->cost_rev = 1 + abs(dist_src_to_head - dist_dst_to_head);
+		node->cost_rev = 1 + abs(dist_src_to_head) + abs(dist_src_to_head - dist_dst_to_head);
 	}
 	else if (dist_src_to_head < 0 && dist_src_to_head < 0)
 	{
 		node->move_rot = true;
-		node->cost_rev = 1 + abs(dist_src_to_head - dist_dst_to_head);
+		node->cost_rot = 1 + abs(dist_src_to_head) + abs(dist_src_to_head - dist_dst_to_head);
 	}
 	else if (dist_src_to_head < 0 && dist_src_to_head > 0)
 	{
@@ -147,12 +147,12 @@ void	set_lowest_node_to_move(t_info *s, t_dll *node, char stack)
 			moves[i] = true;
 		i++;
 	}
-	if (stack == 'a')
+	if (s->a && stack == 'a')
 	{
 		if (s->cheap_in_a->value >  values[lowest_i])
 			s->cheap_in_a = node;
 	}
-	else if (stack == 'b')
+	else if (s->b && stack == 'b')
 		if (s->cheap_in_b->value >  values[lowest_i])
 			s->cheap_in_b = node;		
 }
@@ -187,7 +187,7 @@ static void	calculate_each_node(t_info *s)
 			reset_costs(trav);
 			calculate_move_b_to_a(s, trav);
 		//	calculate_swap_b(s, trav);
-			set_lowest_node_to_move(s, trav, 'a');
+			set_lowest_node_to_move(s, trav, 'b');
 			trav = trav->next;
 			i++;
 		}

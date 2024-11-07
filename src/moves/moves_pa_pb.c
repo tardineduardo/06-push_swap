@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 17:07:25 by eduribei          #+#    #+#             */
-/*   Updated: 2024/10/27 17:42:58 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/11/06 22:12:41 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,9 @@ void pa(t_info *s, int fd)
 
 void pb(t_info *s, int fd)
 {
+	int	a_len_start;
+	int	b_len_start;
+
 	if (s->a_len == 0)
 		return;
 	else if (s->a_len == 1 && s->b_len == 0)
@@ -91,4 +94,5 @@ void pb(t_info *s, int fd)
 	s->debug_movecount++;
 	s->a_len--;
 	s->b_len++;
+	update_lowest_node_series(s, a_len_start, b_len_start);
 }
