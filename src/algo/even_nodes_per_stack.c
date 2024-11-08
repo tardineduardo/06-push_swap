@@ -5,7 +5,7 @@ void	even_nodes_per_stack(t_info *s)
 	int	half;
 	half = (s->t_len/2);
 
-	while(s->b_len != half && !(s->a_csort))
+	while(s->b_len != half && !(s->a_is_clock_sorted))
 	{
 		if (s->a->value < s->t_len/2)
 			pb(s, 1);

@@ -22,10 +22,10 @@ typedef struct s_info
 	int			a_len;
 	int			b_len;
 	int			t_len;
-	bool		a_csort;
-	bool		b_csort;
-	bool		a_midsort;
-	bool		b_midsort;
+	bool		a_is_clock_sorted;
+	bool		b_is_clock_sorted;
+	bool		a_partially_sorted;
+	bool		b_partially_sorted;
 	bool		block_swap;	
 	char		dst_name;
 	t_dll		*dst_s;
@@ -34,12 +34,6 @@ typedef struct s_info
 	t_dll		*lo_a;
 	t_dll		*hi_b;
 	t_dll		*lo_b;
-//	t_dll		*a_to_move;
-//	t_dll		*b_to_move;
-	t_dll		*cheap_in_a;
-	t_dll		*cheap_in_b;
-	int			debug_hi_sa;
-	int			debug_hi_sb;
 	int			debug_movecount;
 }				t_info;
 

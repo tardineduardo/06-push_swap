@@ -115,11 +115,11 @@ bool rotate_b(t_info *s)
 void push_lower_values_to_b(t_info *s)
 {
 	////ft_play_print_values(&(s->a), &(s->b));
-	s->a_csort = ft_dclst_clock_sortd(&(s->a), 'n', offsetof(t_dll, value));
-	if(s->a_csort && s->a_len >= s->t_len / 2)
+	s->a_is_clock_sorted = ft_dclst_clock_sortd(&(s->a), 'n', offsetof(t_dll, value));
+	if(s->a_is_clock_sorted && s->a_len >= s->t_len / 2)
 		return ;
 
-	while (s->b_len != s->t_len / 2 && !(s->a_csort))
+	while (s->b_len != s->t_len / 2 && !(s->a_is_clock_sorted))
 	{
 		if (s->a->next->value <= (s->t_len / 2) - 1)
 		{

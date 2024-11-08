@@ -177,9 +177,7 @@ void	ft_init_stacks(t_info *s, int argc, char *argv[])
 	assign_indexes_to_labels(&(s->a));	
 	assign_pre_node(s);
 	assign_pro_node(s);
+	s->debug_movecount = 0;
 
 	
-	s->cheap_in_a = s->a;
-	s->cheap_in_a->value = 0;
-
 }

@@ -191,7 +191,7 @@ int		ft_dclst_dist_head_bidi(t_dll **tail, t_dll *node);
 int		ft_dclst_dist_head_bidi_len(t_dll **tail, t_dll *node, int list_len);
 int		ft_dclst_dist_head_unid(t_dll **tail, t_dll *nd, char mode);
 int		ft_dclst_dist_head_unid_len(t_dll **tail, t_dll *nd, int llen, char mode);
-t_dll	*ft_dclst_find_node(t_dll **tail, t_dll *node);
+t_dll	*ft_dclst_find_node(t_dll **tail, t_dll *node, int len);
 
 // printf
 int	ft_printf(const char *input, ...);

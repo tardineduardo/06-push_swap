@@ -5,8 +5,8 @@ void	update_sorted_status(t_info *s)
 	bool a_is_longer;
 	bool b_is_longer;
 
-	s->a_csort = false;
-	s->b_csort = false;
+	s->a_is_clock_sorted = false;
+	s->b_is_clock_sorted = false;
 	a_is_longer = false;
 	b_is_longer = false;
 
@@ -20,7 +20,7 @@ void	update_sorted_status(t_info *s)
 		b_is_longer = true;
 	}	
 	if (a_is_longer && ft_dclst_clock_sortd(&(s->a), 'n', offsetof(t_dll, value)))
-		s->a_csort = true;
+		s->a_is_clock_sorted = true;
 	if (b_is_longer && ft_dclst_clock_sortd(&(s->b), 'r', offsetof(t_dll, value)))
-		s->b_csort = true;
+		s->b_is_clock_sorted = true;
 }

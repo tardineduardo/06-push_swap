@@ -22,7 +22,7 @@ static void	lock_sorted_nodes2(t_info *s)
 	i = 0;
 	if (s->a)
 	{
-		if(s->a_len <= s->t_len / 3 || s->a_csort)
+		if(s->a_len <= s->t_len / 3 || s->a_is_clock_sorted)
 			lock_all_stack2(&(s->a));
 		else	
 		{
@@ -38,7 +38,7 @@ static void	lock_sorted_nodes2(t_info *s)
 	}
 	if (s->b)
 	{
-		if(s->b_len <= s->t_len / 3 || s->b_csort)
+		if(s->b_len <= s->t_len / 3 || s->b_is_clock_sorted)
 			lock_all_stack2(&(s->b));
 		else
 		{

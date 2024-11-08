@@ -8,7 +8,7 @@ void	even_nodes_per_stack(t_info *s)
 	if (half < 3)
 		half = 3;
 
-	while(s->b_len != half && !(s->a_csort))
+	while(s->b_len != half && !(s->a_is_clock_sorted))
 	{
 		if (!(swapping_works(s)))
 			pb(s, 1);

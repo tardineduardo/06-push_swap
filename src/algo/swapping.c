@@ -21,14 +21,17 @@ bool	swapping_works(t_info *s)
 	
 	swap_a = false;
 	swap_b = false;
- 	top_a = s->a->next;
-	top_b = s->b->next;
-	if (s->a != NULL && !(s->a_midsort))
+ 	
+	if(s->a) top_a = s->a->next;
+	if(s->b) top_b = s->b->next;
+	
+	if (s->a && !(s->a_partially_sorted))
 		if (top_a->value > top_a->next->value && top_a->value >= s->t_len/2
 		&& top_a->next->value > s->t_len/2 && top_a->value != s->lo_a->value
 		&& top_a->next->value != s->hi_a->value)
 		swap_a = true;
-	if (s->b != NULL && !(s->b_midsort))
+	
+	if (s->b && !(s->b_partially_sorted))
 		if (top_b->value < top_b->next->value 
 		&& top_b->value < s->t_len/2 && top_b->next->value < s->t_len/2
 		&& top_b->value != s->hi_b->value && top_b->next->value != s->lo_b->value)		
@@ -55,22 +58,22 @@ bool	swapping_back_works(t_info *s)
 	
 	swap_a = false;
 	swap_b = false;
- 	top_a = s->a->next;
-	top_b = s->b->next;
+	if(s->a) top_a = s->a->next;
+	if(s->b) top_b = s->b->next;
 
-	if (s->a != NULL && !(s->a_midsort))
+	if (s->a && !(s->a_partially_sorted))
 		if (s->a->value > top_a->value					//OK
 		&& s->a->value >= s->t_len/2
 		&& top_a->value >= s->t_len/2
-		&& top_a->value != s->lo_a->value				//OK
-		&& s->a->value != s->hi_a->value)
+	//	&& top_a->value != s->lo_a->value				//OK
+		&& s->a->value != s->t_len - 1)
 		swap_a = true;
-	if (s->b != NULL && !(s->b_midsort))
+	if (s->b && !(s->b_partially_sorted))
 		if (s->b->value < top_b->value					//ok
 		&& s->b->value < s->t_len/2
 		&& top_b->value < s->t_len/2
-		&& top_b->value != s->hi_b->value
-		&& s->b->value != s->lo_b->value) 
+	//	&& top_b->value != s->hi_b->value
+		&& s->b->value != 0) 
 		swap_b = true;
 	if (!swap_a && !swap_b)
 		return (false);

@@ -2,26 +2,26 @@
 
 void	update_sorted_status(t_info *s)
 {
-	s->a_csort = false;
-	s->b_csort = false;
+	s->a_is_clock_sorted = false;
+	s->b_is_clock_sorted = false;
 	int diff;
 
 	diff = abs(s->a_len - s->b_len);
 
 	if (diff < s->t_len/10 && ft_dclst_clock_sortd(&(s->a), 'n', offsetof(t_dll, value)))
-		s->a_csort = true;
+		s->a_is_clock_sorted = true;
 	if (diff < s->t_len/10 && ft_dclst_clock_sortd(&(s->b), 'r', offsetof(t_dll, value)))
-		s->b_csort = true;
+		s->b_is_clock_sorted = true;
 }
 
 
 void	mid_sorted_status(t_info *s)
 {
-	s->a_midsort = false;
-	s->b_midsort= false;
+	s->a_partially_sorted = false;
+	s->b_partially_sorted= false;
 
 	if (ft_dclst_circ_sortd(&(s->a), 'i', 'n', offsetof(t_dll, value)))
-		s->a_midsort = true;
+		s->a_partially_sorted = true;
 	if (ft_dclst_circ_sortd(&(s->b), 'i', 'r', offsetof(t_dll, value)))
-		s->b_midsort = true;
+		s->b_partially_sorted = true;
 }

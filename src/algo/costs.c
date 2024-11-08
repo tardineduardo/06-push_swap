@@ -12,41 +12,80 @@
 
 #include "../push_swap.h"
 
-static void set_costs_to_locked(t_dll *node) /// mover para INUTILS
+
+// static void	node_swp_cost(t_info *s, t_dll *node, char stack)
+// {
+// 	int		dist_nd_head;
+// 	int		flag;
+
+// 	if (stack == 'a')
+// 	{
+// 		if (node->value > node->next->value && node->value >= s->t_len/2
+// 		&& node->next->value > s->t_len/2 && node->value != s->lo_a->value
+// 		&& node->next->value != s->hi_a->value)
+// 			node->cost_swp = abs(ft_dclst_dist_head_bidi(&(s->a), node)) + 1;
+// 		else
+// 			node->cost_swp = 999;
+// 	}
+
+// 	if (stack == 'b')
+// 	{
+// 		if (node->value < node->next->value 
+// 		&& node->value < s->t_len/2 && node->next->value < s->t_len/2
+// 		&& node->value != s->hi_b->value && node->next->value != s->lo_b->value)	
+// 			node->cost_swp = abs(ft_dclst_dist_head_bidi(&(s->b), node->prev)) + 1;
+// 		else
+// 			node->cost_swp = 999;
+// 	}
+// 	return;
+// }
+
+
+static void set_cross_costs_to_locked(t_dll *node) /// mover para INUTILS
 {
+	node->cost = 999;
 	node->cost_rot = 999;
 	node->cost_rev = 999;;
-	node->cost_opo_srot_drev = 999;;
-	node->cost_opo_srev_drot =  999;;
+	node->cost_opo_srot_drev = 999;
+	node->cost_opo_srev_drot =  999;
+	node->move_rot = false;
+	node->move_rev = false;
+	node->move_opo_srev_drot = false;
+	node->move_opo_srot_drev = false;	
 }
 
 static void reset_costs(t_dll *node) /// mover para INUTILS
 {
 	//node->cost_swp = 998;
+	node->cost = 998;
 	node->cost_rot = 998;
 	node->cost_rev = 998;;
-	node->cost_opo_srot_drev = 998;;
-	node->cost_opo_srev_drot =  998;;
+	node->cost_opo_srot_drev = 998;
+	node->cost_opo_srev_drot =  998;
+	node->move_rot = false;
+	node->move_rev = false;
+	node->move_opo_srev_drot = false;
+	node->move_opo_srot_drev = false;
 }
 
 static void set_dist_and_move_type(int dist_src_to_head, int dist_dst_to_head, t_dll *node)
 {
-	if (dist_src_to_head > 0 && dist_src_to_head > 0)
+	if (dist_src_to_head > 0 && dist_dst_to_head > 0)
 	{
 		node->move_rev = true;
-		node->cost_rev = 1 + abs(dist_src_to_head) + abs(dist_src_to_head - dist_dst_to_head);
+		node->cost_rev = 1 + abs(dist_src_to_head) + abs(dist_dst_to_head - dist_src_to_head);
 	}
-	else if (dist_src_to_head < 0 && dist_src_to_head < 0)
+	else if (dist_src_to_head < 0 && dist_dst_to_head < 0)
 	{
 		node->move_rot = true;
-		node->cost_rot = 1 + abs(dist_src_to_head) + abs(dist_src_to_head - dist_dst_to_head);
+		node->cost_rot = 1 + abs(dist_src_to_head) + abs(dist_dst_to_head - dist_src_to_head);
 	}
-	else if (dist_src_to_head < 0 && dist_src_to_head > 0)
+	else if (dist_src_to_head <= 0 && dist_dst_to_head >= 0)
 	{
 		node->move_opo_srot_drev = true;
 		node->cost_opo_srot_drev = 1 + abs(dist_src_to_head) + abs(dist_dst_to_head);
 	}
-	else if (dist_src_to_head > 0 && dist_src_to_head < 0)
+	else if (dist_src_to_head >= 0 && dist_dst_to_head <= 0)
 	{
 		node->move_opo_srev_drot = true;
 		node->cost_opo_srev_drot =  1 + abs(dist_src_to_head) + abs(dist_dst_to_head);
@@ -65,7 +104,7 @@ static void	calculate_move_b_to_a(t_info *s, t_dll *node)
 
 	if (node->value < (s->t_len / 2) || s->b_len < 3)    // eu deveria mesmo checar se o tamanho é minimo?
 	{
-		set_costs_to_locked(node);
+		set_cross_costs_to_locked(node);
 		return ;
 	}
 	node_b_dist = ft_dclst_dist_head_bidi(&(s->b), node);
@@ -84,12 +123,6 @@ static void	calculate_move_b_to_a(t_info *s, t_dll *node)
 	return ;
 }
 
-////////////////  PAREI AQUI ///////////////////////////////////////////////////
-
-
-
-
-
 
 // COST FROM A->B
 static void	calculate_move_a_to_b(t_info *s, t_dll *node)
@@ -98,15 +131,15 @@ static void	calculate_move_a_to_b(t_info *s, t_dll *node)
 	int dest_b_dist;
 	int node_a_dist;
 
-	if (node->value >= (s->t_len / 2) || s->b_len < 3)
+	if (node->value >= (s->t_len / 2) || s->a_len < 3)
 	{
-		set_costs_to_locked(node);
+		set_cross_costs_to_locked(node);
 		return ;
 	}
 	node_a_dist = ft_dclst_dist_head_bidi(&(s->a), node);
 	trav_b = s->lo_b;
 	if (trav_b->value > node->value)
-		node->to_meet = s->lo_b;
+		node->to_meet = s->lo_b->next;
 	else
 	{
 		while (node->value > trav_b->prev->value && trav_b->prev->value < s->t_len /2 && trav_b->next != s->hi_b)
@@ -147,18 +180,7 @@ void	set_lowest_node_to_move(t_info *s, t_dll *node, char stack)
 			moves[i] = true;
 		i++;
 	}
-	if (s->a && stack == 'a')
-	{
-		if (s->cheap_in_a->value >  values[lowest_i])
-			s->cheap_in_a = node;
-	}
-	else if (s->b && stack == 'b')
-		if (s->cheap_in_b->value >  values[lowest_i])
-			s->cheap_in_b = node;		
 }
-
-
-
 
 static void	calculate_each_node(t_info *s)
 {
@@ -171,8 +193,10 @@ static void	calculate_each_node(t_info *s)
 		while (i < s->a_len)
 		{
 			reset_costs(trav);
-			calculate_move_a_to_b(s, trav);
-		//	calculate_swap_a(s, trav);
+			if (s->b)
+				calculate_move_a_to_b(s, trav);
+			// if (!(s->a_partially_sorted))
+			// 	node_swp_cost(s, trav, 'a');
 			set_lowest_node_to_move(s, trav, 'a');
 			trav = trav->next;
 			i++;
@@ -185,52 +209,22 @@ static void	calculate_each_node(t_info *s)
 		while (i < s->b_len)
 		{
 			reset_costs(trav);
-			calculate_move_b_to_a(s, trav);
-		//	calculate_swap_b(s, trav);
+			if (s->a)
+				calculate_move_b_to_a(s, trav);
+			// if (!(s->b_partially_sorted))
+			// 	node_swp_cost(s, trav, 'b');			
 			set_lowest_node_to_move(s, trav, 'b');
 			trav = trav->next;
 			i++;
 		}
 	}
+	return ;
 }
 
 void	calculate_all_costs(t_info *s)
 {
 	find_hi_lo_nodes(s);
 	calculate_each_node(s);
+	return ;
 }
 
-
-
-
-
-// static void	calculate_b(t_info *s, t_dll *node)
-// {
-// 	t_dll *top_b = s->b->next;
-
-// 	if (top_b->value < s->t_len / 2)
-// 		s->b->next->cost = 999;
-// 	else if (s->b_len < 3)
-// 		s->b->next->cost = 999;
-// 	else if (s->b_len < 3)
-// 		s->b->next->cost = 999;
-// 	else
-// 	{
-// 		t_dll *trav;
-
-// 		trav = s->hi_a;
-// 		if (trav->value < top_b->value)
-// 		{
-// 			s->b->next->cost = ft_dclst_dist_head_bidi(&(s->a), s->hi_a->next);
-// 			s->a_to_move = s->hi_a->next;
-// 		}
-// 		else
-// 		{                 								
-// 			while (top_b->value < trav->value && top_b->value < trav->prev->value && trav->prev->value != s->hi_a->value)
-// 				trav = trav->prev;
-// 			s->b->next->cost = ft_dclst_dist_head_bidi(&(s->a), trav);
-// 			s->a_to_move = trav;
-
-// 		}
-// 	}
-// }
