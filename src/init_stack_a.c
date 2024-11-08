@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_stack.c                                       :+:      :+:    :+:   */
+/*   init_stack_a.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 15:19:45 by eduribei          #+#    #+#             */
-/*   Updated: 2024/11/06 17:42:41 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/11/08 15:38:57 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,7 +136,7 @@ static void	assign_indexes_to_labels(t_dll **tail)
 
 
 
-void	ft_init_stacks(t_info *s, int argc, char *argv[])
+void	ft_init_stack_a(t_info *s, int argc, char *argv[])
 {
 	int		a;
 	t_dll	*new;

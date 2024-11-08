@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 19:50:42 by eduribei          #+#    #+#             */
-/*   Updated: 2024/11/06 22:11:20 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/11/08 17:47:02 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ typedef struct s_info
 
 //main
 void	ft_validate_args(int argc, char *argv[]);
-void	ft_init_stacks(t_info *s, int argc, char *argv[]);
+void	ft_init_stack_a(t_info *s, int argc, char *argv[]);
 
 //algo
 void	push_lower_values_to_b(t_info *s);
@@ -48,8 +48,7 @@ t_dll	*find_lowest_cost(t_dll **tail);
 bool	swapping_works(t_info *s);
 void	update_sorted_status(t_info *s);
 void	even_nodes_per_stack(t_info *s);
-void	move_node_to_top_source(t_info *s, t_dll *node);
-void	move_node_to_top_dest(t_info *s, t_dll *node);
+void	move_node_to_top(t_info *s, t_dll **stack, t_dll *node);
 void	make_move(t_info *s);
 bool	all_locked(t_info *s);
 void	split_by_order(t_info *s);
@@ -62,7 +61,7 @@ void 	unlock(t_info *s);
 bool	swapping_back_works(t_info *s);
 void	mid_sorted_status(t_info *s);
 void	select_node_to_move(t_info *s);
-void	update_lowest_node_series(t_info *s, int a_len_start, int b_len_start);
+void	send_two_lower_values_to_stack_b(t_info *s);
 
 
 //costs

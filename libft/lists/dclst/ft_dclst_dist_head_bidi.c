@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 15:21:30 by eduribei          #+#    #+#             */
-/*   Updated: 2024/10/30 18:50:34 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/11/08 16:15:37 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ int	ft_dclst_dist_head_bidi(t_dll **tail, t_dll *node)
 	if (list_len == -1)
 		ft_error_exit("List size error.\n", 1);
 	if (list_len == 0)
-		return (0);
+		ft_error_exit("List is empty.\n", 1);
 	if (list_len == 1)
-		return (1);	
+		return (0);
 	trav_fwd = node;
 	trav_bck = node;
 	while (i < list_len)

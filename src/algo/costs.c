@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 17:42:02 by eduribei          #+#    #+#             */
-/*   Updated: 2024/11/06 22:43:04 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/11/08 17:30:33 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,18 +131,21 @@ static void	calculate_move_a_to_b(t_info *s, t_dll *node)
 	int dest_b_dist;
 	int node_a_dist;
 
-	if (node->value >= (s->t_len / 2) || s->a_len < 3)
-	{
-		set_cross_costs_to_locked(node);
-		return ;
-	}
+	// if (node->value >= (s->t_len / 2) || s->a_len < 3)
+	// {
+	// 	set_cross_costs_to_locked(node);
+	// 	return ;
+	// }
 	node_a_dist = ft_dclst_dist_head_bidi(&(s->a), node);
 	trav_b = s->lo_b;
 	if (trav_b->value > node->value)
 		node->to_meet = s->lo_b->next;
 	else
 	{
-		while (node->value > trav_b->prev->value && trav_b->prev->value < s->t_len /2 && trav_b->next != s->hi_b)
+		while (node->value > trav_b->value 
+		&& node->value >  trav_b->prev->value
+		&& trav_b->prev != s->lo_b
+		&& s->b_len != 1)
 			trav_b = trav_b->prev;
 		node->to_meet = trav_b;
 	}
@@ -186,8 +189,10 @@ static void	calculate_each_node(t_info *s)
 {
 	t_dll *trav;
 	int		i;
-	if (s->a)
+
+	if (s->dst_name == 'b')
 	{
+		// OPCIONAL -> RESET VALORES NA OUTRA STACK
 		i = 0;
 		trav = s->a;
 		while (i < s->a_len)
@@ -202,8 +207,9 @@ static void	calculate_each_node(t_info *s)
 			i++;
 		}
 	}
-	if (s->b)
+	if (s->dst_name == 'a')
 	{
+		// OPCIONAL -> RESET VALORES NA OUTRA STACK
 		i = 0;
 		trav = s->b;
 		while (i < s->b_len)

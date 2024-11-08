@@ -1,26 +1,16 @@
 #include "../push_swap.h"
 
-void	split_by_order(t_info *s)
+void	send_two_lower_values_to_stack_b(t_info *s)
 {
 	t_dll *trav;
 	trav = s->a->next;
-	int count;
 
-	count = 0;
-	while (count < 3)
+	while (s->b_len < 1)
 	{
 		if (s->a->next->value > s->t_len / 2)
-		{
 			ra(s, 1);
-			count++;
-		}
 		else
 			pb(s, 1);
 	}
-	while (s->a_len > 3)
-		pb(s, 1);
 	return;
 }
-
-
-

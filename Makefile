@@ -3,16 +3,17 @@ MAIN =  src/push_swap.c \
 # PLAY =	src/play/play_swap.c \
 
 UTILS = src/validate_args.c \
-		src/init_stack.c \
+		src/init_stack_a.c \
 
 ALGO = 	src/algo/even_nodes_per_stack.c \
 		src/algo/costs.c \
 		src/algo/find_hi_lo_nodes.c \
 		src/algo/gridlock.c \
 		src/algo/move.c \
-		src/algo/split_by_order.c \
 		src/algo/swapping.c \
 		src/algo/update_sorted_status.c \
+		src/algo/init_stack_b.c \
+		src/algo/move_node_to_top.c \
 
 MOVES =	src/moves/moves_sa_sb_ss.c \
 		src/moves/moves_ra_rb_rr.c \
