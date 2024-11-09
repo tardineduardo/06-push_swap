@@ -1,6 +1,6 @@
 #include "../push_swap.h"
 
-static void move_opo(t_table *s, t_dll *lowest)
+static void	move_opo(t_table *s, t_dll *lowest)
 {
 	if (s->dst_name == 'a')
 	{
@@ -74,7 +74,7 @@ static void move_opo(t_table *s, t_dll *lowest)
 	}
 }
 
-static void move_rev(t_table *s, t_dll *lowest)
+static void	move_rev(t_table *s, t_dll *lowest)
 {
 	if (s->dst_name == 'a')
 	{
@@ -122,7 +122,7 @@ static void move_rev(t_table *s, t_dll *lowest)
 	}
 }
 
-static void move_rot(t_table *s, t_dll *lowest)
+static void	move_rot(t_table *s, t_dll *lowest)
 {
 	if (s->dst_name == 'a')
 	{

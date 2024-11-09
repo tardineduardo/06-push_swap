@@ -29,7 +29,7 @@ static void	node_rev_cost(t_table *s, t_dll *node, char dest_stack)
 	node->cost_rev = greatest(distance_src, distance_dst) + 1;
 }
 
-void calculate_rev_costs2(t_table *s, char dest_stack)
+void	calculate_rev_costs2(t_table *s, char dest_stack)
 {
 	t_dll	*trav;
 	int		i;

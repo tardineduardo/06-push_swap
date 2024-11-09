@@ -77,7 +77,7 @@ void	find2(t_dll *node)
 	node->cost = values[lowest_i];
 	i = 0;
 	if (node->cost == 999)
-		return ;	
+		return ;
 	while(i < 5)
 	{
 		if (values[i] == values[lowest_i])

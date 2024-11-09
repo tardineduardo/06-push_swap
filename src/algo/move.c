@@ -50,7 +50,7 @@
 // 	return ;	
 // }
 
-// static void move_swp(t_table *s, t_dll *lowest)
+// static void	move_swp(t_table *s, t_dll *lowest)
 // {
 // 	if (s->dst_name == 'b')
 // 		move_swp_a(s, lowest);
@@ -63,7 +63,7 @@
 
 
 
-static void move_opo_srev_drot(t_table *s, t_dll *lowest)
+static void	move_opo_srev_drot(t_table *s, t_dll *lowest)
 {
 	if (s->dst_name == 'a')
 	{
@@ -85,7 +85,7 @@ static void move_opo_srev_drot(t_table *s, t_dll *lowest)
 
 
 
-static void move_opo_srot_drev(t_table *s, t_dll *lowest)
+static void	move_opo_srot_drev(t_table *s, t_dll *lowest)
 {
 	if (s->dst_name == 'a')
 	{
@@ -108,7 +108,7 @@ static void move_opo_srot_drev(t_table *s, t_dll *lowest)
 	//////////////////////////// O B ESTA CHECADO< MAS PODE TER ERRO NO A!!!!
 
 
-static void move_rev(t_table *s, t_dll *lowest)
+static void	move_rev(t_table *s, t_dll *lowest)
 {
 	if (s->a && s->dst_name == 'a')
 	{
@@ -133,7 +133,7 @@ static void move_rev(t_table *s, t_dll *lowest)
 }
 
 
-static void move_rot(t_table *s, t_dll *lowest)
+static void	move_rot(t_table *s, t_dll *lowest)
 {
 	if (s->dst_name == 'a')
 	{

@@ -27,7 +27,7 @@ static void	node_swp_cost(t_dll **tail, t_dll *node, char stack)
 	if (flag)
 	{
 		node->cost_swp = 999;
-		return;
+		return ;
 	}
 	if (stack == 'a')
 	{
@@ -35,10 +35,10 @@ static void	node_swp_cost(t_dll **tail, t_dll *node, char stack)
 	}
 	if (stack == 'b')
 		node->cost_swp = abs(ft_dclst_dist_head_bidi(tail, node->pre)) + 1;
-	return;
+	return ;	
 }
 
-void calculate_swp_costs2(t_table *s, char stack)
+void	calculate_swp_costs2(t_table *s, char stack)
 {
 	t_dll	*trav;
 

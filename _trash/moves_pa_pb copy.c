@@ -12,7 +12,7 @@
 
 #include "../push_swap.h"
 
-static void ft_push_multi_to_empty(t_dll **src, t_dll **dest)
+static void	ft_push_multi_to_empty(t_dll **src, t_dll **dest)
 {
 	(*dest) = (*src); 
 	(*src) = (*src)->prev;
@@ -22,7 +22,7 @@ static void ft_push_multi_to_empty(t_dll **src, t_dll **dest)
 	(*dest)->prev = *dest;
 }
 
-static void ft_push_single_to_multi(t_dll **src, t_dll **dest)
+static void	ft_push_single_to_multi(t_dll **src, t_dll **dest)
 {
 	(*src)->next = (*dest)->next;
 	(*src)->prev = (*dest);
@@ -31,7 +31,7 @@ static void ft_push_single_to_multi(t_dll **src, t_dll **dest)
 	*src = NULL;
 }
 
-static void ft_push_multi_to_multi(t_dll **src, t_dll **dest)
+static void	ft_push_multi_to_multi(t_dll **src, t_dll **dest)
 {
  	t_dll	*temp;
 
@@ -46,10 +46,10 @@ static void ft_push_multi_to_multi(t_dll **src, t_dll **dest)
 	(*dest)->next->prev = (*dest);
 }
 
-void pa(t_table *s, int fd)
+void	pa(t_table *s, int fd)
 {
 	if (s->b_len == 0)
-		return;
+		return ;
 	else if (s->b_len == 1 && s->a_len == 0)
 	{
 		s->a = s->b;
@@ -57,7 +57,7 @@ void pa(t_table *s, int fd)
 		ft_dprintf(fd, "pa\n");
 		s->b_len--;
 		s->a_len++;
-		return;
+		return ;
 	}
 	else if (s->b_len > 1 && s->a_len == 0)
 		ft_push_multi_to_empty(&(s->b), &(s->a));
@@ -71,10 +71,10 @@ void pa(t_table *s, int fd)
 	s->a_len++;
 }
 
-void pb(t_table *s, int fd)
+void	pb(t_table *s, int fd)
 {
 	if (s->a_len == 0)
-		return;
+		return ;
 	else if (s->a_len == 1 && s->b_len == 0)
 	{
 		s->b = s->a;
@@ -82,7 +82,7 @@ void pb(t_table *s, int fd)
 		ft_dprintf(fd, "pb\n");
 		s->a_len--;
 		s->b_len++;
-		return;
+		return ;
 	}
 	else if (s->a_len > 1 && s->b_len == 0)
 		ft_push_multi_to_empty(&(s->a), &(s->b));

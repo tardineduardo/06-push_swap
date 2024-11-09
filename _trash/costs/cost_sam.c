@@ -8,7 +8,7 @@ static void	node_sam_cost(t_dll **tail, t_dll *node, char stack)
 	if(ft_dclst_find_node(tail, node->pre) == NULL)
 	{
 		node->cost_sam = 999;
-		return;
+		return ;
 	}
 	dist_nd_head = ft_dclst_dist_head_bidi(tail, node);
 	if (stack == 'a')
@@ -16,10 +16,10 @@ static void	node_sam_cost(t_dll **tail, t_dll *node, char stack)
 	else
 		dist_pr_head = ft_dclst_dist_head_bidi(tail, node->pre);
 	node->cost_sam = abs(dist_nd_head) + abs(dist_pr_head - dist_nd_head) + 2;
-	return;
+	return ;	
 }
 
-void calculate_sam_costs2(t_table *s, char stack)
+void	calculate_sam_costs2(t_table *s, char stack)
 {
 	t_dll	*trav;
 	int		i;

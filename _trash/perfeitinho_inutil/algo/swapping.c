@@ -34,6 +34,6 @@ bool	swapping_works(t_table *s)
 		sa(s, 1);
 	else if (swap_b)
 		sb(s, 1);
-	update_sorted_status(s);
+	fully_sorted_status(s);
 	return (true);
 }

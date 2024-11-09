@@ -12,5 +12,5 @@ void	send_two_lower_values_to_stack_b(t_table *s)
 		else
 			pb(s, 1);
 	}
-	return;
+	return ;	
 }

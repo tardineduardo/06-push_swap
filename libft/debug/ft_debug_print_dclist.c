@@ -61,7 +61,7 @@ int	ft_print_int(t_dll **tail, t_dll *trav, size_t offset, int fd)
 	return (countlen);
 }
 
-void ft_print_circle_arrow(t_dll **tail, int countlen, int fd)
+void	ft_print_circle_arrow(t_dll **tail, int countlen, int fd)
 {
 	int a;
 	
@@ -92,13 +92,13 @@ void ft_print_circle_arrow(t_dll **tail, int countlen, int fd)
 	ft_dprintf(fd, "\n");
 }
 
-void ft_debug_print_dclist(t_dll **tail, char *type, size_t offset, int fd)
+void	ft_debug_print_dclist(t_dll **tail, char *type, size_t offset, int fd)
 {
 	int countlen;
 	t_dll *trav;
 
 	if (ft_dclstsize(tail) == -1)
-		return;
+		return ;
 
 	countlen = 0;
 	trav = *tail;

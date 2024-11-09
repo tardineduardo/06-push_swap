@@ -33,7 +33,7 @@ bool	gridlock(t_table *s)
 }
 
 
-void unlock(t_table *s)
+void	unlock(t_table *s)
 {
 	pb(s, 1);
 	rrb(s, 1);

@@ -46,7 +46,7 @@ void	opo_cost(t_table *s, t_dll *node, char dest_stack)
 	}
 }
 
-void calculate_opo_costs(t_table *s)
+void	calculate_opo_costs(t_table *s)
 {
 	t_dll	*trav;
 	int		i;
@@ -105,7 +105,7 @@ void	rev_cost(t_table *s, t_dll *node, char dest_stack)
 	node->cost_rev = greatest(distance_src, distance_dst) + 1;
 }
 
-void calculate_rev_costs(t_table *s)
+void	calculate_rev_costs(t_table *s)
 {
 	t_dll	*trav;
 	int		i;
@@ -165,7 +165,7 @@ void	rot_cost(t_table *s, t_dll *node, char dest_stack)
 	}
 }
 
-void calculate_rot_costs(t_table *s)
+void	calculate_rot_costs(t_table *s)
 {
 	t_dll	*trav;
 	int		i;
@@ -272,7 +272,7 @@ void	find(t_dll *node)
 	node->cost = values[lowest_i];
 	i = 0;
 	if (node->cost == 999)
-		return ;	
+		return ;
 	while(i < 4)
 	{
 		if (values[i] == values[lowest_i])
@@ -357,7 +357,7 @@ void	sam_cost(t_dll **tail, t_dll *node, char stack)
 	if(ft_dclst_find_node(tail, node->pre) == NULL)
 	{
 		node->cost_sam = 999;
-		return;
+		return ;
 	}
 	dist_nd_head = ft_dclst_dist_head_bidi(tail, node);
 	if (stack == 'a')

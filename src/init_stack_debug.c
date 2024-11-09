@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void init_stack_debug(t_table *s)
+void	init_stack_debug(t_table *s)
 {
 	ft_dprintf(1, "Labels:\n");
 	ft_debug_print_dclist(&(s->a), "int", offsetof(t_dll, label), 1);

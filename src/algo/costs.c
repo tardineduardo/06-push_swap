@@ -12,7 +12,7 @@
 
 #include "../push_swap.h"
 
-static void set_cross_costs_to_locked(t_dll *node) /// mover para INUTILS
+static void	set_cross_costs_to_locked(t_dll *node) /// mover para INUTILS
 {
 	node->cost = 999;
 	node->cost_rot = 999;
@@ -25,7 +25,7 @@ static void set_cross_costs_to_locked(t_dll *node) /// mover para INUTILS
 	node->move_opo_srot_drev = false;	
 }
 
-static void reset_costs(t_dll *node) /// mover para INUTILS
+static void	reset_costs(t_dll *node) /// mover para INUTILS
 {
 	//node->cost_swp = 998;
 	node->cost = 998;
@@ -39,7 +39,7 @@ static void reset_costs(t_dll *node) /// mover para INUTILS
 	node->move_opo_srot_drev = false;
 }
 
-static void set_dist_and_move_type(int dist_src_to_head, int dist_dst_to_head, t_dll *node)
+static void	set_dist_and_move_type(int dist_src_to_head, int dist_dst_to_head, t_dll *node)
 {
 	if (dist_src_to_head > 0 && dist_dst_to_head > 0)
 	{
@@ -134,7 +134,7 @@ void	set_lowest_node_to_move(t_table *s, t_dll *node, char stack)
 	node->cost = values[lowest_i];
 	i = 0;
 	if (node->cost == 999)
-		return ;	
+		return ;
 	while(i < 4)
 	{
 		if (values[i] == values[lowest_i])

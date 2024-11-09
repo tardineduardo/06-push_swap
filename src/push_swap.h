@@ -54,7 +54,7 @@ void	calculate_all_costs(t_table *s);
 void	move(t_table *s);
 void	update_split1(t_table *s);
 bool	gridlock(t_table *s);
-void 	unlock(t_table *s);
+void		unlock(t_table *s);
 bool	swapping_back_works(t_table *s);
 void	mid_sorted_status(t_table *s);
 void	select_node_to_move(t_table *s);

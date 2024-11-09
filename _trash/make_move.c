@@ -33,7 +33,7 @@ static void	move_swp_b(t_table *s, t_dll *lowest)
 	return ;	
 }
 
-static void move_swp(t_table *s, t_dll *lowest)
+static void	move_swp(t_table *s, t_dll *lowest)
 {
 	if (s->dst_name == 'b')
 		move_swp_a(s, lowest);
@@ -98,7 +98,7 @@ static void	move_sam_a(t_table *s, t_dll *lowest)
 	return ;
 }
 
-static void move_sam(t_table *s, t_dll *lowest)
+static void	move_sam(t_table *s, t_dll *lowest)
 {
 	if (s->dst_name == 'b')
 		move_sam_a(s, lowest);
@@ -107,7 +107,7 @@ static void move_sam(t_table *s, t_dll *lowest)
 	return ;
 }
 
-static void move_opo(t_table *s, t_dll *lowest)
+static void	move_opo(t_table *s, t_dll *lowest)
 {
 	if (s->dst_name == 'a')
 	{
@@ -152,7 +152,7 @@ static void move_opo(t_table *s, t_dll *lowest)
 	}
 }
 
-static void move_rev(t_table *s, t_dll *lowest)
+static void	move_rev(t_table *s, t_dll *lowest)
 {
 	if (s->a && s->dst_name == 'a')
 	{
@@ -176,7 +176,7 @@ static void move_rev(t_table *s, t_dll *lowest)
 	}
 }
 
-static void move_rot(t_table *s, t_dll *lowest)
+static void	move_rot(t_table *s, t_dll *lowest)
 {
 	if (s->dst_name == 'a')
 	{

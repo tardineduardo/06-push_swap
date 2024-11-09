@@ -47,7 +47,7 @@ void	opo_cost(t_table *s, t_dll *node, char dest_stack)
 	}
 }
 
-void calculate_opo_costs(t_table *s)
+void	calculate_opo_costs(t_table *s)
 {
 	t_dll	*trav;
 	int		i;
@@ -106,7 +106,7 @@ void	rev_cost(t_table *s, t_dll *node, char dest_stack)
 	node->cost_rev = greatest(distance_src, distance_dst) + 1;
 }
 
-void calculate_rev_costs(t_table *s)
+void	calculate_rev_costs(t_table *s)
 {
 	t_dll	*trav;
 	int		i;
@@ -166,7 +166,7 @@ void	rot_cost(t_table *s, t_dll *node, char dest_stack)
 	}
 }
 
-void calculate_rot_costs(t_table *s)
+void	calculate_rot_costs(t_table *s)
 {
 	t_dll	*trav;
 	int		i;
@@ -252,7 +252,7 @@ static void	lock_sorted_nodes(t_table *s)
 	}
 }
 
-void find(t_dll *node)
+void	find(t_dll *node)
 {
 	int		*values;
 	bool	*moves;
@@ -274,7 +274,7 @@ void find(t_dll *node)
 	node->cost = values[lowest_i];
 	i = 0;
 	if (node->cost == 999)
-		return ;	
+		return ;
 	while(i < 3)
 	{
 		if (values[i] == values[lowest_i])

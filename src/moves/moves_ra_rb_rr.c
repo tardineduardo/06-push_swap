@@ -18,7 +18,6 @@ void	ra(t_table *s, int fd)
 		return ;
 	s->a = s->a->next;
 	ft_dprintf(fd, "ra\n");
-	s->debug_movecount++;
 }
 
 void	rb(t_table *s, int fd)
@@ -27,7 +26,6 @@ void	rb(t_table *s, int fd)
 		return ;
 	s->b = s->b->next;
 	ft_dprintf(fd, "rb\n");
-	s->debug_movecount++;
 }
 
 void	rr(t_table *s, int fd)
@@ -47,10 +45,10 @@ void	rr(t_table *s, int fd)
 		s->b = s->b->next;
 		b = true;
 	}
-	if (a && b) {
-		ft_dprintf(fd, "rr\n"); s->debug_movecount++;}
-	else if (a && !b) {
-		ft_dprintf(fd, "ra\n"); s->debug_movecount++;}
-	else if (!a && b) {
-		ft_dprintf(fd, "rb\n"); s->debug_movecount++;}
+	if (a && b)
+		ft_dprintf(fd, "rr\n");
+	else if (a && !b)
+		ft_dprintf(fd, "ra\n");
+	else if (!a && b)
+		ft_dprintf(fd, "rb\n");
 }

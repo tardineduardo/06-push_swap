@@ -12,7 +12,7 @@
 
 #include "../libft.h"
 
-void ft_sort_int_array_bubble(int *array, size_t len)
+void	ft_sort_int_array_bubble(int *array, size_t len)
 {
 	size_t	i;
 	size_t	swap_count;

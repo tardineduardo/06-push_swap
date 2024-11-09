@@ -1,6 +1,6 @@
 #include "../push_swap.h"
 
-static void rotate_backwards(t_table *s)
+static void	rotate_backwards(t_table *s)
 {
 	if (s->dst_name == 'a')
 	{
@@ -50,7 +50,7 @@ static void rotate_backwards(t_table *s)
 
 
 
-static void rotate_forward(t_table *s)
+static void	rotate_forward(t_table *s)
 {
 	if (s->dst_name == 'a')
 	{

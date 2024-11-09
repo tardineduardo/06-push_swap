@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void ft_init_stack1(t_dll **stack, int argc, char *argv[])
+void	ft_init_stack1(t_dll **stack, int argc, char *argv[])
 {
 	int		a;
 	t_nd	*node;
@@ -45,7 +45,7 @@ void ft_init_stack1(t_dll **stack, int argc, char *argv[])
 		b++;
 	}
 }
-void ft_init_stack2(t_dll **stack, int argc, char *argv[])
+void	ft_init_stack2(t_dll **stack, int argc, char *argv[])
 {
 	int		a;
 	t_nd	*node;
