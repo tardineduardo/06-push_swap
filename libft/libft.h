@@ -192,6 +192,7 @@ int		ft_dclst_dist_head_bidi_len(t_dll **tail, t_dll *node, int list_len);
 int		ft_dclst_dist_head_unid(t_dll **tail, t_dll *nd, char mode);
 int		ft_dclst_dist_head_unid_len(t_dll **tail, t_dll *nd, int llen, char mode);
 t_dll	*ft_dclst_find_node(t_dll **tail, t_dll *node, int len);
+void	ft_dclstclear_simple(t_dll **lst);
 
 // printf
 int	ft_printf(const char *input, ...);

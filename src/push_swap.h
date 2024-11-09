@@ -39,7 +39,7 @@ typedef struct s_info
 
 //main
 void	ft_validate_args(int argc, char *argv[]);
-void	ft_init_stack_a(t_info *s, int argc, char *argv[]);
+void	ft_init_stacks_and_table(t_info *s, int argc, char *argv[]);
 
 //algo
 void	push_lower_values_to_b(t_info *s);
