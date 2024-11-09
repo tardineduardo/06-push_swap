@@ -113,7 +113,6 @@ void	ft_init_stacks_and_table(t_table *s, int argc, char *argv[])
 	s->a_partially_sorted = false;
 	s->b_partially_sorted = false;
 	s->dst_name = 0;
-	s->debug_movecount = 0;	
 	ft_assign_indexes_to_labels(s);
 	return ;
 }

@@ -19,13 +19,13 @@ int	main(int argc, char *argv[])
 	s = malloc(sizeof(t_table));
 	ft_validate_args(argc, argv);
 	ft_init_stacks_and_table(s, argc, argv);
-	send_two_lower_values_to_stack_b(s);
+	ft_init_stack_b(s);
 	find_hi_lo_nodes(s);
 	s->dst_name = 'b';
 	while (s->b_len != (s->t_len))
 	{
 		calculate_all_costs(s);
-		select_node_to_move(s);
+		move(s);
 		update_sorted_status(s);
 	}
 	t_dll *hb = ft_dclst_find_highest_int(&(s->b), offsetof(t_dll, value));

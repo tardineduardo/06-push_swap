@@ -8,8 +8,35 @@ fi
 
 # Generate the specified number of random numbers
 args=$(shuf -i 1-1000 -n "$1" | tr '\n' ' ')
-
 # Print the sequence of numbers
 echo "Generated sequence: $args"
-
 ./push_swap $args | ./checker_linux $args
+echo ""
+
+# Generate the specified number of random numbers
+args=$(shuf -i 1-1000 -n "$1" | tr '\n' ' ')
+# Print the sequence of numbers
+echo "Generated sequence: $args"
+./push_swap $args | ./checker_linux $args
+echo ""
+
+# Generate the specified number of random numbers
+args=$(shuf -i 1-1000 -n "$1" | tr '\n' ' ')
+# Print the sequence of numbers
+echo "Generated sequence: $args"
+./push_swap $args | ./checker_linux $args
+echo ""
+
+# Generate the specified number of random numbers
+args=$(shuf -i 1-1000 -n "$1" | tr '\n' ' ')
+# Print the sequence of numbers
+echo "Generated sequence: $args"
+./push_swap $args | ./checker_linux $args
+echo ""
+
+# Generate the specified number of random numbers
+args=$(shuf -i 1-1000 -n "$1" | tr '\n' ' ')
+# Print the sequence of numbers
+echo "Generated sequence: $args"
+./push_swap $args | ./checker_linux $args
+echo ""
