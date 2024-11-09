@@ -12,10 +12,10 @@
 
 #include "./push_swap.h"
 
-static bool ft_labels_are_integer_only(int argc, char *argv[])
+static bool	ft_labels_are_integer_only(int argc, char *argv[])
 {
 	int	a;
-	int b;
+	int	b;
 
 	a = 1;
 	while (a < argc)
@@ -36,12 +36,13 @@ static bool ft_labels_are_integer_only(int argc, char *argv[])
 	return (true);
 }
 
-static bool ft_labels_are_distinct_and_size_int(int argc, char *argv[])
+static bool	ft_labels_are_distinct_and_size_int(int argc, char *argv[])
 {
 	long long int	a;
 	long long int	b;
-	long long int	set[argc - 1];
+	long long int	*set;
 
+	set = malloc((argc - 1) * sizeof(int));
 	a = 0;
 	while (a < argc - 1)
 	{
@@ -55,12 +56,13 @@ static bool ft_labels_are_distinct_and_size_int(int argc, char *argv[])
 				return (false);
 			b++;
 		}
-	a++;
+		a++;
 	}
+	free(set);
 	return (true);
 }
 
-static bool ft_labels_are_sorted(int argc, char *argv[])
+static bool	ft_labels_are_sorted(int argc, char *argv[])
 {
 	int	a;
 	int	curr;
@@ -85,11 +87,11 @@ static bool ft_labels_are_sorted(int argc, char *argv[])
 void	ft_validate_args(int argc, char *argv[])
 {
 	if (argc < 3)
-		ft_error_exit("Error - no parameters (use ./play_swap 5 3 2 9 4)\n", 1);
+		ft_error_exit("Error - no parameters (use ./play_swap 5 3 2 9 4)\n", 1); //EDITAR
 	else if (!ft_labels_are_integer_only(argc, argv))
-		ft_error_exit("Error - labels must be integers\n", 1);
+		ft_error_exit("Error - labels must be integers\n", 1); //EDITAR
 	else if (!ft_labels_are_distinct_and_size_int(argc, argv))
-		ft_error_exit("Error - repeated labels\n", 1);
+		ft_error_exit("Error - repeated labels\n", 1); //EDITAR
 	else if (ft_labels_are_sorted(argc, argv))
-		ft_error_exit("Error - already sorted\n", 1);
+		ft_error_exit("Error - already sorted\n", 1); //EDITAR
 }

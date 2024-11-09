@@ -1,23 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   find_hi_lo_nodes.c                                 :+:      :+:    :+:   */
+/*   move_node_to_top.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/04 17:21:59 by eduribei          #+#    #+#             */
+/*   Created: 2024/10/27 14:26:00 by eduribei          #+#    #+#             */
 /*   Updated: 2024/11/08 19:30:03 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void find_hi_lo_nodes(t_table *s)
+void	move_node_to_top(t_table *s, t_dll **stack, t_dll *node)
 {
-	s->hi_a = ft_dclst_find_highest_int(&(s->a), offsetof(t_dll, value));
-	s->hi_b = ft_dclst_find_highest_int(&(s->b), offsetof(t_dll, value));
-	s->lo_a = ft_dclst_find_lowest_int(&(s->a), offsetof(t_dll, value));
-	s->lo_b = ft_dclst_find_lowest_int(&(s->b), offsetof(t_dll, value));
+	int	distance;
 
+	distance = ft_dclst_dist_head_bidi(stack, node);
+	if (distance >= 0)
+	{
+		while (distance > 0)
+		{
+			rrb(s, 1);
+			distance--;
+		}
+	}
+	else if (distance < 0)
+	{
+		while (distance < 0)
+		{
+			rb(s, 1);
+			distance++;
+		}
+	}
 	return ;
 }

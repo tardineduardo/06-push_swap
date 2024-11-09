@@ -15,13 +15,13 @@
 static bool	swap(t_dll **tail, int llen)
 {
 	t_dll	*temp;
-		
+
 	if (llen == 0 || llen == 1)
 		return (false);
 	else if (llen == 2)
 	{
-			(*tail) = (*tail)->next;
-			return (true);
+		(*tail) = (*tail)->next;
+		return (true);
 	}
 	else
 	{
@@ -39,20 +39,15 @@ static bool	swap(t_dll **tail, int llen)
 void	sa(t_table *s, int fd)
 {
 	if (swap(&(s->a), s->a_len))
-	{
-		ft_dprintf(fd, "sa\n"); s->debug_movecount++;
-		update_sorted_status(s);
-	}
-
+		ft_dprintf(fd, "sa\n");
+	return ;
 }
 
 void	sb(t_table *s, int fd)
 {
 	if (swap(&(s->b), s->b_len))
-	{
-		ft_dprintf(fd, "sb\n"); s->debug_movecount++;
-		update_sorted_status(s);
-	}
+		ft_dprintf(fd, "sb\n");
+	return ;
 }
 
 void	ss(t_table *s, int fd)
@@ -66,11 +61,11 @@ void	ss(t_table *s, int fd)
 		sa = true;
 	if (swap(&(s->b), s->b_len))
 		sb = true;
-	if (sa && sb) {
-		ft_dprintf(fd, "ss\n"); s->debug_movecount++;}
-	else if (sa && !sb) {
-		ft_dprintf(fd, "sa\n"); s->debug_movecount++;}
-	else if (!sa && sb) {
-		ft_dprintf(fd, "sb\n"); s->debug_movecount++;}
-	update_sorted_status(s);
+	if (sa && sb)
+		ft_dprintf(fd, "ss\n");
+	else if (sa && !sb)
+		ft_dprintf(fd, "sa\n");
+	else if (!sa && sb)
+		ft_dprintf(fd, "sb\n");
+	return ;
 }

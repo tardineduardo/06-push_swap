@@ -12,25 +12,27 @@
 
 #include "../push_swap.h"
 
-static void ft_push_multi_to_empty(t_dll **src, t_dll **dest)
+static void	ft_push_multi_to_empty(t_dll **src, t_dll **dest)
 {
 	(*dest) = (*src)->next;
 	(*src)->next = (*src)->next->next;
 	(*src)->next->prev = *src;
 	(*dest)->next = *dest;
 	(*dest)->prev = *dest;
+	return ;
 }
 
-static void ft_push_single_to_multi(t_dll **src, t_dll **dest)
+static void	ft_push_single_to_multi(t_dll **src, t_dll **dest)
 {
 	(*src)->next = (*dest)->next;
 	(*src)->prev = (*dest);
 	(*dest)->next = *src;
 	(*dest)->next->next->prev = (*dest)->next;
 	*src = NULL;
+	return ;
 }
 
-static void ft_push_multi_to_multi(t_dll **src, t_dll **dest)
+static void	ft_push_multi_to_multi(t_dll **src, t_dll **dest)
 {
 	t_dll	*temp;
 
@@ -41,12 +43,13 @@ static void ft_push_multi_to_multi(t_dll **src, t_dll **dest)
 	temp->prev = (*dest);
 	(*dest)->next = temp;
 	temp->next->prev = temp;
+	return ;
 }
 
-void pa(t_table *s, int fd)
+void	pa(t_table *s, int fd)
 {
 	if (s->b_len == 0)
-		return;
+		return ;
 	else if (s->b_len == 1 && s->a_len == 0)
 	{
 		s->a = s->b;
@@ -54,7 +57,7 @@ void pa(t_table *s, int fd)
 		ft_dprintf(fd, "pa\n");
 		s->b_len--;
 		s->a_len++;
-		return;
+		return ;
 	}
 	else if (s->b_len > 1 && s->a_len == 0)
 		ft_push_multi_to_empty(&(s->b), &(s->a));
@@ -63,21 +66,15 @@ void pa(t_table *s, int fd)
 	else if (s->b_len >= 1 && s->a_len >= 1)
 		ft_push_multi_to_multi(&(s->b), &(s->a));
 	ft_dprintf(fd, "pa\n");
-	s->debug_movecount++;
 	s->b_len--;
 	s->a_len++;
+	return ;
 }
 
-void pb(t_table *s, int fd)
+void	pb(t_table *s, int fd)
 {
-	int	a_len_start;
-	int	b_len_start;
-
-	a_len_start = s->a_len;
-	b_len_start = s->b_len;
-
 	if (s->a_len == 0)
-		return;
+		return ;
 	else if (s->a_len == 1 && s->b_len == 0)
 	{
 		s->b = s->a;
@@ -85,7 +82,7 @@ void pb(t_table *s, int fd)
 		ft_dprintf(fd, "pb\n");
 		s->a_len--;
 		s->b_len++;
-		return;
+		return ;
 	}
 	else if (s->a_len > 1 && s->b_len == 0)
 		ft_push_multi_to_empty(&(s->a), &(s->b));
@@ -94,7 +91,7 @@ void pb(t_table *s, int fd)
 	else if (s->a_len >= 1 && s->b_len >= 1)
 		ft_push_multi_to_multi(&(s->a), &(s->b));
 	ft_dprintf(fd, "pb\n");
-	s->debug_movecount++;
 	s->a_len--;
 	s->b_len++;
+	return ;
 }

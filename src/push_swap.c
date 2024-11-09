@@ -19,11 +19,11 @@ int	main(int argc, char *argv[])
 	s = malloc(sizeof(t_table));
 	ft_validate_args(argc, argv);
 	ft_init_stacks_and_table(s, argc, argv);
-	ft_set_up_stack(s);
+	ft_init_stack_b(s);
 	s->dst_name = 'b';
 	while (s->b_len == (s->t_len))
 	{
-		calculate_all_costs(s);
+		calculate_costs_in_stack_a(s);
 		choose_and_move_node(s);
 		update_sorted_status(s);
 	}
