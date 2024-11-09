@@ -15,14 +15,10 @@
 // back means the end of the list, right after the last element.
 void	ft_dclstadd_back(t_dll **tail, t_dll *new)
 {
-	if (new == NULL)
+	if (new == NULL || tail == NULL)
     	return ;
 	if (*tail == NULL)
-	{
 		*tail = new;
-		new->next = new;
-		new->prev = new;
-	}
 	else
 	{
 		new->next = (*tail)->next;

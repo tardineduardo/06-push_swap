@@ -89,6 +89,7 @@ void	ft_malloc_and_init_nodes(t_table *s, int argc, char *argv[])
 	i = 1;
 	while (i < argc)
 	{
+		printf("Size of t_dll: %lu\n", (unsigned long)sizeof(t_dll));
 		new = malloc(sizeof(t_dll));
 		if (!new)
 		{
