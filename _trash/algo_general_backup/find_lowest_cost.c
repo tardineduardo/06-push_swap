@@ -1,6 +1,6 @@
 #include "../push_swap.h"
 
-void	find_lowest_cost(t_info *s)
+void	find_lowest_cost(t_table *s)
 {
 	t_dll *cheaper_a;
 	t_dll *cheaper_b;

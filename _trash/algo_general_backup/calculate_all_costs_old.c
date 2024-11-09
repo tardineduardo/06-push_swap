@@ -1,7 +1,7 @@
 #include "../push_swap.h"
 
 /* */
-static void	calculate(t_dll *node, t_info *s)
+static void	calculate(t_dll *node, t_table *s)
 {
 	//ft_play_print_values(&(s->a), &(s->b));
 	int		s_r_cost;
@@ -29,7 +29,7 @@ static void	calculate(t_dll *node, t_info *s)
 
 /* checks if a node shouldn't move in this round. 1) it's predecessor is the same stack. 2) it's next value
 is sorted for that stack (b is reverse).*/
-static void	lock_nodes(t_dll *node, t_info *s, int vtfind)
+static void	lock_nodes(t_dll *node, t_table *s, int vtfind)
 {
 	//ft_play_print_values(&(s->a), &(s->b));
 	t_dll	*pre;
@@ -58,7 +58,7 @@ static void	lock_nodes(t_dll *node, t_info *s, int vtfind)
 }
 
 /* sets what value needs to be found and which stacks are source and destination. */
-static void	set_parameters(char stack, t_dll *node, t_info *s)
+static void	set_parameters(char stack, t_dll *node, t_table *s)
 {
 	int value_to_find;
 
@@ -84,7 +84,7 @@ static void	set_parameters(char stack, t_dll *node, t_info *s)
 }
 
 /* calculates the cost of moving each node in both stacks */
-void	calculate_all_costs(t_info *s)
+void	calculate_all_costs(t_table *s)
 {
 	t_dll	*trav;
 	int		i;

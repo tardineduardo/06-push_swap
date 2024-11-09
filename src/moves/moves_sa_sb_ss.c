@@ -36,7 +36,7 @@ static bool	swap(t_dll **tail, int llen)
 	return (true);
 }
 
-void	sa(t_info *s, int fd)
+void	sa(t_table *s, int fd)
 {
 	if (swap(&(s->a), s->a_len))
 	{
@@ -46,7 +46,7 @@ void	sa(t_info *s, int fd)
 
 }
 
-void	sb(t_info *s, int fd)
+void	sb(t_table *s, int fd)
 {
 	if (swap(&(s->b), s->b_len))
 	{
@@ -55,7 +55,7 @@ void	sb(t_info *s, int fd)
 	}
 }
 
-void	ss(t_info *s, int fd)
+void	ss(t_table *s, int fd)
 {
 	bool	sa;
 	bool	sb;

@@ -12,7 +12,7 @@
 
 #include "../push_swap.h"
 
-void	move_node_to_top(t_info *s, t_dll **stack, t_dll *node)
+void	move_node_to_top(t_table *s, t_dll **stack, t_dll *node)
 {
 	int distance;
 

@@ -1,6 +1,6 @@
 #include "../push_swap.h"
 
-static void rotate_backwards(t_info *s)
+static void rotate_backwards(t_table *s)
 {
 	if (s->dst_name == 'a')
 	{
@@ -50,7 +50,7 @@ static void rotate_backwards(t_info *s)
 
 
 
-static void rotate_forward(t_info *s)
+static void rotate_forward(t_table *s)
 {
 	if (s->dst_name == 'a')
 	{
@@ -99,7 +99,7 @@ static void rotate_forward(t_info *s)
 
 }
 
-void	move_cheap_n(t_info *s)
+void	move_cheap_n(t_table *s)
 {
 	if (s->cheap_n->cost < 0)
 		rotate_backwards(s);	

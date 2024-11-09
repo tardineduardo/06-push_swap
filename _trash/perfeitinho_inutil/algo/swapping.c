@@ -12,7 +12,7 @@
 
 #include "../push_swap.h"
 
-bool	swapping_works(t_info *s)
+bool	swapping_works(t_table *s)
 {
 	bool swap_a;
 	bool swap_b;

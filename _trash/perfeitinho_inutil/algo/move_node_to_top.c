@@ -12,7 +12,7 @@
 
 #include "../push_swap.h"
 
-void	move_node_b_to_top(t_info *s, t_dll *node)
+void	move_node_b_to_top(t_table *s, t_dll *node)
 {
 	int distance;
 
@@ -39,7 +39,7 @@ void	move_node_b_to_top(t_info *s, t_dll *node)
 	}
 }
 
-void	move_node_a_to_top(t_info *s, t_dll *node)
+void	move_node_a_to_top(t_table *s, t_dll *node)
 {
 	int distance;
 
@@ -66,7 +66,7 @@ void	move_node_a_to_top(t_info *s, t_dll *node)
 	}
 }
 
-void	move_node_to_top_source(t_info *s, t_dll *node)
+void	move_node_to_top_source(t_table *s, t_dll *node)
 {
 	if (s->dst_name == 'b')
 		move_node_a_to_top(s, node);
@@ -76,7 +76,7 @@ void	move_node_to_top_source(t_info *s, t_dll *node)
 		ft_error_exit("move_nod_to_top: invalid stack.\n", 1);
 }
 
-void	move_node_to_top_dest(t_info *s, t_dll *node)
+void	move_node_to_top_dest(t_table *s, t_dll *node)
 {
 	if (s->dst_name == 'b')
 		move_node_b_to_top(s, node);

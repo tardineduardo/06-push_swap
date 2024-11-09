@@ -12,7 +12,7 @@
 
 #include "../push_swap.h"
 
-void	rra(t_info *s, int fd)
+void	rra(t_table *s, int fd)
 {
 	if (s->a_len == 0 || s->a_len == 1)
 		return ;
@@ -21,7 +21,7 @@ void	rra(t_info *s, int fd)
 	s->debug_movecount++;
 }
 
-void	rrb(t_info *s, int fd)
+void	rrb(t_table *s, int fd)
 {
 	if (s->b_len == 0 || s->b_len == 1)
 		return ;
@@ -30,7 +30,7 @@ void	rrb(t_info *s, int fd)
 	s->debug_movecount++;
 }
 
-void	rrr(t_info *s, int fd)
+void	rrr(t_table *s, int fd)
 {
 	bool	a;
 	bool	b;

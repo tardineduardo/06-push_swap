@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-static void	ft_match_index(t_info *s, int *sorted_labels)
+static void	ft_match_index(t_table *s, int *sorted_labels)
 {
 	t_dll	*trav;
 	int		i;
@@ -38,7 +38,7 @@ static void	ft_match_index(t_info *s, int *sorted_labels)
 	return ;
 }
 
-static void	ft_assign_indexes_to_labels(t_info *s)
+static void	ft_assign_indexes_to_labels(t_table *s)
 {
 	int		i;
 	int		*sorted_labels;
@@ -79,7 +79,7 @@ static void	ft_init_node_values(t_dll *new)
 	return ;
 }
 
-void	ft_malloc_and_init_nodes(t_info *s, int argc, char *argv[])
+void	ft_malloc_and_init_nodes(t_table *s, int argc, char *argv[])
 {
 	int		a;
 	t_dll	*new;
@@ -102,7 +102,7 @@ void	ft_malloc_and_init_nodes(t_info *s, int argc, char *argv[])
 	}
 }
 
-void	ft_init_stacks_and_table(t_info *s, int argc, char *argv[])
+void	ft_init_stacks_and_table(t_table *s, int argc, char *argv[])
 {
 	ft_malloc_and_init_nodes(s, argc, argv);
 	s->a_len = ft_dclstsize(&(s->a));

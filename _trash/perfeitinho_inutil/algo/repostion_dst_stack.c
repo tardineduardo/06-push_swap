@@ -1,7 +1,7 @@
 #include "../push_swap.h"
 
 
-static void	reposition_b(t_info *s, t_dll *node)
+static void	reposition_b(t_table *s, t_dll *node)
 {
 	t_dll *pre;
 
@@ -9,7 +9,7 @@ static void	reposition_b(t_info *s, t_dll *node)
 	move_node_to_top_dest(s, pre);
 }
 
-static void	reposition_a(t_info *s, t_dll *node)
+static void	reposition_a(t_table *s, t_dll *node)
 {
 	t_dll *pre;
 
@@ -18,7 +18,7 @@ static void	reposition_a(t_info *s, t_dll *node)
 	move_node_to_top_dest(s, pre);
 }
 
-void	repostion_dst_s(t_info *s, t_dll *node)
+void	repostion_dst_s(t_table *s, t_dll *node)
 {
 	if(s->dst_name == 'a')
 		reposition_a(s, node);

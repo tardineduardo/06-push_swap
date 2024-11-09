@@ -18,7 +18,7 @@
 // SE NAO DER CERTO, DESISTE.
 
 
-// static void	move_swp_a(t_info *s, t_dll *lowest)
+// static void	move_swp_a(t_table *s, t_dll *lowest)
 // {
 // 	int	dist_nd_head;
 
@@ -34,7 +34,7 @@
 // 	return ;
 // }
 
-// static void	move_swp_b(t_info *s, t_dll *lowest)
+// static void	move_swp_b(t_table *s, t_dll *lowest)
 // {
 // 	int	dist_nd_head;
 
@@ -50,7 +50,7 @@
 // 	return ;	
 // }
 
-// static void move_swp(t_info *s, t_dll *lowest)
+// static void move_swp(t_table *s, t_dll *lowest)
 // {
 // 	if (s->dst_name == 'b')
 // 		move_swp_a(s, lowest);
@@ -63,7 +63,7 @@
 
 
 
-static void move_opo_srev_drot(t_info *s, t_dll *lowest)
+static void move_opo_srev_drot(t_table *s, t_dll *lowest)
 {
 	if (s->dst_name == 'a')
 	{
@@ -85,7 +85,7 @@ static void move_opo_srev_drot(t_info *s, t_dll *lowest)
 
 
 
-static void move_opo_srot_drev(t_info *s, t_dll *lowest)
+static void move_opo_srot_drev(t_table *s, t_dll *lowest)
 {
 	if (s->dst_name == 'a')
 	{
@@ -108,7 +108,7 @@ static void move_opo_srot_drev(t_info *s, t_dll *lowest)
 	//////////////////////////// O B ESTA CHECADO< MAS PODE TER ERRO NO A!!!!
 
 
-static void move_rev(t_info *s, t_dll *lowest)
+static void move_rev(t_table *s, t_dll *lowest)
 {
 	if (s->a && s->dst_name == 'a')
 	{
@@ -133,7 +133,7 @@ static void move_rev(t_info *s, t_dll *lowest)
 }
 
 
-static void move_rot(t_info *s, t_dll *lowest)
+static void move_rot(t_table *s, t_dll *lowest)
 {
 	if (s->dst_name == 'a')
 	{
@@ -157,7 +157,7 @@ static void move_rot(t_info *s, t_dll *lowest)
 	}
 }
 
-void	select_move_to_execute(t_info *s, t_dll *lowest)
+void	select_move_to_execute(t_table *s, t_dll *lowest)
 {
 	if (lowest->move_rot)
 		move_rot(s, lowest);
@@ -170,7 +170,7 @@ void	select_move_to_execute(t_info *s, t_dll *lowest)
 	return ;
 }
 
-void	select_node_to_move(t_info *s)
+void	select_node_to_move(t_table *s)
 {
 	t_dll *cheap_in_a;
 	t_dll *cheap_in_b;

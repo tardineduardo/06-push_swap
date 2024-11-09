@@ -1,6 +1,6 @@
 #include "../../push_swap.h"
 
-static void	node_rot_cost(t_info *s, t_dll *node, char dest_stack)
+static void	node_rot_cost(t_table *s, t_dll *node, char dest_stack)
 {
 	int		distance_src;
 	int		distance_dst;
@@ -29,7 +29,7 @@ static void	node_rot_cost(t_info *s, t_dll *node, char dest_stack)
 	}
 }
 
-void calculate_rot_costs2(t_info *s, char dest_stack)
+void calculate_rot_costs2(t_table *s, char dest_stack)
 {
 	t_dll	*trav;
 	int		i;

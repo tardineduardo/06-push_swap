@@ -1,6 +1,6 @@
 #include "../../push_swap.h"
 
-void	node_opo_cost(t_info *s, t_dll *node, char dest_stack)
+void	node_opo_cost(t_table *s, t_dll *node, char dest_stack)
 {
 	t_dll	*node_in_dst;
 	int		cost1;
@@ -47,7 +47,7 @@ void	node_opo_cost(t_info *s, t_dll *node, char dest_stack)
 	}
 }
 
-void calculate_opo_costs2(t_info *s, char dest_stack)
+void calculate_opo_costs2(t_table *s, char dest_stack)
 {
 	t_dll	*trav;
 	int		i;

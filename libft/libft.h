@@ -50,21 +50,15 @@ typedef struct s_list
 	struct s_list	*next;
 }				t_list;
 
-
-// NAO MUDAR ORDEM ROT - REV - OPO !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 typedef struct s_dlist
 {
 	int				label;
 	int				value;
 	int				cost;
-//	int				cost_sam;
-//	int				cost_swp;
 	int				cost_rot;
 	int				cost_rev;
 	int				cost_opo_srev_drot;
 	int				cost_opo_srot_drev;
-//	bool			move_sam;
-//	bool			move_swp;
 	bool			move_rot;
 	bool			move_rev;
 	bool			move_opo_srev_drot;
@@ -73,8 +67,6 @@ typedef struct s_dlist
 	struct s_dlist	*to_meet;
 	struct s_dlist	*next;
 	struct s_dlist	*prev;
-	struct s_dlist	*pre;
-	struct s_dlist	*pro;
 }				t_dll;
 
 // conversions + comparisons

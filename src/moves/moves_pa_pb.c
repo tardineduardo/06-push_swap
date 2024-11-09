@@ -43,7 +43,7 @@ static void ft_push_multi_to_multi(t_dll **src, t_dll **dest)
 	temp->next->prev = temp;
 }
 
-void pa(t_info *s, int fd)
+void pa(t_table *s, int fd)
 {
 	if (s->b_len == 0)
 		return;
@@ -68,7 +68,7 @@ void pa(t_info *s, int fd)
 	s->a_len++;
 }
 
-void pb(t_info *s, int fd)
+void pb(t_table *s, int fd)
 {
 	int	a_len_start;
 	int	b_len_start;
