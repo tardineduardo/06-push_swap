@@ -1,4 +1,4 @@
-void	update_node_a_cost(t_dll *node, t_info *s)
+void	update_node_a_cost(t_dll *node, t_table *s)
 {
 	t_dll	*trav;
 	int		value_to_find;
@@ -44,7 +44,7 @@ void	update_node_a_cost(t_dll *node, t_info *s)
 	node->cost = cost_a + cost_b + 1;
 }
 
-void	update_node_b_cost(t_dll *node, t_info *s)
+void	update_node_b_cost(t_dll *node, t_table *s)
 {
 	t_dll	*trav;
 	int		value_to_find;
@@ -88,7 +88,7 @@ void	update_node_b_cost(t_dll *node, t_info *s)
 	node->cost = cost_a + cost_b + 1;
 }
 
-void	calculate_all_costs(t_info *s)
+void	calculate_all_costs(t_table *s)
 {
 	t_dll	*trav;
 	int		i;

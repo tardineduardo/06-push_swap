@@ -1,6 +1,6 @@
 #include "../push_swap.h"
 
-void	even_nodes_per_stack(t_info *s)
+void	even_nodes_per_stack(t_table *s)
 {
 	int	half;
 	half = (s->t_len/2);

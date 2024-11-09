@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 19:23:04 by eduribei          #+#    #+#             */
-/*   Updated: 2024/10/27 17:42:58 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/11/08 19:30:03 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static bool	swap(t_dll **tail, int llen)
 	return (true);
 }
 
-void	sa(t_info *s, int fd)
+void	sa(t_table *s, int fd)
 {
 	if (swap(&(s->a), s->a_len))
 	{
@@ -46,7 +46,7 @@ void	sa(t_info *s, int fd)
 
 }
 
-void	sb(t_info *s, int fd)
+void	sb(t_table *s, int fd)
 {
 	if (swap(&(s->b), s->b_len))
 	{
@@ -55,7 +55,7 @@ void	sb(t_info *s, int fd)
 	}
 }
 
-void	ss(t_info *s, int fd)
+void	ss(t_table *s, int fd)
 {
 	bool	sa;
 	bool	sb;

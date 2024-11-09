@@ -1,6 +1,6 @@
 #include "../push_swap.h"
 
-void	send_two_lower_values_to_stack_b(t_info *s)
+void	send_two_lower_values_to_stack_b(t_table *s)
 {
 	t_dll *trav;
 	trav = s->a->next;

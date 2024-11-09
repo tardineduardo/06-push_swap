@@ -1,6 +1,6 @@
 #include "../push_swap.h"
 
-void	update_sorted_status(t_info *s)
+void	update_sorted_status(t_table *s)
 {
 	bool a_is_longer;
 	bool b_is_longer;

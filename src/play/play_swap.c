@@ -24,7 +24,7 @@
 #define WHITE   "\033[37m"
 #define BRIGHT_GREEN "\033[92m"
 
-static void move(char *cmd, t_info *s)
+static void move(char *cmd, t_table *s)
 {
 	int moves = open("moves.txt", O_WRONLY | O_APPEND | O_CREAT, 0664);
 	if(ft_strcmp(cmd, "pa") == 0)
@@ -52,7 +52,7 @@ static void move(char *cmd, t_info *s)
 	close(moves);
 }
 
-void	ft_play(t_info *s)
+void	ft_play(t_table *s)
 {
 	char	cmd[4];
 	int		moves;
@@ -81,9 +81,9 @@ void	ft_play(t_info *s)
 
 // int	main(int argc, char *argv[])
 // {
-// 	t_info	*s;
+// 	t_table	*s;
 
-// 	s = malloc(sizeof(t_info));
+// 	s = malloc(sizeof(t_table));
 
 // 	//ft_validate_args(argc, argv);	
 

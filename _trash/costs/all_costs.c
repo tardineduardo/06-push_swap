@@ -14,7 +14,7 @@ void	lock_all_stack2(t_dll **tail)
 	}
 }
 
-static void	lock_sorted_nodes2(t_info *s)
+static void	lock_sorted_nodes2(t_table *s)
 {
 	t_dll	*trav;
 	int		i;
@@ -86,7 +86,7 @@ void	find2(t_dll *node)
 	}
 }
 
-void	find_lowest_and_set_move2(t_info *s)
+void	find_lowest_and_set_move2(t_table *s)
 {
 	t_dll *trav;
 	int		i;
@@ -114,7 +114,7 @@ void	find_lowest_and_set_move2(t_info *s)
 	}
 }
 
-void	reset_costs2(t_info *s)
+void	reset_costs2(t_table *s)
 {
 	t_dll *trav;
 	int		i;
@@ -162,7 +162,7 @@ void	reset_costs2(t_info *s)
 	}
 }
 
-void	calculate_all_costs2(t_info *s)
+void	calculate_all_costs2(t_table *s)
 {
 	reset_costs2(s);
 	lock_sorted_nodes2(s);

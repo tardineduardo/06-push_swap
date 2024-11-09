@@ -6,13 +6,13 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 14:26:00 by eduribei          #+#    #+#             */
-/*   Updated: 2024/11/08 17:51:05 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/11/08 19:30:03 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	move_node_to_top(t_info *s, t_dll **stack, t_dll *node)
+void	move_node_to_top(t_table *s, t_dll **stack, t_dll *node)
 {
 	int distance;
 

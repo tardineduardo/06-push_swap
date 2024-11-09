@@ -1,6 +1,6 @@
 #include "../push_swap.h"
 
-void	opo_cost(t_info *s, t_dll *node, char dest_stack)
+void	opo_cost(t_table *s, t_dll *node, char dest_stack)
 {
 	t_dll	*node_in_dst;
 	int		cost1;
@@ -47,7 +47,7 @@ void	opo_cost(t_info *s, t_dll *node, char dest_stack)
 	}
 }
 
-void calculate_opo_costs(t_info *s)
+void calculate_opo_costs(t_table *s)
 {
 	t_dll	*trav;
 	int		i;
@@ -77,7 +77,7 @@ void calculate_opo_costs(t_info *s)
 	}
 }
 
-void	rev_cost(t_info *s, t_dll *node, char dest_stack)
+void	rev_cost(t_table *s, t_dll *node, char dest_stack)
 {
 	int		distance_src;
 	int		distance_dst;
@@ -106,7 +106,7 @@ void	rev_cost(t_info *s, t_dll *node, char dest_stack)
 	node->cost_rev = greatest(distance_src, distance_dst) + 1;
 }
 
-void calculate_rev_costs(t_info *s)
+void calculate_rev_costs(t_table *s)
 {
 	t_dll	*trav;
 	int		i;
@@ -137,7 +137,7 @@ void calculate_rev_costs(t_info *s)
 }
 
 
-void	rot_cost(t_info *s, t_dll *node, char dest_stack)
+void	rot_cost(t_table *s, t_dll *node, char dest_stack)
 {
 	int		distance_src;
 	int		distance_dst;
@@ -166,7 +166,7 @@ void	rot_cost(t_info *s, t_dll *node, char dest_stack)
 	}
 }
 
-void calculate_rot_costs(t_info *s)
+void calculate_rot_costs(t_table *s)
 {
 	t_dll	*trav;
 	int		i;
@@ -211,7 +211,7 @@ void	lock_all_stack(t_dll **tail)
 }
 
 
-static void	lock_sorted_nodes(t_info *s)
+static void	lock_sorted_nodes(t_table *s)
 {
 	t_dll	*trav;
 	int		i;
@@ -283,7 +283,7 @@ void find(t_dll *node)
 	}
 }
 
-void	find_lowest_and_set_move(t_info *s)
+void	find_lowest_and_set_move(t_table *s)
 {
 	t_dll *trav;
 	int		i;
@@ -311,7 +311,7 @@ void	find_lowest_and_set_move(t_info *s)
 	}
 }
 
-void	reset_costs(t_info *s)
+void	reset_costs(t_table *s)
 {
 	t_dll *trav;
 	int		i;
@@ -352,7 +352,7 @@ void	reset_costs(t_info *s)
 }
 
 
-void	calculate_all_costs(t_info *s)
+void	calculate_all_costs(t_table *s)
 {
 	reset_costs(s);
 	lock_sorted_nodes(s);

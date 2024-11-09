@@ -1,6 +1,6 @@
 #include "../push_swap.h"
 
-bool	gridlock(t_info *s)
+bool	gridlock(t_table *s)
 {
 	t_dll *trav;
 	int		i;
@@ -33,7 +33,7 @@ bool	gridlock(t_info *s)
 }
 
 
-void unlock(t_info *s)
+void unlock(t_table *s)
 {
 	pb(s, 1);
 	rrb(s, 1);

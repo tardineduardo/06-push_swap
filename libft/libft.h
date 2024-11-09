@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 17:02:36 by eduribei          #+#    #+#             */
-/*   Updated: 2024/11/06 15:52:02 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/11/08 21:12:07 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,23 +27,6 @@
 # include <sys/types.h>
 # include <bits/posix1_lim.h>
 
-# ifndef GNLBUFF
-#  define GNLBUFF 42
-# endif
-
-# ifndef MAXLISTLOOPS
-#  define MAXLISTLOOPS 1000000000
-# endif
-
-# define RESET   "\033[0m"
-# define RED     "\033[31m"
-# define GREEN   "\033[32m"
-# define YELLOW  "\033[33m"
-# define BLUE    "\033[34m"
-# define MAGENTA "\033[35m"
-# define CYAN    "\033[36m"
-# define WHITE   "\033[37m"
-
 typedef struct s_list
 {
 	void			*content;
@@ -51,20 +34,15 @@ typedef struct s_list
 }				t_list;
 
 
-// NAO MUDAR ORDEM ROT - REV - OPO !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 typedef struct s_dlist
 {
 	int				label;
 	int				value;
 	int				cost;
-//	int				cost_sam;
-//	int				cost_swp;
 	int				cost_rot;
 	int				cost_rev;
 	int				cost_opo_srev_drot;
 	int				cost_opo_srot_drev;
-//	bool			move_sam;
-//	bool			move_swp;
 	bool			move_rot;
 	bool			move_rev;
 	bool			move_opo_srev_drot;
@@ -73,8 +51,6 @@ typedef struct s_dlist
 	struct s_dlist	*to_meet;
 	struct s_dlist	*next;
 	struct s_dlist	*prev;
-	struct s_dlist	*pre;
-	struct s_dlist	*pro;
 }				t_dll;
 
 // conversions + comparisons
@@ -192,6 +168,7 @@ int		ft_dclst_dist_head_bidi_len(t_dll **tail, t_dll *node, int list_len);
 int		ft_dclst_dist_head_unid(t_dll **tail, t_dll *nd, char mode);
 int		ft_dclst_dist_head_unid_len(t_dll **tail, t_dll *nd, int llen, char mode);
 t_dll	*ft_dclst_find_node(t_dll **tail, t_dll *node, int len);
+void	ft_dclstclear_simple(t_dll **lst);
 
 // printf
 int	ft_printf(const char *input, ...);
@@ -209,5 +186,22 @@ void	ft_sort_int_array_bubble(int *array, size_t len);
 
 // get next line
 char    *get_next_line(int fd);
+
+# ifndef GNLBUFF
+#  define GNLBUFF 42
+# endif
+
+# ifndef MAXLISTLOOPS
+#  define MAXLISTLOOPS 1000000000
+# endif
+
+# define RESET   "\033[0m"
+# define RED     "\033[31m"
+# define GREEN   "\033[32m"
+# define YELLOW  "\033[33m"
+# define BLUE    "\033[34m"
+# define MAGENTA "\033[35m"
+# define CYAN    "\033[36m"
+# define WHITE   "\033[37m"
 
 #endif

@@ -1,6 +1,6 @@
 #include "../push_swap.h"
 
-bool all_locked(t_info *s)
+bool all_locked(t_table *s)
 {
 	t_dll	*trav;
 	int		i;

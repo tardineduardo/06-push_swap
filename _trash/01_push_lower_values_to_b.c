@@ -1,6 +1,6 @@
 #include "../push_swap.h"
 
-t_dll *find_position_in_a(t_info *s, t_dll *node)
+t_dll *find_position_in_a(t_table *s, t_dll *node)
 {
     t_dll   *trav;
 	t_dll	*high;
@@ -32,7 +32,7 @@ t_dll *find_position_in_a(t_info *s, t_dll *node)
 }
 
 
-t_dll *find_position_in_b(t_info *s, t_dll *node)
+t_dll *find_position_in_b(t_table *s, t_dll *node)
 {
     t_dll   *trav;
 	t_dll	*high;
@@ -63,7 +63,7 @@ t_dll *find_position_in_b(t_info *s, t_dll *node)
     return (trav);
 }
 
-static void calculate_costs_in_a(t_info *s)
+static void calculate_costs_in_a(t_table *s)
 {
 	t_dll *trav;
 	t_dll *position_in_b;
@@ -89,7 +89,7 @@ static void calculate_costs_in_a(t_info *s)
 	}
 }
 
-static void move_best_to_top(t_info *s)
+static void move_best_to_top(t_table *s)
 {
 	t_dll *lowest_cost;
 	
@@ -100,7 +100,7 @@ static void move_best_to_top(t_info *s)
 	move_node_to_top_source(s, lowest_cost);
 }
 
-bool rotate_b(t_info *s)
+bool rotate_b(t_table *s)
 {
 	t_dll *position_in_b;
 	
@@ -112,7 +112,7 @@ bool rotate_b(t_info *s)
 	return (true);
 }
 
-void push_lower_values_to_b(t_info *s)
+void push_lower_values_to_b(t_table *s)
 {
 	s->a_is_clock_sorted = ft_dclst_clock_sortd(&(s->a), 'n', offsetof(t_dll, value));
 	if(s->a_is_clock_sorted && s->a_len >= s->t_len / 2)

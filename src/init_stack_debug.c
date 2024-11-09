@@ -6,13 +6,13 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 20:48:56 by eduribei          #+#    #+#             */
-/*   Updated: 2024/10/30 17:25:22 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/11/08 19:30:03 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void init_stack_debug(t_info *s)
+void init_stack_debug(t_table *s)
 {
 	ft_dprintf(1, "Labels:\n");
 	ft_debug_print_dclist(&(s->a), "int", offsetof(t_dll, label), 1);

@@ -6,13 +6,13 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 18:08:06 by eduribei          #+#    #+#             */
-/*   Updated: 2024/11/04 16:33:28 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/11/08 19:30:03 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-bool	swapping_works(t_info *s)
+bool	swapping_works(t_table *s)
 {
 	bool swap_a;
 	bool swap_b;

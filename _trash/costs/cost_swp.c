@@ -38,7 +38,7 @@ static void	node_swp_cost(t_dll **tail, t_dll *node, char stack)
 	return;
 }
 
-void calculate_swp_costs2(t_info *s, char stack)
+void calculate_swp_costs2(t_table *s, char stack)
 {
 	t_dll	*trav;
 
