@@ -1,16 +1,16 @@
 MAIN =  src/push_swap.c \
 
 UTILS = src/validate_args.c \
-		src/init_stack_a.c \
+		src/algo/init_stack_a.c \
 
-ALGO = 	src/algo/costs.c \
-		src/costs/rot_rev_opo_costs.c \
+ALGO = 	src/algo/costs_calculate.c \
+		src/algo/costs_rot_rev_opo.c \
 		src/algo/find_hi_lo_nodes.c \
-		src/algo/move.c \
+		src/algo/move_choose_and_run.c \
 		src/algo/move_rot_rev_opo.c \
+		src/algo/move_node_to_top.c \
 		src/algo/update_sorted_status.c \
 		src/algo/init_stack_b.c \
-		src/algo/move_node_to_top.c \
 		src/inutils.c \
 
 MOVES =	src/moves/moves_sa_sb_ss.c \
