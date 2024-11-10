@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   costs.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/04 17:42:02 by eduribei          #+#    #+#             */
+/*   Updated: 2024/11/08 17:30:33 by eduribei         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
 static void	set_costs_of_moves(int dist_s_head, int dist_d_head, t_dll *node)
@@ -24,7 +36,7 @@ static void	set_costs_of_moves(int dist_s_head, int dist_d_head, t_dll *node)
 	}
 }
 
-void	calculate_move_b_to_a(t_table *s, t_dll *node)
+void	calculate_cost_b_to_a(t_table *s, t_dll *node)
 {
 	t_dll	*trav_a;
 	int		dest_a_dist;
@@ -49,7 +61,7 @@ void	calculate_move_b_to_a(t_table *s, t_dll *node)
 	return ;
 }
 
-void	calculate_move_a_to_b(t_table *s, t_dll *node)
+void	calculate_cost_a_to_b(t_table *s, t_dll *node)
 {
 	t_dll	*trav_b;
 	int		dest_b_dist;

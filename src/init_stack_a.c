@@ -61,8 +61,6 @@ static void	ft_assign_indexes_to_labels(t_table *s)
 	return ;
 }
 
-
-
 static void	ft_init_node_values(t_dll *new)
 {
 	new->next = new;

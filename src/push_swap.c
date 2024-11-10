@@ -28,10 +28,9 @@ int	main(int argc, char *argv[])
 		move(s);
 		update_sorted_status(s);
 	}
-	t_dll *hb = ft_dclst_find_highest_int(&(s->b), offsetof(t_dll, value));
-	t_dll *la = ft_dclst_find_lowest_int(&(s->a), offsetof(t_dll, value));
-	move_node_to_top(s, &(s->b), hb);
-	move_node_to_top(s, &(s->a), hb);
+	find_hi_lo_nodes(s);
+	move_node_to_top(s, &(s->b), s->hi_b);
+	move_node_to_top(s, &(s->a), s->lo_a);
 	while (s->b_len)
 		pa(s, 1);
 }

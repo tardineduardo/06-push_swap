@@ -14,7 +14,7 @@
 
 void	move_node_to_top(t_table *s, t_dll **stack, t_dll *node)
 {
-	int distance;
+	int	distance;
 
 	distance = ft_dclst_dist_head_bidi(stack, node);
 	if (distance >= 0)

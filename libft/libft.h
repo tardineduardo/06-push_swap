@@ -101,6 +101,9 @@ void	*ft_memmove(void *dest, const void *src, size_t n);
 void	*ft_memset(void *s, int c, size_t n);
 void	ft_free_str_array(char **array_of_chars);
 void	ft_free(int total, ...);
+bool	ft_free_and_false(void *ptr);
+bool	ft_free_and_true(void *ptr);
+void	*ft_free_and_null(void *ptr);
 
 // validations
 int		ft_isalnum(int c);

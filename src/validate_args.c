@@ -12,10 +12,10 @@
 
 #include "./push_swap.h"
 
-static bool ft_labels_are_integer_only(int argc, char *argv[])
+static bool	ft_labels_are_integer_only(int argc, char *argv[])
 {
 	int	a;
-	int b;
+	int	b;
 
 	a = 1;
 	while (a < argc)
@@ -35,46 +35,34 @@ static bool ft_labels_are_integer_only(int argc, char *argv[])
 	}
 	return (true);
 }
-// THIS IS NOT WORKING!!!!!!!!!!!!!!!!!!!!!!!!!!!
-// THIS IS NOT WORKING!!!!!!!!!!!!!!!!!!!!!!!!!!!
-// THIS IS NOT WORKING!!!!!!!!!!!!!!!!!!!!!!!!!!!
-// THIS IS NOT WORKING!!!!!!!!!!!!!!!!!!!!!!!!!!!
-// THIS IS NOT WORKING!!!!!!!!!!!!!!!!!!!!!!!!!!!
-// THIS IS NOT WORKING!!!!!!!!!!!!!!!!!!!!!!!!!!!
-// THIS IS NOT WORKING!!!!!!!!!!!!!!!!!!!!!!!!!!!
-// THIS IS NOT WORKING!!!!!!!!!!!!!!!!!!!!!!!!!!!
-// THIS IS NOT WORKING!!!!!!!!!!!!!!!!!!!!!!!!!!!
-// THIS IS NOT WORKING!!!!!!!!!!!!!!!!!!!!!!!!!!!
-// THIS IS NOT WORKING!!!!!!!!!!!!!!!!!!!!!!!!!!!
-// THIS IS NOT WORKING!!!!!!!!!!!!!!!!!!!!!!!!!!!
-static bool ft_labels_are_distinct_and_size_int(int argc, char *argv[])
+
+static bool	ft_labels_are_distinct_and_size_int(int argc, char *argv[])
 {
 	long long int	a;
 	long long int	b;
-	long long int	set[argc - 1];
+	long long int	*set;
 
-	//ft_printf("%i\n", sizeof(long long int));
-
-	//printf("%llu\n", LLONG_MAX);	
 	a = 0;
+	set = malloc((argc - 1) * sizeof(long long int));
 	while (a < argc - 1)
 	{
 		set[a] = ft_atoi(argv[a + 1]);
 		if (set[a] > INT_MAX || set[a] < INT_MIN)
-			return (false);
+			ft_free_and_false(set);
 		b = 0;
 		while (b < a)
 		{
 			if (set[b] == set[a])
-				return (false);
+				ft_free_and_false(set);
 			b++;
 		}
-	a++;
+		a++;
 	}
+	free(set);
 	return (true);
 }
 
-static bool ft_labels_are_sorted(int argc, char *argv[])
+static bool	ft_labels_are_sorted(int argc, char *argv[])
 {
 	int	a;
 	int	curr;
