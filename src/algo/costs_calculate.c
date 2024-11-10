@@ -50,10 +50,16 @@ static void	calculate_each_node_in_a(t_table *s)
 	trav = s->a;
 	while (i < s->a_len)
 	{
-		ft_reset_costs(trav);
+		ft_reset_costs(s, trav);
 		if (s->b)
 			calculate_cost_a_to_b(s, trav);
 		set_lowest_node_to_move(s, trav, 'a');
+		if (trav->cost < 10)
+		{
+			s->cheap_in_a = trav;
+			s->cheap_a_locked = true;
+			break ;
+		}
 		trav = trav->next;
 		i++;
 	}
@@ -69,10 +75,16 @@ static void	calculate_each_node_in_b(t_table *s)
 	trav = s->b;
 	while (i < s->b_len)
 	{
-		ft_reset_costs(trav);
+		ft_reset_costs(s, trav);
 		if (s->a)
 			calculate_cost_b_to_a(s, trav);
 		set_lowest_node_to_move(s, trav, 'b');
+		//if (trav->cost < 5)
+		// {
+		// 	s->cheap_in_a = trav;
+		// 	s->cheap_a_locked = true;
+		// 	break ;
+		// }
 		trav = trav->next;
 		i++;
 	}

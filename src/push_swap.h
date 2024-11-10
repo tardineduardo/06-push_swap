@@ -26,11 +26,14 @@ typedef struct s_info
 	bool		b_is_clock_sorted;
 	bool		a_partially_sorted;
 	bool		b_partially_sorted;
+	bool		cheap_a_locked;
 	char		dst_name;
 	t_dll		*hi_a;
 	t_dll		*lo_a;
 	t_dll		*hi_b;
 	t_dll		*lo_b;
+	t_dll		*cheap_in_a;
+
 }				t_table;
 
 //main
@@ -39,7 +42,7 @@ void	ft_init_stacks_and_table(t_table *s, int argc, char *argv[]);
 void	ft_init_stack_b(t_table *s);
 
 //costs
-void	ft_reset_costs(t_dll *node);
+void	ft_reset_costs(t_table *s, t_dll *node);
 void	update_sorted_status(t_table *s);
 void	calculate_cost_b_to_a(t_table *s, t_dll *node);
 void	calculate_cost_a_to_b(t_table *s, t_dll *node);

@@ -42,7 +42,7 @@ void	calculate_cost_b_to_a(t_table *s, t_dll *node)
 	int		dest_a_dist;
 	int		node_b_dist;
 
-	node_b_dist = ft_dclst_dist_head_bidi(&(s->b), node);
+	node_b_dist = ft_dclst_dist_head_bidi_len(&(s->b), node, s->b_len);
 	trav_a = s->hi_a;
 	if (trav_a->value < node->value)
 	{
@@ -56,7 +56,7 @@ void	calculate_cost_b_to_a(t_table *s, t_dll *node)
 			trav_a = trav_a->prev;
 		node->to_meet = trav_a;
 	}
-	dest_a_dist = ft_dclst_dist_head_bidi(&(s->a), node->to_meet);
+	dest_a_dist = ft_dclst_dist_head_bidi_len(&(s->a), node->to_meet, s->a_len);
 	set_costs_of_moves(node_b_dist, dest_a_dist, node);
 	return ;
 }
@@ -67,7 +67,7 @@ void	calculate_cost_a_to_b(t_table *s, t_dll *node)
 	int		dest_b_dist;
 	int		node_a_dist;
 
-	node_a_dist = ft_dclst_dist_head_bidi(&(s->a), node);
+	node_a_dist = ft_dclst_dist_head_bidi_len(&(s->a), node, s->a_len);
 	trav_b = s->lo_b;
 	if (trav_b->value > node->value)
 	{
@@ -83,7 +83,7 @@ void	calculate_cost_a_to_b(t_table *s, t_dll *node)
 			trav_b = trav_b->prev;
 		node->to_meet = trav_b;
 	}
-	dest_b_dist = ft_dclst_dist_head_bidi(&(s->b), node->to_meet);
+	dest_b_dist = ft_dclst_dist_head_bidi_len(&(s->b), node->to_meet, s->b_len);
 	set_costs_of_moves(node_a_dist, dest_b_dist, node);
 	return ;
 }

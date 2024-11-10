@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	ft_reset_costs(t_dll *node)
+void	ft_reset_costs(t_table *s, t_dll *node)
 {
 	node->cost = 998;
 	node->cost_rot = 998;
@@ -23,4 +23,6 @@ void	ft_reset_costs(t_dll *node)
 	node->move_rev = false;
 	node->move_opo_srev_drot = false;
 	node->move_opo_srot_drev = false;
+	s->cheap_a_locked = false;
+	s->cheap_in_a = NULL;
 }

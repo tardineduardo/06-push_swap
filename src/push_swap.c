@@ -19,18 +19,26 @@ int	main(int argc, char *argv[])
 	s = malloc(sizeof(t_table));
 	ft_validate_args(argc, argv);
 	ft_init_stacks_and_table(s, argc, argv);
+//	ft_play_print_values(&(s->a), &(s->b));
 	ft_init_stack_b(s);
+//	ft_play_print_values(&(s->a), &(s->b));
 	find_hi_lo_nodes(s);
 	s->dst_name = 'b';
 	while (s->b_len != (s->t_len))
 	{
 		calculate_all_costs(s);
+	//	ft_play_print_values(&(s->a), &(s->b));
 		move(s);
 		update_sorted_status(s);
 	}
+//	ft_play_print_values(&(s->a), &(s->b));
 	find_hi_lo_nodes(s);
 	move_node_to_top(s, &(s->b), s->hi_b);
+//	ft_play_print_values(&(s->a), &(s->b));
 	move_node_to_top(s, &(s->a), s->lo_a);
+//	ft_play_print_values(&(s->a), &(s->b));
 	while (s->b_len)
-		pa(s, 1);
+	{	pa(s, 1); 	
+//	ft_play_print_values(&(s->a), &(s->b));
+	}
 }
