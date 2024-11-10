@@ -30,7 +30,7 @@ OBJS_SRC =	$(MAIN:.c=.o) $(UTILS:.c=.o) $(ALGO:.c=.o) \
 CC = cc
 RM = rm -f
 #CFLAGS = -Wall -Wextra -Werror -g
-CFLAGS = -pg
+CFLAGS = -pg -g
 
 NAME = push_swap
 LIBFT_PATH = ./libft
