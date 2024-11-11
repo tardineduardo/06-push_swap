@@ -1,39 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sort_int_array_bubble.c                         :+:      :+:    :+:   */
+/*   move_node_to_top.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/26 14:39:57 by eduribei          #+#    #+#             */
-/*   Updated: 2024/10/26 16:00:20 by eduribei         ###   ########.fr       */
+/*   Created: 2024/10/27 14:26:00 by eduribei          #+#    #+#             */
+/*   Updated: 2024/11/08 17:51:05 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft.h"
+#include "../push_swap.h"
 
-void	ft_sort_int_array_bubble(int *array, size_t len)
+void	move_node_to_top(t_table *s, t_dll **stack, t_dll *node)
 {
-	size_t	i;
-	size_t	swap_count;
-	int		temp;
+	int	distance;
 
-	swap_count = 1;
-	while (swap_count)
+	distance = ft_dclst_dist_head_bidi(stack, node);
+	if (distance >= 0)
 	{
-		i = 0;
-		swap_count = 0;
-		while (i < len - 1)
+		while (distance > 0)
 		{
-			if (array[i] > array[i + 1])
-			{
-				temp = array[i];
-				array[i] = array[i + 1];
-				array[i + 1] = temp;
-				swap_count++;
-			}
-			i++;
+			rrb(s, 1);
+			distance--;
 		}
-	}	
+	}
+	else if (distance < 0)
+	{
+		while (distance < 0)
+		{
+			rb(s, 1);
+			distance++;
+		}
+	}
 }
-

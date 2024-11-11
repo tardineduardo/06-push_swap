@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 15:12:52 by eduribei          #+#    #+#             */
-/*   Updated: 2024/11/08 19:27:22 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/10/27 15:38:50 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,18 +42,18 @@ static bool	ft_labels_are_distinct_and_size_int(int argc, char *argv[])
 	long long int	b;
 	long long int	*set;
 
-	set = malloc((argc - 1) * sizeof(int));
 	a = 0;
+	set = malloc((argc - 1) * sizeof(long long int));
 	while (a < argc - 1)
 	{
 		set[a] = ft_atoi(argv[a + 1]);
 		if (set[a] > INT_MAX || set[a] < INT_MIN)
-			return (false);
+			ft_free_and_false(set);
 		b = 0;
 		while (b < a)
 		{
 			if (set[b] == set[a])
-				return (false);
+				ft_free_and_false(set);
 			b++;
 		}
 		a++;
@@ -87,11 +87,11 @@ static bool	ft_labels_are_sorted(int argc, char *argv[])
 void	ft_validate_args(int argc, char *argv[])
 {
 	if (argc < 3)
-		ft_error_exit("Error - no parameters (use ./play_swap 5 3 2 9 4)\n", 1); //EDITAR
+		ft_error_exit("Error - no parameters (use ./play_swap 5 3 2 9 4)\n", 1);
 	else if (!ft_labels_are_integer_only(argc, argv))
-		ft_error_exit("Error - labels must be integers\n", 1); //EDITAR
+		ft_error_exit("Error - labels must be integers\n", 1);
 	else if (!ft_labels_are_distinct_and_size_int(argc, argv))
-		ft_error_exit("Error - repeated labels\n", 1); //EDITAR
+		ft_error_exit("Error - repeated labels\n", 1);
 	else if (ft_labels_are_sorted(argc, argv))
-		ft_error_exit("Error - already sorted\n", 1); //EDITAR
+		ft_error_exit("Error - already sorted\n", 1);
 }

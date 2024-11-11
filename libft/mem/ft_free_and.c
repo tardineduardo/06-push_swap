@@ -1,39 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sort_int_array_bubble.c                         :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/26 14:39:57 by eduribei          #+#    #+#             */
-/*   Updated: 2024/10/26 16:00:20 by eduribei         ###   ########.fr       */
+/*   Created: 2024/05/12 18:42:06 by eduribei          #+#    #+#             */
+/*   Updated: 2024/10/18 15:35:42 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-void	ft_sort_int_array_bubble(int *array, size_t len)
+bool	ft_free_and_false(void *ptr)
 {
-	size_t	i;
-	size_t	swap_count;
-	int		temp;
+	free(ptr);
+	return (false);
+}
 
-	swap_count = 1;
-	while (swap_count)
-	{
-		i = 0;
-		swap_count = 0;
-		while (i < len - 1)
-		{
-			if (array[i] > array[i + 1])
-			{
-				temp = array[i];
-				array[i] = array[i + 1];
-				array[i + 1] = temp;
-				swap_count++;
-			}
-			i++;
-		}
-	}	
+bool	ft_free_and_true(void *ptr)
+{
+	free(ptr);
+	return (true);
+}
+
+void *ft_free_and_null(void *ptr)
+{
+	free(ptr);
+	return (NULL);
 }
 

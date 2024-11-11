@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 17:07:25 by eduribei          #+#    #+#             */
-/*   Updated: 2024/11/08 19:30:03 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/11/06 22:12:41 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ static void	ft_push_multi_to_empty(t_dll **src, t_dll **dest)
 	(*src)->next->prev = *src;
 	(*dest)->next = *dest;
 	(*dest)->prev = *dest;
-	return ;
 }
 
 static void	ft_push_single_to_multi(t_dll **src, t_dll **dest)
@@ -29,7 +28,6 @@ static void	ft_push_single_to_multi(t_dll **src, t_dll **dest)
 	(*dest)->next = *src;
 	(*dest)->next->next->prev = (*dest)->next;
 	*src = NULL;
-	return ;
 }
 
 static void	ft_push_multi_to_multi(t_dll **src, t_dll **dest)
@@ -43,7 +41,6 @@ static void	ft_push_multi_to_multi(t_dll **src, t_dll **dest)
 	temp->prev = (*dest);
 	(*dest)->next = temp;
 	temp->next->prev = temp;
-	return ;
 }
 
 void	pa(t_table *s, int fd)
@@ -68,7 +65,6 @@ void	pa(t_table *s, int fd)
 	ft_dprintf(fd, "pa\n");
 	s->b_len--;
 	s->a_len++;
-	return ;
 }
 
 void	pb(t_table *s, int fd)
@@ -93,5 +89,4 @@ void	pb(t_table *s, int fd)
 	ft_dprintf(fd, "pb\n");
 	s->a_len--;
 	s->b_len++;
-	return ;
 }

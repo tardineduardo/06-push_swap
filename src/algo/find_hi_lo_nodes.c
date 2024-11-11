@@ -1,39 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sort_int_array_bubble.c                         :+:      :+:    :+:   */
+/*   find_hi_lo_nodes.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/26 14:39:57 by eduribei          #+#    #+#             */
-/*   Updated: 2024/10/26 16:00:20 by eduribei         ###   ########.fr       */
+/*   Created: 2024/11/04 17:21:59 by eduribei          #+#    #+#             */
+/*   Updated: 2024/11/04 19:37:03 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft.h"
+#include "../push_swap.h"
 
-void	ft_sort_int_array_bubble(int *array, size_t len)
+void	find_hi_lo_nodes(t_table *s)
 {
-	size_t	i;
-	size_t	swap_count;
-	int		temp;
-
-	swap_count = 1;
-	while (swap_count)
-	{
-		i = 0;
-		swap_count = 0;
-		while (i < len - 1)
-		{
-			if (array[i] > array[i + 1])
-			{
-				temp = array[i];
-				array[i] = array[i + 1];
-				array[i + 1] = temp;
-				swap_count++;
-			}
-			i++;
-		}
-	}	
+	s->hi_a = ft_dclst_find_highest_int(&(s->a), offsetof(t_dll, value));
+	s->hi_b = ft_dclst_find_highest_int(&(s->b), offsetof(t_dll, value));
+	s->lo_a = ft_dclst_find_lowest_int(&(s->a), offsetof(t_dll, value));
+	s->lo_b = ft_dclst_find_lowest_int(&(s->b), offsetof(t_dll, value));
+	return ;
 }
-

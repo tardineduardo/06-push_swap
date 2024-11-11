@@ -1,39 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sort_int_array_bubble.c                         :+:      :+:    :+:   */
+/*   init_stack_b.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/26 14:39:57 by eduribei          #+#    #+#             */
-/*   Updated: 2024/10/26 16:00:20 by eduribei         ###   ########.fr       */
+/*   Created: 2024/11/06 19:43:29 by eduribei          #+#    #+#             */
+/*   Updated: 2024/11/10 21:07:23 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft.h"
+#include "../push_swap.h"
 
-void	ft_sort_int_array_bubble(int *array, size_t len)
+void	ft_init_stack_b(t_table *s)
 {
-	size_t	i;
-	size_t	swap_count;
-	int		temp;
-
-	swap_count = 1;
-	while (swap_count)
+	update_partially_sorted_status(s);
+	if (s->a_partially_sorted)
 	{
-		i = 0;
-		swap_count = 0;
-		while (i < len - 1)
-		{
-			if (array[i] > array[i + 1])
-			{
-				temp = array[i];
-				array[i] = array[i + 1];
-				array[i + 1] = temp;
-				swap_count++;
-			}
-			i++;
-		}
-	}	
+		s->already_sorted = true;
+		return ;
+	}
+	while (s->b_len < 1 && !(s->a_partially_sorted))
+	{
+		if (s->a->next->value > s->t_len / 2)
+			ra(s, 1);
+		else
+			pb(s, 1);
+	}
+	return ;
 }
-

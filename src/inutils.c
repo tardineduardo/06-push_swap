@@ -1,20 +1,18 @@
-#include "./push_swap.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   init_stack_a.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/17 15:19:45 by eduribei          #+#    #+#             */
+/*   Updated: 2024/11/08 15:38:57 by eduribei         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void	set_cross_costs_to_locked(t_dll *node) /// mover para INUTILS
-{
-	node->cost = 999;
-	node->cost_rot = 999;
-	node->cost_rev = 999;
-	node->cost_opo_srot_drev = 999;
-	node->cost_opo_srev_drot = 999;
-	node->move_rot = false;
-	node->move_rev = false;
-	node->move_opo_srev_drot = false;
-	node->move_opo_srot_drev = false;
-	return ;
-}
+#include "push_swap.h"
 
-void	reset_costs(t_dll *node) /// mover para INUTILS
+void	ft_reset_costs(t_table *s, t_dll *node)
 {
 	node->cost = 998;
 	node->cost_rot = 998;
@@ -25,29 +23,6 @@ void	reset_costs(t_dll *node) /// mover para INUTILS
 	node->move_rev = false;
 	node->move_opo_srev_drot = false;
 	node->move_opo_srot_drev = false;
-	return ;
-}
-
-void	ft_set_cost_and_move(int dist_s_head, int dist_d_head, t_dll *node)
-{
-	if (dist_s_head > 0 && dist_d_head > 0)
-	{
-		node->move_rev = true;
-		node->cost_rev = 1 + abs(dist_s_head) + abs(dist_d_head - dist_s_head);
-	}
-	else if (dist_s_head < 0 && dist_d_head < 0)
-	{
-		node->move_rot = true;
-		node->cost_rot = 1 + abs(dist_s_head) + abs(dist_d_head - dist_s_head);
-	}
-	else if (dist_s_head <= 0 && dist_d_head >= 0)
-	{
-		node->move_opo_srot_drev = true;
-		node->cost_opo_srot_drev = 1 + abs(dist_s_head) + abs(dist_d_head);
-	}
-	else if (dist_s_head >= 0 && dist_d_head <= 0)
-	{
-		node->move_opo_srev_drot = true;
-		node->cost_opo_srev_drot = 1 + abs(dist_s_head) + abs(dist_d_head);
-	}
+	s->cheap_a_locked = false;
+	s->cheap_in_a = NULL;
 }

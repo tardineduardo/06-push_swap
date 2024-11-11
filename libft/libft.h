@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 17:02:36 by eduribei          #+#    #+#             */
-/*   Updated: 2024/11/08 21:12:07 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/11/06 15:52:02 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,28 @@
 # include <sys/types.h>
 # include <bits/posix1_lim.h>
 
+# ifndef GNLBUFF
+#  define GNLBUFF 42
+# endif
+
+# ifndef MAXLISTLOOPS
+#  define MAXLISTLOOPS 1000000000
+# endif
+
+# define RESET   "\033[0m"
+# define RED     "\033[31m"
+# define GREEN   "\033[32m"
+# define YELLOW  "\033[33m"
+# define BLUE    "\033[34m"
+# define MAGENTA "\033[35m"
+# define CYAN    "\033[36m"
+# define WHITE   "\033[37m"
+
 typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
 }				t_list;
-
 
 typedef struct s_dlist
 {
@@ -85,6 +101,9 @@ void	*ft_memmove(void *dest, const void *src, size_t n);
 void	*ft_memset(void *s, int c, size_t n);
 void	ft_free_str_array(char **array_of_chars);
 void	ft_free(int total, ...);
+bool	ft_free_and_false(void *ptr);
+bool	ft_free_and_true(void *ptr);
+void	*ft_free_and_null(void *ptr);
 
 // validations
 int		ft_isalnum(int c);
@@ -186,22 +205,5 @@ void	ft_sort_int_array_bubble(int *array, size_t len);
 
 // get next line
 char    *get_next_line(int fd);
-
-# ifndef GNLBUFF
-#  define GNLBUFF 42
-# endif
-
-# ifndef MAXLISTLOOPS
-#  define MAXLISTLOOPS 1000000000
-# endif
-
-# define RESET   "\033[0m"
-# define RED     "\033[31m"
-# define GREEN   "\033[32m"
-# define YELLOW  "\033[33m"
-# define BLUE    "\033[34m"
-# define MAGENTA "\033[35m"
-# define CYAN    "\033[36m"
-# define WHITE   "\033[37m"
 
 #endif

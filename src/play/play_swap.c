@@ -24,7 +24,7 @@
 #define WHITE   "\033[37m"
 #define BRIGHT_GREEN "\033[92m"
 
-static void move(char *cmd, t_table *s)
+static void	move(char *cmd, t_table *s)
 {
 	int moves = open("moves.txt", O_WRONLY | O_APPEND | O_CREAT, 0664);
 	if(ft_strcmp(cmd, "pa") == 0)

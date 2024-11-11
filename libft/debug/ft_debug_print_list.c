@@ -42,7 +42,7 @@ static void	ft_print_int(t_list *trav, size_t offset)
     ft_printf("NULL\n");
 }
 
-void ft_debug_print_list(t_list **head, char *type, size_t offset)
+void	ft_debug_print_list(t_list **head, char *type, size_t offset)
 {
     t_list *trav;
 

@@ -15,7 +15,7 @@
 // back means the end of the list, right after the last element.
 void	ft_dclstadd_back(t_dll **tail, t_dll *new)
 {
-	if (new == NULL || tail == NULL)
+	if (new == NULL)
     	return ;
 	if (*tail == NULL)
 		*tail = new;
