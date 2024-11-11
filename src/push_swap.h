@@ -19,6 +19,11 @@
 #  define OPT 25
 # endif
 
+
+#ifndef PRINT
+# define PRINT do { ft_play_print_values(&(s->a), &(s->b)); } while (0)
+#endif
+	
 typedef struct s_info
 {
 	t_dll		*a;
@@ -59,6 +64,9 @@ void	move_rev(t_table *s, t_dll *lowest);
 void	move_opo_srot_drev(t_table *s, t_dll *lowest);
 void	move_opo_srev_drot(t_table *s, t_dll *lowest);
 void	move(t_table *s);
+bool	swapping_works(t_table *s);
+bool	swapping_back_works(t_table *s);
+
 
 //moves
 void	ra(t_table *s, int fd);

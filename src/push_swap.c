@@ -18,28 +18,30 @@ int	main(int argc, char *argv[])
 
 	s = malloc(sizeof(t_table));
 	ft_validate_args(argc, argv);
-	ft_init_stacks_and_table(s, argc, argv);
-	ft_play_print_values(&(s->a), &(s->b));
-	ft_init_stack_b(s);
+	ft_init_stacks_and_table(s, argc, argv);	PRINT;
+	find_hi_lo_nodes(s);
+	ft_init_stack_b(s);							PRINT;
 	if (s->already_sorted)
 	{
-		move_node_to_top(s, &(s->a), s->lo_a);
+		s->dst_name = 'a';
+		find_hi_lo_nodes(s);
+		move_node_to_top(s, &(s->a), s->lo_a);	PRINT;
 		return (0);
 	}
-	else if (s->a_partially_sorted)
+	update_partially_sorted_status(s);
+	if (s->a_partially_sorted)
 	{
+		swapping_works(s);						PRINT;
+		find_hi_lo_nodes(s);
 		s->dst_name = 'a';
-		// move elements back from b to a.
+		while (s->a_len != (s->t_len))
+		{
+			swapping_works(s);					PRINT;
+			calculate_all_costs(s);				PRINT;
+			move(s);							PRINT;
+		}
 		return(0);
 	}
-	else
-	{
-		
-
-
-
-	}	
-	
 	find_hi_lo_nodes(s);
 	s->dst_name = 'b';
 	while (s->b_len != (s->t_len))

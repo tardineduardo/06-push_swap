@@ -21,7 +21,10 @@ void	move_node_to_top(t_table *s, t_dll **stack, t_dll *node)
 	{
 		while (distance > 0)
 		{
-			rrb(s, 1);
+			if (s->dst_name == 'a')
+				rra(s, 1);
+			if (s->dst_name == 'b')
+				rrb(s, 1);	
 			distance--;
 		}
 	}
@@ -29,7 +32,10 @@ void	move_node_to_top(t_table *s, t_dll **stack, t_dll *node)
 	{
 		while (distance < 0)
 		{
-			rb(s, 1);
+			if (s->dst_name == 'a')
+				ra(s, 1);
+			if (s->dst_name == 'b')
+				rb(s, 1);	
 			distance++;
 		}
 	}

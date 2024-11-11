@@ -79,12 +79,6 @@ static void	calculate_each_node_in_b(t_table *s)
 		if (s->a)
 			calculate_cost_b_to_a(s, trav);
 		set_lowest_node_to_move(s, trav, 'b');
-		//if (trav->cost < 5)
-		// {
-		// 	s->cheap_in_a = trav;
-		// 	s->cheap_a_locked = true;
-		// 	break ;
-		// }
 		trav = trav->next;
 		i++;
 	}

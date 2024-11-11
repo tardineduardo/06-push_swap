@@ -51,8 +51,10 @@ void	calculate_cost_b_to_a(t_table *s, t_dll *node)
 	}
 	else
 	{
-		while (node->value < trav_a->value && node->value < trav_a->prev->value
-			&& trav_a->prev->value != s->hi_a->value)
+		while (node->value < trav_a->value 
+			&& node->value < trav_a->prev->value
+			&& trav_a->prev != s->hi_a
+			&& s->a_len != 1)
 			trav_a = trav_a->prev;
 		node->to_meet = trav_a;
 	}

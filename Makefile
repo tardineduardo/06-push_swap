@@ -11,6 +11,7 @@ ALGO = 	src/algo/costs_calculate.c \
 		src/algo/move_node_to_top.c \
 		src/algo/update_sorted_status.c \
 		src/algo/init_stack_b.c \
+		src/algo/swapping.c \
 		src/inutils.c \
 
 MOVES =	src/moves/moves_sa_sb_ss.c \
