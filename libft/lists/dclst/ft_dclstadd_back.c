@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 13:49:50 by eduribei          #+#    #+#             */
-/*   Updated: 2024/10/27 17:42:58 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/11/12 18:40:48 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 void	ft_dclstadd_back(t_dll **tail, t_dll *new)
 {
 	if (new == NULL)
-    	return ;
+		return ;
 	if (*tail == NULL)
 		*tail = new;
 	else
@@ -28,4 +28,3 @@ void	ft_dclstadd_back(t_dll **tail, t_dll *new)
 		*tail = new;
 	}
 }
-

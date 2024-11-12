@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_free_and.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/12 18:42:06 by eduribei          #+#    #+#             */
-/*   Updated: 2024/10/18 15:35:42 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/11/12 19:03:13 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,8 @@ bool	ft_free_and_true(void *ptr)
 	return (true);
 }
 
-void *ft_free_and_null(void *ptr)
+void	*ft_free_and_null(void *ptr)
 {
 	free(ptr);
 	return (NULL);
 }
-

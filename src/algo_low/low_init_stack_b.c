@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 19:43:29 by eduribei          #+#    #+#             */
-/*   Updated: 2024/11/11 22:20:29 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/11/12 20:20:16 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ static void	low_swap_closer(t_table *s)
 		&& travf != s->hi_a
 		&& travf->next != s->hi_a)
 		travb = travb->prev;
-	dist_f = ft_dclst_dist_head_bidi(&(s->a), travf);
-	dist_b = ft_dclst_dist_head_bidi(&(s->a), travb);
+	dist_f = ft_dclst_dist_head_bidi_len(&(s->a), travf, s->a_len);
+	dist_b = ft_dclst_dist_head_bidi_len(&(s->a), travb, s->a_len);
 	s->dst_name = 'a';
 	if (ft_abs(dist_f) >= ft_abs(dist_b))
 		ft_move_node_to_top(s, &(s->a), travb);
@@ -54,8 +54,8 @@ static void	low_rotate_closer(t_table *s)
 		travf = travf->next;
 	while (travb->value >= s->t_len / 2)
 		travb = travb->prev;
-	dist_f = ft_dclst_dist_head_bidi(&(s->a), travf);
-	dist_b = ft_dclst_dist_head_bidi(&(s->a), travb);
+	dist_f = ft_dclst_dist_head_bidi_len(&(s->a), travf, s->a_len);
+	dist_b = ft_dclst_dist_head_bidi_len(&(s->a), travb, s->a_len);
 	if (ft_abs(dist_f) >= ft_abs(dist_b))
 		ft_rra(s, 1);
 	else
@@ -63,11 +63,11 @@ static void	low_rotate_closer(t_table *s)
 	return ;
 }
 
-void	low_ft_init_stack_b(t_table *s)
+void	ft_low_ft_init_stack_b(t_table *s)
 {
 	while (s->b_len < (s->t_len) / 2 && !(s->a_partially_sorted))
 	{
-		low_try_swapping(s);
+		ft_low_try_swapping(s);
 		ft_update_partially_sorted_status(s);
 		if (s->a_partially_sorted)
 			break ;

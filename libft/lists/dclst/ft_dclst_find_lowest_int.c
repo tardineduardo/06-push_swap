@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_dclst_find_lowest_int.c                         :+:      :+:    :+:   */
+/*   ft_dclst_find_lo_int.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -13,7 +13,7 @@
 #include "../../libft.h"
 
 // needs testing!!!
-t_dll *ft_dclst_find_lowest_int(t_dll **tail, int offset)
+t_dll	*ft_dclst_find_lo_int(t_dll **tail, int offset)
 {
 	t_dll	*trav;
 	t_dll	*lowest_node;
@@ -26,7 +26,7 @@ t_dll *ft_dclst_find_lowest_int(t_dll **tail, int offset)
 	safe_count = 0;
 	trav = *tail;
 	lowest_node = trav;
-	while(1)
+	while (1)
 	{	
 		value = *(int *)((char *)trav + offset);
 		lowest_val = *(int *)((char *)lowest_node + offset);

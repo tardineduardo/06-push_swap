@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 15:19:45 by eduribei          #+#    #+#             */
-/*   Updated: 2024/11/11 19:50:42 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/11/12 20:19:31 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,13 +65,12 @@ static void	ft_init_node_values(t_dll *new)
 {
 	new->next = new;
 	new->prev = new;
-	new->precedent = NULL;
 	new->procedent = NULL;
-	new->cost = 998;
-	new->cost_rev = 998;
-	new->cost_rot = 998;
-	new->cost_opo_srot_drev = 998;
-	new->cost_opo_srev_drot = 998;
+	new->cost = -1;
+	new->cost_rev = -1;
+	new->cost_rot = -1;
+	new->cost_opo_srot_drev = -1;
+	new->cost_opo_srev_drot = -1;
 	new->move_rev = false;
 	new->move_rot = false;
 	new->move_opo_srot_drev = false;
@@ -114,7 +113,7 @@ void	ft_init_stacks_and_table(t_table *s, int argc, char *argv[])
 	if (s->a_len <= 5)
 	{			
 		s->mode = 's';
-		low_assign_procedent_node(s);		
+		ft_low_assign_procedent_node(s);		
 	}
 	else if (s->a_len > 5 && s->a_len <= 500)
 		s->mode = 'm';

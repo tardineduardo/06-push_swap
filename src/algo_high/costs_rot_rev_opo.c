@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   costs.c                                            :+:      :+:    :+:   */
+/*   costs_rot_rev_opo.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 17:42:02 by eduribei          #+#    #+#             */
-/*   Updated: 2024/11/08 17:30:33 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/11/12 14:41:21 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static void	ft_set_costs_of_moves(int dist_s_head, int dist_d_head, t_dll *node)
 	}
 	else if (dist_s_head >= 0 && dist_d_head <= 0)
 	{
-		node->ft_move_opo_srev_drot = true;
+		node->move_opo_srev_drot = true;
 		node->cost_opo_srev_drot = 1 + ft_abs(dist_s_head) + ft_abs(dist_d_head);
 	}
 }

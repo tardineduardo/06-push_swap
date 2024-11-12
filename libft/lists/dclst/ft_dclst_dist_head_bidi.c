@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 15:21:30 by eduribei          #+#    #+#             */
-/*   Updated: 2024/11/08 16:15:37 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/11/12 19:02:27 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,8 @@ int	ft_dclst_dist_head_bidi(t_dll **tail, t_dll *node)
 		return (0);
 	i = 0;
 	list_len = ft_dclstsize(tail);
-	if (list_len == -1)
-		ft_error_exit("List size error.\n", 1);
-	if (list_len == 0)
-		ft_error_exit("List is empty.\n", 1);
-	if (list_len == 1)
-		return (0);
+	if (list_len == -1 || list_len == 0)
+		ft_error_exit("List error.\n", 1);
 	trav_fwd = node;
 	trav_bck = node;
 	while (i < list_len)
@@ -39,7 +35,7 @@ int	ft_dclst_dist_head_bidi(t_dll **tail, t_dll *node)
 			return (-i);
 		i++;
 		trav_fwd = trav_fwd->next;
-		trav_bck = trav_bck->prev;	
+		trav_bck = trav_bck->prev;
 	}
-	ft_error_exit("ft_dclst_dist_from_head. Invalid parameters: can't find head of the list.\n", 1);
+	ft_error_exit("Invalid parameters.\n", 1);
 }

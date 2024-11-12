@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_dclst_find_highest_int.c                        :+:      :+:    :+:   */
+/*   ft_dclst_find_hi_int.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,8 +12,7 @@
 
 #include "../../libft.h"
 
-// needs testing!!!
-t_dll *ft_dclst_find_highest_int(t_dll **tail, int offset)
+t_dll	*ft_dclst_find_hi_int(t_dll **tail, int offset)
 {
 	t_dll	*trav;
 	t_dll	*highest_node;
@@ -26,7 +25,7 @@ t_dll *ft_dclst_find_highest_int(t_dll **tail, int offset)
 	safe_count = 0;
 	trav = *tail;
 	highest_node = trav;
-	while(1)
+	while (1)
 	{	
 		value = *(int *)((char *)trav + offset);
 		highest_val = *(int *)((char *)highest_node + offset);

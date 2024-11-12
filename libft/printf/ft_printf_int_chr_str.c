@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 13:11:15 by eduribei          #+#    #+#             */
-/*   Updated: 2024/10/23 13:11:16 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/11/12 18:17:25 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int	ft_count_and_put_chr(va_list args, int fd)
 	c = va_arg(args, int);
 	return (ft_putchar_fd(c, fd));
 }
+
 int	ft_count_and_put_str(va_list args, int fd)
 {
 	char	*s;
@@ -38,4 +39,3 @@ int	ft_count_and_put_str(va_list args, int fd)
 	}
 	return (ft_putstr_fd(s, fd));
 }
-

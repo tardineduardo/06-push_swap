@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 19:50:42 by eduribei          #+#    #+#             */
-/*   Updated: 2024/11/11 19:19:36 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/11/12 20:21:10 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,11 +67,10 @@ void	ft_move_opo_srev_drot(t_table *s, t_dll *lowest);
 void	ft_move(t_table *s);
 
 //low
-void	low_assign_precedent_node(t_table *s);
-void	low_assign_procedent_node(t_table *s);
-void	low_ft_init_stack_b(t_table *s);
-void	low_try_swapping(t_table *s);
-void	low_find_hi_lo_nodes(t_table *s);
+void	ft_low_assign_procedent_node(t_table *s);
+void	ft_low_ft_init_stack_b(t_table *s);
+void	ft_low_try_swapping(t_table *s);
+void	ft_low_find_hi_lo_nodes(t_table *s);
 
 //moves
 void	ft_ra(t_table *s, int fd);
@@ -88,12 +87,10 @@ void	ft_rrr(t_table *s, int fd);
 
 //-------------------------------------------------------------------
 //algo
-void	calculate_all_costs(t_table *s);
-t_dll	*find_lowest_cost(t_dll **tail);
+void	ft_calculate_all_costs(t_table *s);
 void	ft_move_node_to_top(t_table *s, t_dll **stack, t_dll *node);
 void	find_hi_lo_nodes(t_table *s);
 void	partially_sorted_status(t_table *s);
 void	select_node_to_move(t_table *s);
-
 
 #endif

@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   low_find_pre_and_pro.c                             :+:      :+:    :+:   */
+/*   low_find_proc.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 14:36:46 by eduribei          #+#    #+#             */
-/*   Updated: 2024/11/11 16:03:51 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/11/12 20:19:31 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	low_assign_procedent_node(t_table *s)
+void	ft_low_assign_procedent_node(t_table *s)
 {
 	t_dll *trav_a;
 	t_dll *trav_b;

@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 13:11:21 by eduribei          #+#    #+#             */
-/*   Updated: 2024/10/23 13:11:22 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/11/12 18:18:30 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ int	ft_count_and_put_ptr(va_list args, int fd)
 	int						count;
 
 	n = va_arg(args, unsigned long long int);
-
 	count = 0;
 	if (n == 0)
 		return (ft_putstr_fd("(nil)", fd));
@@ -51,10 +50,11 @@ int	ft_count_and_put_ptr(va_list args, int fd)
 		return (count);
 	}
 }
+
 int	ft_count_and_put_uns(va_list args, int fd)
 {
 	unsigned long long	n;
-	
+
 	n = va_arg(args, unsigned long long);
 	return (ft_putuns_fd(n, fd));
 }

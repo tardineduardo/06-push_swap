@@ -6,14 +6,14 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/12 18:49:43 by eduribei          #+#    #+#             */
-/*   Updated: 2024/10/18 15:35:03 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/11/12 19:15:53 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-void	ft_perror_exit(char *message, int exit_number)
+void	ft_perror_exit(char *mess, int exit_nb)
 {
-	perror(message);
-	exit(exit_number);
+	perror(mess);
+	exit(exit_nb);
 }

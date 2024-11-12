@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 20:48:56 by eduribei          #+#    #+#             */
-/*   Updated: 2024/11/11 22:19:22 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/11/12 20:20:58 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void ft_run_algo_already_sorted(t_table *s)
 
 static void ft_run_algo_low(t_table *s)
 {
-	low_ft_init_stack_b(s);
+	ft_low_ft_init_stack_b(s);
 	find_hi_lo_nodes(s);
 	while (s->b_len != 0)
 	{
@@ -46,7 +46,7 @@ static void run_algo_high(t_table *s)
 	s->dst_name = 'b';
 	while (s->b_len != (s->t_len))
 	{
-		calculate_all_costs(s);
+		ft_calculate_all_costs(s);
 		ft_move(s);
 	}
 	find_hi_lo_nodes(s);

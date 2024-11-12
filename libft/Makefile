@@ -1,4 +1,4 @@
-//PRINT;F =	printf/ft_printf_dprintf.c \
+PRINTF =	printf/ft_printf_dprintf.c \
 			printf/ft_printf_int_chr_str.c \
 			printf/ft_printf_hex_ptr_uns.c \
 
@@ -11,106 +11,35 @@ PUTS =	puts/ft_putchar_fd.c \
 		puts/ft_putuns_fd.c \
 
 CONV =	conv/ft_atoi.c \
-		conv/ft_atol.c \
-		conv/ft_itoa.c \
-		conv/ft_tolower.c \
-		conv/ft_toupper.c \
 		conv/ft_abs.c \
-		comp/lowest.c \
-		comp/greatest.c \
-
-DEBUG =	debug/ft_debug_print_array_of_strings.c \
-		debug/ft_debug_print_array_of_ints.c \
-		debug/ft_debug_print_list.c \
-		debug/ft_debug_print_dclist.c \
 
 ERROR =	error/ft_error_exit.c \
 		error/ft_perror_exit.c \
-		error/ft_perror_extra.c \
-		error/ft_null_and_stderr.c \
-		fds/ft_close.c \
 
-FDS =	fds/ft_close_four.c \
-		fds/ft_close_three.c \
-		fds/ft_close_two.c \
-
-LISTS =	lists/slist/ft_lstadd_back.c \
-		lists/slist/ft_lstadd_front.c \
-		lists/slist/ft_lstclear.c \
-		lists/slist/ft_lstclear_err_exit.c \
-		lists/slist/ft_lstclear_null.c \
-		lists/slist/ft_lstdelone.c \
-		lists/slist/ft_lstiter.c \
-		lists/slist/ft_lstlast.c \
-		lists/slist/ft_lstmap.c \
-		lists/slist/ft_lstnew.c \
-		lists/slist/ft_lstsize.c \
-		lists/clist/ft_clistsize.c \
-		lists/clist/ft_clstadd_back.c \
-		lists/clist/ft_clstadd_front.c \
-		lists/clist/ft_clstadd_mid.c \
-		lists/clist/ft_clstnew.c \
-		lists/dclst/ft_dclistsize.c \
+LISTS =	lists/dclst/ft_dclistsize.c \
 		lists/dclst/ft_dclstadd_back.c \
-		lists/dclst/ft_dclstadd_front.c \
 		lists/dclst/ft_dclstnew.c \
-		lists/dclst/ft_dclsttrav_to_index.c \
-		lists/dclst/ft_dclst_find_value.c \
 		lists/dclst/ft_dclst_find_lowest_int.c \
-		lists/dclst/ft_dclst_find_lowest_abs.c \
 		lists/dclst/ft_dclst_find_highest_int.c \
-		lists/dclst/ft_dclst_circle_sorted.c \
-		lists/dclst/ft_dclst_list_sorted.c \
 		lists/dclst/ft_dclst_dist_head_bidi_len.c \
 		lists/dclst/ft_dclst_dist_head_bidi.c \
-		lists/dclst/ft_dclst_dist_head_unid_len.c \
-		lists/dclst/ft_dclst_dist_head_unid.c \
 		lists/dclst/ft_dclst_clock_sortd.c \
-		lists/dclst/ft_dclst_find_node.c \
+		lists/dclst/ft_dclst_circle_sorted.c \
 		lists/dclst/ft_dclstclear_simple.c \
 
 MEM = 	mem/ft_bzero.c \
-		mem/ft_calloc.c \
-		mem/ft_free.c \
-		mem/ft_free_str_array.c \
-		mem/ft_memchr.c \
-		mem/ft_memcmp.c \
-		mem/ft_memcpy.c \
-		mem/ft_memmove.c \
-		mem/ft_memset.c \
 		mem/ft_free_and.c \
 
-STRING = string/ft_concatenate.c \
-		string/ft_concatenate_var.c \
-		string/ft_split_char.c \
-		string/ft_split_space.c \
-		string/ft_strchr.c \
-		string/ft_strdup.c \
-		string/ft_striteri.c \
-		string/ft_strjoin.c \
-		string/ft_strlcat.c \
-		string/ft_strlcpy.c \
-		string/ft_strlen.c \
-		string/ft_strmapi.c \
-		string/ft_strncmp.c \
-		string/ft_strcmp.c \
-		string/ft_strnstr.c \
-		string/ft_strrchr.c \
-		string/ft_strtrim.c \
-		string/ft_substr.c \
+STRING = string/ft_strlen.c \
 
-VALID =	valid/ft_isalnum.c \
-		valid/ft_isalpha.c \
-		valid/ft_isascii.c \
-		valid/ft_isdigit.c \
-		valid/ft_isprint.c \
+VALID =	valid/ft_isdigit.c \
 		valid/ft_isspace.c \
 
 SORT =	sort/ft_sort_int_array_bubble.c
 
 GNL	=	gnl/get_next_line_bonus.c
 
-OBJS =	$(//PRINT;F:.c=.o) $(CONV:.c=.o) $(DEBUG:.c=.o) $(ERROR:.c=.o) \
+OBJS =	$(PRINTF:.c=.o) $(CONV:.c=.o) $(ERROR:.c=.o) \
 		$(FDS:.c=.o) $(LISTS:.c=.o) $(MEM:.c=.o) \
 		$(PUTS:.c=.o) $(STRING:.c=.o) $(VALID:.c=.o) \
 		$(GNL:.c=.o) $(SORT:.c=.o) \
@@ -119,7 +48,7 @@ CC = cc
 
 RM = rm -f
 
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror
 
 NAME = libft.a
 

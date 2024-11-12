@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 14:39:57 by eduribei          #+#    #+#             */
-/*   Updated: 2024/10/26 16:00:20 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/11/12 18:44:51 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,3 @@ void	ft_sort_int_array_bubble(int *array, size_t len)
 		}
 	}	
 }
-
