@@ -22,13 +22,13 @@ static void	low_swap_closer(t_table *s)
 	travf = s->a->next;
 	travb = s->a->next;
 	find_hi_lo_nodes(s);
-	while (travf->value < travf->next->value 
-			&& travf != s->hi_a
-			&& travf->next != s->hi_a)
+	while (travf->value < travf->next->value
+		&& travf != s->hi_a
+		&& travf->next != s->hi_a)
 		travf = travf->next;
-	while (travf->value < travf->next->value 
-			&& travf != s->hi_a
-			&& travf->next != s->hi_a)
+	while (travf->value < travf->next->value
+		&& travf != s->hi_a
+		&& travf->next != s->hi_a)
 		travb = travb->prev;
 	dist_f = ft_dclst_dist_head_bidi(&(s->a), travf);
 	dist_b = ft_dclst_dist_head_bidi(&(s->a), travb);
@@ -70,8 +70,8 @@ void	low_ft_init_stack_b(t_table *s)
 		low_try_swapping(s);
 		ft_update_partially_sorted_status(s);
 		if (s->a_partially_sorted)
-			break;
-		if	(s->a->next->value < (s->t_len) / 2)
+			break ;
+		if (s->a->next->value < (s->t_len) / 2)
 			ft_pb(s, 1);
 		else
 			low_rotate_closer(s);

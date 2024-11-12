@@ -15,6 +15,6 @@
 void	low_try_swapping(t_table *s)
 {
 	if (s->a && s->a->next->value > s->a->next->next->value)
-			ft_sa(s, 1);
+		ft_sa(s, 1);
 	return ;
 }

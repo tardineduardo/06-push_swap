@@ -13,7 +13,7 @@ ALGO = 	src/algo_high/costs_calculate.c \
 		src/algo_high/init_stack_b.c \
 		src/algo_high/inutils.c \
 
-LOW = 	src/algo_low/low_find_pre_and_pro.c \
+LOW = 	src/algo_low/low_find_proc.c \
 		src/algo_low/low_init_stack_b.c \
 		src/algo_low/low_swapping.c \
 

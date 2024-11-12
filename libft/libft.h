@@ -63,7 +63,7 @@ typedef struct s_dlist
 	bool			move_sam;
 	bool			move_rot;
 	bool			move_rev;
-	bool			ft_move_opo_srev_drot;
+	bool			move_opo_srev_drot;
 	bool			move_opo_srot_drev;
 	void			*content;
 	struct s_dlist	*to_meet;
