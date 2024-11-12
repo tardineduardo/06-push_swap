@@ -10,75 +10,86 @@ fi
 args=$(shuf -i 1-5 -n "$1" | tr '\n' ' ')
 # Print the sequence of numbers
 echo "Generated sequence: $args"
+./push_swap $args | wc -l
 ./push_swap $args | ./checker_linux $args
-#echo ""
+echo ""
 
 # Generate the specified number of random numbers
 args=$(shuf -i 1-5 -n "$1" | tr '\n' ' ')
 # Print the sequence of numbers
 echo "Generated sequence: $args"
+./push_swap $args | wc -l
 ./push_swap $args | ./checker_linux $args
-#echo ""
+echo ""
 
 # Generate the specified number of random numbers
 args=$(shuf -i 1-5 -n "$1" | tr '\n' ' ')
 # Print the sequence of numbers
 echo "Generated sequence: $args"
+./push_swap $args | wc -l
 ./push_swap $args | ./checker_linux $args
-#echo ""
+echo ""
 
 # Generate the specified number of random numbers
 args=$(shuf -i 1-5 -n "$1" | tr '\n' ' ')
 # Print the sequence of numbers
 echo "Generated sequence: $args"
+./push_swap $args | wc -l
 ./push_swap $args | ./checker_linux $args
-#echo ""
+echo ""
 
 # Generate the specified number of random numbers
 args=$(shuf -i 1-5 -n "$1" | tr '\n' ' ')
 # Print the sequence of numbers
 echo "Generated sequence: $args"
+./push_swap $args | wc -l
 ./push_swap $args | ./checker_linux $args
-#echo ""
+echo ""
 
 # Generate the specified number of random numbers
 args=$(shuf -i 1-5 -n "$1" | tr '\n' ' ')
 # Print the sequence of numbers
 echo "Generated sequence: $args"
+./push_swap $args | wc -l
 ./push_swap $args | ./checker_linux $args
-#echo ""
+echo ""
 
 # Generate the specified number of random numbers
 args=$(shuf -i 1-5 -n "$1" | tr '\n' ' ')
 # Print the sequence of numbers
 echo "Generated sequence: $args"
+./push_swap $args | wc -l
 ./push_swap $args | ./checker_linux $args
-#echo ""
+echo ""
 
 # Generate the specified number of random numbers
 args=$(shuf -i 1-5 -n "$1" | tr '\n' ' ')
 # Print the sequence of numbers
 echo "Generated sequence: $args"
+./push_swap $args | wc -l
 ./push_swap $args | ./checker_linux $args
-#echo ""
+echo ""
 
 # Generate the specified number of random numbers
 args=$(shuf -i 1-5 -n "$1" | tr '\n' ' ')
 # Print the sequence of numbers
 echo "Generated sequence: $args"
+./push_swap $args | wc -l
 ./push_swap $args | ./checker_linux $args
-#echo ""
+echo ""
 
 # Generate the specified number of random numbers
 args=$(shuf -i 1-5 -n "$1" | tr '\n' ' ')
 # Print the sequence of numbers
 echo "Generated sequence: $args"
+./push_swap $args | wc -l
 ./push_swap $args | ./checker_linux $args
-#echo ""
+echo ""
 
 # Generate the specified number of random numbers
 args=$(shuf -i 1-5 -n "$1" | tr '\n' ' ')
 # Print the sequence of numbers
 echo "Generated sequence: $args"
+./push_swap $args | wc -l
 ./push_swap $args | ./checker_linux $args
 echo ""

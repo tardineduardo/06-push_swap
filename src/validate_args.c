@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 15:12:52 by eduribei          #+#    #+#             */
-/*   Updated: 2024/10/27 15:38:50 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/11/11 15:19:00 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,12 @@ static bool	ft_labels_are_distinct_and_size_int(int argc, char *argv[])
 	{
 		set[a] = ft_atoi(argv[a + 1]);
 		if (set[a] > INT_MAX || set[a] < INT_MIN)
-			ft_free_and_false(set);
+			return (ft_free_and_false(set));
 		b = 0;
 		while (b < a)
 		{
 			if (set[b] == set[a])
-				ft_free_and_false(set);
+				return (ft_free_and_false(set));
 			b++;
 		}
 		a++;

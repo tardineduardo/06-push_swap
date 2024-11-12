@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 17:02:36 by eduribei          #+#    #+#             */
-/*   Updated: 2024/11/06 15:52:02 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/11/11 16:35:17 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,10 +55,12 @@ typedef struct s_dlist
 	int				label;
 	int				value;
 	int				cost;
+	int				cost_sam;
 	int				cost_rot;
 	int				cost_rev;
 	int				cost_opo_srev_drot;
 	int				cost_opo_srot_drev;
+	bool			move_sam;
 	bool			move_rot;
 	bool			move_rev;
 	bool			move_opo_srev_drot;
@@ -67,6 +69,8 @@ typedef struct s_dlist
 	struct s_dlist	*to_meet;
 	struct s_dlist	*next;
 	struct s_dlist	*prev;
+	struct s_dlist	*precedent;
+	struct s_dlist	*procedent;	
 }				t_dll;
 
 // conversions + comparisons
@@ -186,7 +190,7 @@ int		ft_dclst_dist_head_bidi(t_dll **tail, t_dll *node);
 int		ft_dclst_dist_head_bidi_len(t_dll **tail, t_dll *node, int list_len);
 int		ft_dclst_dist_head_unid(t_dll **tail, t_dll *nd, char mode);
 int		ft_dclst_dist_head_unid_len(t_dll **tail, t_dll *nd, int llen, char mode);
-t_dll	*ft_dclst_find_node(t_dll **tail, t_dll *node, int len);
+t_dll	*ft_dclst_find_node(t_dll **tail, t_dll *node);
 void	ft_dclstclear_simple(t_dll **lst);
 
 // printf

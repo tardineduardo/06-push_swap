@@ -1,18 +1,31 @@
 MAIN =  src/push_swap.c \
 
 UTILS = src/validate_args.c \
-		src/algo/init_stack_a.c \
+		src/init_stack_a.c \
 
-ALGO = 	src/algo/costs_calculate.c \
-		src/algo/costs_rot_rev_opo.c \
-		src/algo/find_hi_lo_nodes.c \
-		src/algo/move_choose_and_run.c \
-		src/algo/move_rot_rev_opo.c \
-		src/algo/move_node_to_top.c \
-		src/algo/update_sorted_status.c \
-		src/algo/init_stack_b.c \
-		src/algo/swapping.c \
-		src/inutils.c \
+ALGO = 	src/algo_high/costs_calculate.c \
+		src/algo_high/costs_rot_rev_opo.c \
+		src/algo_high/find_hi_lo_nodes.c \
+		src/algo_high/move_choose_and_run.c \
+		src/algo_high/move_rot_rev_opo.c \
+		src/algo_high/move_node_to_top.c \
+		src/algo_high/update_sorted_status.c \
+		src/algo_high/init_stack_b.c \
+		src/algo_high/inutils.c \
+
+LOW = 	src/algo_low/low_costs_calculate.c \
+		src/algo_low/low_costs_rot_rev_opo.c \
+		src/algo_low/low_find_hi_lo_nodes.c \
+		src/algo_low/low_move_choose_and_run.c \
+		src/algo_low/low_move_node_to_top.c \
+		src/algo_low/low_move_rot_rev_opo.c \
+		src/algo_low/low_find_pre_and_pro.c \
+		src/algo_low/low_update_sorted_status.c \
+		src/algo_low/low_init_stack_b.c \
+		src/algo_low/low_inutils.c \
+		src/algo_low/low_costs_sam.c \
+		src/algo_low/low_move_sam.c \
+		src/algo_low/low_swapping.c \
 
 MOVES =	src/moves/moves_sa_sb_ss.c \
 		src/moves/moves_ra_rb_rr.c \
@@ -22,7 +35,7 @@ MOVES =	src/moves/moves_sa_sb_ss.c \
 DEBUG =	src/play/play_print_labels.c \
 		src/play/play_print_values.c \
 
-OBJS_SRC =	$(MAIN:.c=.o) $(UTILS:.c=.o) $(ALGO:.c=.o) \
+OBJS_SRC =	$(MAIN:.c=.o) $(UTILS:.c=.o) $(ALGO:.c=.o) $(LOW:.c=.o)\
 			$(MOVES:.c=.o) $(COSTS:.c=.o) \
 			$(DEBUG:.c=.o) \
 			

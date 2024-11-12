@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 19:23:18 by eduribei          #+#    #+#             */
-/*   Updated: 2024/10/27 17:42:58 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/11/11 14:46:10 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 
 #include "../push_swap.h"
 
-void	rra(t_info *s, int fd)
+void	rra(t_table *s, int fd)
 {
 	if (s->a_len == 0 || s->a_len == 1)
 		return ;
@@ -35,7 +35,7 @@ void	rra(t_info *s, int fd)
 	s->debug_movecount++;
 }
 
-void	rrb(t_info *s, int fd)
+void	rrb(t_table *s, int fd)
 {
 	if (s->b_len == 0 || s->b_len == 1)
 		return ;
@@ -44,7 +44,7 @@ void	rrb(t_info *s, int fd)
 	s->debug_movecount++;
 }
 
-void	rrr(t_info *s, int fd)
+void	rrr(t_table *s, int fd)
 {
 	bool	a;
 	bool	b;

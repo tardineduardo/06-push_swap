@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 19:50:42 by eduribei          #+#    #+#             */
-/*   Updated: 2024/11/10 21:04:18 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/11/11 19:19:36 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ typedef struct s_info
 	bool		b_partially_sorted;
 	bool		already_sorted;
 	bool		cheap_a_locked;
+	bool		block_swap;
 	char		dst_name;
 	char		mode;
 	t_dll		*hi_a;
@@ -64,9 +65,26 @@ void	move_rev(t_table *s, t_dll *lowest);
 void	move_opo_srot_drev(t_table *s, t_dll *lowest);
 void	move_opo_srev_drot(t_table *s, t_dll *lowest);
 void	move(t_table *s);
-bool	swapping_works(t_table *s);
-bool	swapping_back_works(t_table *s);
 
+//low
+void	low_assign_precedent_node(t_table *s);
+void	low_assign_procedent_node(t_table *s);
+void	low_move_rot(t_table *s, t_dll *lowest);
+void	low_move_rev(t_table *s, t_dll *lowest);
+void	low_move_opo_srot_drev(t_table *s, t_dll *lowest);
+void	low_move_opo_srev_drot(t_table *s, t_dll *lowest);
+void	low_move(t_table *s);
+void	low_ft_reset_costs(t_table *s, t_dll *node);
+void	low_update_sorted_status(t_table *s);
+void	low_update_partially_sorted_status(t_table *s);
+void	low_calculate_cost_b_to_a(t_table *s, t_dll *node);
+void	low_calculate_cost_a_to_b(t_table *s, t_dll *node);
+void	low_ft_init_stack_b(t_table *s);
+void	low_move_sam(t_table *s, t_dll *lowest);
+void	low_calculate_sam_costs2(t_table *s, char stack);
+void	low_calculate_all_costs(t_table *s);
+bool	low_swapping_works(t_table *s);
+void	low_find_hi_lo_nodes(t_table *s);
 
 //moves
 void	ra(t_table *s, int fd);
