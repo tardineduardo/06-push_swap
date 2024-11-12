@@ -1,3 +1,0 @@
- args=$(shuf -i 1-100 -n 20 | tr '\n' ' ')
- echo $args
- ./push_swap $args  

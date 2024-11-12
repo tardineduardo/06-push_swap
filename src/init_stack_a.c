@@ -75,7 +75,7 @@ static void	ft_init_node_values(t_dll *new)
 	new->move_rev = false;
 	new->move_rot = false;
 	new->move_opo_srot_drev = false;
-	new->move_opo_srev_drot = false;
+	new->ft_move_opo_srev_drot = false;
 	return ;
 }
 
@@ -90,11 +90,11 @@ void	ft_malloc_and_init_nodes(t_table *s, int argc, char *argv[])
 	while (a < argc)
 	{
 		new = malloc(sizeof(t_dll));
-		if (!new)
-		{
-			ft_dclstclear_simple(&(s->a));
-			ft_perror_exit("stack malloc", errno);
-		}
+		// if (!new)
+		// {
+		// 	ft_dclstclear_simple(&(s->a));
+		// 	ft_perror_exit("stack malloc", errno);
+		// }
 		new->label = ft_atoi(argv[a]);
 		ft_init_node_values(new);
 		ft_dclstadd_back(&(s->a), new);
@@ -114,8 +114,8 @@ void	ft_init_stacks_and_table(t_table *s, int argc, char *argv[])
 	s->b_partially_sorted = false;
 	s->dst_name = 0;
 	ft_assign_indexes_to_labels(s);
-	if (s->a_len <= 5)						
-	{
+	if (s->a_len <= 5)
+	{			
 		s->mode = 's';
 		low_assign_precedent_node(s);		
 		low_assign_procedent_node(s);		

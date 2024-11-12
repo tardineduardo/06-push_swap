@@ -12,40 +12,17 @@
 
 #include "../push_swap.h"
 
-void	select_move_to_execute(t_table *s, t_dll *lowest)
+void	ft_move(t_table *s)
 {
-	if (lowest->move_rot)
-		move_rot(s, lowest);
-	else if (lowest->move_rev)
-		move_rev(s, lowest);
-	else if (lowest->move_opo_srev_drot)
-		move_opo_srev_drot(s, lowest);
-	else if (lowest->move_opo_srot_drev)
-		move_opo_srot_drev(s, lowest);
-	return ;
-}
-
-void	move(t_table *s)
-{
-	t_dll	*cheap_in_a;
-	t_dll	*cheap_in_b;
-
 	if (!(s->cheap_a_locked))
 		s->cheap_in_a = ft_dclst_find_lowest_int(&(s->a), offsetof(t_dll, cost));
-	cheap_in_b = ft_dclst_find_lowest_int(&(s->b), offsetof(t_dll, cost));
-	if (s->dst_name == 'a')
-	{
-		s->cheap_in_a = NULL;
-		cheap_in_b = ft_dclst_find_lowest_int(&(s->b), offsetof(t_dll, cost));
-		if (cheap_in_b)
-			select_move_to_execute(s, cheap_in_b);
-	}
-	else if (s->dst_name == 'b')
-	{
-		cheap_in_a = s->cheap_in_a;
-		cheap_in_b = NULL;
-		if (cheap_in_a)
-			select_move_to_execute(s, cheap_in_a);
-	}
+	if (s->cheap_in_a->move_rot)
+		ft_move_rot(s, s->cheap_in_a);
+	else if (s->cheap_in_a->move_rev)
+		ft_move_rev(s, s->cheap_in_a);
+	else if (s->cheap_in_a->ft_move_opo_srev_drot)
+		ft_move_opo_srev_drot(s, s->cheap_in_a);
+	else if (s->cheap_in_a->move_opo_srot_drev)
+		ft_move_opo_srot_drev(s, s->cheap_in_a);
 	return ;
 }

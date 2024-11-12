@@ -111,7 +111,7 @@ int main(void)
     printf("count expected = %i\n", x);
     printf("count result   = %i\n", y);
 
-    printf("\nTest 15: Special characters (newlines, tabs, etc.)\n");
+    printf("\nTest 15: Special characters (newlines, tft_abs, etc.)\n");
     x = printf("Hello\nWorld\t! %%\n");
     y = ft_printf("Hello\nWorld\t! %%\n");
     printf("count expected = %i\n", x);

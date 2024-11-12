@@ -12,7 +12,7 @@
 
 #include "../push_swap.h"
 
-void	set_lowest_node_to_move(t_table *s, t_dll *node, char stack)
+static void	ft_set_lowest_node_to_move(t_dll *node)
 {
 	int		*values;
 	bool	*moves;
@@ -41,7 +41,7 @@ void	set_lowest_node_to_move(t_table *s, t_dll *node, char stack)
 	}
 }
 
-static void	calculate_each_node_in_a(t_table *s)
+static void	ft_calculate_each_node_in_a(t_table *s)
 {
 	t_dll	*trav;
 	int		i;
@@ -52,9 +52,9 @@ static void	calculate_each_node_in_a(t_table *s)
 	{
 		ft_reset_costs(s, trav);
 		if (s->b)
-			calculate_cost_a_to_b(s, trav);
-		set_lowest_node_to_move(s, trav, 'a');
-		if (trav->cost < 25 && s->mode == 'l')
+			ft_calculate_cost_a_to_b(s, trav);
+		ft_set_lowest_node_to_move(trav);
+		if (trav->cost < 17 && s->mode == 'l')
 		{
 			s->cheap_in_a = trav;
 			s->cheap_a_locked = true;
@@ -66,32 +66,9 @@ static void	calculate_each_node_in_a(t_table *s)
 	return ;
 }
 
-static void	calculate_each_node_in_b(t_table *s)
-{
-	t_dll	*trav;
-	int		i;
-
-	i = 0;
-	trav = s->b;
-	while (i < s->b_len)
-	{
-		ft_reset_costs(s, trav);
-		if (s->a)
-			calculate_cost_b_to_a(s, trav);
-		set_lowest_node_to_move(s, trav, 'b');
-		trav = trav->next;
-		i++;
-	}
-	return ;
-}
-
-//find_hi_lo_nodes: TENTAR ELIMINAR ESSA CONTAGEM A CADA VOLTA.
 void	calculate_all_costs(t_table *s)
 {
 	find_hi_lo_nodes(s);
-	if (s->dst_name == 'b')
-		calculate_each_node_in_a(s);
-	if (s->dst_name == 'a')
-		calculate_each_node_in_b(s);
+	ft_calculate_each_node_in_a(s);
 	return ;
 }

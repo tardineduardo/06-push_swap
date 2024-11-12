@@ -12,15 +12,15 @@
 
 #include "../libft.h"
 
-static void	ft_get_digits(char *temp, unsigned int abs, int n)
+static void	ft_get_digits(char *temp, unsigned int ft_abs, int n)
 {
 	int	a;
 
 	a = 0;
-	while (abs >= 1)
+	while (ft_abs >= 1)
 	{
-		temp[a] = (abs % 10) + 48;
-		abs = abs / 10;
+		temp[a] = (ft_abs % 10) + 48;
+		ft_abs = ft_abs / 10;
 		a++;
 	}
 	if (n < 0)
@@ -44,7 +44,7 @@ static void	ft_copy_reverse(char *temp, char *number)
 
 char	*ft_itoa(int n)
 {
-	unsigned int	abs;
+	unsigned int	ft_abs;
 	char			temp[12];
 	char			*number;
 
@@ -59,10 +59,10 @@ char	*ft_itoa(int n)
 		return (number);
 	}
 	else if (n < 0)
-		abs = (unsigned int)(-n);
+		ft_abs = (unsigned int)(-n);
 	else
-		abs = n;
-	ft_get_digits(temp, abs, n);
+		ft_abs = n;
+	ft_get_digits(temp, ft_abs, n);
 	number = ft_calloc((ft_strlen(temp) + 1), sizeof(char));
 	if (number == NULL)
 		return (NULL);

@@ -54,64 +54,46 @@ void	ft_init_stack_b(t_table *s);
 
 //costs
 void	ft_reset_costs(t_table *s, t_dll *node);
-void	update_sorted_status(t_table *s);
-void	update_partially_sorted_status(t_table *s);
+void	ft_update_sorted_status(t_table *s);
+void	ft_update_partially_sorted_status(t_table *s);
 void	calculate_cost_b_to_a(t_table *s, t_dll *node);
-void	calculate_cost_a_to_b(t_table *s, t_dll *node);
+void	ft_calculate_cost_a_to_b(t_table *s, t_dll *node);
 
 //other
-void	move_rot(t_table *s, t_dll *lowest);
-void	move_rev(t_table *s, t_dll *lowest);
-void	move_opo_srot_drev(t_table *s, t_dll *lowest);
-void	move_opo_srev_drot(t_table *s, t_dll *lowest);
-void	move(t_table *s);
+void	ft_move_rot(t_table *s, t_dll *lowest);
+void	ft_move_rev(t_table *s, t_dll *lowest);
+void	ft_move_opo_srot_drev(t_table *s, t_dll *lowest);
+void	ft_move_opo_srev_drot(t_table *s, t_dll *lowest);
+void	ft_move(t_table *s);
 
 //low
 void	low_assign_precedent_node(t_table *s);
 void	low_assign_procedent_node(t_table *s);
-void	low_move_rot(t_table *s, t_dll *lowest);
-void	low_move_rev(t_table *s, t_dll *lowest);
-void	low_move_opo_srot_drev(t_table *s, t_dll *lowest);
-void	low_move_opo_srev_drot(t_table *s, t_dll *lowest);
-void	low_move(t_table *s);
-void	low_ft_reset_costs(t_table *s, t_dll *node);
-void	low_update_sorted_status(t_table *s);
-void	low_update_partially_sorted_status(t_table *s);
-void	low_calculate_cost_b_to_a(t_table *s, t_dll *node);
-void	low_calculate_cost_a_to_b(t_table *s, t_dll *node);
 void	low_ft_init_stack_b(t_table *s);
-void	low_move_sam(t_table *s, t_dll *lowest);
-void	low_calculate_sam_costs2(t_table *s, char stack);
-void	low_calculate_all_costs(t_table *s);
-bool	low_swapping_works(t_table *s);
+void	low_try_swapping(t_table *s);
 void	low_find_hi_lo_nodes(t_table *s);
 
 //moves
-void	ra(t_table *s, int fd);
-void	rr(t_table *s, int fd);
-void	rb(t_table *s, int fd);
-void	sa(t_table *s, int fd);
-void	sb(t_table *s, int fd);
-void	ss(t_table *s, int fd);
-void	pa(t_table *s, int fd);
-void	pb(t_table *s, int fd);
-void	rra(t_table *s, int fd);
-void	rrb(t_table *s, int fd);
-void	rrr(t_table *s, int fd);
+void	ft_ra(t_table *s, int fd);
+void	ft_rr(t_table *s, int fd);
+void	ft_rb(t_table *s, int fd);
+void	ft_sa(t_table *s, int fd);
+void	ft_sb(t_table *s, int fd);
+void	ft_ss(t_table *s, int fd);
+void	ft_pa(t_table *s, int fd);
+void	ft_pb(t_table *s, int fd);
+void	ft_rra(t_table *s, int fd);
+void	ft_rrb(t_table *s, int fd);
+void	ft_rrr(t_table *s, int fd);
 
 //-------------------------------------------------------------------
 //algo
 void	calculate_all_costs(t_table *s);
 t_dll	*find_lowest_cost(t_dll **tail);
-bool	swapping_works(t_table *s);
-void	move_node_to_top(t_table *s, t_dll **stack, t_dll *node);
+void	ft_move_node_to_top(t_table *s, t_dll **stack, t_dll *node);
 void	find_hi_lo_nodes(t_table *s);
-void	calculate_all_costs(t_table *s);
 void	partially_sorted_status(t_table *s);
 void	select_node_to_move(t_table *s);
 
-//play
-void	ft_play_print_labels(t_dll **a, t_dll **b);
-void	ft_play_print_values(t_dll **a, t_dll **b);
 
 #endif

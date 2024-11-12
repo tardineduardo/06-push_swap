@@ -21,7 +21,7 @@ void	ft_reset_costs(t_table *s, t_dll *node)
 	node->cost_opo_srev_drot = 998;
 	node->move_rot = false;
 	node->move_rev = false;
-	node->move_opo_srev_drot = false;
+	node->ft_move_opo_srev_drot = false;
 	node->move_opo_srot_drev = false;
 	s->cheap_a_locked = false;
 	s->cheap_in_a = NULL;

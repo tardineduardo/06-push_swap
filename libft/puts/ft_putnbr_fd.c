@@ -12,15 +12,15 @@
 
 #include "../libft.h"
 
-static void	ft_get_digits(char *number, unsigned int abs_n, int n)
+static void	ft_get_digits(char *number, unsigned int ft_abs_n, int n)
 {
 	int	a;
 
 	a = 0;
-	while (abs_n >= 1)
+	while (ft_abs_n >= 1)
 	{
-		number[a] = (abs_n % 10) + 48;
-		abs_n = abs_n / 10;
+		number[a] = (ft_abs_n % 10) + 48;
+		ft_abs_n = ft_abs_n / 10;
 		a++;
 	}
 	if (n < 0)
@@ -38,17 +38,17 @@ int	ft_putnbr_fd(int n, int fd)
 	int				print_len;
 	int				count;
 	char			number[12];
-	unsigned int	abs_n;
+	unsigned int	ft_abs_n;
 
 	count = 0;
 	ft_bzero(number, 12);
 	if (n == 0)
 		return (ft_putzero(fd));
 	else if (n < 0)
-		abs_n = (unsigned int)(-n);
+		ft_abs_n = (unsigned int)(-n);
 	else
-		abs_n = n;
-	ft_get_digits(number, abs_n, n);
+		ft_abs_n = n;
+	ft_get_digits(number, ft_abs_n, n);
 	print_len = ft_strlen(number) - 1;
 	while (print_len >= 0)
 	{

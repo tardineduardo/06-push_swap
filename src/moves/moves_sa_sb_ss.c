@@ -36,21 +36,21 @@ static bool	swap(t_dll **tail, int llen)
 	return (true);
 }
 
-void	sa(t_table *s, int fd)
+void	ft_sa(t_table *s, int fd)
 {
 	if (swap(&(s->a), s->a_len))
 		ft_dprintf(fd, "sa\n");
 	return ;
 }
 
-void	sb(t_table *s, int fd)
+void	ft_sb(t_table *s, int fd)
 {
 	if (swap(&(s->b), s->b_len))
 		ft_dprintf(fd, "sb\n");
 	return ;
 }
 
-void	ss(t_table *s, int fd)
+void	ft_ss(t_table *s, int fd)
 {
 	bool	sa;
 	bool	sb;
@@ -67,6 +67,5 @@ void	ss(t_table *s, int fd)
 		ft_dprintf(fd, "sa\n");
 	else if (!sa && sb)
 		ft_dprintf(fd, "sb\n");
-	update_sorted_status(s);
 	return ;
 }

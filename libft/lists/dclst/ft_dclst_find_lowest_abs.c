@@ -28,8 +28,8 @@ t_dll *ft_dclst_find_lowest_abs(t_dll **tail, int offset)
 	lowest_node = trav;
 	while(1)
 	{	
-		value = abs(*(int *)((char *)trav + offset));
-		lowest_val = abs(*(int *)((char *)lowest_node + offset));
+		value = ft_abs(*(int *)((char *)trav + offset));
+		lowest_val = ft_abs(*(int *)((char *)lowest_node + offset));
 		if (value < lowest_val)
 			lowest_node = trav;
 		trav = trav->next;

@@ -12,7 +12,7 @@
 
 #include "../push_swap.h"
 
-void	ra(t_table *s, int fd)
+void	ft_ra(t_table *s, int fd)
 {
 	if (s->a_len == 0 || s->a_len == 1)
 		return ;
@@ -20,7 +20,7 @@ void	ra(t_table *s, int fd)
 	ft_dprintf(fd, "ra\n");
 }
 
-void	rb(t_table *s, int fd)
+void	ft_rb(t_table *s, int fd)
 {
 	if (s->b_len == 0 || s->b_len == 1)
 		return ;
@@ -28,7 +28,7 @@ void	rb(t_table *s, int fd)
 	ft_dprintf(fd, "rb\n");
 }
 
-void	rr(t_table *s, int fd)
+void	ft_rr(t_table *s, int fd)
 {
 	bool	a;
 	bool	b;

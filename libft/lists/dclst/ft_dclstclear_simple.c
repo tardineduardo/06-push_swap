@@ -12,19 +12,20 @@
 
 #include "../../libft.h"
 
-void	ft_dclstclear_simple(t_dll **lst)
+void	ft_dclstclear_simple(t_dll **tail)
 {
-	t_dll	*temp1;
-	t_dll	*temp2;
+	t_dll	*temp;
+	t_dll	*next_node;
 
-	if (lst == NULL || *lst == NULL)
+	if (tail == NULL || *tail == NULL)
 		return ;
-	temp1 = *lst;
-	while (temp1 != NULL)
+	temp = (*tail)->next;
+	while (temp != *tail)
 	{
-		temp2 = temp1->next;
-		free(temp1);
-		temp1 = temp2;
+		next_node = temp->next;
+		free(temp);
+		temp = next_node;
 	}
-	*lst = NULL;
+	free(*tail);
+	*tail = NULL;
 }

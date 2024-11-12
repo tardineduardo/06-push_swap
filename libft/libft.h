@@ -63,7 +63,7 @@ typedef struct s_dlist
 	bool			move_sam;
 	bool			move_rot;
 	bool			move_rev;
-	bool			move_opo_srev_drot;
+	bool			ft_move_opo_srev_drot;
 	bool			move_opo_srot_drev;
 	void			*content;
 	struct s_dlist	*to_meet;
@@ -79,7 +79,7 @@ long	ft_atol(const char *nptr);
 char	*ft_itoa(int n);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
-int		abs(int a);
+int		ft_abs(int a);
 int		lowest(int a, int b);
 int		greatest(int a, int b);
 

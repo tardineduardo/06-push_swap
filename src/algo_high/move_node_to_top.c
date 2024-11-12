@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   move_node_to_top.c                                 :+:      :+:    :+:   */
+/*   ft_move_node_to_top.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,7 @@
 
 #include "../push_swap.h"
 
-void	move_node_to_top(t_table *s, t_dll **stack, t_dll *node)
+void	ft_move_node_to_top(t_table *s, t_dll **stack, t_dll *node)
 {
 	int	distance;
 
@@ -22,9 +22,9 @@ void	move_node_to_top(t_table *s, t_dll **stack, t_dll *node)
 		while (distance > 0)
 		{
 			if (s->dst_name == 'a')
-				rra(s, 1);
+				ft_rra(s, 1);
 			if (s->dst_name == 'b')
-				rrb(s, 1);	
+				ft_rrb(s, 1);	
 			distance--;
 		}
 	}
@@ -33,9 +33,9 @@ void	move_node_to_top(t_table *s, t_dll **stack, t_dll *node)
 		while (distance < 0)
 		{
 			if (s->dst_name == 'a')
-				ra(s, 1);
+				ft_ra(s, 1);
 			if (s->dst_name == 'b')
-				rb(s, 1);	
+				ft_rb(s, 1);	
 			distance++;
 		}
 	}

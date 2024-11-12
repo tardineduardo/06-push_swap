@@ -13,18 +13,8 @@ ALGO = 	src/algo_high/costs_calculate.c \
 		src/algo_high/init_stack_b.c \
 		src/algo_high/inutils.c \
 
-LOW = 	src/algo_low/low_costs_calculate.c \
-		src/algo_low/low_costs_rot_rev_opo.c \
-		src/algo_low/low_find_hi_lo_nodes.c \
-		src/algo_low/low_move_choose_and_run.c \
-		src/algo_low/low_move_node_to_top.c \
-		src/algo_low/low_move_rot_rev_opo.c \
-		src/algo_low/low_find_pre_and_pro.c \
-		src/algo_low/low_update_sorted_status.c \
+LOW = 	src/algo_low/low_find_pre_and_pro.c \
 		src/algo_low/low_init_stack_b.c \
-		src/algo_low/low_inutils.c \
-		src/algo_low/low_costs_sam.c \
-		src/algo_low/low_move_sam.c \
 		src/algo_low/low_swapping.c \
 
 MOVES =	src/moves/moves_sa_sb_ss.c \
@@ -32,19 +22,12 @@ MOVES =	src/moves/moves_sa_sb_ss.c \
 		src/moves/moves_rra_rrb_rrr.c \
 		src/moves/moves_pa_pb.c \
 
-DEBUG =	src/play/play_print_labels.c \
-		src/play/play_print_values.c \
-
 OBJS_SRC =	$(MAIN:.c=.o) $(UTILS:.c=.o) $(ALGO:.c=.o) $(LOW:.c=.o)\
-			$(MOVES:.c=.o) $(COSTS:.c=.o) \
-			$(DEBUG:.c=.o) \
-			
-# $(PLAY:.c=.o) \
+			$(MOVES:.c=.o) \
 
 CC = cc
 RM = rm -f
-#CFLAGS = -Wall -Wextra -Werror -g
-CFLAGS = -pg -g
+CFLAGS = -Wall -Wextra -Werror -g
 
 NAME = push_swap
 LIBFT_PATH = ./libft

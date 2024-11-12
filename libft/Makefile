@@ -1,4 +1,4 @@
-PRINTF =	printf/ft_printf_dprintf.c \
+//PRINT;F =	printf/ft_printf_dprintf.c \
 			printf/ft_printf_int_chr_str.c \
 			printf/ft_printf_hex_ptr_uns.c \
 
@@ -110,7 +110,7 @@ SORT =	sort/ft_sort_int_array_bubble.c
 
 GNL	=	gnl/get_next_line_bonus.c
 
-OBJS =	$(PRINTF:.c=.o) $(CONV:.c=.o) $(DEBUG:.c=.o) $(ERROR:.c=.o) \
+OBJS =	$(//PRINT;F:.c=.o) $(CONV:.c=.o) $(DEBUG:.c=.o) $(ERROR:.c=.o) \
 		$(FDS:.c=.o) $(LISTS:.c=.o) $(MEM:.c=.o) \
 		$(PUTS:.c=.o) $(STRING:.c=.o) $(VALID:.c=.o) \
 		$(GNL:.c=.o) $(SORT:.c=.o) \
@@ -119,7 +119,7 @@ CC = cc
 
 RM = rm -f
 
-CFLAGS = -Wall -Wextra -Werror -pg -g
+CFLAGS = -Wall -Wextra -Werror -g
 
 NAME = libft.a
 
