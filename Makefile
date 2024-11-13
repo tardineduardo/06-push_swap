@@ -16,8 +16,7 @@ ALGO = 	src/algo_high/costs_calculate.c \
 		src/algo_high/update_sorted_status.c \
 		src/algo_high/init_stack_b.c \
 
-LOW = 	src/algo_low/low_find_proc.c \
-		src/algo_low/low_init_stack_b.c \
+LOW = 	src/algo_low/low_init_stack_b.c \
 		src/algo_low/low_swapping.c \
 
 MOVES =	src/moves/moves_sa_sb_ss.c \
