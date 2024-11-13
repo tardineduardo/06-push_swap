@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 19:43:29 by eduribei          #+#    #+#             */
-/*   Updated: 2024/11/12 20:20:16 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/11/12 20:29:32 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void	low_swap_closer(t_table *s)
 
 	travf = s->a->next;
 	travb = s->a->next;
-	find_hi_lo_nodes(s);
+	ft_find_hi_lo_nodes(s);
 	while (travf->value < travf->next->value
 		&& travf != s->hi_a
 		&& travf->next != s->hi_a)
@@ -63,7 +63,7 @@ static void	low_rotate_closer(t_table *s)
 	return ;
 }
 
-void	ft_low_ft_init_stack_b(t_table *s)
+void	ft_low_init_stack_b(t_table *s)
 {
 	while (s->b_len < (s->t_len) / 2 && !(s->a_partially_sorted))
 	{

@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 15:12:52 by eduribei          #+#    #+#             */
-/*   Updated: 2024/11/11 15:19:00 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/11/12 20:46:04 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,14 +84,21 @@ static bool	ft_labels_are_sorted(int argc, char *argv[])
 	return (false);
 }
 
-void	ft_validate_args(int argc, char *argv[])
+bool	ft_validate_args(int argc, char *argv[])
 {
 	if (argc < 3)
-		ft_error_exit("Error - no parameters (use ./play_swap 5 3 2 9 4)\n", 1);
+		return (false);
 	else if (!ft_labels_are_integer_only(argc, argv))
-		ft_error_exit("Error - labels must be integers\n", 1);
+	{
+		ft_dprintf(STDERR_FILENO, "Error\n");
+		return (false);
+	}	
 	else if (!ft_labels_are_distinct_and_size_int(argc, argv))
-		ft_error_exit("Error - repeated labels\n", 1);
+	{
+		ft_dprintf(STDERR_FILENO, "Error\n");
+		return (false);
+	}
 	else if (ft_labels_are_sorted(argc, argv))
-		ft_error_exit("Error - already sorted\n", 1);
+		return (false);
+	return (true);
 }

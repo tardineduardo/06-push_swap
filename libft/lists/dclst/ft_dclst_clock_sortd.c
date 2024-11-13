@@ -6,13 +6,13 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 18:24:19 by eduribei          #+#    #+#             */
-/*   Updated: 2024/11/12 18:30:35 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/11/12 21:20:20 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../libft.h"
 
-static bool	ft_check_int_reverse_2(t_dll **tail, int offset)
+static bool	ft_check_int_reverse(t_dll **tail, int offset)
 {
 	t_dll	*trav;
 	int		val_min;
@@ -38,7 +38,7 @@ static bool	ft_check_int_reverse_2(t_dll **tail, int offset)
 	return (true);
 }
 
-static bool	ft_check_int_normal_2(t_dll **tail, int offset)
+static bool	ft_check_int_normal(t_dll **tail, int offset)
 {
 	t_dll	*trav;
 	int		val_min;
@@ -68,10 +68,8 @@ static bool	ft_check_int_normal_2(t_dll **tail, int offset)
 bool	ft_dclst_clock_sortd(t_dll **tail, char mode, int offset)
 {
 	if (mode == 'n')
-		return (ft_check_int_normal_2(tail, offset));
+		return (ft_check_int_normal(tail, offset));
 	else if (mode == 'r')
-		return (ft_check_int_reverse_2(tail, offset));
-	else
-		ft_perror_exit("ft_dclst_clock_sortd_len: invalid mode", 1);
+		return (ft_check_int_reverse(tail, offset));
 	return (false);
 }

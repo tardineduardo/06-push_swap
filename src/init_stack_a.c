@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 15:19:45 by eduribei          #+#    #+#             */
-/*   Updated: 2024/11/12 20:19:31 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/11/12 20:22:09 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,7 +119,7 @@ void	ft_init_stacks_and_table(t_table *s, int argc, char *argv[])
 		s->mode = 'm';
 	else if (s->a_len > 5)
 		s->mode = 'l';
-	find_hi_lo_nodes(s);
+	ft_find_hi_lo_nodes(s);
 	ft_update_partially_sorted_status(s);
 	return ;
 }

@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 19:50:42 by eduribei          #+#    #+#             */
-/*   Updated: 2024/11/12 20:21:10 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/11/12 20:42:33 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,29 +48,28 @@ typedef struct s_info
 }				t_table;
 
 //main
-void	ft_validate_args(int argc, char *argv[]);
+bool	ft_validate_args(int argc, char *argv[]);
 void	ft_init_stacks_and_table(t_table *s, int argc, char *argv[]);
-void	ft_init_stack_b(t_table *s);
 
-//costs
-void	ft_reset_costs(t_table *s, t_dll *node);
-void	ft_update_sorted_status(t_table *s);
+//algo_high
 void	ft_update_partially_sorted_status(t_table *s);
-void	calculate_cost_b_to_a(t_table *s, t_dll *node);
 void	ft_calculate_cost_a_to_b(t_table *s, t_dll *node);
+void	ft_init_stack_b(t_table *s);
+void	ft_calculate_all_costs(t_table *s);
+void	ft_move_node_to_top(t_table *s, t_dll **stack, t_dll *node);
+void	ft_find_hi_lo_nodes(t_table *s);
 
-//other
+//algo_low
+void	ft_low_assign_procedent_node(t_table *s);
+void	ft_low_init_stack_b(t_table *s);
+void	ft_low_try_swapping(t_table *s);
+
+//moves_algo
 void	ft_move_rot(t_table *s, t_dll *lowest);
 void	ft_move_rev(t_table *s, t_dll *lowest);
 void	ft_move_opo_srot_drev(t_table *s, t_dll *lowest);
 void	ft_move_opo_srev_drot(t_table *s, t_dll *lowest);
 void	ft_move(t_table *s);
-
-//low
-void	ft_low_assign_procedent_node(t_table *s);
-void	ft_low_ft_init_stack_b(t_table *s);
-void	ft_low_try_swapping(t_table *s);
-void	ft_low_find_hi_lo_nodes(t_table *s);
 
 //moves
 void	ft_ra(t_table *s, int fd);
@@ -84,13 +83,5 @@ void	ft_pb(t_table *s, int fd);
 void	ft_rra(t_table *s, int fd);
 void	ft_rrb(t_table *s, int fd);
 void	ft_rrr(t_table *s, int fd);
-
-//-------------------------------------------------------------------
-//algo
-void	ft_calculate_all_costs(t_table *s);
-void	ft_move_node_to_top(t_table *s, t_dll **stack, t_dll *node);
-void	find_hi_lo_nodes(t_table *s);
-void	partially_sorted_status(t_table *s);
-void	select_node_to_move(t_table *s);
 
 #endif

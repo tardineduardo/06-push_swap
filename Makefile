@@ -11,7 +11,6 @@ ALGO = 	src/algo_high/costs_calculate.c \
 		src/algo_high/move_node_to_top.c \
 		src/algo_high/update_sorted_status.c \
 		src/algo_high/init_stack_b.c \
-		src/algo_high/inutils.c \
 
 LOW = 	src/algo_low/low_find_proc.c \
 		src/algo_low/low_init_stack_b.c \
@@ -27,7 +26,7 @@ OBJS_SRC =	$(MAIN:.c=.o) $(UTILS:.c=.o) $(ALGO:.c=.o) $(LOW:.c=.o)\
 
 CC = cc
 RM = rm -f
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror -g -pg
 
 NAME = push_swap
 LIBFT_PATH = ./libft

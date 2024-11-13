@@ -103,10 +103,8 @@ static bool	ft_check_int_reverse(t_dll **tail, int offset)
 
 /* type i-int | modes n-normal, r-reverse, i-plus1 o-plus1rev|
 offssetof(struct, variable)*/
-bool	ft_dclst_circ_sortd(t_dll **tail, char type, char mode, int offset)
+bool	ft_dclst_circ_sortd(t_dll **tail, char mode, int offset)
 {
-	if (type != 'i')
-		ft_perror_exit("is_stack_sorted: invalid type", 1);
 	if (mode == 'n')
 		return (ft_check_int_normal(tail, offset));
 	else if (mode == 'r')
@@ -115,7 +113,5 @@ bool	ft_dclst_circ_sortd(t_dll **tail, char type, char mode, int offset)
 		return (ft_check_int_one_increment(tail, offset));
 	else if (mode == 'o')
 		return (ft_check_int_one_increment_r(tail, offset));
-	else
-		ft_perror_exit("is_stack_sorted: invalid mode", 1);
 	return (false);
 }

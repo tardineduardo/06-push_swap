@@ -36,8 +36,6 @@ t_dll	*ft_dclst_find_lo_int(t_dll **tail, int offset)
 		safe_count++;
 		if (trav == *tail)
 			break ;
-		if (safe_count == MAXLISTLOOPS || trav == NULL)
-			ft_error_exit("List not circular. Check list structure.\n", 1);
 	}
 	return (lowest_node);
 }

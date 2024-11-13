@@ -6,11 +6,26 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 17:42:02 by eduribei          #+#    #+#             */
-/*   Updated: 2024/11/12 20:20:58 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/11/12 21:47:43 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+static void	ft_reset_costs(t_table *s, t_dll *node)
+{
+	node->cost = -1;
+	node->cost_rot = -1;
+	node->cost_rev = -1;
+	node->cost_opo_srot_drev = -1;
+	node->cost_opo_srev_drot = -1;
+	node->move_rot = false;
+	node->move_rev = false;
+	node->move_opo_srev_drot = false;
+	node->move_opo_srot_drev = false;
+	s->cheap_a_locked = false;
+	s->cheap_in_a = NULL;
+}
 
 static void	ft_set_lowest_node_to_move(t_dll *node)
 {
@@ -52,7 +67,7 @@ static void	ft_calculate_each_node_in_a(t_table *s)
 		if (s->b)
 			ft_calculate_cost_a_to_b(s, trav);
 		ft_set_lowest_node_to_move(trav);
-		if (trav->cost < 17 && s->mode == 'l')
+		if (trav->cost < OPT && s->mode == 'l')
 		{
 			s->cheap_in_a = trav;
 			s->cheap_a_locked = true;
@@ -66,7 +81,7 @@ static void	ft_calculate_each_node_in_a(t_table *s)
 
 void	ft_calculate_all_costs(t_table *s)
 {
-	find_hi_lo_nodes(s);
+	ft_find_hi_lo_nodes(s);
 	ft_calculate_each_node_in_a(s);
 	return ;
 }

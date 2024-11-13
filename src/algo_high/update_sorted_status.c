@@ -15,7 +15,7 @@
 void	ft_update_partially_sorted_status(t_table *s)
 {
 	s->a_partially_sorted = false;
-	if (ft_dclst_circ_sortd(&(s->a), 'i', 'n', offsetof(t_dll, value)))
+	if (ft_dclst_circ_sortd(&(s->a), 'n', offsetof(t_dll, value)))
 		s->a_partially_sorted = true;
 	return ;
 }
