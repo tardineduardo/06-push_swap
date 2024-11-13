@@ -45,7 +45,7 @@ VALID =	valid/ft_isdigit.c \
 
 SORT =	sort/ft_sort_int_array_bubble.c
 
-GNL	=	gnl/get_next_line_bonus.c
+GNL	=	gnl/get_next_line_bonus.c \
 
 OBJS =	$(PRINTF:.c=.o) $(CONV:.c=.o) $(ERROR:.c=.o) \
 		$(FDS:.c=.o) $(LISTS:.c=.o) $(MEM:.c=.o) \

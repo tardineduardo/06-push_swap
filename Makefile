@@ -53,11 +53,14 @@ $(CHECK): $(OBJS_BON) $(LIBFT)
 $(LIBFT): $(LIBFT_OBJS)
 		$(MAKE) -C $(LIBFT_PATH) all
 
-%.o: %.c
+src/%.o: src/%.c
+		$(CC) $(CFLAGS) -c $< -o $@
+
+bonus/%.o: bonus/%.c
 		$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-		$(RM) $(OBJS_SRC) #$(OBJS_BON)
+		$(RM) $(OBJS_SRC) $(OBJS_BON)
 		$(MAKE) -C $(LIBFT_PATH) clean
 
 fclean: clean
