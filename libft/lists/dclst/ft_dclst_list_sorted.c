@@ -12,15 +12,20 @@
 
 #include "../../libft.h"
 
-static bool ft_check_int_normal(t_dll **tail, int offset)
+bool ft_dclst_list_sortd(t_dll **tail, int offset)
 {
 	int 	curr;
 	int		next;
 	t_dll *trav;
 	int		len;
-
+	
 	len = ft_dclstsize(tail);
 	trav = (*tail)->next;
+
+	if (len < 0)
+        ft_perror_exit("ft_dclstsize error", EINVAL);
+	if (len == 1 || len == 0)
+        return (true);
 	while(len > 1)
 	{
 		curr = *(int *)((char *)trav + offset);
@@ -31,39 +36,4 @@ static bool ft_check_int_normal(t_dll **tail, int offset)
 		len--;
 	}
 	return (true);
-}
-
-static bool ft_check_int_reverse(t_dll **tail, int offset)
-{
-	int 	curr;
-	int		next;
-	t_dll *trav;
-	int		len;
-
-	len = ft_dclstsize(tail);
-	trav = (*tail)->next;
-	while(len > 1)
-	{
-		curr = *(int *)((char *)trav + offset);
-		next = *(int *)((char *)trav->next + offset);
-		if (curr < next)
-			return (false);
-		trav = trav->next;
-		len--;
-	}
-	return (true);
-}
-
-// Available type: "int", modes 'n' (normal), 'r' reverse.
-bool ft_dclst_list_sortd(t_dll **tail, char *type, char mode, int offset)
-{
-	if (ft_strcmp(type, "int") == 0)
-		if (mode == 'n')
-			return (ft_check_int_normal(tail, offset));
-		else if (mode == 'r')
-			return (ft_check_int_reverse(tail, offset));
-		else
-			ft_perror_exit("is_stack_sorted: invalid mode", EINVAL);
-	else
-		ft_perror_exit("is_stack_sorted: invalid type", EINVAL);
 }

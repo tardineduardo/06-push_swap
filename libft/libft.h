@@ -93,7 +93,7 @@ t_dll	*ft_dclst_find_hi_int(t_dll **tail, int offset);
 t_dll	*ft_dclst_find_node(t_dll **tail, t_dll *node);
 bool	ft_dclst_clock_sortd(t_dll **tail, char mode, int offset);
 bool	ft_dclst_circ_sortd(t_dll **tail, char mode, int offset);
-bool	ft_dclst_list_sortd(t_dll **tail, char *type, char mode, int offset);
+bool	ft_dclst_list_sortd(t_dll **tail, int offset);
 void	ft_dclstadd_back(t_dll **tail, t_dll *new);
 void	ft_dclstclear_simple(t_dll **lst);
 int		ft_dclstsize(t_dll **tail);

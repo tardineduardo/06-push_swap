@@ -2,27 +2,27 @@
 
 static void ft_run_cmd(char *cmd, t_table *s)
 {
-	if(ft_strcmp(cmd, "pa") == 0)
+	if(ft_strcmp(cmd, "pa\n") == 0)
 		ft_pa(s, STDOUT_FILENO);
-	else if(ft_strcmp(cmd, "pb") == 0)
+	else if(ft_strcmp(cmd, "pb\n") == 0)
 		ft_pb(s, STDOUT_FILENO);
-	else if(ft_strcmp(cmd, "sa") == 0)
+	else if(ft_strcmp(cmd, "sa\n") == 0)
 		ft_sa(s, STDOUT_FILENO);
-	else if(ft_strcmp(cmd, "sb") == 0)
+	else if(ft_strcmp(cmd, "sb\n") == 0)
 		ft_sb(s, STDOUT_FILENO);
-	else if(ft_strcmp(cmd, "ss") == 0)
+	else if(ft_strcmp(cmd, "ss\n") == 0)
 		ft_ss(s, STDOUT_FILENO);
-	else if(ft_strcmp(cmd, "ra") == 0)
+	else if(ft_strcmp(cmd, "ra\n") == 0)
 		ft_ra(s, STDOUT_FILENO);
-	else if(ft_strcmp(cmd, "rb") == 0)
+	else if(ft_strcmp(cmd, "rb\n") == 0)
 		ft_rb(s, STDOUT_FILENO);
-	else if(ft_strcmp(cmd, "rr") == 0)
+	else if(ft_strcmp(cmd, "rr\n") == 0)
 		ft_rr(s, STDOUT_FILENO);
-	else if(ft_strcmp(cmd, "rra") == 0)
+	else if(ft_strcmp(cmd, "rra\n") == 0)
 		ft_rra(s, STDOUT_FILENO);
-	else if(ft_strcmp(cmd, "rrb") == 0)
+	else if(ft_strcmp(cmd, "rrb\n") == 0)
 		ft_rrb(s, STDOUT_FILENO);
-	else if(ft_strcmp(cmd, "rrr") == 0)
+	else if(ft_strcmp(cmd, "rrr\n") == 0)
 		ft_rrr(s, STDOUT_FILENO);
 	return ;
 }
@@ -42,10 +42,11 @@ int	main(int argc, char *argv[])
 		cmd = get_next_line(fd);
 		if (!cmd)
 			break ;
+		ft_printf("line read: %s", cmd);
 		ft_run_cmd(cmd, s);
 		free(cmd);
 	}
-	if(ft_dclst_list_sortd(&(s->a), "int", 'n', offsetof(t_dll, label)))
+	if(ft_dclst_circ_sortd(&(s->a), 'i', offsetof(t_dll, label)))
 		ft_printf("OK\n");
 	else
 		ft_printf("K0\n");
