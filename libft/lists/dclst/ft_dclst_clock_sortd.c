@@ -71,5 +71,6 @@ bool	ft_dclst_clock_sortd(t_dll **tail, char mode, int offset)
 		return (ft_check_int_normal(tail, offset));
 	else if (mode == 'r')
 		return (ft_check_int_reverse(tail, offset));
-	return (false);
+	else	
+		ft_perror_exit("Invalid mode.\n", EINVAL);
 }

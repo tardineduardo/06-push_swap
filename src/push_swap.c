@@ -62,8 +62,7 @@ int	main(int argc, char *argv[])
 	t_table	*s;
 
 	s = malloc(sizeof(t_table));
-	if (!(ft_validate_args(argc, argv)))
-		return (1);
+	ft_validate_args(argc, argv);
 	ft_init_stacks_and_table(s, argc, argv);
 	if (s->a_partially_sorted)
 		ft_run_algo_already_sorted(s);
@@ -73,4 +72,5 @@ int	main(int argc, char *argv[])
 		run_algo_high(s);	
 	ft_dclstclear_simple(&(s->a));
 	free(s);
+	return (0);
 }

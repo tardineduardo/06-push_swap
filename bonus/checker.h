@@ -10,14 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef CHECKER_H
+# define CHECKER_H
 
 # include "../libft/libft.h"
-
-# ifndef OPT
-#  define OPT 500
-# endif
 
 typedef struct s_info
 {
@@ -26,45 +22,12 @@ typedef struct s_info
 	int			a_len;
 	int			b_len;
 	int			t_len;
-	bool		a_is_clock_sorted;
-	bool		b_is_clock_sorted;
-	bool		a_partially_sorted;
-	bool		b_partially_sorted;
-	bool		already_sorted;
-	bool		cheap_a_locked;
-	bool		block_swap;
-	char		dst_name;
-	char		mode;
-	t_dll		*hi_a;
-	t_dll		*lo_a;
-	t_dll		*hi_b;
-	t_dll		*lo_b;
-	t_dll		*cheap_in_a;
+	bool		is_sorted;
 }				t_table;
 
 //main
-void	ft_validate_args(int argc, char *argv[]);
-void	ft_init_stacks_and_table(t_table *s, int argc, char *argv[]);
-
-//algo_high
-void	ft_update_partially_sorted_status(t_table *s);
-void	ft_calculate_cost_a_to_b(t_table *s, t_dll *node);
-void	ft_init_stack_b(t_table *s);
-void	ft_calculate_all_costs(t_table *s);
-void	ft_move_node_to_top(t_table *s, t_dll **stack, t_dll *node);
-void	ft_find_hi_lo_nodes(t_table *s);
-
-//algo_low
-void	ft_low_assign_procedent_node(t_table *s);
-void	ft_low_init_stack_b(t_table *s);
-void	ft_low_try_swapping(t_table *s);
-
-//moves_algo
-void	ft_move_rot(t_table *s, t_dll *lowest);
-void	ft_move_rev(t_table *s, t_dll *lowest);
-void	ft_move_opo_srot_drev(t_table *s, t_dll *lowest);
-void	ft_move_opo_srev_drot(t_table *s, t_dll *lowest);
-void	ft_move(t_table *s);
+void	ft_checker_validate(int argc, char *argv[]);
+void	ft_checker_init(t_table *s, int argc, char *argv[]);
 
 //moves
 void	ft_ra(t_table *s, int fd);
@@ -80,3 +43,4 @@ void	ft_rrb(t_table *s, int fd);
 void	ft_rrr(t_table *s, int fd);
 
 #endif
+

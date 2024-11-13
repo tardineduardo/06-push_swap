@@ -113,5 +113,6 @@ bool	ft_dclst_circ_sortd(t_dll **tail, char mode, int offset)
 		return (ft_check_int_one_increment(tail, offset));
 	else if (mode == 'o')
 		return (ft_check_int_one_increment_r(tail, offset));
-	return (false);
+	else
+		ft_perror_exit("Invalid mode.\n", EINVAL);
 }

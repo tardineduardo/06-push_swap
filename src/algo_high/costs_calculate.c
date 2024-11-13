@@ -67,7 +67,7 @@ static void	ft_calculate_each_node_in_a(t_table *s)
 		if (s->b)
 			ft_calculate_cost_a_to_b(s, trav);
 		ft_set_lowest_node_to_move(trav);
-		if (trav->cost < OPT && s->mode == 'l')
+		if (trav->cost < 20 && s->mode == 'l')
 		{
 			s->cheap_in_a = trav;
 			s->cheap_a_locked = true;

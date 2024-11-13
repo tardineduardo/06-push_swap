@@ -46,7 +46,7 @@ static void	ft_assign_indexes_to_labels(t_table *s)
 
 	sorted_labels = malloc(s->t_len * sizeof(int));
 	if (!sorted_labels)
-		ft_perror_exit("assinging indexes", errno);
+		ft_perror_exit("malloc (indexes)", errno);
 	trav = s->a;
 	i = 0;
 	while (i < s->t_len)
@@ -92,7 +92,7 @@ void	ft_malloc_and_init_nodes(t_table *s, int argc, char *argv[])
 		if (!new)
 		{
 			ft_dclstclear_simple(&(s->a));
-			ft_perror_exit("stack malloc", errno);
+			ft_perror_exit("malloc (stack init)", errno);
 		}
 		new->label = ft_atoi(argv[a]);
 		ft_init_node_values(new);

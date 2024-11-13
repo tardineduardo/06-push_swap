@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./push_swap.h"
+#include "./checker.h"
 
 static bool	ft_labels_are_integer_only(int argc, char *argv[])
 {
@@ -84,7 +84,7 @@ static bool	ft_labels_are_sorted(int argc, char *argv[])
 	return (false);
 }
 
-void	ft_validate_args(int argc, char *argv[])
+void	ft_checker_validate(int argc, char *argv[])
 {
 	if (argc < 3)
 		exit(0);

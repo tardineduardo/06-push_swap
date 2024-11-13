@@ -5,6 +5,7 @@
 		"utility": "c",
 		"libft.h": "c",
 		"limits": "c",
-		"swapping": "cpp"
+		"swapping": "cpp",
+		"checker.h": "c"
 	}
 }

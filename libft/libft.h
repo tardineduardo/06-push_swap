@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <limits.h>
 # include <unistd.h>
+# include <stdint.h>
 # include <stddef.h>
 # include <stdbool.h>
 # include <stdarg.h>
@@ -68,6 +69,7 @@ void	ft_perror_exit(char *mess, int exit_nb) __attribute__((noreturn));
 // memory
 void	ft_bzero(void *s, size_t n);
 void	*ft_calloc(size_t nmemb, size_t size);
+void	*ft_memcpy(void *dest, const void *src, size_t n);
 void	*ft_free_and_null(void *ptr);
 bool	ft_free_and_false(void *ptr);
 bool	ft_free_and_true(void *ptr);
@@ -82,6 +84,7 @@ char	*ft_strdup(const char *s);
 char	*ft_strjoin(char const *s1, char const *s2);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 size_t	ft_strlen(const char *s);
+int		ft_strcmp(const char *s1, const char *s2);
 
 //lists - dclist
 t_dll	*ft_dclstnew(void *content);
@@ -90,6 +93,7 @@ t_dll	*ft_dclst_find_hi_int(t_dll **tail, int offset);
 t_dll	*ft_dclst_find_node(t_dll **tail, t_dll *node);
 bool	ft_dclst_clock_sortd(t_dll **tail, char mode, int offset);
 bool	ft_dclst_circ_sortd(t_dll **tail, char mode, int offset);
+bool	ft_dclst_list_sortd(t_dll **tail, char *type, char mode, int offset);
 void	ft_dclstadd_back(t_dll **tail, t_dll *new);
 void	ft_dclstclear_simple(t_dll **lst);
 int		ft_dclstsize(t_dll **tail);

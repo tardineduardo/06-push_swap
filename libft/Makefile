@@ -25,12 +25,20 @@ LISTS =	lists/dclst/ft_dclistsize.c \
 		lists/dclst/ft_dclst_dist_head_bidi.c \
 		lists/dclst/ft_dclst_clock_sortd.c \
 		lists/dclst/ft_dclst_circle_sorted.c \
+		lists/dclst/ft_dclst_list_sorted.c \
 		lists/dclst/ft_dclstclear_simple.c \
 
 MEM = 	mem/ft_bzero.c \
 		mem/ft_free_and.c \
+		mem/ft_calloc.c \
+		mem/ft_memcpy.c \
 
-STRING = string/ft_strlen.c \
+STRING =	string/ft_strchr.c \
+			string/ft_strcmp.c \
+			string/ft_strdup.c \
+			string/ft_strjoin.c \
+			string/ft_strlcpy.c \
+			string/ft_strlen.c \
 
 VALID =	valid/ft_isdigit.c \
 		valid/ft_isspace.c \
