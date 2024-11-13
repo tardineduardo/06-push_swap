@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 19:50:42 by eduribei          #+#    #+#             */
-/*   Updated: 2024/11/12 20:42:33 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/11/13 16:23:21 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "../libft/libft.h"
 
 # ifndef OPT
-#  define OPT 500
+#  define OPT 20
 # endif
 
 typedef struct s_info

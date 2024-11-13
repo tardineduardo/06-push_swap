@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 18:24:19 by eduribei          #+#    #+#             */
-/*   Updated: 2024/11/12 21:20:20 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/11/13 16:35:10 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,6 @@ bool	ft_dclst_clock_sortd(t_dll **tail, char mode, int offset)
 		return (ft_check_int_normal(tail, offset));
 	else if (mode == 'r')
 		return (ft_check_int_reverse(tail, offset));
-	else	
+	else
 		ft_perror_exit("Invalid mode.\n", EINVAL);
 }

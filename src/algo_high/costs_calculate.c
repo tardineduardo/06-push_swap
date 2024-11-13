@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 17:42:02 by eduribei          #+#    #+#             */
-/*   Updated: 2024/11/12 21:47:43 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/11/13 16:30:53 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,20 +54,21 @@ static void	ft_set_lowest_node_to_move(t_dll *node)
 	}
 }
 
-static void	ft_calculate_each_node_in_a(t_table *s)
+void	ft_calculate_all_costs(t_table *s)
 {
 	t_dll	*trav;
 	int		i;
 
 	i = 0;
 	trav = s->a;
+	ft_find_hi_lo_nodes(s);
 	while (i < s->a_len)
 	{
 		ft_reset_costs(s, trav);
 		if (s->b)
 			ft_calculate_cost_a_to_b(s, trav);
 		ft_set_lowest_node_to_move(trav);
-		if (trav->cost < 20 && s->mode == 'l')
+		if (trav->cost < OPT && s->mode == 'l')
 		{
 			s->cheap_in_a = trav;
 			s->cheap_a_locked = true;
@@ -76,12 +77,5 @@ static void	ft_calculate_each_node_in_a(t_table *s)
 		trav = trav->next;
 		i++;
 	}
-	return ;
-}
-
-void	ft_calculate_all_costs(t_table *s)
-{
-	ft_find_hi_lo_nodes(s);
-	ft_calculate_each_node_in_a(s);
 	return ;
 }

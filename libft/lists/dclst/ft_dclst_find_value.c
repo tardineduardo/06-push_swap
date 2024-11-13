@@ -12,7 +12,6 @@
 
 #include "../../libft.h"
 
-// needs testing!!!
 t_dll	*ft_dclst_find_value(t_dll **tail, int value, int offset)
 {
 	t_dll	*trav;

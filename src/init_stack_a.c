@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 15:19:45 by eduribei          #+#    #+#             */
-/*   Updated: 2024/11/12 20:22:09 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/11/13 16:27:26 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,10 +111,7 @@ void	ft_init_stacks_and_table(t_table *s, int argc, char *argv[])
 	s->dst_name = 0;
 	ft_assign_indexes_to_labels(s);
 	if (s->a_len <= 5)
-	{			
 		s->mode = 's';
-		ft_low_assign_procedent_node(s);		
-	}
 	else if (s->a_len > 5 && s->a_len <= 500)
 		s->mode = 'm';
 	else if (s->a_len > 5)
