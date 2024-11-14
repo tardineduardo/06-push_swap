@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 15:55:39 by eduribei          #+#    #+#             */
-/*   Updated: 2024/11/14 16:01:35 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/11/14 19:27:42 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ int	main(int argc, char *argv[])
 
 	ft_checker_validate(argc, argv);
 	s = malloc(sizeof(t_table));
-
 	ft_checker_init(s, argc, argv);
 	fd = STDIN_FILENO;
 	while (1)

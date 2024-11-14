@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 19:50:42 by eduribei          #+#    #+#             */
-/*   Updated: 2024/11/14 13:37:55 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/11/14 19:28:11 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ typedef struct s_info
 //main
 void	ft_checker_validate(int argc, char *argv[]);
 void	ft_checker_init(t_table *s, int argc, char *argv[]);
-void*	get_label(void* node); 
-void*	get_value(void* node);
+void	*get_label(void *node);
+void	*get_value(void *node);
 
 //moves
 void	ft_ra(t_table *s, int fd);
@@ -45,4 +45,3 @@ void	ft_rrb(t_table *s, int fd);
 void	ft_rrr(t_table *s, int fd);
 
 #endif
-

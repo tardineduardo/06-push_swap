@@ -48,12 +48,11 @@ SORT =	sort/ft_sort_int_array_bubble.c
 
 GNL	=	gnl/get_next_line.c \
 
-DEBUG  =	debug/ft_debug_print_dclist.c \
 		
 OBJS =	$(PRINTF:.c=.o) $(CONV:.c=.o) $(ERROR:.c=.o) \
 		$(FDS:.c=.o) $(LISTS:.c=.o) $(MEM:.c=.o) \
 		$(PUTS:.c=.o) $(STRING:.c=.o) $(VALID:.c=.o) \
-		$(GNL:.c=.o) $(SORT:.c=.o) $(DEBUG:.c=.o)\
+		$(GNL:.c=.o) $(SORT:.c=.o) \
 
 CC = cc
 
