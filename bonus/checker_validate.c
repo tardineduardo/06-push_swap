@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 15:12:52 by eduribei          #+#    #+#             */
-/*   Updated: 2024/11/13 15:59:39 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/11/13 20:09:25 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,14 +84,18 @@ static bool	ft_labels_are_sorted(int argc, char *argv[])
 	return (false);
 }
 
-void	ft_checker_validate(int argc, char *argv[])
+void	ft_checker_validate(int argc, char *argv[], t_table *s)
 {
-	if (argc < 3)
+	if (argc < 3 || ft_labels_are_sorted(argc, argv))
+	{
+		free(s);
 		exit(0);
-	else if (!ft_labels_are_integer_only(argc, argv))
+	}
+	else if (!(ft_labels_are_integer_only(argc, argv)) 
+		|| !(ft_labels_are_distinct_and_size_int(argc, argv)))
+	{
+		free(s);
 		ft_error_exit("Error\n", EINVAL);
-	else if (!ft_labels_are_distinct_and_size_int(argc, argv))
-		ft_error_exit("Error\n", EINVAL);
-	else if (ft_labels_are_sorted(argc, argv))
-		exit(0);
+	}
+	return ;
 }

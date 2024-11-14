@@ -29,6 +29,7 @@ bool	ft_dclst_list_sortd(t_dll **tail, int offset)
 	{
 		curr = *(int *)((char *)trav + offset);
 		next = *(int *)((char *)trav->next + offset);
+		ft_printf("curr: %i, next: %i\n", curr, next);
 		if (curr > next)
 			return (false);
 		trav = trav->next;

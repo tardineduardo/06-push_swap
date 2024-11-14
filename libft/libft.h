@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 17:02:36 by eduribei          #+#    #+#             */
-/*   Updated: 2024/11/13 16:11:12 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/11/13 20:42:20 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,10 @@ typedef struct s_list
 
 typedef struct s_dlist
 {
+	bool			move_rot;
+	bool			move_rev;
+	bool			move_opo_srev_drot;
+	bool			move_opo_srot_drev;
 	int				label;
 	int				value;
 	int				cost;
@@ -56,10 +60,6 @@ typedef struct s_dlist
 	int				cost_rev;
 	int				cost_opo_srev_drot;
 	int				cost_opo_srot_drev;
-	bool			move_rot;
-	bool			move_rev;
-	bool			move_opo_srev_drot;
-	bool			move_opo_srot_drev;
 	void			*content;
 	struct s_dlist	*to_meet;
 	struct s_dlist	*next;
@@ -135,5 +135,6 @@ void	ft_sort_int_array_bubble(int *array, size_t len);
 
 // get next line
 char	*get_next_line(int fd);
+void	ft_debug_print_dclist(t_dll **tail, char *type, size_t offset, int fd);
 
 #endif
