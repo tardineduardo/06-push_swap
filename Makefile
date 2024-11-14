@@ -3,6 +3,7 @@ MAIN =  src/push_swap.c \
 BONUS = bonus/checker.c \
 		bonus/checker_init.c \
 		bonus/checker_validate.c \
+		bonus/get_members.c \
 
 UTILS = src/validate_args.c \
 		src/init_stack_a.c \

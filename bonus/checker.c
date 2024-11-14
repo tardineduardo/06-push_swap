@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 15:55:39 by eduribei          #+#    #+#             */
-/*   Updated: 2024/11/13 20:31:03 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/11/14 16:01:35 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,10 @@ int	main(int argc, char *argv[])
 	char	*cmd;
 	t_table	*s;
 
+	ft_checker_validate(argc, argv);
 	s = malloc(sizeof(t_table));
-	ft_checker_validate(argc, argv, s);
+
 	ft_checker_init(s, argc, argv);
-	ft_debug_print_dclist(&(s->a), "int", offsetof(t_dll, label), 1);
 	fd = STDIN_FILENO;
 	while (1)
 	{
@@ -60,11 +60,9 @@ int	main(int argc, char *argv[])
 		ft_run_cmd(cmd, s);
 		free(cmd);
 	}
-	ft_debug_print_dclist(&(s->a), "int", offsetof(t_dll, label), 1);
-	if (ft_dclst_list_sortd(&(s->a), offsetof(t_dll, label)))
+	if (ft_dclst_list_sortd(&(s->a), get_label))
 		ft_printf("OK\n");
 	else
 		ft_printf("K0\n");
-	close (fd);	
 	return (0);
 }

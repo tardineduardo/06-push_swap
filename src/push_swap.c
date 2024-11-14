@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 20:48:56 by eduribei          #+#    #+#             */
-/*   Updated: 2024/11/13 16:33:59 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/11/14 13:24:36 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,8 @@ int	main(int argc, char *argv[])
 {
 	t_table	*s;
 
-	s = malloc(sizeof(t_table));
 	ft_validate_args(argc, argv);
+	s = malloc(sizeof(t_table));
 	ft_init_stacks_and_table(s, argc, argv);
 	if (s->a_partially_sorted)
 		ft_run_algo_already_sorted(s);

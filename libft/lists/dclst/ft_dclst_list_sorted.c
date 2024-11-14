@@ -12,28 +12,25 @@
 
 #include "../../libft.h"
 
-bool	ft_dclst_list_sortd(t_dll **tail, int offset)
+bool	ft_dclst_list_sortd(t_dll **tail, accessor get_label)
 {
-	int		curr;
-	int		next;
-	t_dll	*trav;
-	int		len;
+    int     len;
+    t_dll   *trav;
 
-	len = ft_dclstsize(tail);
-	trav = (*tail)->next;
-	if (len < 0)
-		ft_perror_exit("ft_dclstsize error", EINVAL);
-	if (len == 1 || len == 0)
-		return (true);
-	while (len > 1)
-	{
-		curr = *(int *)((char *)trav + offset);
-		next = *(int *)((char *)trav->next + offset);
-		ft_printf("curr: %i, next: %i\n", curr, next);
-		if (curr > next)
-			return (false);
-		trav = trav->next;
-		len--;
-	}
-	return (true);
+    len = ft_dclstsize(tail);
+    trav = (*tail)->next;
+    if (len < 0)
+        ft_perror_exit("ft_dclstsize error", EINVAL);
+    if (len == 1 || len == 0)
+        return (true);
+    while (len > 1) {
+        int curr = *(int*)get_label(trav);
+        int next = *(int*)get_label(trav->next);
+        
+        if (curr > next)
+            return (false);
+        trav = trav->next;
+        len--;
+    }
+    return (true);
 }

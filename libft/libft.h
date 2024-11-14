@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 17:02:36 by eduribei          #+#    #+#             */
-/*   Updated: 2024/11/13 20:42:20 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/11/14 15:58:49 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 # include <fcntl.h>
 
 # ifndef GNLBUFF
-#  define GNLBUFF 42
+#  define GNLBUFF 1
 # endif
 
 # ifndef MAXLISTLOOPS
@@ -49,10 +49,6 @@ typedef struct s_list
 
 typedef struct s_dlist
 {
-	bool			move_rot;
-	bool			move_rev;
-	bool			move_opo_srev_drot;
-	bool			move_opo_srot_drev;
 	int				label;
 	int				value;
 	int				cost;
@@ -60,12 +56,18 @@ typedef struct s_dlist
 	int				cost_rev;
 	int				cost_opo_srev_drot;
 	int				cost_opo_srot_drev;
+	bool			move_rot;
+	bool			move_rev;
+	bool			move_opo_srev_drot;
+	bool			move_opo_srot_drev;
 	void			*content;
 	struct s_dlist	*to_meet;
 	struct s_dlist	*next;
 	struct s_dlist	*prev;
 	struct s_dlist	*procedent;	
 }					t_dll;
+
+typedef void* (*accessor)(void* node);
 
 // conversions + comparisons
 int		ft_atoi(const char *nptr);
@@ -103,7 +105,7 @@ t_dll	*ft_dclst_find_value(t_dll **tail, int value, int offset);
 t_dll	*ft_dclst_find_node(t_dll **tail, t_dll *node);
 bool	ft_dclst_clock_sortd(t_dll **tail, char mode, int offset);
 bool	ft_dclst_circ_sortd(t_dll **tail, char mode, int offset);
-bool	ft_dclst_list_sortd(t_dll **tail, int offset);
+bool	ft_dclst_list_sortd(t_dll **tail, accessor get_label);
 void	ft_dclstadd_back(t_dll **tail, t_dll *new);
 void	ft_dclstclear_simple(t_dll **lst);
 int		ft_dclstsize(t_dll **tail);

@@ -6,11 +6,26 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 15:19:45 by eduribei          #+#    #+#             */
-/*   Updated: 2024/11/13 15:59:36 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/11/14 15:47:36 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
+
+static void	ft_init_node_values(t_dll *new)
+{
+	new->procedent = NULL;
+	new->cost = -1;
+	new->cost_rev = -1;
+	new->cost_rot = -1;
+	new->cost_opo_srot_drev = -1;
+	new->cost_opo_srev_drot = -1;
+	new->move_rev = false;
+	new->move_rot = false;
+	new->move_opo_srot_drev = false;
+	new->move_opo_srev_drot = false;
+	return ;
+}
 
 void	ft_malloc_and_init_nodes(t_table *s, int argc, char *argv[])
 {
@@ -28,6 +43,7 @@ void	ft_malloc_and_init_nodes(t_table *s, int argc, char *argv[])
 			ft_dclstclear_simple(&(s->a));
 			ft_perror_exit("stack malloc", errno);
 		}
+		ft_init_node_values(new);
 		new->label = ft_atoi(argv[a]);
 		new->next = new;
 		new->prev = new;
