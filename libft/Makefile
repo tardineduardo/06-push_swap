@@ -46,7 +46,7 @@ VALID =	valid/ft_isdigit.c \
 
 SORT =	sort/ft_sort_int_array_bubble.c
 
-GNL	=	gnl/get_next_line_bonus.c \
+GNL	=	gnl/get_next_line.c \
 
 DEBUG  =	debug/ft_debug_print_dclist.c \
 		

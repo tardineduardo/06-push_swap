@@ -20,7 +20,7 @@ void	ft_init_stack_b(t_table *s)
 		s->already_sorted = true;
 		return ;
 	}
-	while (s->b_len < 1)
+	while (s->b_len < 2)
 	{
 		if (s->a->next->value > s->t_len / 2)
 			ft_ra(s, 1);

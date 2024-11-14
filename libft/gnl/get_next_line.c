@@ -12,7 +12,6 @@
 
 #include "../libft.h"
 
-// if the BUFFER SIZE is toolarge, it's dinamically allocated in the heap.
 char *read_loop_heap(int fd, char *nextline)
 {
 	char		*buffer;
@@ -57,8 +56,8 @@ char *read_loop_stack(int fd, char *nextline)
 		buffer[size_read] = 0;
 		temp_read_loop = nextline;
 		nextline = ft_strjoin(nextline, buffer);
-		// free(temp_read_loop);
-		// temp_read_loop = NULL;
+		free(temp_read_loop);
+		temp_read_loop = NULL;
 		if (size_read < GNLBUFF)
 			break;
 	}
