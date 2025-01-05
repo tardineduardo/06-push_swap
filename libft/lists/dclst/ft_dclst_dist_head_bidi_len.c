@@ -6,13 +6,13 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 18:19:15 by eduribei          #+#    #+#             */
-/*   Updated: 2024/11/12 21:17:57 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/12/16 13:30:45 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../libft.h"
 
-int	ft_dclst_dist_head_bidi_len(t_dll **tail, t_dll *node, int list_len)
+int	ft_dclst_dist_head_bidi_len(t_dll **tail, t_dll *nd, int list_len)
 {
 	int		i;
 	t_dll	*trav_fwd;
@@ -21,8 +21,8 @@ int	ft_dclst_dist_head_bidi_len(t_dll **tail, t_dll *node, int list_len)
 	if (!tail || !(*tail))
 		return (0);
 	i = 0;
-	trav_fwd = node;
-	trav_bck = node;
+	trav_fwd = nd;
+	trav_bck = nd;
 	while (i < list_len)
 	{
 		if (trav_fwd == (*tail)->next)

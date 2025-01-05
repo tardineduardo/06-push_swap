@@ -46,7 +46,7 @@ static bool	ft_labels_are_distinct_and_size_int(int argc, char *argv[])
 	set = malloc((argc - 1) * sizeof(long long int));
 	while (a < argc - 1)
 	{
-		set[a] = ft_atoi(argv[a + 1]);
+		set[a] = ft_atoll(argv[a + 1]);
 		if (set[a] > INT_MAX || set[a] < INT_MIN)
 			return (ft_free_and_false(set));
 		b = 0;

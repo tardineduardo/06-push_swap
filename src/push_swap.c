@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 20:48:56 by eduribei          #+#    #+#             */
-/*   Updated: 2024/11/14 19:22:13 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/12/18 17:10:27 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ static void	run_algo_high(t_table *s)
 	}
 	ft_find_hi_lo_nodes(s);
 	ft_move_node_to_top(s, &(s->b), s->hi_b);
-	ft_move_node_to_top(s, &(s->a), s->lo_a);
 	while (s->b_len)
 		ft_pa(s, 1);
 	return ;

@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 15:19:45 by eduribei          #+#    #+#             */
-/*   Updated: 2024/11/13 16:27:26 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/12/18 17:51:56 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,8 @@ void	ft_init_stacks_and_table(t_table *s, int argc, char *argv[])
 	s->a_len = ft_dclstsize(&(s->a));
 	s->b_len = 0;
 	s->t_len = s->a_len + s->b_len;
+	s->limit_low = s->t_len / 3;
+	s->limit_high = (s->t_len * 2) / 3;
 	s->a_partially_sorted = false;
 	s->dst_name = 0;
 	ft_assign_indexes_to_labels(s);

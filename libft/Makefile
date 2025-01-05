@@ -11,6 +11,7 @@ PUTS =	puts/ft_putchar_fd.c \
 		puts/ft_putuns_fd.c \
 
 CONV =	conv/ft_atoi.c \
+		conv/ft_atoll.c \
 		conv/ft_abs.c \
 
 ERROR =	error/ft_error_exit.c \

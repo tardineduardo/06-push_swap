@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 13:02:27 by eduribei          #+#    #+#             */
-/*   Updated: 2024/11/14 19:23:19 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/12/16 13:29:11 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ char	*get_next_line(int fd)
 	if (GNLBUFF >= 1)
 		nextline = read_loop_heap(fd, nextline);
 	if (GNLBUFF < 1)
-	nextline = read_loop_stack(fd, nextline);
+		nextline = read_loop_stack(fd, nextline);
 	if (!nextline || nextline[0] == 0)
 	{
 		free(nextline);

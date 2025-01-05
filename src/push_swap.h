@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 19:50:42 by eduribei          #+#    #+#             */
-/*   Updated: 2024/11/14 13:24:55 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/12/18 16:48:55 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,19 +26,18 @@ typedef struct s_info
 	int			a_len;
 	int			b_len;
 	int			t_len;
-	bool		a_is_clock_sorted;
-	bool		b_is_clock_sorted;
 	bool		a_partially_sorted;
 	bool		b_partially_sorted;
 	bool		already_sorted;
 	bool		cheap_a_locked;
-	bool		block_swap;
 	char		dst_name;
 	char		mode;
 	t_dll		*hi_a;
 	t_dll		*lo_a;
 	t_dll		*hi_b;
 	t_dll		*lo_b;
+	int			limit_high;
+	int			limit_low;
 	t_dll		*cheap_in_a;
 }				t_table;
 

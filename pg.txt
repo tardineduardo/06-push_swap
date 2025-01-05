@@ -1,2 +1,0 @@
--gp
-gprof ./push_swap gmon.out > profile.txt

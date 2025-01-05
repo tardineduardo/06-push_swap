@@ -8,7 +8,7 @@ BONUS = bonus/checker.c \
 UTILS = src/validate_args.c \
 		src/init_stack_a.c \
 
-ALGO = 	src/algo_high/costs_calculate.c \
+ALGO =	src/algo_high/costs_calculate.c \
 		src/algo_high/costs_rot_rev_opo.c \
 		src/algo_high/find_hi_lo_nodes.c \
 		src/algo_high/move_choose_and_run.c \
@@ -47,7 +47,7 @@ bonus: $(CHECK)
 $(NAME): $(OBJS_SRC) $(LIBFT)
 		$(CC) $(CFLAGS) $(OBJS_SRC) $(LIBFT) -o $(NAME)
 
-$(CHECK): $(OBJS_BON) $(LIBFT)
+$(CHECK): $(OBJS_BON) $(LIBFT) $(BONUS)
 		$(CC) $(CFLAGS) $(OBJS_BON) $(LIBFT) -o $(CHECK)
 
 $(LIBFT): $(LIBFT_OBJS)

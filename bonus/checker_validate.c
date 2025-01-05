@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 15:12:52 by eduribei          #+#    #+#             */
-/*   Updated: 2024/11/14 13:26:47 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/12/17 15:12:52 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static bool	ft_labels_are_distinct_and_size_int(int argc, char *argv[])
 	set = malloc((argc - 1) * sizeof(long long int));
 	while (a < argc - 1)
 	{
-		set[a] = ft_atoi(argv[a + 1]);
+		set[a] = ft_atoll(argv[a + 1]);
 		if (set[a] > INT_MAX || set[a] < INT_MIN)
 			return (ft_free_and_false(set));
 		b = 0;
@@ -62,28 +62,6 @@ static bool	ft_labels_are_distinct_and_size_int(int argc, char *argv[])
 	return (true);
 }
 
-static bool	ft_labels_are_sorted(int argc, char *argv[])
-{
-	int	a;
-	int	curr;
-	int	next;
-	int	count;
-
-	a = 1;
-	count = 0;
-	while (a < argc - 1)
-	{
-		curr = ft_atoi(argv[a]);
-		next = ft_atoi(argv[a + 1]);
-		if (curr > next)
-			count++;
-		a++;
-	}
-	if (count == 0)
-		return (true);
-	return (false);
-}
-
 void	ft_checker_validate(int argc, char *argv[])
 {
 	if (argc < 3)
@@ -92,6 +70,4 @@ void	ft_checker_validate(int argc, char *argv[])
 		ft_error_exit("Error\n", EINVAL);
 	else if (!ft_labels_are_distinct_and_size_int(argc, argv))
 		ft_error_exit("Error\n", EINVAL);
-	else if (ft_labels_are_sorted(argc, argv))
-		exit(0);
 }

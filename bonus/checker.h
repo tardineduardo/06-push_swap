@@ -6,7 +6,7 @@
 /*   By: eduribei <eduribei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 19:50:42 by eduribei          #+#    #+#             */
-/*   Updated: 2024/11/14 19:28:11 by eduribei         ###   ########.fr       */
+/*   Updated: 2024/12/17 14:50:35 by eduribei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,14 @@ typedef struct s_info
 	int			t_len;
 	bool		is_sorted;
 }				t_table;
+
+typedef struct s_checker
+{
+	int		fd;
+	int		trash_fd;
+	int		error_status;
+	char	*cmd;
+}			t_checker;
 
 //main
 void	ft_checker_validate(int argc, char *argv[]);

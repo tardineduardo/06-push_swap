@@ -1,8 +1,0 @@
-# ignore ALL .o files
-*.o
-
-# ignore ALL .c files
-*.a
-
-# ignore ALL .c files
-/.vscode
